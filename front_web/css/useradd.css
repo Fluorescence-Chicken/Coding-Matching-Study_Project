@@ -1,0 +1,21 @@
+div.cuaqd { 
+    padding-left: 4cm;
+   }
+   div.check1 { 
+    padding-left: 2cm;
+   }
+   div.b-divider {
+    height: 5rem;
+    border: solid rgba(0, 0, 0, .15);
+    border-width: 2px 0;
+    box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(102, 73, 73, 0.15);
+    background-image: linear-gradient( rgba(231, 221, 221, 0.6), rgba(125, 123, 123, 0.7)),url('https://cdn.pixabay.com/photo/2016/11/06/05/36/lake-1802337_1280.jpg');
+    font-family: 'Roboto', sans-serif;
+    background-position:  20%  29%;
+    padding-left: 105px;
+    text-align: left;
+    padding-top: 20px;
+    font-size: x-large;
+    border-width: 2px 0;
+    font-weight: 700;
+  }
