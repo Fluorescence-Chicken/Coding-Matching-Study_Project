@@ -1,9 +1,12 @@
+/* ING'S  작업 파트 부분 css 
+    2022.05.10 ~ 진행중 작업 */
 div.cuaqd { 
     padding-left: 4cm;
    }
    div.check1 { 
     padding-left: 2cm;
    }
+   /* 페이지창 메뉴 부분 표현 창 */
    div.b-divider {
     height: 5rem;
     border: solid rgba(0, 0, 0, .15);
@@ -19,3 +22,45 @@ div.cuaqd {
     border-width: 2px 0;
     font-weight: 700;
   }
+  
+     /* 이쁜 상자로 표현 */ 
+    .input-form { 
+      max-width: 680px; 
+      margin-top: 10px; 
+      padding: 32px; 
+      background: rgb(246, 246, 246); 
+      -webkit-border-radius: 10px; 
+      -moz-border-radius: 10px; 
+      border-radius: 10px; 
+      -webkit-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
+       -moz-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15); 
+       box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15) 
+      }
+      /* 회원 가입 페이지에서 이용약관 관련 부분 */
+      *{margin: 0;padding: 0;box-sizing: border-box}
+      body{background-color: #f7f7f7;}
+      ul>li{list-style: none}
+      a{text-decoration: none;}
+      .clearfix::after{content: "";display: block;clear: both;}
+     
+      #joinForm{width: 460px;margin: 0 auto;}
+ul.join_box{border: 1px solid #ddd;background-color: #fff;}
+.checkBox,.checkBox>ul{position: relative;}
+.checkBox>ul>li{float: left;}
+.checkBox>ul>li:first-child{width: 85%;padding: 15px;font-weight: 600;color: rgb(223, 216, 216);}
+.checkBox>ul>li:nth-child(2){position: absolute;top: 50%;right: 30px;margin-top: -12px;}
+.checkBox textarea{width: 96%;height: 99px; margin: 0 2%;background-color: #ffffff;color: rgb(16, 16, 16); border: 1px;}
+.footBtwrap{margin-top: 15px;}
+.footBtwrap>li{float: left;width: 50%;height: 60px;}
+.footBtwrap>li>button{display: block; width: 100%;height: 100%; font-size: 20px;text-align: center;line-height: 60px;}
+.fpmgBt1{background-color: #fff;color:#888}
+.fpmgBt2{background-color: lightsalmon;color: #fff}
+
+/* 글자 단순 사이즈 셋 */
+.text-set{
+  text-align: left;
+    padding-left: 30px;
+    font-size: x-large;
+    border-width: 5px 0;
+    font-weight: 700;
+}
