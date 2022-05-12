@@ -8,6 +8,9 @@ django = "*"
 django-rest-framework = "*"
 python-decouple = "*"
 mysqlclient = "*"
+dj-rest-auth = "*"
+django-cors-headers = "*"
+requests = "*"
 
 [dev-packages]
 
