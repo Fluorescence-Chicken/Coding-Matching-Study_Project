@@ -4348,8 +4348,9 @@ input[type="button"].btn-block {
   display: inline-block;
   padding-top: 0.3125rem;
   padding-bottom: 0.3125rem;
-  margin-right: 1rem;
-  font-size: 1.25rem;
+  margin-right: 5rem;
+  margin-left: 0.5rem;
+  font-size: 1.20rem;
   line-height: inherit;
   white-space: nowrap;
 }
@@ -10186,6 +10187,7 @@ a.text-dark:hover, a.text-dark:focus {
   }
   body {
     min-width: 992px !important;
+    
   }
   .container {
     min-width: 992px !important;
