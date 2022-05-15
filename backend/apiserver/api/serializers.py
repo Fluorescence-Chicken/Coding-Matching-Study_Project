@@ -7,6 +7,7 @@ class UserSerializer(serializers.ModelSerializer):
     """
     Serializer for User model
     """
+
     class Meta:
         model = User
         fields = ('id', 'username', 'email', 'password')
@@ -19,3 +20,14 @@ class UserSerializer(serializers.ModelSerializer):
             password=validated_data['password'],
         )
         return user
+
+
+class UserWithoutPasswordSerializer(serializers.ModelSerializer):
+    """
+    Serializer for User model without password
+    For put, delete, get requests
+    """
+
+    class Meta:
+        model = User
+        read_only_fields = ('id', 'username', 'email')

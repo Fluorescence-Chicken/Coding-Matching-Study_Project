@@ -39,13 +39,22 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # REST framework
     'rest_framework',
+    'rest_framework.authtoken',
+
+    # Third-party apps
+    'dj_rest_auth',
+    'corsheaders',
+
+    # Custom apps
     'api',
 ]
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated',
+        'rest_framework.permissions.IsAdminUser',
     ],
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.SessionAuthentication',
@@ -53,6 +62,7 @@ REST_FRAMEWORK = {
 }
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -117,6 +127,12 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# CORS whitelist
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:8001',
+]
+
+CORS_ALLOW_CREDENTIALS = True
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
@@ -141,3 +157,7 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'api.User'
+
+REST_AUTH_TOKEN_MODEL = None
+
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
