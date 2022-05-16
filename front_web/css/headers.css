@@ -1,3 +1,9 @@
+.body{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
 .b-example-divider {
     height: 3rem;
     background-color: rgba(0, 0, 0, .1);
