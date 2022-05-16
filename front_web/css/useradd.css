@@ -1,16 +1,38 @@
 /* ING'S  작업 파트 부분 css 
     2022.05.10 ~ 진행중 작업 */
+
+    /* 다크모드 관련 css */ 
+body {
+  background-color: white;
+  color: black;
+}
+.dark-mode {
+  background-color: black;
+  color: rgb(255, 255, 255);
+}
 div.cuaqd { 
-    padding-left: 4cm;
+  /* 검색창 위치 조정 파트 */
+    padding-left: 5cm;  /* 조정 금지 */ 
+   }
+   div.menua{
+     padding-bottom: 10px;
    }
    div.check1 { 
     padding-left: 2cm;
    }
+   div.check2 { /* 버튼 사이의 간격 조정용 속성 */
+    padding-left: 0.3rem;
+   }
+   div.check3 { /* 로그인 페이지 간격 조정용  */
+    padding-left: 0.25rem;
+    color:#888;
+   }
+
    /* 페이지창 메뉴 부분 표현 창 */
    div.b-divider {
     height: 5rem;
     border: solid rgba(0, 0, 0, .15);
-    border-width: 2px 0;
+    border-width: 2px 0; /* 테두리 사이트를 표현할때 사용한다고함 */
     box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(102, 73, 73, 0.15);
     background-image: linear-gradient( rgba(231, 221, 221, 0.6), rgba(125, 123, 123, 0.7)),url('https://cdn.pixabay.com/photo/2016/11/06/05/36/lake-1802337_1280.jpg');
     font-family: 'Roboto', sans-serif;
@@ -28,7 +50,7 @@ div.cuaqd {
       max-width: 680px; 
       margin-top: 10px; 
       padding: 32px; 
-      background: rgb(246, 246, 246); 
+      /*background: rgb(246, 246, 246); */
       -webkit-border-radius: 10px; 
       -moz-border-radius: 10px; 
       border-radius: 10px; 
@@ -63,4 +85,91 @@ ul.join_box{border: 1px solid #ddd;background-color: #fff;}
     font-size: x-large;
     border-width: 5px 0;
     font-weight: 700;
+}
+
+body {
+  padding-top: 0px;
+
+	padding-bottom: 30px;
+}
+
+/* 부트스트랩 아이콘 적용하는 방법 (디자인) */
+/*  .bi-heart-fill{
+            font-size: 22px;
+            line-height: 22px;
+            color:crimson;
+        }*/ 
+
+        /* 아이콘 호출하는 방법    
+        <i class="bi bi-heart-fill"></i>*/
+        /* 부트스트랩 아이콘 파트 */
+        .bi-search{
+          font-size: 28px;
+          line-height: 30px;
+          color:rgb(255, 255, 255);
+          padding-right: 10px;
+      }
+      
+
+      /* 드랍 다운 css 처리*/
+      .dropbtn2 { /* 사용안함 */
+        background-color: #ea2129;
+        color: white;
+        padding: 3px;
+        font-size: 3px;
+        border: none;
+      }
+      
+      .dropdown {
+        position: relative;
+        display: inline-block;
+      }
+      
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        top: 40px;
+        background-color: #ffffff;
+        min-width: 10ddd0px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+        border-radius: 10px;
+      }
+      
+      .dropdown-content a {
+        color: rgb(0, 0, 0);
+        padding: 12px 17px;
+        text-decoration: none;
+        display: block;
+        padding-top: 2px;
+      }
+      
+      .dropdown-content a:hover {background-color: rgb(0, 199, 181); border-radius: 9px; color:rgb(255, 255, 255);font-weight: 700;}
+      
+      .dropdown:hover .dropdown-content {display: block;}
+      
+      .dropdown:hover .dropbtn {background-color: #3e8e41;}
+/*버튼 커스텀 */ 
+.btn-lg2 {
+  padding: 2px 2px;
+  font-size: 1.3rem;
+  line-height: 1;
+  padding-right: 2px;
+  border-radius: 0.3rem;
+  color:rgb(4, 3, 3);
+}
+.btn-lg3 {
+  padding: 3px 3px;
+  font-size: 1.3rem;
+  line-height: 3;
+  padding-right: 2px;
+  border-radius: 1rem;
+
+}
+/* 커스텀 알림경고창 */
+.alert-custom {
+  position: relative;
+  padding: 0.75rem 1.25rem;
+  border: 1px solid transparent;
+  border-radius: 0.4rem;
 }
