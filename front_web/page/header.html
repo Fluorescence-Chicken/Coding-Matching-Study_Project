@@ -82,7 +82,10 @@
   <header>
     <form method="GET" name = "form">
       <!-- 컨테이너 반응형 반응 소스 -->
-
+      <!--<div id="loadDiv">
+        <img src = "https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif?20151024034921">
+      </div>
+<!-- 여기 로딩부 -->
     <nav class="navbar navbar-expand-md navbar-dark bg-dark" aria-label="Fourth navbar example">
       <div class="container-fluid">
         <a href = "http://duck.nifskorea.com:8080/project/index.html"><img  src="http://duck.nifskorea.com:8080/project/img/logo2.png" alt="ㅋㅅ" width="43" height="40" ></a>
@@ -93,35 +96,36 @@
   
         <div class="collapse navbar-collapse" id="navbarsExample04">
             <div class=" dropdown navbar-nav">
-              <a class="nav-link dropdown-toggle"id="dropdown04" data-bs-toggle="dropdown" aria-expanded="false">스터디룸 1 </a>
-              <div class="dropdown-content">
-                <a href="#"><center>홈</center></a>
-                <a href="#">회사소개</a>
-                <a href="#">제품소개</a>
-                <a href="#">오시는길</a>
+              <a class="nav-link dropdown-toggle"id="dropdown04" data-bs-toggle="dropdown" aria-expanded="false">스터디 </a>
+              <div class="dropdown-content dropdown-toggle">
+                <a href="#">스터디 생성</a>
+                <a href="#">스터디 찾기 </a>
+                <a href="#">스터딩 매칭 </a>
               </div>
             </div>
             <div class=" dropdown navbar-nav">
-              <a class="nav-link dropdown-toggle"id="dropdown04" data-bs-toggle="dropdown" aria-expanded="false">스터디룸 2 </a>
-              <div class="dropdown-content">
-                <a href="#"><center>홈</center></a>
-                <a href="#">회사소개</a>
-                <a href="#">제품소개</a>
-                <a href="#">오시는길</a>
+              <a class="nav-link dropdown-toggle"id="dropdown04" data-bs-toggle="dropdown" aria-expanded="false">스터디룸</a>
+              <div class="dropdown-content dropdown-toggle">
+                <!-- dropdown-toggle 이속성이 글자 비율 맞춰줌 -->
+                <a href="#">스터디룸 입장</a>
+                <a href="#">스터디 일정</a>
+                <a href="#">스터디원 관리 </a>
               </div>
             </div>
             <div class=" dropdown navbar-nav">
-              <a class="nav-link dropdown-toggle"id="dropdown04" data-bs-toggle="dropdown" aria-expanded="false">스터디룸 3 </a>
-              <div class="dropdown-content">
-                <a href="#"><center>홈</center></a>
-                <a href="#">회사소개</a>
-                <a href="#">제품소개</a>
-                <a href="#">오시는길</a>
+              <a class="nav-link dropdown-toggle"id="dropdown04" data-bs-toggle="dropdown" aria-expanded="false">게시판 </a>
+              <div class="dropdown-content dropdown-toggle">
+                <center>
+                <a href="#">공지사항</a>
+                <a href="#"> Q & A</a>
+                <a href="#">행사 정보</a>
+                <a href="#">서비스 소개 </a></center>
+               
               </div>
             </div>
-            <div class=" dropdown navbar-nav">
+           <!--- <div class=" dropdown navbar-nav">
               <a class="nav-link dropdown-toggle"id="dropdown04" data-bs-toggle="dropdown" aria-expanded="false">스터디룸 4 </a>
-              <div class="dropdown-content">
+              <div class="dropdown-content dropdown-toggle">
                 <a href="#"><center>홈</center></a>
                 <a href="#">회사소개</a>
                 <a href="#">제품소개</a>
@@ -130,27 +134,29 @@
             </div>
             <div class=" dropdown navbar-nav">
               <a class="nav-link dropdown-toggle"id="dropdown04" data-bs-toggle="dropdown" aria-expanded="false">스터디룸 5 </a>
-              <div class="dropdown-content">
+              <div class="dropdown-content dropdown-toggle">
                 <a href="#"><center>홈</center></a>
                 <a href="#">회사소개</a>
                 <a href="#">제품소개</a>
                 <a href="#">오시는길</a>
               </div>
-            </div>
+            </div>-->
            
           </ul>
        <!-- 검색창 및 옵션 부분 -->
           <form class="form-inline my-2 my-md-0">
+            <!-- 검색창 사이즈 조정 부분 -->
             <div class="cuaqd"></div>
+            <!-- 검색창 get 값넘기면 반대쪽에서 값을 받아서 검색 결과를 출력해줘야함 -->
+            <input class="form-control" type="text" placeholder="검색창 "name="search" aria-label="Search" style="min-width: 150px;">
+            <button type="submit"  class="btn-secondary btn-lg2" formaction="/subject/loginpro.jsp"><center><i class="bi bi-search"></i></center></button>
+            <div class="check2"></div>
             <button class="alert-dark btn-lg3" formaction="/subject/loginpro.jsp"> <i class="bi bi-bell-fill"></i></button>
             <div class="check2"></div>
             <button  class="btn-light btn-lg2" formaction="http://duck.nifskorea.com:8080/project/page/login.html"><i class="bi bi-person-circle"></i></button>
             <div class="check2"></div>
             <button type="button" class="btn-light btn-lg2"onclick="darkzzing()"><i class="bi bi-brightness-high-fill"></i></button>
             <div class="check2"></div>
-            <input class="form-control" type="text" placeholder="검색창 "name="search" aria-label="Search" style="min-width: 150px;">
-            <button type="submit"  class="btn-secondary btn-lg2" formaction="/subject/loginpro.jsp"><center><i class="bi bi-search"></i></center></button>
-          
           </form>
         </div>
       </div>
@@ -160,5 +166,4 @@
   </form>
     </header>
    <!--<div id="theme"></div>-->
-
   </html>
