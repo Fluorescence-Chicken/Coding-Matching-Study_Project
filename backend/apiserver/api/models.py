@@ -2,7 +2,6 @@
 This module defines the models for whole app uses
 """
 
-
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
 from django.db import models
 
@@ -12,7 +11,15 @@ class UserManager(BaseUserManager):
     This class defines the user manager for the app
     """
 
-    def create_user(self, username: str, email: str, password: str = None) -> 'User':
+    # Fields : username, password, email, first_name, last_name, address, job, gender
+    def create_user(self, username: str,
+                    email: str,
+                    first_name: str,
+                    last_name: str,
+                    address: str,
+                    job: str,
+                    gender: str,
+                    password: str = None):
         """
         This method creates a normal user
         """
@@ -23,14 +30,27 @@ class UserManager(BaseUserManager):
         user: User = self.model(
             username=username,
             email=self.normalize_email(email),
+            first_name=first_name,
+            last_name=last_name,
+            address=address,
+            job=job,
+            gender=gender
         )
         user.set_password(password)
         user.save(using=self._db)
         return user
 
-    def create_admin(self, username: str, email: str, password: str = None) -> 'User':
+    def create_admin(self, username: str,
+                     email: str,
+                     first_name: str,
+                     last_name: str,
+                     address: str,
+                     job: str,
+                     gender: str,
+                     password: str = None):
         """
-        This method creates an admin user
+        This method creates admin user
+        Other things are same as create_user
         """
         if not email:
             raise ValueError('Users must have an email address')
@@ -39,6 +59,11 @@ class UserManager(BaseUserManager):
         user: User = self.model(
             username=username,
             email=self.normalize_email(email),
+            first_name=first_name,
+            last_name=last_name,
+            address=address,
+            job=job,
+            gender=gender
         )
         user.set_password(password)
         user.is_admin = True
@@ -54,6 +79,7 @@ class User(AbstractBaseUser):
     Authentication Fields: is_active, is_admin, is_mentor
 
     """
+
     class Gender(models.TextChoices):
         MALE = 'male', '남자'
         FEMALE = 'female', '여자'
