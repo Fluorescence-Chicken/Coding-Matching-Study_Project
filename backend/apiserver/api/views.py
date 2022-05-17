@@ -47,6 +47,9 @@ class NormalUserManageView(viewsets.GenericViewSet,
         user = self.get_object()
         if user != request.user:
             return Response(status=status.HTTP_403_FORBIDDEN)
+        # First delete the current session
+        request.user.auth_token.delete()
+        # and then delete the user
         return super().destroy(request, *args, **kwargs)
 
 
