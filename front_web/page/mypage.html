@@ -1,0 +1,212 @@
+<html>
+    <!-- 나의 페이지 부분 속성 -->
+    <head>
+ <!-- 필수 선언부 -->
+ <meta charset="utf-8">
+ <script src ="../jsp/w3.js"> </script>
+ <!-- 커스텀 부분 코드 -->
+
+  <!-- 헤더 부분 -->
+  <div data-include-path="../page/header.html"> </div>
+    </head>
+
+    <body>
+        <!-- 바디 섹션 -->
+        <div class="b-divider">나의 페이지  (My Page)</div>
+ <!-- 아래부터 메인 페이지 분할하여 표현 하는 부분 -->
+        <div class="container input-form"> 
+          <!-- DB 로 사용자명을 표시해야함 -->
+          <h4 class="mb-3">000님 환영합니다!</h4> 
+          <hr class="my-2"><br>
+                    <div class="row">
+                        <div class="col-md-12 ">
+                            <div class="list-group1 "> 
+                              <h3>  <i class="bi bi-people-fill"></i>나의 프로필</h3>
+                              <center><div class="input-form">
+                                <!-- 이미지 표시 공간 -->
+                                <div class="box" style="background: #ffff">
+                                  <!-- 추후 이미지 변동사항 발생하면 변경해야함!! DB 사용자별로 변경해야함 -->
+                                <img src="https://t1.daumcdn.net/cfile/tistory/24283C3858F778CA2E" class="profile"><br>
+                               </div>
+                               <!-- 작업 진행율 표시 프로그래스 -->
+                               <!-- DB에서 사용자 이름을 가져와야함 -->
+                               <div class="h2">홍길동 </div>
+                               <!-- 직책명 db로 가져와야함 -->
+                               <p class="text-muted">팀장</p>
+                               <!-- 테이블 요소로 세부 표현 -->
+                               <table class="table table-light col-lg-auto">
+                                 <thread>
+                                  <tr>
+                                    <th scope="col">레벨(Level)</th>
+                                    <th scope="col">성취도</th>
+                                  </tr>
+                                </thread>
+                                <tbody>
+                                  <tr>
+                                    <th scope="row1">
+                                    <div class="progress">
+                                      <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                                    </div>
+                                  </th>
+                                  <th scope="row2">
+                                    <div class="progress">
+                                      <div class="progress-bar" role="progressbar" style="width: 70%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">70%</div>
+                                    </div>
+                                  </th>
+                                  </tr>
+                                 
+                                </tbody>
+                                </table>
+                               
+                              </div></center>
+                             
+                          </div>
+                          <hr class="my-2">
+                          </div>
+                          
+                        <div class="py-2"></div><br>
+                        <!-- 1번째 영역 끝 -->
+
+                          <!-- 1번째 부분 -->
+                          <div class="col-sm-6">
+                            <div class="list-group2">
+                              <h3><i class="bi bi-info-lg"></i> 나의 정보 </h3>
+                              <table class="table">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">My Info</th>
+                                    <th scope="col"></th>
+                                    <th scope="col"></th>
+                                    <th scope="col"></th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <th scope="row">포인트</th>
+                                    <td></td>
+                                    <td></td>
+                                    <!-- 여기 사용자별 포인트 가져와야함 (변동가능) )-->
+                                    <td>163점</td>
+                                  </tr>
+                                  <tr>
+                                       <!-- 여기 사용자별 스터디 가져와야함 (변동가능) )-->
+                                    <th scope="row">스터디명</th>
+                                    <td></td>
+                                    <td></td>
+                                    <td> Spring 스터디 </td>
+                                  </tr>
+                                  <tr>
+                                       <!-- 여기 사용자별 전화번호 가져와야함 (변동가능) )-->
+                                    <th scope="row">연락처</th>
+                                    <td colspan="2"></td>
+                                    <td>010-1234-1234</td>
+                                  </tr>
+                                  <tr>
+                                    <!-- 여기 사용자별 이메일  가져와야함 (변동가능) )-->
+                                 <th scope="row">Email</th>
+                                 <td colspan="2"></td>
+                                 <td>test@naver.com</td>
+                               </tr>
+                               <tr>
+                                <!-- 여기 사용자별 회원가입일 가져와야함 (변동가능) )-->
+                             <th scope="row">회원가입일</th>
+                             <td colspan="2"></td>
+                             <td> 2022-05-17 21:55:42</td>
+                           </tr>
+                        
+                                </tbody>
+                              </table>
+                          </div>
+                          </div>
+                          <!-- 3번째 표시시작  --><br>
+                          <div class="col-sm-3 ">
+                            <div class="list-group3 ">
+                              <h3><i class="bi bi-clipboard-data"></i>  나의 현황 </h3>
+                              <a href="#" class="list-group-item list-group-item-action list-group-item-light " aria-current="true">
+                                <div class="  w-100  " >
+                                <center> <h5>내글 반응</h5></center>
+                                </div>
+                                <div class="d-flex w-100 justify-content-end">
+                                </div>
+                              </a>
+                              <a href="#" class="list-group-item list-group-item-action list-group-item-light" aria-current="true">
+                                <div class="  w-100">
+                                  <center> <h5>팔로우 </h5></center>
+                                </div>
+                                <div class="w-100 justify-content-end" >
+                                </div>
+                              </a>
+                      
+                              <a href="#" class="list-group-item list-group-item-action list-group-item-light" aria-current="true">
+                                <div class=" w-100">
+                                  <center> <h5>쪽지함 </h5></center>
+                                </div>
+                                <div class="d-flex w-100 justify-content-end" >
+                                </div>
+                              </a>
+                              <a href="#" class="list-group-item list-group-item-action list-group-item-light" aria-current="true">
+                                <div class=" w-100">
+                                  <center> <h5>스크랩</h5></center>
+                                </div>
+                                <div class="d-flex w-100 justify-content-end" >
+                                </div>
+                              </a>
+                          </div>
+                          </div>
+                          <!-- 3번째 부분 -->
+                          <div class="col-sm-3 ">
+                            <div class="list-group4">
+                              <h3><i class="bi bi-file-person"></i>  정보 관리</h3>
+                              <a href="#" class="list-group-item list-group-item-action list-group-item-info" aria-current="true">
+                                <div class=" w-100">
+                                  <center> <h5>정보 수정</h5></center>
+                                </div>
+                                <div class="d-flex w-100 justify-content-end" >
+                    
+                                </div>
+                              </a>
+                              <a href="#" class="list-group-item list-group-item-action list-group-item-success" aria-current="true">
+                                <div class=" w-100">
+                                  <center> <h5>내글 관리</h5></center>
+                                </div>
+                                <div class="d-flex w-100 justify-content-end" >
+                               
+                                </div>
+                              </a>
+                              <a href="#" class="list-group-item list-group-item-action list-group-item-light" aria-current="true">
+                                <div class=" w-100">
+                                  <center> <h5>사진 등록 </h5></center>
+                                </div>
+                                <div class="d-flex w-100 justify-content-end" >
+                                
+                                </div>
+                              </a>
+                              <a href="#" class="list-group-item list-group-item-action list-group-item-danger" aria-current="true">
+                                <div class=" w-100">
+                                  <center> <h5>탈퇴 하기</h5></center>
+                                </div>
+                                <div class="d-flex w-100 justify-content-end" >
+                               
+                                </div>
+                              </a>
+                          </div>
+                          </div>
+                      <!-- 4번째 부분 -->
+
+                    </div>
+                        </div>
+                            </div>
+                                </div>
+                                   </div>
+                                
+                      
+
+
+
+    </body>
+
+     <!-- 푸터 부분 -->
+   <footer> <div data-include-path="../page/footer.html"></div> </footer>
+    <!--loading 화면 JS Start-->
+
+</html>

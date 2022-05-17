@@ -69,3 +69,13 @@ function darkzzing(){
       }
     }
 }
+// 화면 로딩용 자바 스크립트 
+function myFunction() {
+  var myVar;
+  myVar = setTimeout(showPage, 3000);
+}
+
+function showPage() {
+  document.getElementById("loader").style.display = "none";
+  document.getElementById("myDiv").style.display = "block";
+}
