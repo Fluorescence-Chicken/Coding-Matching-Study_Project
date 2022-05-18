@@ -16,7 +16,12 @@
  <!--- <script type="text/javascript" src="http://duck.nifskorea.com:8080/project/jsp/bootstrap.min.js"></script>-->
   <script type="text/javascript" src="https://getbootstrap.com/docs/5.1/examples/offcanvas-navbar/offcanvas.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"> </script>
-  
+  <!--<script type="text/javascript" src="http://duck.nifskorea.com:8080/project/vendor/jquery-easing/jquery.easing.min.js"></script>-->
+  <!--<script type="text/javascript" src="http://duck.nifskorea.com:8080/project/jsp/sb-admin-2.min.js"></script>-->
+  <!--<script type="text/javascript" src="http://duck.nifskorea.com:8080/project/vendor/chart.js/Chart.min.js"></script>-->
+  <!--<script type="text/javascript" src="http://duck.nifskorea.com:8080/project/jsp/demo/chart-area-demo.js"></script>-->
+  <!--<script type="text/javascript" src="http://duck.nifskorea.com:8080/project/jsp/demo/chart-pie-demo.js"></script>-->
+  <!-- 해당부는 메인 에서 선언해야함 헤더는 작동안함 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>-->
   <!-- json 부 -->
   <link rel="manifest" href="http://duck.nifskorea.com:8080/project/jsp/manifest.json">
   <!--css  부 -->
@@ -30,54 +35,19 @@
   <link href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" rel="stylesheet">
   <!-- 부트스트랩 아이콘 불러오기 -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+  <!--<link rel="stylesheet" href="http://duck.nifskorea.com:8080/project/vendor/fontawesome-free/css/all.min.css">-->
+  <!--<link rel="stylesheet" href="http://duck.nifskorea.com:8080/project/css/sb-admin-2.min.css">이거 하면 오류가 발생함 -->
 
   <!-- 구글 폰트 -->
   <link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+  <link
+  href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+  rel="stylesheet">
   <!--<link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/offcanvas-navbar/">
   <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/navbars/">-->
  
   </head> 
-
-  <!---- boot strap nav part -->
-    <!--
-    <header class="p-3 bg-dark text-white">
-      <div class="container">
-        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-          <img src="http://duck.nifskorea.com:8080/project/img/logo2.png" alt="ㅋㅅ" width="43" height="40" >
-          <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-            
-           <!--- <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>-->
-         <!--- </a>
-       <!-- <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-          <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-            <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>-->
-          <!---
-  
-          <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-            <li><a  class="nav-link px-2 text-white">ㅋ ㅅ 코딩스터디</a></li>
-            <div class="check1"> </div>
-            <li><a href="#" class="nav-link px-2 text-white">스터디 2</a></li>
-            <li><a href="#" class="nav-link px-2 text-white">스터디3</a></li>
-            <li><a href="#" class="nav-link px-2 text-white">스터디4</a></li>
-            <li><a href="#" class="nav-link px-2 text-white">스터디6</a></li>
-          </ul>
-          <!-- 검색창 공백 처리 -->
-          <!---
-          <div class="cuaqd"></div>
-       
-          <form class="  mb-5 mb-lg-0 me-lg-3">
-            <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
-          </form>
-          <div class="text-end">
-
-            <button type="button" class="btn btn-outline-light me-2">Login</button>
-            <button type="button" class="btn btn-warning">Sign-up</button>
-          </div>
-        </div>
-      </div>
-    -->
-    <!-- 구형 헤더 소스 삭제 금지!!! -->
     <!-- 위 소스는 반-->
   <header>
     <form method="GET" name = "form">
@@ -107,9 +77,9 @@
               <a class="nav-link dropdown-toggle"id="dropdown04" data-bs-toggle="dropdown" aria-expanded="false">스터디룸</a>
               <div class="dropdown-content dropdown-toggle">
                 <!-- dropdown-toggle 이속성이 글자 비율 맞춰줌 -->
-                <a href="#">스터디룸 입장</a>
+                <a href="http://duck.nifskorea.com:8080/project/page/studyRoom.html">스터디룸 입장</a>
                 <a href="#">스터디 일정</a>
-                <a href="#">스터디원 관리 </a>
+                <a href="http://duck.nifskorea.com:8080/project/page/study_user.html">스터디 관리 </a>
               </div>
             </div>
             <div class=" dropdown navbar-nav">
@@ -119,7 +89,8 @@
                 <a href="#">공지사항</a>
                 <a href="#"> Q & A</a>
                 <a href="#">행사 정보</a>
-                <a href="#">서비스 소개 </a></center>
+                <a href="#">서비스 소개 </a>
+                <a href="http://duck.nifskorea.com:8080/project/page/mypage.html">(임시)마이 페이지 </a></center>
                
               </div>
             </div>
@@ -148,6 +119,7 @@
             <!-- 검색창 사이즈 조정 부분 -->
             <div class="cuaqd"></div>
             <!-- 검색창 get 값넘기면 반대쪽에서 값을 받아서 검색 결과를 출력해줘야함 -->
+            <!-- 버튼 연계 설정 작업 해주어야함 ( 자바스크립트 포함 )-->
             <input class="form-control" type="text" placeholder="검색창 "name="search" aria-label="Search" style="min-width: 150px;">
             <button type="submit"  class="btn-secondary btn-lg2" formaction="/subject/loginpro.jsp"><center><i class="bi bi-search"></i></center></button>
             <div class="check2"></div>
