@@ -9,7 +9,7 @@ urlpatterns = [
     # User signup API URLs
     path('signup/', views.UserCreateView.as_view(), name='signup'),
     path('auth/', include('api.auth.urls')),
-    path('check/', views.AuthStatusView.as_view(), name='check'),
+    path('me/', views.RetriveSelfDataView.as_view(), name='me'),
 ]
 
 urlpatterns += router.urls
