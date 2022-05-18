@@ -52,16 +52,24 @@ class NormalUserManageView(viewsets.GenericViewSet,
         # and then delete the user
         return super().destroy(request, *args, **kwargs)
 
+    def retrieve(self, request, *args, **kwargs):
+        """
+        Get the user's profile.
+        This endpoint is available to all users.
+        """
 
-class AuthStatusView(APIView):
+        return super().retrieve(request, *args, **kwargs)
+
+
+class RetriveSelfDataView(APIView):
     """
     Check if the user is authenticated
     """
     permission_classes = [permissions.IsAuthenticated]
+    serializer_class = UserWithoutPasswordSerializer
 
     def get(self, request: Request) -> Response:
-        return Response({
-            "status": "authenticated",
-            "user": request.user.email,
-            "auth": request.auth
-        })
+        """
+        Get the user's self data.
+        """
+        return Response(self.serializer_class(request.user).data)
