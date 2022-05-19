@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 
 from pathlib import Path
+
+import rest_framework.authentication
 from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -50,6 +52,7 @@ INSTALLED_APPS = [
 
     # Custom apps
     'api',
+    # 'api.studyroom',
 ]
 
 REST_FRAMEWORK = {
@@ -57,7 +60,7 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAdminUser',
     ],
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication'
     ],
 }
 
@@ -130,6 +133,8 @@ AUTH_PASSWORD_VALIDATORS = [
 # CORS whitelist
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:8001',
+    'http://duck.nifskorea.com:8080',
+    'http://duck.nifskorea.com',
 ]
 
 CORS_ALLOW_CREDENTIALS = True
