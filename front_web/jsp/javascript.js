@@ -3,7 +3,7 @@ const duck_nifskorea_com = {
   //api_url 추가
   api_url: "http://duck.nifskorea.com:8000/api/",
   login: {
-    _onLoginButton: function () {
+    onLoginButton: function () {
       // 값 들고오기
       const email = document.querySelector('input[name="input_email"]').value;
       const password = document.querySelector(
@@ -64,4 +64,29 @@ const duck_nifskorea_com = {
       };
     },
   },
+  myPage: {
+    /**
+     * html 요소 가져오기
+     */
+    getQuery: function () {
+      //값 들고오기
+      duck_nifskorea_com.changeInnerText('h4[name="welcomeText"]', "[user_홍길동]님 환영합니다!");
+      duck_nifskorea_com.changeInnerText('div[name="userName"]', "[userName_홍길동]");
+      duck_nifskorea_com.changeInnerText('p[name="position"]', "[직책_팀장]");
+      duck_nifskorea_com.changeInnerText('td[name="point"]', 100 + "점"); //포인트 변경
+      duck_nifskorea_com.changeInnerText('td[name="studyName"]', "[studyName_Spring]");
+      duck_nifskorea_com.changeInnerText('td[name="phone"]', "[010-0000-0000]");
+      duck_nifskorea_com.changeInnerText('td[name="userEmail"]', "[asdf@test.com]");
+      duck_nifskorea_com.changeInnerText('td[name="signUpDate"]', Date());
+    },
+  },
+  /**
+ * Text 변경
+ * @param query Text 객체
+ * @param string 변경되는 값
+ */
+  changeInnerText: function (query, string) {
+    const element = document.querySelector(query);
+    element.innerHTML = string;
+  }, //changeInnerText: function() 끝
 };

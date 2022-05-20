@@ -9,6 +9,11 @@
 
   <!-- 헤더 부분 -->
   <div data-include-path="../page/header.html"> </div>
+
+  <!-- js 연결 -->
+  <script src="../jsp/javascript.js"></script>
+  <!-- myPage.print() 함수 호출 -->
+  
 </head>
 
 <body>
@@ -17,7 +22,7 @@
   <!-- 아래부터 메인 페이지 분할하여 표현 하는 부분 -->
   <div class="container input-form">
     <!-- DB 로 사용자명을 표시해야함 -->
-    <h4 class="mb-3">000님 환영합니다!</h4>
+    <h4 class="mb-3" name="welcomeText">000님 환영합니다!</h4>
     <hr class="my-2"><br>
     <div class="row">
       <div class="col-md-12 ">
@@ -31,10 +36,8 @@
                 <img src="https://t1.daumcdn.net/cfile/tistory/24283C3858F778CA2E" class="profile"><br>
               </div>
               <!-- 작업 진행율 표시 프로그래스 -->
-              <!-- DB에서 사용자 이름을 가져와야함 -->
-              <div class="h2">홍길동 </div>
-              <!-- 직책명 db로 가져와야함 -->
-              <p class="text-muted">팀장</p>
+              <div class="h2" name="userName">홍길동 </div>
+              <p class="text-muted" name="position">팀장</p>
               <!-- 테이블 요소로 세부 표현 -->
               <table class="table table-light col-lg-auto">
                 <thread>
@@ -90,33 +93,30 @@
                 <th scope="row">포인트</th>
                 <td></td>
                 <td></td>
-                <!-- 여기 사용자별 포인트 가져와야함 (변동가능) ) -->
-                <td>163점</td>
+                <td name="point">163점</td>
               </tr>
               <tr>
-                <!-- 여기 사용자별 스터디 가져와야함 (변동가능) ) -->
                 <th scope="row">스터디명</th>
                 <td></td>
                 <td></td>
-                <td> Spring 스터디 </td>
+                <td name="studyName"> Spring 스터디 </td>
               </tr>
               <tr>
-                <!-- 여기 사용자별 전화번호 가져와야함 (변동가능) )-->
                 <th scope="row">연락처</th>
                 <td colspan="2"></td>
-                <td>010-1234-1234</td>
+                <td name="phone">010-1234-1234</td>
               </tr>
               <tr>
                 <!-- 여기 사용자별 이메일  가져와야함 (변동가능) )-->
                 <th scope="row">Email</th>
                 <td colspan="2"></td>
-                <td>test@naver.com</td>
+                <td name="userEmail">test@naver.com</td>
               </tr>
               <tr>
                 <!-- 여기 사용자별 회원가입일 가져와야함 (변동가능) )-->
                 <th scope="row">회원가입일</th>
                 <td colspan="2"></td>
-                <td> 2022-05-17 21:55:42</td>
+                <td name="signUpDate"> 2022-05-17 21:55:42</td>
               </tr>
 
             </tbody>
@@ -215,11 +215,7 @@
   </div>
   </div>
   </div>
-
-
-
-
-
+  <script>duck_nifskorea_com.myPage.getQuery()</script>
 </body>
 
 <!-- 푸터 부분 -->
