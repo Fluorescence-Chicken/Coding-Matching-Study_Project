@@ -1,0 +1,158 @@
+<!-- ID, PW찾기 페이지-->
+
+<!-- 추가 작업해야 할 부분 : 
+    1. 처음 페이지 들어왔을 때, 아이디 찾기 버튼 자동으로 눌러져있게 (해결)
+    2. 유효성 검사
+    3. 검사 됐을 때, 새로운 페이지로 알려주느냐? >> 페이지 생성하기 -> 완료 or 안된다 자바스크립트로 처리 해주기 
+     or
+     창으로? 
+-->
+
+<!-- 본페이지는 js를 별도로 분리하지않고 해당페이지에서 처리합니다 (미작동 및 작동오류문제가 있는걸로 감지되어짐 )-->
+
+<html>
+
+<head>
+    <!-- 필수 선언부 -->
+    <meta charset="utf-8">
+    <script src="../jsp/w3.js"> </script>
+    <!-- 헤더 부분 -->
+    <div data-include-path="header.html"> </div>
+
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sign-in/">
+    <link rel="stylesheet" href="../css/find_id_pw.css">
+</head>
+
+    <body >
+        <div class="b-divider"><i class="bi bi"></i>아이디 · 비밀번호 찾기 </div>
+        <!-- 로고, Project에서 로고 보이게 하려면 img 앞에 ../ 해줘야함. (경로문제)-->
+        <!-- 위에 헤더바 내리기 -->
+        <div class = "container input-form text-center">
+        <div class="p-2"></div>
+        <img src="../img/logo2.png" alt="ㅋㅅ" width="72" height="57">
+        <h1 class="h3 mb-3 fw-normal">
+            <!-- tabs 부분-->
+            <h2>아이디. 비밀번호 찾기</h2>
+            <p>아이디. 비밀번호가 기억나지않으시다면 아래 정보를 통해 찾아주세요.</p>
+
+            <div class="tab">
+                <!-- 해당옵션에서 defaltopen으로 자동으로 열기 옵션 추가해줌 -->
+                <button class="tablinks" onclick="openCity(event, 'id')" id="defaultOpen">아이디 찾기</button>
+                <button class="tablinks" onclick="openCity(event, 'pw')">비밀번호 찾기</button>
+
+            </div>
+
+            <!-- 아이디 찾기 부분-->
+            <div id="id" class="tabcontent">
+
+
+                <main class="form-signin">
+
+                    <form class="needs-validation" novalidate="">
+
+
+        </h1>
+        <div class="form-floating"></div>
+        <!-- (JS DATA) -->
+        <input type="Name" class="form-control" id="floatingInput" placeholder="Insert Name">
+        <label for="floatingInput" class="text-left w-100 ml-1">이름</label>
+        <p></p>
+
+        <div class="form-floating"></div>
+        <!-- (JS DATA) -->
+        <input type="nickname" class="form-control" id="floatingPassword" placeholder="Insert Nickname">
+        <label for="floatingPassword" class="text-left w-100 ml-1">성</label>
+        <p></p>
+
+        </h1>
+        <div class="form-floating"></div>
+        <!-- (JS DATA) -->
+        <input type="email" class="form-control" id="floatingInput" placeholder="you@example.com">
+        <label for="floatingInput" class="text-left w-100 ml-1">이메일</label>
+        <p></p>
+
+        <button class="w-100 btn btn-lg btn-primary" type="submit">아이디 찾기</button>
+        <p></p>
+
+        </div>
+        <!-- 비밀번호 찾기 부분-->
+        <div id="pw" class="tabcontent">
+
+            <main class="form-signin">
+                <form class="needs-validation" novalidate="">
+
+                    <p></p>
+                    </h1>
+                    <div class="form-floating"></div>
+                    <!-- (JS DATA) -->
+                    <input type="Name" class="form-control" id="floatingInput" placeholder="Insert Name">
+                    <label for="floatingInput" class="text-left w-100 ml-1">이름</label>
+                    <p></p>
+
+                    <div class="form-floating"></div>
+                    <!-- (JS DATA) -->
+                    <input type="nickname" class="form-control" id="floatingPassword" placeholder="Insert Nickname">
+                    <label for="floatingPassword" class="text-left w-100 ml-1">성</label>
+                    <p></p>
+
+
+                    </h1>
+                    <div class="form-floating"></div>
+                    <!-- (JS DATA) -->
+                    <input type="email" class="form-control" id="floatingInput" placeholder="you@example.com">
+                    <label for="floatingInput" class="text-left w-100 ml-1">이메일</label>
+                    <p></p>
+
+                    </h1>
+                    <div class="form-floating"></div>
+                    <!-- (JS DATA) -->
+                    <input type="id" class="form-control" id="floatingInput" placeholder="Insert ID">
+                    <label for="floatingInput" class="text-left w-100 ml-1">아이디</label>
+
+                    <p></p>
+                    <button class="w-100 btn btn-lg btn-primary" type="submit">비밀번호 찾기</button>
+                    <p></p>
+
+        </div>
+        <br>
+        <p class="mb-1">&copy; 2022 코딩 스터디 매칭 플랫폼.</p>
+        </div>
+    </div>
+
+    <!-- 푸터 부분 -->
+    <footer>
+        <div data-include-path="footer.html"></div>
+    </footer>
+   <style>
+        body {
+            font-family: Arial;
+        }
+    </style>
+
+
+    <script>
+        function openCity(evt, cityName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+
+
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+
+
+
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+    </script>
+    <!-- 부트스트랩 체크아웃 부분을 수정함-->
+</body>
+</html>
