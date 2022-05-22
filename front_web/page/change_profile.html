@@ -1,0 +1,123 @@
+<!-- 정보 변경 페이지 (프로필)-->
+
+<html>
+    <!-- 나의 페이지 부분 속성 -->
+    <head>
+ <!-- 필수 선언부 -->
+ <meta charset="utf-8">
+ <script src ="../jsp/w3.js"> </script>
+ <!-- 커스텀 부분 코드 -->
+
+  <!-- 헤더 부분 -->
+  <div data-include-path="../page/header.html"> </div>
+    </head>
+
+    <body>
+        <!-- 바디 섹션 -->
+        <div class="b-divider">프로필 변경 페이지</div>
+ <!-- 아래부터 메인 페이지 분할하여 표현 하는 부분 -->
+        <div class="container input-form"> 
+          <!-- DB 로 사용자명을 표시해야함 -->
+          <hr class="my-2"><br>
+                    <div class="row">
+                        <div class="col-md-12 ">
+                            <div class="list-group1 "> 
+                              <h3> My photo</h3>
+                              <center><div class="input-form">
+                                <!-- 이미지 표시 공간 -->
+                                
+                                <div class="box" style="background: #ffff">
+                                  <!-- 추후 이미지 변동사항 발생하면 변경해야함!! DB 사용자별로 변경해야함 -->
+
+                                   <!-- (JS DATA), 파일을 선택하여 등록 버튼을 눌렀을 때, 경로 지정하기 -->
+                                  <!-- 사진 경로-->
+                                <img src="http://duck.nifskorea.com:8080/project/img/profile/defult_img.png" class="profile"><br>
+                               </div>
+                               <!-- 작업 진행율 표시 프로그래스 -->
+                               <!-- DB에서 사용자 이름을 가져와야함 -->
+                               <p></p>
+                               <div class="h2">홍길동 </div>
+
+
+                               <p></p>
+                               <!-- 직책명 db로 가져와야함 -->
+                               <p class="text-muted">회원 사진은 이미지(gif/jpg/png) 파일만 가능하며,
+                                 <br> 등록시 150x150 사이즈로 자동 리사이즈됩니다.
+                                <p></p>
+
+
+                                <!-- (JS DATA) -->
+                                <!-- 파일 선택-->
+                                 <input type="file" class="real-upload" accept="image/*" required multiple>
+                                <p></p>
+                                <ul class="studyItem_hashtag p-1 ">
+
+                                  <!-- (JS DATA) -->
+                                  <li> <!-- 등록 버튼 (파일 선택한 사진을 60x60 사이즈로 설정 후 프로필에 적용) -->
+
+                                    <div class="btn-check-menu">
+                                      <input type="button" class="btn-check" name="btnradio" id="btnradio1"
+                                             autocomplete="off" value="등록">
+                                    </div>
+                                  </li>
+
+                                    <!-- (JS DATA) -->
+                                  <li> <!-- 삭제 버튼 (기본 이미지로 저장 (project/img/profile/defult.png)) -->
+                                    <div class="btn-check-menu">
+                                      <input type="button" class="btn-check" name="btnradio" id="btnradio2"
+                                       autocomplete="off"  value="삭제" >
+                                    </div>
+                                    </li>
+
+                                  <li> <!-- 닫기 버튼 (그냥 창 닫기) -->
+                                    <div class="btn-check-menu">
+                                      <input type="button" class="btn-check" name="btnradio" id="btnradio3"
+                                       autocomplete="off"  value="닫기">
+                                    </div>
+                                  </li>
+                              </ul>
+
+
+                               <!-- 테이블 요소로 세부 표현 -->
+                               <table class="table table-light col-lg-auto">
+                                 
+                               
+                                </table>
+                               
+                              </div></center>
+                             
+                          </div>
+                          <hr class="my-2">
+                          </div>
+                          
+                        <div class="py-2"></div><br>
+                        <!-- 1번째 영역 끝 -->
+
+                      <!-- 4번째 부분 -->
+
+                    </div>
+                        </div>
+                            </div>
+                                </div>
+                                   </div>
+                                
+                      
+    </body>
+
+     <!-- 푸터 부분 -->
+   <footer> <div data-include-path="../page/footer.html"></div> </footer>
+
+
+   <style>
+    .studyItem_hashtag{
+    display: inline-flex;
+    grid-gap: 5px;
+    gap: 30px;
+    font-size: 18px;
+    color: rgba(0,0,0,5);
+    min-height: 40px;
+    margin-bottom: 10px;
+  } 
+  </style>
+
+</html>

@@ -1,84 +1,98 @@
 <!-- 회원가입 페이지 -->
 <html>
+
 <head>
-    <!-- 필수 선언부 -->
-    <meta charset="utf-8">
-   <script src ="../jsp/w3.js"> </script>
-   <!-- 커스텀 부분 코드 -->
- 
-    <!-- 헤더 부분 -->
-    <div data-include-path="../page/header.html"> </div>
- 
-   </head>
+  <!-- 필수 선언부 -->
+  <meta charset="utf-8">
+  <script src="../jsp/w3.js"> </script>
+  <!-- 커스텀 부분 코드 -->
+
+  <!-- 헤더 부분 -->
+  <div data-include-path="../page/header.html"> </div>
+
+</head>
 
 <!-- Boot Strap Navbar-->
+
 <body>
   <!-- 로딩화면 페이지 -->
   <!-- 로딩완료시 화면 출력 -->
-    <div class="b-divider">회원가입 페이지 </div>
-    <div class="alert alert-warning" role="alert">
-      <strong><i class="fa fa-exclamation-circle fa-lg"></i> <center>회원가입약관  내용에 동의하셔야 회원가입 하실 수 있습니다.<br>
-        <font color="red"> <b> 주의!</b></font> id,username,email은 추후 수정할수 없습니다! 신중히 입력해주세요. 
-      </center></strong>
-    </div>
-    <div class="container"> 
-      <div class="input-form-backgroud row"> 
-        <div class="input-form col-md-12 mx-auto"> 
-          <h4 class="mb-3">회원가입</h4> 
-          <form class="validation-form" novalidate>
-             <div class="row"> 
-               <div class="col-md-6 mb-3"> 
-                 <label for="name">이름</label>
-                  <input type="text" class="form-control" id="name" placeholder="" value="" required> 
-                  <div class="invalid-feedback"> 이름을 입력해주세요. </div> </div> 
-                  <div class="col-md-6 mb-3">
-                     <label for="nickname">성</label> <input type="text" class="form-control" id="nickname" placeholder="" value="" required>
-                      <div class="invalid-feedback"> 성을 입력해주세요. </div> </div> </div>
-                       <div class="mb-3">
-                          <label for="email">이메일</label> 
-                          <input type="email" class="form-control" id="email" placeholder="you@example.com" required>
-                           <div class="invalid-feedback"> 이메일을 입력해주세요. </div> </div> 
-                           <div class="mb-3"> 
-                             <label for="address">비밀번호</label> 
-                             <input type="text" class="form-control" id="address" placeholder="비밀번호를 입력해주세요!" required> 
-                             <div class="invalid-feedback"> 비밀번호를 입력해주세요. </div> </div> 
-                             <div class="mb-3"> 
-                               <label for="address2">주소<span class="text-muted"></span></label>
-                                <input type="text" class="form-control" id="address2" placeholder="주소를 입력해주세요." required> 
-                                <div class="invalid-feedback"> 주소를 입력해주세요. </div></div> 
-                                <div class="row"> 
-                                  <div class="col-md-8 mb-3"> 
-                                    <label for="root">귀하의 직업은 무엇입니까?  <b>(선택 사항)</b></label>
-                                     <select class="custom-select d-block w-100" id="root">
-                                        <option value=""></option> 
-                                        <option>학생</option>
-                                         <option>교사</option>
-                                         <option>대학생</option>
-                                         <option>인플루언서</option>
-                                         <option>유튜버</option>
-                                         <option>기타</option>
-                                         <option>2</option>
-                                         </select> 
-                                         <div class="invalid-feedback"> 가입 경로를 선택해주세요. </div> </div>
-                                         </div>
-                                         <div class="mb-3"> 
-                                          <label for="root2">성별 </label>
-                                           <select class="custom-select d-block w-25" id="root2" required>
-                                              <option value=""></option> 
-                                              <option>남자</option>
-                                               <option>여자</option>
-                                               </select> 
+  <div class="b-divider">회원가입 페이지 </div>
+  <div class="alert alert-warning" role="alert">
+    <strong><i class="fa fa-exclamation-circle fa-lg"></i>
+      <center>회원가입약관 내용에 동의하셔야 회원가입 하실 수 있습니다.<br>
+        <font color="red"> <b> 주의!</b></font> id,username,email은 추후 수정할수 없습니다! 신중히 입력해주세요.
+      </center>
+    </strong>
+  </div>
+  <div class="container">
+    <div class="input-form-backgroud row">
+      <div class="input-form col-md-12 mx-auto">
+        <h4 class="mb-3">회원가입</h4>
+        <form class="validation-form" novalidate>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="name">이름</label>
+              <input type="text" class="form-control" id="name" placeholder="" value="" required>
+              <div class="invalid-feedback"> 이름을 입력해주세요. </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="nickname">성</label> <input type="text" class="form-control" id="nickname" placeholder=""
+                value="" required>
+              <div class="invalid-feedback"> 성을 입력해주세요. </div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="email">이메일</label>
+            <input type="email" class="form-control" id="email" placeholder="you@example.com" required>
+            <div class="invalid-feedback"> 이메일을 입력해주세요. </div>
+          </div>
+          <div class="mb-3">
+            <label for="address">비밀번호</label>
+            <input type="text" class="form-control" id="address" placeholder="비밀번호를 입력해주세요!" required>
+            <div class="invalid-feedback"> 비밀번호를 입력해주세요. </div>
+          </div>
+          <div class="mb-3">
+            <label for="address2">주소<span class="text-muted"></span></label>
+            <input type="text" class="form-control" id="address2" placeholder="주소를 입력해주세요." required>
+            <div class="invalid-feedback"> 주소를 입력해주세요. </div>
+          </div>
+          <div class="row">
+            <div class="col-md-8 mb-3">
+              <label for="root">귀하의 직업은 무엇입니까? <b>(선택 사항)</b></label>
+              <select class="custom-select d-block w-100" id="root">
+                <option value=""></option>
+                <option>학생</option>
+                <option>교사</option>
+                <option>대학생</option>
+                <option>인플루언서</option>
+                <option>유튜버</option>
+                <option>기타</option>
+                <option>2</option>
+              </select>
+              <div class="invalid-feedback"> 가입 경로를 선택해주세요. </div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="root2">성별 </label>
+            <select class="custom-select d-block w-25" id="root2" required>
+              <option value=""></option>
+              <option>남자</option>
+              <option>여자</option>
+            </select>
 
-                                               <div class="invalid-feedback"> 성별을 선택해주세요. </div> </div>
-                                          <!--<div class="col-md-4 mb-3">
+            <div class="invalid-feedback"> 성별을 선택해주세요. </div>
+          </div>
+          <!--<div class="col-md-4 mb-3">
                                              <label for="code">추천인 코드</label>
                                               <input type="text" class="form-control" id="code" placeholder="" required>
                                                <div class="invalid-feedback"> 추천인 코드를 입력해주세요. </div> </div> </div> 
                                           -->
-                                               <hr class="mb-3">
-                                               <!-- 회원 개인정보보호 관련 약관 안내 테이블 -->
-                                               <li class="checkBox check02"><div class ="text-set"> 회원가입 약관 </div>
-                                                <textarea name="" id="">
+          <hr class="mb-3">
+          <!-- 회원 개인정보보호 관련 약관 안내 테이블 -->
+          <li class="checkBox check02">
+            <div class="text-set"> 회원가입 약관 </div>
+            <textarea name="" id="">
                                                   제1조 목적
 이 약관은 코딩 스터디 플랫폼 (전자상거래 사업자로 이하 "회사"라 한다)가 운영하는 ㅋ ㅅ (이하 "몰"이라 한다)에서 제공하는 인터넷 관련 서비스(이하 "서비스"라 한다)를 이용함에 있어 사이버 몰과 이용자의 권리·의무 및 책임사항을 규정함을 목적으로 합니다.
 
@@ -221,31 +235,45 @@
 이 약관은 2022년 05월 15일부터 시행합니다.
 이 약관은 전자상거래(인터넷사이버몰) 표준약관 제10023호(2014. 9. 19. 개정)를 준수합니다.
                                    </textarea>
-                                            </li>
-                                                <div class="custom-control custom-checkbox">
-                                                   <input type="checkbox" class="custom-control-input" id="aggrement" required>
-                                                    <label class="custom-control-label" for="aggrement">개인정보 수집, 이용 및 회원가입 약관에 동의합니다.</label> </div> 
-                                                    
-                                                    <div class="mb-4"></div> 
-                                                    <button class="btn btn-primary btn-lg btn-block" type="submit">가입 완료</button> 
-                                                  </form> </div> </div> 
-                                                  <footer class="my-3 text-center text-small"> <p class="mb-1">&copy; 2022 코딩 스터디 매칭 플랫폼.</p> </footer> </div> 
-                                                         </body>
+          </li>
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="aggrement" required>
+            <label class="custom-control-label" for="aggrement">개인정보 수집, 이용 및 회원가입 약관에 동의합니다.</label>
+          </div>
+
+          <div class="mb-4"></div>
+          <button class="btn btn-primary btn-lg btn-block" type="submit">가입 완료</button>
+        </form>
+      </div>
+    </div>
+    <footer class="my-3 text-center text-small">
+      <p class="mb-1">&copy; 2022 코딩 스터디 매칭 플랫폼.</p>
+    </footer>
+  </div>
+</body>
 
 
-    
 
-                                                         <script> window.addEventListener('load', () => { const forms = document.getElementsByClassName('validation-form');
-                                                          Array.prototype.filter.call(forms, (form) => { form.addEventListener('submit', function (event) {
-                                                             if (form.checkValidity() === false) { event.preventDefault();
-                                                              event.stopPropagation();
-                                                               } form.classList.add('was-validated');
-                                                                }, false); }); }, false); 
-                                                                </script> 
-                                                    
-  
-    <!-- 푸터 부분 -->
-   <footer> <div data-include-path="../page/footer.html"></div> </footer>
+
+<script> window.addEventListener('load', () => {
+    const forms = document.getElementsByClassName('validation-form');
+    Array.prototype.filter.call(forms, (form) => {
+      form.addEventListener('submit', function (event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        } form.classList.add('was-validated');
+      }, false);
+    });
+  }, false); 
+</script>
+
+
+<!-- 푸터 부분 -->
+<footer>
+  <div data-include-path="../page/footer.html"></div>
+</footer>
 
 </body>
+
 </html>
