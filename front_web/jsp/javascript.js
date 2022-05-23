@@ -69,15 +69,33 @@ const duck_nifskorea_com = {
      * html 요소 가져오기
      */
     getQuery: function () {
-      //값 들고오기
-      duck_nifskorea_com.changeInnerText('h4[name="welcomeText"]', "[user_홍길동]님 환영합니다!");
-      duck_nifskorea_com.changeInnerText('div[name="userName"]', "[userName_홍길동]");
-      duck_nifskorea_com.changeInnerText('p[name="position"]', "[직책_팀장]");
+      //localStrage Setter_test
+      localStorage.setItem("username", "user_test");
+      localStorage.setItem("is_mentor", true);
+      localStorage.setItem("email", "asdf@example.com");
+      localStorage.setItem("last_login", Date());
+
+      //localStorage 불러오기
+      const user = localStorage.getItem("username");
+      const position = localStorage.getItem("is_mentor");
+      const userPosition = "멘토";
+      //멘토, 멘티 판별
+        if(position == true) { userPosition = "멘티"; }
+
+      //TODO: 아직 point 구현 안 됌
+      //const point = localStorage.getItem(point);
+      const userEmail = localStorage.getItem("email");
+      const signUpDate = localStorage.getItem("last_login");
+      
+      
+
+      //텍스트 값 변경
+      duck_nifskorea_com.changeInnerText('h4[name="welcomeText"]', user+"님 환영합니다!");
+      duck_nifskorea_com.changeInnerText('div[name="userName"]', user);
+      duck_nifskorea_com.changeInnerText('p[name="position"]', userPosition);
       duck_nifskorea_com.changeInnerText('td[name="point"]', 100 + "점"); //포인트 변경
-      duck_nifskorea_com.changeInnerText('td[name="studyName"]', "[studyName_Spring]");
-      duck_nifskorea_com.changeInnerText('td[name="phone"]', "[010-0000-0000]");
-      duck_nifskorea_com.changeInnerText('td[name="userEmail"]', "[asdf@test.com]");
-      duck_nifskorea_com.changeInnerText('td[name="signUpDate"]', Date());
+      duck_nifskorea_com.changeInnerText('td[name="userEmail"]', userEmail);
+      duck_nifskorea_com.changeInnerText('td[name="signUpDate"]', signUpDate);
     },
   },
   /**
