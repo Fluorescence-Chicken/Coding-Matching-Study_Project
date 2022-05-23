@@ -11,5 +11,5 @@ tag_router.register(r'', views.TagView)
 urlpatterns = [
     path(r'studyroom/', include((studyroom_router.urls, 'api.studyroom'), namespace='studyroom')),
     path(r'tag/', include((tag_router.urls, 'api.studyroom'), namespace='tag')),
-    path(r'register/studyroom', views.StudyRoomSignupView.as_view(), name='studyroom_signup'),
+    path(r'register/studyroom/<int:pk>', views.StudyRoomSignupView.as_view(), name='studyroom_signup'),
 ]

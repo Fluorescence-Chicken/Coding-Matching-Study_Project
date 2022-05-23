@@ -121,13 +121,13 @@ class StudyRoomSignupView(APIView):
         """
         Signup to studyroom.
         """
-        # get StudyRoom object
+        # get StudyRoom object from id of path variable
         study_room = get_object_or_404(StudyRoom, id=kwargs['pk'])
         # check if user already signed up
-        if study_room.objects.filter(user=request.user).exists():
-            return Response(status=400, data={'detail': 'You already signed up to this study room.'})
-        # signup to studyroom
-        study_room.objects.create(user=request.user, study_room=study_room)
+        if request.user.id in study_room.users.all():
+            return Response(status=400, data={'detail': 'You have already signed up to this study room.'})
+        # add user to StudyRoom object's users field
+        study_room.users.add(request.user.id)
         return Response(status=status.HTTP_201_CREATED, data={'detail': 'You have successfully signed up to this study room.'})
 
 
