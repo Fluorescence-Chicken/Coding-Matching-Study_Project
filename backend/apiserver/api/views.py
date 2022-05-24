@@ -17,6 +17,16 @@ class UserCreateView(generics.CreateAPIView):
     queryset = User.objects.all()
 
 
+class UserUploadProfileImageView(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+
+    def post(self, request: Request, *args, **kwargs):
+        user = request.user
+        user.profile_image = request.FILES['profile_image']
+        user.save()
+        return Response(status=status.HTTP_200_OK)
+
+
 class NormalUserManageView(viewsets.GenericViewSet,
                            mixins.RetrieveModelMixin,
                            mixins.UpdateModelMixin,
@@ -72,4 +82,7 @@ class RetriveSelfDataView(APIView):
         """
         Get the user's self data.
         """
-        return Response(self.serializer_class(request.user).data)
+        data = self.serializer_class(request.user).data
+        data.pop('profile_image')
+        data['profile_image'] = request.user.profile_image.url
+        return Response(data)
