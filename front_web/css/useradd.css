@@ -27,6 +27,15 @@ div.cuaqd {
     padding-left: 0.25rem;
     color:#888;
    }
+   /* 게시판 글쓰기부분 오른쪽으로 */
+   div.write-left { 
+    /* 검색창 위치 조정 파트 */
+      padding-left: 93%;  /* 조정 금지 */ 
+     }
+     div.toastui-img { 
+      /* 검색창 위치 조정 파트 */
+        padding-left: 78%;  /* 조정 금지 */ 
+       }
 
      /* 페이지창 메뉴 부분 표현 창 */
      div.b-divider {
@@ -50,7 +59,6 @@ div.cuaqd {
       max-width: 680px; 
       margin-top: 10px; 
       padding: 32px; 
-      /*background: rgb(246, 246, 246); */
       -webkit-border-radius: 10px; 
       -moz-border-radius: 10px; 
       border-radius: 10px; 
@@ -58,6 +66,19 @@ div.cuaqd {
        -moz-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15); 
        box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15) 
       }
+      /*메인 보드 이쁘게 표현*/
+      .input-form-main { 
+        max-width: 680px; 
+        margin-top: 10px; 
+        padding: 32px; 
+        background: rgb(255, 255, 255); 
+        -webkit-border-radius: 10px; 
+        -moz-border-radius: 10px; 
+        border-radius: 10px; 
+        -webkit-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
+         -moz-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15); 
+         box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15) 
+        }
       /* 회원 가입 페이지에서 이용약관 관련 부분 */
       *{margin: 0;padding: 0;box-sizing: border-box}
       body{background-color: #f7f7f7;}
@@ -295,4 +316,57 @@ body {
   font-size:  30px;
   color:red;
 }
-/* 스터디 입장후 */
+/* 스터디 입장후  나의 스터디)*/
+.container {
+  position: relative;
+  width: 60%;
+}
+
+.image {
+  display: block;
+  width: 60%;
+  height: auto;
+}
+.container:hover .overlay {
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+}
+
+.text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+/*  게시판 보드 이동 버튼 */
+
+.btn {
+  border: none;
+  outline: none;
+  padding: 10px 16px;
+  background-color: #f1f1f1;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+/* Style the active class, and buttons on mouse-over */
+.active, .btn:hover {
+  background-color: #666;
+  color: white;
+}
+
+/* 게시판 글쓰기 버튼 속성 변경 */
+.btn-write {
+  padding: 5px 5px;
+  border: none;
+  outline: none;
+  background-color: #f1f1f1;
+  cursor: pointer;
+  font-size: 19px;
+}
