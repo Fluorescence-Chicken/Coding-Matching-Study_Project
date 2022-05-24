@@ -10,6 +10,7 @@ urlpatterns = [
     path('signup/', views.UserCreateView.as_view(), name='signup'),
     path('auth/', include('api.auth.urls')),
     path('me/', views.RetriveSelfDataView.as_view(), name='me'),
+    path('board/', include('api.studyroom.urls')),
 ]
 
 urlpatterns += router.urls

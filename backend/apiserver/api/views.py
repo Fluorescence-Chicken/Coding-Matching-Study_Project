@@ -25,7 +25,7 @@ class NormalUserManageView(viewsets.GenericViewSet,
     Manage the user's profile.
     This endpoint is available only to the user himself except retrieve.
     """
-    permission_classes = [permissions.IsAuthenticated]
+    access_policy = [permissions.IsAuthenticated]
     serializer_class = UserWithoutPasswordSerializer
     queryset = User.objects.all()
 

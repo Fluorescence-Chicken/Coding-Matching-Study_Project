@@ -12,6 +12,8 @@ dj-rest-auth = "*"
 django-cors-headers = "*"
 requests = "*"
 gunicorn = "*"
+rest-condition = "*"
+drf-access-policy = "*"
 
 [dev-packages]
 
