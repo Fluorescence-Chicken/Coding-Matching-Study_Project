@@ -9,7 +9,8 @@ class UserSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = User
-        exclude = ["last_login", "social_identifier", "is_admin", "is_mentor", "is_active"]
+        exclude = ["last_login", "social_identifier", "is_admin", "is_mentor", "is_active",]
+        read_only_fields = ["profile_image"]
         extra_kwargs = {
             "password": {"write_only": True},
             "email": {"required": True},
@@ -45,4 +46,4 @@ class UserWithoutPasswordSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         exclude = ["password", "social_identifier"]
-        read_only_fields = ['id', 'username', 'email', 'is_admin', 'is_mentor', 'is_active', 'last_login']
+        read_only_fields = ['id', 'username', 'email', 'is_admin', 'is_mentor', 'is_active', 'last_login', 'profile_image']

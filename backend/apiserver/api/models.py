@@ -88,6 +88,7 @@ class User(AbstractBaseUser):
     username = models.CharField(max_length=30, unique=True)
     email = models.EmailField(unique=True)
     social_identifier = models.CharField(max_length=150, null=True, blank=True)
+    profile_image = models.ImageField(upload_to='profile_image', null=True, blank=True)
 
     first_name = models.CharField(max_length=30, null=True, blank=True)
     last_name = models.CharField(max_length=30, null=True, blank=True)
