@@ -83,6 +83,4 @@ class RetrieveSelfDataView(APIView):
         Get the user's self data.
         """
         data = self.serializer_class(request.user).data
-        data.pop('profile_image')
-        data['profile_image'] = request.user.profile_image.url
         return Response(data)
