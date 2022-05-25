@@ -7,7 +7,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from api.studyroom.models import StudyRoom, Tag
-from api.studyroom.serializers import StudyRoomSerializer, TagSerializer, StudyRoomCreateSerializer
+from api.studyroom.serializers import StudyRoomSerializer, TagSerializer
 from config import permissions as custom_permissions
 
 
