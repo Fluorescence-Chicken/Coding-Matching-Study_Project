@@ -51,7 +51,8 @@ INSTALLED_APPS = [
 
     # Custom apps
     'api',
-    # 'api.studyroom',
+    'api.studyroom',
+    'api.notify_board',
 ]
 
 REST_FRAMEWORK = {
