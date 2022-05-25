@@ -71,7 +71,7 @@ class NormalUserManageView(viewsets.GenericViewSet,
         return super().retrieve(request, *args, **kwargs)
 
 
-class RetriveSelfDataView(APIView):
+class RetrieveSelfDataView(APIView):
     """
     Check if the user is authenticated
     """
