@@ -22,18 +22,22 @@
 
     <!-- 헤더 부분 -->
     <div data-include-path="../page/header.html"> </div>
+
+    <!-- js 연결 -->
+    <script src="../jsp/javascript.js"></script>
 </head>
 
 <body>
     <!-- 바디 섹션 -->
     <div class="b-divider">나의 스터디 수업</div>
     <div class="container input-form">
-        <!-- DB 로 스터디명을 표시해야함 js script -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h4 class="mb-3">도커의 스터디</h4>
-           
+            <h4 class="mb-3" name = "studyName">도커의 스터디</h4>
+            
         </div>
+          
         <hr class="my-2">
+
         <!-- 여기서 부터 바디 섹션 작성 부분 -->
          <!-- Content Row -->
          <div class="row">
@@ -45,8 +49,7 @@
                             <div class="col mr-2">
                                 <div class=" font-weight-bold text-primary text-uppercase mb-1">
                                    강의 갯수 </div>
-                                <!-- 스터디 몇개인지 불러와야함 js script-->
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">총 30개</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800" name = "studyCount">총 30개</div>
                             </div>
                             <div class="col-auto">
                                 <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -118,8 +121,9 @@
                                 </div>
                                 <div class="row no-gutters align-items-center">
                                     <div class="col-auto">
-                                        <!-- 스터디 진행률 서버에서 가져와야함 js script-->
-                                        <div class="h4 mb-0 mr-3 font-weight-bold text-gray-800">10 / 30
+                                        <!-- 스터디 진행률 서버에서 가져와야함 js script TODO: 총 개수와 완료 개수 합치기-->
+                                        <div class="h4 mb-0 mr-3 font-weight-bold text-gray-800" name="endLesson">10 /</div>
+                                         <div class="h4 mb-0 mr-3 font-weight-bold text-gray-800" name="allLesson">30</div>
                                             <div class="font-weight-bold h8 mb-0 mr-3 text-xs text-gray-600"> (완료 수업)</div>
                                         </div>
                                         
@@ -134,38 +138,105 @@
                     </div>
                 </div>
             </div>
-            
+               <div class="container">
+                <div class="row">
+                    <div class="col-md-5">
+               <div class="card-header" style="width: 60%; border-radius: 10px;">
+                <!-- 스터디 1주차 내용 긁어와야함 js script / 변경할 부분이..?-->
+                <h6 class="m-0 font-weight-bold text-primary text-center">스터디 멘토</h6>
+            </div>
+            <!-- 이미지는 고정으로 가던지 일단 추후 고려해야함-->
+            <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="image">
+            <div class="card-header" style="width: 60%; border-radius: 10px;">
+                <h6 class="m-0 font-weight-bold text-center" name = "name">멘토 : 홍길동</h6>
+            </div>
+        </div>
+        <!-- Overflow Hidden -->
+        <div class="card md-5" style="min-width: 500px;">
+            <div class="card-header">
+                <h6 class="m-0 font-weight-bold text-primary text-center">스터디 담당 교사</h6>
+            </div>
+            <div class="card-body">
+                <table class="table align-items-center">
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>교사 이름</td>
+                            <td name = "name">000 강사님</td>
+        
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>담당 전공</td>
+                            <td name = "dept">시스템 엔지니어링</td>
+        
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>연력 또는 경력</td>
+                            <td name = "carrar">현직) 000 기업 3년차 재직중</td>
+        
+                        </tr>
+                        <tr>
+                            <th scope="row">4</th>
+                            <td>연락처 및 이메일 주소 </td>
+                            <td name = "email"> test@naver.com</td>
+        
+                        </tr>
+                        <tr>
+                          <th scope="row">5</th>
+                          <td>스터디 진행 기간 </td>
+                          <!-- TODO: "날짜 ~ 날짜" 형식으로 변경 -->
+                          <td> <div name = startDate>2022. 05. 23</div>
+                              <div name = endDate>2022. 07. 21</div></td>
+      
+                      </tr>
+                        <tr>
+                            <th scope="row">6</th>
+                            <td>한줄 인사말</td>
+                            <td name = "bio"> 안녕하세요 000 입니다 언제든지 질문주세요~!</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <!-- 아래 2개는 마무리 태그임-->
+        </div>
+        
+        </div>
         <!-- 카드 부분 끝 -->
         <!--아래 부터 테이블 내용 스터디 내용 가져오는것-->
-        <div class="card-header" style="width: 100%; border-radius: 10px;">
-            <!-- 스터디 1주차 내용 긁어와야함 js script-->
-            <h6 class="m-0 font-weight-bold text-primary text-center">1주차 스터디</h6>
+        <div class="p-3"></div>
+        <div class="card-header " style="width: 100%; border-radius: 10px;">
+            <h6 class="m-0 font-weight-bold text-primary text-center" name = "studyWeekNum">1주차 스터디</h6>
         </div>
         <!-- 스터디 헤더 끝나고 아래부터 본격적인 테이블 내용-->
         <table class="table">
             <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>운영체제가 뭐길래?</td>
-                <td>000 강사님</td>
-                <td>15:50초 <i class="bi bi-collection-play-fill"></i></td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>운영체제가 뭐길래?</td>
-                <td>000 강사님</td>
-                <td>15:50초 <i class="bi bi-collection-play-fill"></i></td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>운영체제가 뭐길래?</td>
-                <td>000 강사님</td>
-                <td>15:50초 <i class="bi bi-collection-play-fill"></i></td>
-              </tr>
+                <tr>
+                    <th scope="row">1</th>
+                    <td name = "studyTitle1">운영체제가 뭐길래?</td>
+                    <td name = "name">000 강사님</td>
+                    <td name = "studyTime1">15:50초 <i class="bi bi-collection-play-fill"></i></td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td name = "studyTitle2">운영체제가 뭐길래?</td>
+                    <td name = "name">000 강사님</td>
+                    <td name = "studyTime2">15:50초 <i class="bi bi-collection-play-fill"></i></td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td name = "studyTitle3">운영체제가 뭐길래?</td>
+                    <td name = "name">000 강사님</td>
+                    <td name = "studyTime3">15:50초 <i class="bi bi-collection-play-fill"></i></td>
+                </tr>
+                
             </tbody>
-          </table>
-          <!-- 2번째 테이블 구성-->
-           <!--아래 부터 테이블 내용 스터디 내용 가져오는것-->
+        </table>
+        <!-- 2번째 테이블 구성-->
+        <!--아래 부터 테이블 내용 스터디 내용 가져오는것-->
         <div class="card-header" style="width: 100%; border-radius: 10px;">
             <!-- 스터디 1주차 내용 긁어와야함 js script-->
             <h6 class="m-0 font-weight-bold text-primary text-center">2주차 스터디</h6>
@@ -173,27 +244,27 @@
         <!-- 스터디 헤더 끝나고 아래부터 본격적인 테이블 내용-->
         <table class="table">
             <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>운영체제가 뭐길래?</td>
-                <td>000 강사님</td>
-                <td>15:50초 <i class="bi bi-collection-play-fill"></i></td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>운영체제가 뭐길래?</td>
-                <td>000 강사님</td>
-                <td>15:50초 <i class="bi bi-collection-play-fill"></i></td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>운영체제가 뭐길래?</td>
-                <td>000 강사님</td>
-                <td>15:50초 <i class="bi bi-collection-play-fill"></i></td>
-              </tr>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>운영체제가 뭐길래?</td>
+                    <td>000 강사님</td>
+                    <td>15:50초 <i class="bi bi-collection-play-fill"></i></td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>운영체제가 뭐길래?</td>
+                    <td>000 강사님</td>
+                    <td>15:50초 <i class="bi bi-collection-play-fill"></i></td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>운영체제가 뭐길래?</td>
+                    <td>000 강사님</td>
+                    <td>15:50초 <i class="bi bi-collection-play-fill"></i></td>
+                </tr>
             </tbody>
-          </table>
-           <!--아래 부터 테이블 내용 스터디 내용 가져오는것-->
+        </table>
+        <!--아래 부터 테이블 내용 스터디 내용 가져오는것-->
         <div class="card-header" style="width: 100%; border-radius: 10px;">
             <!-- 스터디 3주차 내용 긁어와야함 js script-->
             <h6 class="m-0 font-weight-bold text-primary text-center">3주차 스터디</h6>
@@ -201,39 +272,40 @@
         <!-- 스터디 헤더 끝나고 아래부터 본격적인 테이블 내용-->
         <table class="table">
             <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>운영체제가 뭐길래?</td>
-                <td>000 강사님</td>
-                <td>15:50초 <i class="bi bi-collection-play-fill"></i></td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>운영체제가 뭐길래?</td>
-                <td>000 강사님</td>
-                <td>15:50초 <i class="bi bi-collection-play-fill"></i></td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>운영체제가 뭐길래?</td>
-                <td>000 강사님</td>
-                <td>15:50초 <i class="bi bi-collection-play-fill"></i></td>
-              </tr>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>운영체제가 뭐길래?</td>
+                    <td>000 강사님</td>
+                    <td>15:50초 <i class="bi bi-collection-play-fill"></i></td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>운영체제가 뭐길래?</td>
+                    <td>000 강사님</td>
+                    <td>15:50초 <i class="bi bi-collection-play-fill"></i></td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>운영체제가 뭐길래?</td>
+                    <td>000 강사님</td>
+                    <td>15:50초 <i class="bi bi-collection-play-fill"></i></td>
+                </tr>
             </tbody>
-          </table>
-            <!-- 마지막 div -->
+        </table>
+        <!-- 마지막 div -->
         </div>
-    </div>
-    </div>
-<style>
-.checked {
-  color: orange;
-}
-</style>
-</body>
-<!-- 푸터 부분 -->
-<footer>
-    <div data-include-path="../page/footer.html"></div>
-</footer>
-
-</html>
+        </div>
+        </div>
+        <style>
+            .checked {
+                color: orange;
+            }
+        </style>
+            <script>duck_nifskorea_com.sutdyDashboard.getQuery()</script>
+        </body>
+        <!-- 푸터 부분 -->
+        <footer>
+            <div data-include-path="../page/footer.html"></div>
+        </footer>
+        
+        </html>
