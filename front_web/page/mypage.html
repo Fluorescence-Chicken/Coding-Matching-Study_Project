@@ -9,6 +9,10 @@
 
   <!-- 헤더 부분 -->
   <div data-include-path="../page/header.html"> </div>
+
+  <!-- js 연결 -->
+  <script src="../jsp/javascript.js"></script>
+  
 </head>
 
 <body>
@@ -17,7 +21,7 @@
   <!-- 아래부터 메인 페이지 분할하여 표현 하는 부분 -->
   <div class="container input-form">
     <!-- DB 로 사용자명을 표시해야함 -->
-    <h4 class="mb-3">000님 환영합니다!</h4>
+    <h4 class="mb-3" name="welcomeText">000님 환영합니다!</h4>
     <hr class="my-2"><br>
     <div class="row">
       <div class="col-md-12 ">
@@ -28,13 +32,11 @@
               <!-- 이미지 표시 공간 -->
               <div class="box" style="background: #ffff">
                 <!-- 추후 이미지 변동사항 발생하면 변경해야함!! DB 사용자별로 변경해야함 -->
-                <img src="https://t1.daumcdn.net/cfile/tistory/24283C3858F778CA2E" class="profile"><br>
+                <img src="https://t1.daumcdn.net/cfile/tistory/24283C3858F778CA2E" class="profile" name="profile_image"><br>
               </div>
               <!-- 작업 진행율 표시 프로그래스 -->
-              <!-- DB에서 사용자 이름을 가져와야함 -->
-              <div class="h2">홍길동 </div>
-              <!-- 직책명 db로 가져와야함 -->
-              <p class="text-muted">팀장</p>
+              <div class="h2" name="userName">홍길동 </div>
+              <p class="text-muted" name="position">팀장</p>
               <!-- 테이블 요소로 세부 표현 -->
               <table class="table table-light col-lg-auto">
                 <thread>
@@ -90,33 +92,19 @@
                 <th scope="row">포인트</th>
                 <td></td>
                 <td></td>
-                <!-- 여기 사용자별 포인트 가져와야함 (변동가능) ) -->
-                <td>163점</td>
-              </tr>
-              <tr>
-                <!-- 여기 사용자별 스터디 가져와야함 (변동가능) ) -->
-                <th scope="row">스터디명</th>
-                <td></td>
-                <td></td>
-                <td> Spring 스터디 </td>
-              </tr>
-              <tr>
-                <!-- 여기 사용자별 전화번호 가져와야함 (변동가능) )-->
-                <th scope="row">연락처</th>
-                <td colspan="2"></td>
-                <td>010-1234-1234</td>
+                <td name="point">163점</td>
               </tr>
               <tr>
                 <!-- 여기 사용자별 이메일  가져와야함 (변동가능) )-->
                 <th scope="row">Email</th>
                 <td colspan="2"></td>
-                <td>test@naver.com</td>
+                <td name="userEmail">test@naver.com</td>
               </tr>
               <tr>
                 <!-- 여기 사용자별 회원가입일 가져와야함 (변동가능) )-->
                 <th scope="row">회원가입일</th>
                 <td colspan="2"></td>
-                <td> 2022-05-17 21:55:42</td>
+                <td name="signUpDate"> 2022-05-17 21:55:42</td>
               </tr>
 
             </tbody>
@@ -127,15 +115,6 @@
       <div class="col-sm-3 ">
         <div class="list-group3 ">
           <h3><i class="bi bi-clipboard-data"></i> 나의 현황 </h3>
-          <a href="#" class="list-group-item list-group-item-action list-group-item-light " aria-current="true">
-            <div class="  w-100  ">
-              <center>
-                <h5>내글 반응</h5>
-              </center>
-            </div>
-            <div class="d-flex w-100 justify-content-end">
-            </div>
-          </a>
           <a href="#" class="list-group-item list-group-item-action list-group-item-light" aria-current="true">
             <div class="  w-100">
               <center>
@@ -155,22 +134,14 @@
             <div class="d-flex w-100 justify-content-end">
             </div>
           </a>
-          <a href="#" class="list-group-item list-group-item-action list-group-item-light" aria-current="true">
-            <div class=" w-100">
-              <center>
-                <h5>스크랩</h5>
-              </center>
-            </div>
-            <div class="d-flex w-100 justify-content-end">
-            </div>
-          </a>
+          
         </div>
       </div>
       <!-- 3번째 부분 -->
       <div class="col-sm-3 ">
         <div class="list-group4">
           <h3><i class="bi bi-file-person"></i> 정보 관리</h3>
-          <a href="#" class="list-group-item list-group-item-action list-group-item-info" aria-current="true">
+          <a href="http://duck.nifskorea.com:8080/project/page/pw_confirm.html" class="list-group-item list-group-item-action list-group-item-info" aria-current="true">
             <div class=" w-100">
               <center>
                 <h5>정보 수정</h5>
@@ -189,7 +160,7 @@
             <div class="d-flex w-100 justify-content-end">
             </div>
           </a>
-          <a href="#" class="list-group-item list-group-item-action list-group-item-light" aria-current="true">
+          <a href="http://duck.nifskorea.com:8080/project/page/change_profile.html" target="_blank"  class="list-group-item list-group-item-action list-group-item-light" aria-current="true">
             <div class=" w-100">
               <center>
                 <h5>사진 등록 </h5>
@@ -198,7 +169,7 @@
             <div class="d-flex w-100 justify-content-end">
 
             </div>
-          </a> <a href="#" class="list-group-item list-group-item-action list-group-item-danger" aria-current="true">
+          </a> <a href="http://duck.nifskorea.com:8080/project/page/withdrawal.html" class="list-group-item list-group-item-action list-group-item-danger" aria-current="true">
             <div class=" w-100">
               <center>
                 <h5>탈퇴 하기</h5>
@@ -215,11 +186,8 @@
   </div>
   </div>
   </div>
-
-
-
-
-
+  <!-- JS getQuery 함수 호출-->
+  <script>duck_nifskorea_com.myPage.getQuery()</script>
 </body>
 
 <!-- 푸터 부분 -->

@@ -1,0 +1,95 @@
+<!-- 비밀번호 확인 페이지-->
+
+
+<!-- 본페이지는 js를 별도로 분리하지않고 해당페이지에서 처리합니다 (미작동 및 작동오류문제가 있는걸로 감지되어짐 )-->
+
+<html>
+
+<head>
+    <!-- 필수 선언부 -->
+    <meta charset="utf-8">
+    <script src="../jsp/w3.js"> </script>
+    <!-- 헤더 부분 -->
+    <div data-include-path="header.html"> </div>
+
+    <link rel="stylesheet" href="../css/pw_confirm.css">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sign-in/">
+
+
+<body >
+    <div class="b-divider"><i class="bi bi"></i> 비밀번호 확인 페이지 </div>
+    <p></p>
+    <body class="text-center vsc-initialized">
+
+    <main class="form-confirm">
+        <!-- This form should do nothing. -->
+        <form action="javascript:void(0)">
+          <div class="container">
+            <div class="input-form-backgroud row">
+              <div class="input-form col-md-12 mx-auto">
+    
+                <img class="img-responsive center-block">
+    
+                <img src="../img/logo2.png" alt="ㅋㅅ" width="72" height="57">
+                <h1 class="h3 mb-3 fw-normal">
+                  <!-- 로고 밑에 글 추가하고 싶으면 여기 적기 -->
+    
+                </h1>
+               
+                <h5>비밀번호를 한번 더 입력해주세요.</h5>
+                <p></p>
+                
+                <h6>회원님의 정보를 안전하게 보호하기 위해 </h6>
+                <h6>비밀번호를 한번 더 확인합니다. </h6>
+                
+                <p></p>
+
+                <!-- (JS DATA), TEST_ID부분에 실제 ID입력되게 해야함.-->
+                회원 아이디 : TEST_ID
+                <p></p>
+
+
+                <!-- (JS DATA), 기존 페이지 > 비밀번호 확인(이 페이지) > 기존 페이지
+                    case1. 개인정보를 수정하는 경우
+                    case2.  -->
+                <div class="form-floating">
+                  <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="input_password">
+                
+                </div>
+    
+                  </label>
+                </div>
+                 <!-- (JS DATA) -->
+                <button class="w-100 btn btn-lg btn-primary" onclick="duck_nifskorea_com.login.onLoginButton()">비밀번호 확인</button>
+    
+                <!--<p class="mt-5 mb-3 text-muted">© 2017–2021</p> -->
+              </div>
+            </div><br>
+            <p class="mb-1">&copy; 2022 코딩 스터디 매칭 플랫폼.</p>
+          </div>
+    
+        </form>
+      </main>
+    
+
+
+
+
+
+
+
+
+
+</body>
+
+
+
+
+
+
+
+
+    <!-- 푸터 부분 -->
+<footer>
+    <div data-include-path="footer.html"></div>
+  </footer>

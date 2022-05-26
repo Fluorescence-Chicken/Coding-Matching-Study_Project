@@ -1,0 +1,81 @@
+<html>
+
+<head>
+
+  <!-- 필수 선언부 -->
+  <meta charset="utf-8">
+  <script src="../jsp/w3.js"> </script>
+  <!-- 커스텀 부분 코드 -->
+
+  <!-- 헤더 부분 -->
+  <div data-include-path="../page/header.html"> </div>
+
+  <!-- js 연결 -->
+  <script src="../jsp/javascript.js"></script>
+  <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
+<link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
+</head>
+
+<body>
+    <form method="get" name="form">
+<!-- 바디 섹션 -->
+<div class="b-divider">게시글 작성페이지</div>
+<!-- 아래부터 메인 페이지 분할하여 표현 하는 부분 -->
+<div class="container input-form">
+  <!-- DB 로 사용자명을 표시해야함 -->
+  <h4 class="mb-3" name="welcomeText">게시글 작성하기</h4>
+  <hr class="my-2"><br>
+  <!-- 여기서 부터는 에디터 부분 -->
+  <!-- 토스트 UI 에디터 부분 -->
+  <div class="alert alert-success d-flex align-items-center" role="alert">
+     <div >
+      본 에디터는 마크다운을 지원하는 에디터입니다.
+     </div>
+   </div>
+  <div id="editor"></div>
+  <!-- powerd by 표시 부분 -->
+  <div class="toastui-img fw-bolder">
+      Powerd By : <img src="../img/toastui.png"  width="150" height="33">
+  </div>
+  <!-- 게시글 등록 전송 페이지 부분 js script처리 -->
+  <!-- 전송할때 토스트 API로 추출해서 해야하기때문에 백엔드 데이터 처리할때 봐야할듯-->
+  <form class="form-inline my-2 my-md-0">
+  <center>
+      <!-- 만약에 자바스크립트로 이전페이지로 이동으로 바꿀수있음 js script로 이전페이지 이동하기 -->
+    <button type="submit" class="btn-warning btn-lg2 " formaction="http://duck.nifskorea.com:8080/project/index.html">
+        <center><font color="white">메인화면</center></font>
+      </button>
+  <button type="submit" class="btn-secondary btn-lg2 " formaction="/subject/loginpro.jsp">
+    <center>게시글 등록</center>
+  </button>
+  </center>
+  </form>
+  <!-- 전송하기 -->
+  </div>
+</form>
+</body>
+<!-- 푸터 부분 -->
+<footer>
+    <div data-include-path="../page/footer.html"></div>
+  </footer>
+  <!-- 토스트 UI 에디터 -->
+  <script>
+     const Editor = toastui.Editor;
+     const codeSyntaxHighlight  = Editor.plugin;
+    const editor = new Editor({
+        el: document.querySelector('#editor'),
+        height: '500px',
+        initialEditType: 'markdown',
+        previewStyle: 'vertical',
+        initialValue: '### 원하시는 HTML내용을 작성해주세요.',
+        usageStatistics:'false',
+        language: 'ko'
+        
+    });
+    const editorRef = useRef();
+    editorRef.current.getInstance().getMarkdown();
+    editor.getMarkdown();
+    //console.log(editor.getMarkdown()); // { range: [startCursorOffset, endCursorOffset], type: 'emph' }
+  </script>
+
+</html>
