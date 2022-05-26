@@ -33,9 +33,13 @@
     <div class="container input-form">
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h4 class="mb-3" name = "studyName">도커의 스터디</h4>
-            
         </div>
-          
+         <!-- 여기서 삭제하기 , Q&A 버튼 영역 -->
+         <div class="buttonarea">
+             <!-- 해당 화면은 팝업화면으로 보여야함  설문폼으로 보여야할듯 -->
+            <a href="#"><button type="button" class="btn btn-warning">스터디 평점 부여하기</button></a>
+         <a href="#"><button type="button"  class="btn btn-danger">스터디 탈퇴하기</button></a>
+         </div>
         <hr class="my-2">
 
         <!-- 여기서 부터 바디 섹션 작성 부분 -->
@@ -200,10 +204,39 @@
                 </table>
             </div>
         </div>
-        
+        <!-- 최근 질문 -->
+        <div class="p-3"></div>
         <!-- 아래 2개는 마무리 태그임-->
+        <div class="card-header2 " style="width: 100%; border-radius: 10px;">
+        <h6 class="m-0 font-weight-bold text-primary text-center" name = "">Q & A (멘토링 질문 게시판)</h6>
+        </div>
+        <!-- 스터디 헤더 끝나고 아래부터 본격적인 테이블 내용-->
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th scope="row">순번</th>
+                    <td name = "">내용</td>
+                    <td name = "">작성자</td>
+                    <td name = "">작성 시간 </td>
+                </tr>
+                <tr>
+                    <th scope="row">1</th>
+                    <td name = "">질문있습니다!</td>
+                    <td name = ""> 000멘티</td>
+                    <td name = "">2022/05/25 17:21:49 </td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td name = "">질문있습니다!</td>
+                    <td name = ""> 000멘티</td>
+                    <td name = "">2022/05/25 17:21:49</td>
+                </tr>
+                
+            </tbody>
+        </table>
         </div>
         
+        <hr class="border-primary border-3 opacity-75">
         </div>
         <!-- 카드 부분 끝 -->
         <!--아래 부터 테이블 내용 스터디 내용 가져오는것-->

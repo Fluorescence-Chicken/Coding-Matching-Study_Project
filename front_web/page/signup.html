@@ -29,38 +29,43 @@
     <div class="input-form-backgroud row">
       <div class="input-form col-md-12 mx-auto">
         <h4 class="mb-3">회원가입</h4>
-        <form class="validation-form" novalidate>
+        <form class="validation-form" action="javascript:void(0)" novalidate>
           <div class="row">
             <div class="col-md-6 mb-3">
               <label for="name">이름</label>
-              <input type="text" class="form-control" id="name" placeholder="" value="" required>
+              <input type="text" class="form-control" id="name" placeholder="" value="" name="first_name" required>
               <div class="invalid-feedback"> 이름을 입력해주세요. </div>
             </div>
             <div class="col-md-6 mb-3">
-              <label for="nickname">성</label> <input type="text" class="form-control" id="nickname" placeholder=""
-                value="" required>
+              <label for="nickname">성</label> <input type="text" class="form-control" id="last_name" placeholder=""
+                value="" name="last_name" required>
               <div class="invalid-feedback"> 성을 입력해주세요. </div>
             </div>
           </div>
           <div class="mb-3">
+            <label for="address2">사용자 이름<span class="text-muted"></span></label>
+            <input type="text" class="form-control" id="address2" placeholder="사용자 이름을 입력해주세요." name="username" required>
+            <div class="invalid-feedback"> 사용자 이름을 입력해주세요.. </div>
+          </div>
+          <div class="mb-3">
             <label for="email">이메일</label>
-            <input type="email" class="form-control" id="email" placeholder="you@example.com" required>
+            <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com" required>
             <div class="invalid-feedback"> 이메일을 입력해주세요. </div>
           </div>
           <div class="mb-3">
             <label for="address">비밀번호</label>
-            <input type="text" class="form-control" id="address" placeholder="비밀번호를 입력해주세요!" required>
+            <input type="text" class="form-control" id="address" placeholder="비밀번호를 입력해주세요!" name="password" required>
             <div class="invalid-feedback"> 비밀번호를 입력해주세요. </div>
           </div>
           <div class="mb-3">
             <label for="address2">주소<span class="text-muted"></span></label>
-            <input type="text" class="form-control" id="address2" placeholder="주소를 입력해주세요." required>
+            <input type="text" class="form-control" id="address2" placeholder="주소를 입력해주세요." name="address" required>
             <div class="invalid-feedback"> 주소를 입력해주세요. </div>
           </div>
           <div class="row">
             <div class="col-md-8 mb-3">
               <label for="root">귀하의 직업은 무엇입니까? <b>(선택 사항)</b></label>
-              <select class="custom-select d-block w-100" id="root">
+              <select class="custom-select d-block w-100" id="root" name="job">
                 <option value=""></option>
                 <option>학생</option>
                 <option>교사</option>
@@ -75,7 +80,7 @@
           </div>
           <div class="mb-3">
             <label for="root2">성별 </label>
-            <select class="custom-select d-block w-25" id="root2" required>
+            <select class="custom-select d-block w-25" id="root2" name="gender" required>
               <option value=""></option>
               <option>남자</option>
               <option>여자</option>
@@ -253,8 +258,7 @@
 </body>
 
 
-
-
+<script src="../jsp/javascript.js"></script>
 <script> window.addEventListener('load', () => {
     const forms = document.getElementsByClassName('validation-form');
     Array.prototype.filter.call(forms, (form) => {
@@ -263,6 +267,9 @@
           event.preventDefault();
           event.stopPropagation();
         } form.classList.add('was-validated');
+        if (form.checkValidity() === true){
+          duck_nifskorea_com.signup.onSignUpButtonClick();
+        }
       }, false);
     });
   }, false); 
