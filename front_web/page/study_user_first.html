@@ -124,11 +124,11 @@
         <!-- 이까지가 상단에 목록 보여주는 부분임 -->
         <!-- 아래에서부터 스터디 목록을 보여주어야함 카드 부분 -->
         <div class="row row-cols-1 row-cols-md-3 g-4">
-            <div class="col ">
+            <div class="col " id="studyCardCol">
+                <!-- studyCard를 동적으로 생성하는 메서드 호출 -->
+                <script>duck_nifskorea_com.study_user_first.createStudyCard()</script>
                 <!-- Basic Card Example -->
-                <div class="card shadow mb-4">
-                    <!-- 스터디 삭제 부분 js script로 삭제도 할수있어야함 -->
-                    <i class="bi bi-node-minus-fill"></i>
+                <div class="card shadow mb-4" >
                     <div class="card-body" style="width: 18rem;">
                         <div class="studyItem_schedule">
                             <p>시작 예정일 |</p>
@@ -136,10 +136,10 @@
                                 <p>2022.05.23</p>
                             </div>
                         </div>
-                        <h5 class="card-title" name = "studyName">도커 스터디 </h5>
-                        <div name = "studyDescription">Docker에 대해 알아보는 초급 스터디입니다.</div>
+                        <h5 class="card-title" name="studyName">도커 스터디 </h5>
+                        <div name="studyDescription">Docker에 대해 알아보는 초급 스터디입니다.</div>
                         <!-- 스터디과목 정보 태그 js script -->
-                        <ul class="studyItem_hashtag p-1" name = "studyTag">
+                        <ul class="studyItem_hashtag p-1" name="studyTag">
                             <li>#초급</li>
                             <li>#멘토: 홍길동</li>
                         </ul>
@@ -163,216 +163,6 @@
                     <!-- 카드 끝임 -->
                 </div>
             </div>
-            <!-- 다음 카드 -->
-            <div class="col ">
-                <!-- Basic Card Example -->
-                <div class="card shadow mb-4">
-                    <!-- 스터디 삭제 부분 js script로 삭제도 할수있어야함 -->
-                    <i class="bi bi-node-minus-fill"></i>
-                    <div class="card-body" style="width: 18rem;">
-                        <!-- 스터디 시작일 표시 부분 js script-->
-                        <div class="studyItem_schedule">
-                            <p>시작 예정일 |</p>
-                            <p>2022.05.23</p>
-                        </div>
-                        <h5 class="card-title">도커 스터디 </h5>
-                        <!-- 스터디 내용 불러와야함 js script-->
-                        Docker에 대해 알아보는 초급 스터디입니다.
-                        <!-- 스터디과목 정보 태그 js script -->
-                        <ul class="studyItem_hashtag p-1">
-                            <li>#초급</li>
-                            <li>#멘토: 홍길동</li>
-                        </ul>
-                        <!-- 스터디 과목 이미지  -->
-                        <!-- 이미지 테스팅 해야할듯 -->
-                        <ul class="studyItem_content">
-                            <li class="studyItem_content_img">
-                                <!-- 스터디별 이미지를 긁어와야함 js script-->
-                                <img class="studyItem_content_img"
-                                    src="https://holaworld.io/images/languages/docker.svg" alt="language">
-                            </li>
-                            <li class="studyItem_content_img">
-                                <img class="studyItem_content_img"
-                                    src="https://holaworld.io/images/languages/docker.svg" alt="language">
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- 해당 스터디로 이동하기 처리 js script-->
-                    <a href="http://duck.nifskorea.com:8080/project/page/study_dashboard.html"
-                        class="btn btn-primary">스터디로 이동하기 </a>
-                    <!-- 카드 끝임 -->
-                </div>
-            </div>
-            <!-- 다음 카드-->
-            <div class="col ">
-                <!-- Basic Card Example -->
-                <div class="card shadow mb-4">
-                    <!-- 스터디 삭제 부분 js script로 삭제도 할수있어야함 -->
-                    <i class="bi bi-node-minus-fill"></i>
-                    <div class="card-body" style="width: 18rem;">
-                        <!-- 스터디 시작일 표시 부분 js script-->
-                        <div class="studyItem_schedule">
-                            <p>시작 예정일 |</p>
-                            <p>2022.05.23</p>
-                        </div>
-                        <h5 class="card-title">도커 스터디 </h5>
-                        <!-- 스터디 내용 불러와야함 js script-->
-                        Docker에 대해 알아보는 초급 스터디입니다.
-                        <!-- 스터디과목 정보 태그 js script -->
-                        <ul class="studyItem_hashtag p-1">
-                            <li>#오프라인</li>
-                            <li>#3명</li>
-                            <li>#5개월</li>
-                            <li>#초급</li>
-                        </ul>
-                        <!-- 스터디 과목 이미지  -->
-                        <!-- 이미지 테스팅 해야할듯 -->
-                        <ul class="studyItem_content">
-                            <li class="studyItem_content_img">
-                                <!-- 스터디별 이미지를 긁어와야함 js script-->
-                                <img class="studyItem_content_img"
-                                    src="https://holaworld.io/images/languages/docker.svg" alt="language">
-                            </li>
-                            <li class="studyItem_content_img">
-                                <img class="studyItem_content_img"
-                                    src="https://holaworld.io/images/languages/docker.svg" alt="language">
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- 해당 스터디로 이동하기 처리 js script-->
-                    <a href="http://duck.nifskorea.com:8080/project/page/study_dashboard.html"
-                        class="btn btn-primary">스터디로 이동하기 </a>
-                    <!-- 카드 끝임 -->
-                </div>
-            </div>
-            <!-- 하단 카드 부분임  하단은 필수로 py-1넣어야함-->
-            <div class="col py-1 ">
-                <!-- Basic Card Example -->
-                <div class="card shadow mb-4">
-                    <!-- 스터디 삭제 부분 js script로 삭제도 할수있어야함 -->
-                    <i class="bi bi-node-minus-fill"></i>
-                    <div class="card-body" style="width: 18rem;">
-                        <!-- 스터디 시작일 표시 부분 js script-->
-                        <div class="studyItem_schedule">
-                            <p>시작 예정일 |</p>
-                            <p>2022.05.23</p>
-                        </div>
-                        <h5 class="card-title">도커 스터디 </h5>
-                        <!-- 스터디 내용 불러와야함 js script-->
-                        Docker에 대해 알아보는 초급 스터디입니다.
-                        <!-- 스터디과목 정보 태그 js script -->
-                        <ul class="studyItem_hashtag p-1">
-                            <li>#초급</li>
-                            <li>#멘토: 홍길동</li>
-                        </ul>
-                        <!-- 스터디 과목 이미지  -->
-                        <!-- 이미지 테스팅 해야할듯 -->
-                        <ul class="studyItem_content">
-                            <li class="studyItem_content_img">
-                                <!-- 스터디별 이미지를 긁어와야함 js script-->
-                                <img class="studyItem_content_img"
-                                    src="https://holaworld.io/images/languages/docker.svg" alt="language">
-                            </li>
-                            <li class="studyItem_content_img">
-                                <img class="studyItem_content_img"
-                                    src="https://holaworld.io/images/languages/docker.svg" alt="language">
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- 해당 스터디로 이동하기 처리 js script-->
-                    <a href="http://duck.nifskorea.com:8080/project/page/study_dashboard.html"
-                        class="btn btn-primary">스터디로 이동하기 </a>
-                    <!-- 카드 끝임 -->
-                </div>
-            </div>
-            <!-- 하단 카드 부분임  하단은 필수로 py-1넣어야함-->
-            <div class="col py-1 ">
-                <!-- Basic Card Example -->
-                <div class="card shadow mb-4">
-                    <!-- 스터디 삭제 부분 js script로 삭제도 할수있어야함 -->
-                    <i class="bi bi-node-minus-fill"></i>
-                    <div class="card-body" style="width: 18rem;">
-                        <!-- 스터디 시작일 표시 부분 js script-->
-                        <div class="studyItem_schedule">
-                            <p>시작 예정일 |</p>
-                            <p>2022.05.23</p>
-                        </div>
-                        <h5 class="card-title">도커 스터디 </h5>
-                        <!-- 스터디 내용 불러와야함 js script-->
-                        Docker에 대해 알아보는 초급 스터디입니다.
-                        <!-- 스터디과목 정보 태그 js script -->
-                        <ul class="studyItem_hashtag p-1">
-                            <li>#오프라인</li>
-                            <li>#3명</li>
-                            <li>#5개월</li>
-                            <li>#초급</li>
-                        </ul>
-                        <!-- 스터디 과목 이미지  -->
-                        <!-- 이미지 테스팅 해야할듯 -->
-                        <ul class="studyItem_content">
-                            <li class="studyItem_content_img">
-                                <!-- 스터디별 이미지를 긁어와야함 js script-->
-                                <img class="studyItem_content_img"
-                                    src="https://holaworld.io/images/languages/docker.svg" alt="language">
-                            </li>
-                            <li class="studyItem_content_img">
-                                <img class="studyItem_content_img"
-                                    src="https://holaworld.io/images/languages/docker.svg" alt="language">
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- 해당 스터디로 이동하기 처리 js script-->
-                    <a href="http://duck.nifskorea.com:8080/project/page/study_dashboard.html"
-                        class="btn btn-primary">스터디로 이동하기 </a>
-
-                </div>
-            </div>
-            <!-- 카드 끝 부분-->
-            <!-- 아래 부분부터 다른 카드시작 -->
-            <!-- 하단 카드 부분임  하단은 필수로 py-1넣어야함-->
-            <div class="col py-1 ">
-                <!-- Basic Card Example -->
-                <div class="card shadow mb-4">
-                    <!-- 스터디 삭제 부분 js script로 삭제도 할수있어야함 -->
-                    <i class="bi bi-node-minus-fill"></i>
-                    <div class="card-body" style="width: 18rem;">
-                        <!-- 스터디 시작일 표시 부분 js script-->
-                        <div class="studyItem_schedule">
-                            <p>시작 예정일 |</p>
-                            <p>2022.05.23</p>
-                        </div>
-                        <h5 class="card-title">도커 스터디 </h5>
-                        <!-- 스터디 내용 불러와야함 js script-->
-                        Docker에 대해 알아보는 초급 스터디입니다.
-                        <!-- 스터디과목 정보 태그 js script -->
-                        <ul class="studyItem_hashtag p-1">
-                            <li>#오프라인</li>
-                            <li>#3명</li>
-                            <li>#5개월</li>
-                            <li>#초급</li>
-                        </ul>
-                        <!-- 스터디 과목 이미지  -->
-                        <!-- 이미지 테스팅 해야할듯 -->
-                        <ul class="studyItem_content">
-                            <li class="studyItem_content_img">
-                                <!-- 스터디별 이미지를 긁어와야함 js script-->
-                                <img class="studyItem_content_img"
-                                    src="https://holaworld.io/images/languages/docker.svg" alt="language">
-                            </li>
-                            <li class="studyItem_content_img">
-                                <img class="studyItem_content_img"
-                                    src="https://holaworld.io/images/languages/docker.svg" alt="language">
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- 해당 스터디로 이동하기 처리 js script-->
-                    <a href="http://duck.nifskorea.com:8080/project/page/study_dashboard.html"
-                        class="btn btn-primary">스터디로 이동하기 </a>
-                    <!-- 카드 끝임 -->
-                </div>
-
-            </div>
-
         </div>
 
     </div>

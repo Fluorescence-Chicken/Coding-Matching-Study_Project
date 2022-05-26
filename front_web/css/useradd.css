@@ -33,10 +33,13 @@ div.cuaqd {
       padding-left: 93%;  /* 조정 금지 */ 
      }
      div.toastui-img { 
-      /* 검색창 위치 조정 파트 */
+      /* 게시판 삭제등 해야할 파트 */
         padding-left: 78%;  /* 조정 금지 */ 
        }
-
+       div.buttonarea { 
+        /* 검색창 위치 조정 파트 */
+          padding-left: 73%;  /* 조정 금지 */ 
+         }
      /* 페이지창 메뉴 부분 표현 창 */
      div.b-divider {
        height: 5rem;
@@ -369,4 +372,385 @@ body {
   background-color: #f1f1f1;
   cursor: pointer;
   font-size: 19px;
+}
+/* Footer개조*/
+.footer{
+  margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+  display: block;
+	vertical-align: baseline;
+  text-align: center;
+  margin: 2.5em 0 0 0;
+  position: relative;
+		overflow: hidden;
+		padding: 6em 0 6em 0;
+		background: #2b252c;
+		color: #fff;
+}
+#footer {
+  position: relative;
+  overflow: hidden;
+  padding: 6em 0 6em 0;
+  background: #2b252c;
+  color: #fff;
+}
+
+  #footer .icon.circled {
+    background: #fff;
+    color: #2b252c;
+  }
+
+  #footer header {
+    text-align: center;
+    cursor: default;
+  }
+
+  #footer h2, #footer h3, #footer h4, #footer h5, #footer h6 {
+    color: #fff;
+  }
+
+  #footer .contact {
+    text-align: center;
+  }
+
+    #footer .contact p {
+      text-align: center;
+      margin: 0 0 3em 0;
+    }
+
+  #footer .copyright {
+    text-align: center;
+    color: rgba(128, 128, 128, 0.75);
+    font-size: 0.8em;
+    cursor: default;
+  }
+
+    #footer .copyright a {
+      color: rgba(128, 128, 128, 0.75);
+    }
+
+      #footer .copyright a:hover {
+        color: rgba(212, 212, 212, 0.85);
+      }
+      #footer {
+				padding-left: 2em;
+				padding-right: 2em;
+			}
+      /* 카드 헤더 부분임 (질문 부분 스터디페이지) */
+      .card-header2 {
+        padding: 0.75rem 1.25rem;
+        margin-bottom: 0;
+        background-color: rgba(164, 178, 181, 0.337);
+        border-bottom: 1px solid rgba(121, 189, 188, 0.125);
+      }
+      /* 게시글 보드 페이지 부분 */
+      .studyContent_title__3680o {
+        margin-top: 2.5rem;
+        font-weight: 800;
+        font-size: 3rem;
+        line-height: 126.5%;
+        letter-spacing: -.005em;
+        color: #000;
+    }
+      .studyContent_postHeader__2Qu_y {
+        display: flex;
+        flex-direction: column;
+        margin-top: 3rem;
+    }
+    .studyContent_title__3680o {
+      margin-top: 2.5rem;
+      font-weight: 800;
+      font-size: 3rem;
+      line-height: 126.5%;
+      letter-spacing: -.005em;
+      color: #000;
+  }
+  .studyContent_userAndDate__1iYDv {
+    margin-top: 32px;
+    padding-bottom: 32px;
+    border-bottom: 3px solid #f2f2f2;
+    display: flex;
+    grid-gap: 15px;
+    gap: 15px;
+    align-items: center;
+}
+.studyContent_user__1XYmH {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.studyContent_userImg__3gyI- {
+  cursor: pointer;
+  display: block;
+  height: 3rem;
+  width: 3rem;
+  margin-right: 16px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.studyContent_userName__1GBr8 {
+  color: #333;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 700;
+  padding-right: 15px;
+  border-right: 2px solid #e1e1e1;
+}
+.studyContent_registeredDate__3lybC {
+  font-size: 18px;
+  color: #717171;
+}
+.studyInfo_studyGrid__38Lfj {
+  display: grid;
+  grid-template-columns: repeat(2,3fr);
+  grid-row-gap: 24px;
+  row-gap: 24px;
+  margin-top: 60px;
+}
+.studyInfo_contentWrapper__KkSUP {
+  display: flex;
+  position: relative;
+  align-items: center;
+  font-weight: 700;
+  font-size: 20px;
+}
+.studyInfo_title__3jXRE {
+  color: #717171;
+  margin-right: 40px;
+}
+.studyInfo_content__eqtqC {
+  color: #333;
+}
+.studyInfo_language__3A3Vi, .studyInfo_languageImage__2b-u9 {
+  width: 36px;
+  height: 36px;
+}
+.studyContent_postContentWrapper__187Zh {
+  margin-top: 132px;
+  font-size: 1.125rem;
+  word-break: break-all;
+  line-height: 1.7;
+  letter-spacing: -.004em;
+}
+.studyInfo_contentWrapper__KkSUP {
+  display: flex;
+  position: relative;
+  align-items: center;
+  font-weight: 700;
+  font-size: 20px;
+}
+.studyInfo_content__eqtqC {
+  color: #333;
+}
+
+.studyInfo_contentWrapper__KkSUP {
+  display: flex;
+  position: relative;
+  align-items: center;
+  font-weight: 700;
+  font-size: 20px;
+}
+/* 댓글 영역 부분 */
+.studyContent_commentAndViews__LrV6X {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+}
+.studyContent_postComment__2lpJV {
+  width: 100%;
+  margin: 0 auto;
+}
+.commentInput_commentInput__39H41 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 100px;
+}
+.commentInput_commentCount__2dHvH {
+  margin: 0 0 30px;
+  font-size: 22px;
+}
+.commentInput_commentText__2er8t {
+  font-size: 16px;
+}
+.commentInput_buttonWrapper__2f_l9 {
+  display: flex;
+  justify-content: flex-end;
+  margin: 16px 0 24px;
+}
+.commentInput_buttonComplete__24z4R {
+  padding: 10px 30px;
+  min-width: 120px;
+  height: 40px;
+  background: #333;
+  border-radius: 50px;
+  font-weight: 700;
+  color: #fff;
+  font-size: 16px;
+}
+/* 텍스트 area 공간 고정 부분 */
+textarea {
+  width: 100%;
+  height: 6.25em;
+  border: none;
+  resize: none;
+}
+/* 댓글 달렸을때 부분 작성 */
+.commentItem_commentContainer__3eMR4 {
+  display: flex;
+  flex-direction: column;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid #e1e1e1;
+}
+.commentItem_commentHeader__3-Wux {
+  display: flex;
+  justify-content: space-between;
+}
+.commentItem_avatarWrapper__2J4nR {
+  display: flex;
+  align-items: center;
+  margin-bottom: 18px;
+}
+.commentItem_userImg__jWpVc {
+  display: block;
+  width: 52px;
+  height: 52px;
+  margin-right: 16px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.commentItem_commentInfo__5KL0S, .commentItem_title__36t1w {
+  display: flex;
+  flex-direction: column;
+}
+.commentItem_commentInfo__5KL0S, .commentItem_title__36t1w {
+  display: flex;
+  flex-direction: column;
+}
+.commentItem_userNickname__PQ8kV {
+  color: #333;
+  font-weight: 700;
+}
+.commentItem_registeredDate__2TPJZ {
+  font-size: 14px;
+  line-height: 126.5%;
+  letter-spacing: -.005em;
+  color: #9f9f9f;
+}
+/* 스터디 검색 페이지에서 카테고리 및 하위 영역들 */
+.desktopFilter_subjects__aR2H1 {
+  display: flex;
+  grid-gap: 50px;
+  gap: 50px;
+  border-bottom: 3px solid #f2f2f2;
+  padding-bottom: 20px;
+  padding-left: 16px;
+  margin-bottom: 30px;
+}
+.desktopFilter_selectedSubject__3s63n {
+  color: #110e0e;
+}
+.desktopFilter_subjectItem__2_rjs {
+  display: flex;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 126.5%;
+  color: #848484;
+  cursor: pointer;
+  position: relative;
+}
+.desktopFilter_selectedSubject__3s63n:after {
+  content: ""; 
+  position: absolute; 
+  height: 5px;
+  width: calc(100% + 26px); 
+  background: #ffe579;
+  left: -13px; 
+   bottom: -22px; 
+}
+.desktopFilter_filterWrapper__1gwsT {
+  max-width: 1200px;
+  width: 100%;
+  padding: 0 15px;
+  margin: 104px auto;
+}
+.desktopFilter_languages__3Kgb1 {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  grid-gap: 15px;
+  gap: 15px;
+  margin-bottom: 40px;
+}
+.desktopFilter_languageIcon__1-pNr {
+  display: flex;
+  grid-gap: 10px;
+  gap: 10px;
+  align-items: center;
+  border: 1px solid #d0d0d0;
+  border-radius: 100px;
+  padding: 12px 20px 12px 15px;
+  transition: all .1s ease-in;
+  cursor: pointer;
+}
+.desktopFilter_logo__3V6YL {
+  width: 36px;
+  height: 36px;
+}
+.desktopFilter_selectedLanguages__3KowP, .desktopFilter_selectedWrapper__1-6M0 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  grid-gap: 30px;
+  gap: 30px;
+}
+.desktopFilter_selectedLanguage__30mty {
+  display: flex;
+  grid-gap: 10px;
+  gap: 10px;
+  background: #f2f2f2;
+  padding: 8px 15px;
+  height: 41px;
+  border-radius: 10px;
+  font-weight: 500;
+  font-size: 20px;
+  color: #313131;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all .1s ease-in;
+}
+.desktopFilter_resetFilter__ybCJD {
+  font-size: 20px;
+  color: #333;
+  cursor: pointer;
+}
+.desktopFilter_languageIcon__1-pNr:hover {
+  -webkit-transform: scale(1.05);
+  transform: scale(1.05)
+}
+.desktopFilter_selectedLanguage__30mty:hover {
+  -webkit-transform: scale(1.02);
+  transform: scale(1.02)
+}
+.rating_ratingIconImg__2kjKM:hover {
+  -webkit-transform: scale(1.08);
+  transform: scale(1.08);
+  transition: all .2s ease-in
+}
+.rating_submitButton__2k-xu:hover {
+  -webkit-transform: scale(1.05);
+  transform: scale(1.05)
+}
+.mainContent_udemy__3i_Vn:hover {
+  -webkit-transform: scale(1.02);
+  transform: scale(1.02)
+}
+.studyItem_studyItem__1Iipn:hover {
+  -webkit-transform: scale(1.02);
+  transform: scale(1.02)
 }
