@@ -27,7 +27,7 @@ const duck_nifskorea_com = {
       xhr.onload = function () {
         // When response is 200, Save token to localStorage
         // after request success, get user data and store it to localStorage
-        // and redirect to /
+        // and redirect to 
         //요청이 정상적으로 받았을 때
         if (xhr.status === 200 || xhr.status === 204) {
           const user_xhr = new XMLHttpRequest();
@@ -68,26 +68,7 @@ const duck_nifskorea_com = {
     /**
      * html 요소 가져오기
      */
-
-    getQuery: function() {
-      //localStorage 불러오기
-      var userdata_json = JSON.parse(localStorage.getItem("user_data"))
-      const user = userdata_json["username"];
-      const position = userdata_json["is_mentor"];
-
     getQuery: function () {
-      //localStrage Setter_test
-      localStorage.setItem("username", "user_test");
-      localStorage.setItem("is_mentor", true);
-      localStorage.setItem("email", "asdf@example.com");
-      localStorage.setItem("last_login", Date());
-
-      //localStorage 불러오기
-      const user = localStorage.getItem("username");
-      const position = localStorage.getItem("is_mentor");
-
-
-    getQuery: function() {
       //localStorage 불러오기
       var userdata_json = JSON.parse(localStorage.getItem("user_data"))
       const user = userdata_json["username"];
@@ -340,4 +321,42 @@ const duck_nifskorea_com = {
     const element = document.querySelector(query);
     element.innerHTML = string;
   }, //changeInnerText: function() 끝
+  signup: {
+    // signup webpage javascript scope
+    onSignUpButtonClick: function () {
+      // This function calls when signup button is clicked
+      // use XMLHttpRequest to call ajax request
+      // get user input data from form[name="signup_form"]
+      // define xhr and headers
+      const xhr = new XMLHttpRequest();
+      xhr.open("POST", `${duck_nifskorea_com.api_url}/signup/`, true);
+      xhr.setRequestHeader("Content-Type", "application/json"); //json 보내기
+      xhr.setRequestHeader("Accept", "application/json"); //json 받기
+      // Get data from form
+      const data = {
+        username: document.querySelector('input[name="username"]').value,
+        email: document.querySelector('input[name="email"]').value,
+        password: document.querySelector('input[name="password"]').value,
+        first_name: document.querySelector('input[name="first_name"]').value,
+        last_name: document.querySelector('input[name="last_name"]').value,
+        address: document.querySelector('input[name="address"]').value,
+        job: document.querySelector('select[name="job"]').value,
+        gender: document.querySelector('select[name="gender"]').value == "남자" ? "Male" : "Female",
+      };
+      xhr.send(JSON.stringify(data));
+      xhr.onload = () => {
+        // When the request is successful
+        if (xhr.status >= 200 && xhr.status < 300) {
+          alert(
+            "회원 가입이 성공했습니다! 입력한 아이디와 비밀번호로 로그인 하세요."
+          );
+          location.href = "/";
+        } else if (xhr.status === 400) {
+          alert(
+            "사용자 닉네임 또는 email에 중복이 있습니다. 기존의 아이디를 확인하거나, 새로운 아이디를 만들어 주세요. "
+          );
+        }
+      };
+    },
+  },
 };
