@@ -6,8 +6,8 @@ from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from api.studyroom.models import StudyRoom, Tag
-from api.studyroom.serializers import StudyRoomSerializer, TagSerializer
+from api.studyroom.models import StudyRoom, Tag, TechnologyStack
+from api.studyroom.serializers import StudyRoomSerializer, TagSerializer, TechnologyStackSerializer
 from config import permissions as custom_permissions
 
 
@@ -197,3 +197,65 @@ class TagView(viewsets.GenericViewSet,
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 
+class TechnologyStackViews(viewsets.GenericViewSet,
+                           mixins.CreateModelMixin,
+                           mixins.DestroyModelMixin,
+                           mixins.ListModelMixin):
+    """
+    View class that represents TechnologyStack model
+    Create, delete, Retrieve, List is supported.
+    """
+    # viewset variables
+    queryset = TechnologyStack.objects.all()
+    serializer_class = TechnologyStackSerializer
+    permission_classes = [custom_permissions.AllowGetOnly]
+
+    def get_queryset(self):
+        """
+        Get queryset of TechnologyStack objects.
+        """
+        return TechnologyStack.objects.all()
+
+    # this endpoint is available to all users include non-authenticated users
+    def list(self, request: Request, *args, **kwargs):
+        """
+        List all TechnologyStack objects.
+        """
+        # Get query string parameters
+        query_params = request.query_params
+        # Get all TechnologyStack objects
+        technology_stacks = self.get_queryset()
+        # Filter TechnologyStack objects by query string parameters
+        technology_stacks = technology_stacks.filter(
+            name__icontains=query_params.get('name', ''),
+        )
+        # Serialize TechnologyStack objects
+        serializer = self.serializer_class(technology_stacks, many=True)
+        return Response(serializer.data)
+
+    # this endpoint is only allowed to users who have 'is_mentor' permission
+    def create(self, request, *args, **kwargs):
+        """
+        Create a TechnologyStack object.
+        """
+        # check if user is mentor
+        if not request.user.is_admin:
+            return Response(status=403, data={'detail': 'You are not allowed to create TechnologyStack objects.'})
+        # extract data from request
+        data = request.data
+        # create TechnologyStack object
+        serializer = self.get_serializer(data=data)
+        serializer.is_valid(raise_exception=True)
+        self.perform_create(serializer)
+        return Response(status=status.HTTP_201_CREATED)
+
+    def destroy(self, request, *args, **kwargs):
+        """
+        Delete a TechnologyStack object.
+        """
+        # check if user is admin
+        if not request.user.is_admin:
+            return Response(status=403, data={'detail': 'You are not allowed to delete TechnologyStack objects.'})
+        instance = self.get_object()
+        self.perform_destroy(instance)
+        return Response(status=status.HTTP_204_NO_CONTENT)

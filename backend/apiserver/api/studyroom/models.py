@@ -24,7 +24,8 @@ class StudyRoom(models.Model):
     users = models.ManyToManyField('api.User', related_name='studyrooms')
     mentor = models.ForeignKey('api.User', related_name='mentored_studyrooms', on_delete=models.CASCADE)
     # can choose between projects and study
-    study_type = models.CharField(max_length=20, choices=StudyRoomType.choices)
+    studyroom_type = models.CharField(max_length=20, choices=StudyRoomType.choices, default=StudyRoomType.STUDY)
+    study_type = models.CharField(max_length=20, choices=StudyType.choices, default=StudyType.CONTACT)
     user_num_limit = models.IntegerField(default=0)
     start_date = models.DateField()
     end_date = models.DateField()
@@ -88,3 +89,15 @@ class TechnologyStack(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class StudySchedule(models.Model):
+    """
+    This model represents the StudySchedule for Studyroom.
+    This model has relationships with StudyRoom model as n:1
+    """
+    # fields: id, start_date, end_date, studyRoom(n:1)
+    week = models.IntegerField()
+    study_num = models.IntegerField()
+    time = models.DurationField()
+    studyRoom = models.ForeignKey(StudyRoom, on_delete=models.CASCADE, related_name='study_schedules')
