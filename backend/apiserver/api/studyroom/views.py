@@ -165,7 +165,7 @@ class TagView(viewsets.GenericViewSet,
             name__icontains=query_params.get('name', ''),
         )
         # Serialize Tag objects
-        serializer = self.get_serializer(tags, many=True)
+        serializer = self.serializer_class(tags, many=True)
         return Response(serializer.data)
 
     # this endpoint is only allowed to users who have 'is_mentor' permission
