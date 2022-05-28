@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from rest_framework import generics, permissions, mixins, status, viewsets
+from rest_framework.generics import get_object_or_404
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.request import Request
@@ -67,7 +68,7 @@ class NormalUserManageView(viewsets.GenericViewSet,
         Get the user's profile.
         This endpoint is available to all users.
         """
-        data = self.serializer_class(request.user).data
+        data = self.serializer_class(get_object_or_404(User, id=kwargs['pk'])).data
         return Response(data)
 
 
