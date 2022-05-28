@@ -50,3 +50,9 @@ class TagSerializer(serializers.ModelSerializer):
         model = models.Tag
         fields = '__all__'
         read_only_fields = ['id']
+
+class TechnologyStackSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.TechnologyStack
+        fields = '__all__'
+        read_only_fields = ['id']

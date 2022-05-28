@@ -35,7 +35,7 @@ class NormalUserManageView(viewsets.GenericViewSet,
     Manage the user's profile.
     This endpoint is available only to the user himself except retrieve.
     """
-    access_policy = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticated]
     serializer_class = UserWithoutPasswordSerializer
     queryset = User.objects.all()
 
@@ -67,8 +67,8 @@ class NormalUserManageView(viewsets.GenericViewSet,
         Get the user's profile.
         This endpoint is available to all users.
         """
-
-        return super().retrieve(request, *args, **kwargs)
+        data = self.serializer_class(request.user).data
+        return Response(data)
 
 
 class RetrieveSelfDataView(APIView):
