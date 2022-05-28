@@ -1,0 +1,170 @@
+<!-- 게시글을 직접 수정하는 페이지 -->
+
+<html>
+
+<head>
+
+    <!-- 필수 선언부 -->
+    <meta charset="utf-8">
+    <script src="../jsp/w3.js"> </script>
+    <!-- 커스텀 부분 코드 -->
+
+    <!-- 헤더 부분 -->
+    <div data-include-path="../page/header.html"> </div>
+
+    <!-- js 연결 -->
+    <script src="../jsp/javascript.js"></script>
+    <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
+    <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
+</head>
+
+<body>
+    <form method="get" name="form">
+        <!-- 바디 섹션 -->
+        <div class="b-divider">게시글 수정 페이지</div>
+        <!-- 아래부터 메인 페이지 분할하여 표현 하는 부분 -->
+
+        <div class="container input-form">
+            <!-- DB 로 스터디명을 표시해야함 js script -->
+            <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                <!-- 게시판 이름 긁어와야함-->
+                <h4 class="mb-3"> 000 게시판 </h4>
+                <hr class="my-2">
+                <!-- 이까지가 헤더가 아래부터 게시판 보드 시작임 -->
+                <div class="p-1"></div>
+
+            </div>
+            <!-- 아래에서부터 본격적인 보드 시작 -->
+            <section>
+                <!-- js script 게시글 이름 불러와야함 -->
+                <div class="studyContent_title__3680o"> 게시글 이름 </div>
+                <div class="studyContent_userAndDate__1iYDv">
+                    <div class="studyContent_user__1XYmH">
+                        <!-- js script 사용자 프로필 불러와야함 -->
+                        <img class="studyContent_userImg__3gyI-"
+                            src="https://hola-post-image.s3.ap-northeast-2.amazonaws.com/default.PNG" alt="userImg">
+                        <!-- js script 유저 이름 불러와야함 -->
+                        <div class="studyContent_userName__1GBr8">TestUser</div>
+                    </div>
+                    <!-- js script 게시글 작성 일자 불러와야함 -->
+                    <div class="studyContent_registeredDate__3lybC">2022.05.20</div>
+                </div>
+                <!-- 아래 해당 부분은 게시판 주요 정보들 js script-->
+                <ul class="studyInfo_studyGrid__38Lfj">
+                    <li class="studyInfo_contentWrapper__KkSUP"><span class="studyInfo_title__3jXRE">모집 구분</span><span
+                            class="studyInfo_content__eqtqC">스터디</span></li>
+                    <li class="studyInfo_contentWrapper__KkSUP"><span class="studyInfo_title__3jXRE">진행 방식</span><span
+                            class="studyInfo_content__eqtqC">온라인</span></li>
+                    <li class="studyInfo_contentWrapper__KkSUP"><span class="studyInfo_title__3jXRE">모집 인원</span><span
+                            class="studyInfo_content__eqtqC">3명</span></li>
+                    <li class="studyInfo_contentWrapper__KkSUP"><span class="studyInfo_title__3jXRE">스터디 기간</span><span
+                            class="studyInfo_content__eqtqC">2022.05.23</span></li>
+                    <li class="studyInfo_contentWrapper__KkSUP"><span class="studyInfo_title__3jXRE">연락 방법</span>
+                        <div class="contactPoint_email__1a-aY">test@gmail.com</div>
+                    </li>
+                    <li class="studyInfo_contentWrapper__KkSUP"><span class="studyInfo_title__3jXRE">예상 기간</span><span
+                            class="studyInfo_content__eqtqC">3개월</span></li>
+                    </ul>
+
+                    <br><br>
+
+                    <!-- 게시판 보드 부분 (내용)-->
+
+                    <!-- JS code, 작성자가 사용한 글을 출력되게 해야함.-->
+
+                    <div id="editor"></div>
+                    <!-- powerd by 표시 부분 -->
+                    <div class="toastui-img fw-bolder">
+                        Powerd By : <img src="../img/toastui.png"  width="150" height="33">
+                    </div>
+                    <!-- 게시글 등록 전송 페이지 부분 js script처리 -->
+                    <!-- 전송할때 토스트 API로 추출해서 해야하기때문에 백엔드 데이터 처리할때 봐야할듯-->
+                    <form class="form-inline my-2 my-md-0">
+                    <center>
+
+
+                        <div style="text-align:center">
+                            <!-- JS DATA, 수정 취소 버튼을 클릭할 시, 이전 페이지로 이동-->
+                            <button type="submit" class="commentInput_buttonComplete__24z4R " formaction="#">
+                                <a href="http://duck.nifskorea.com:8080/project/page/write_revise1.html"> 수정 취소
+                            </button>
+                        
+                            <!-- JS DATA, 수정 완료 버튼을 눌렀을 시, 글이 수정된 상태로 저장-->
+                            <button type="submit" class="commentInput_buttonComplete__24z4R " formaction="#" onclick="revise_success()">
+                                수정 하기
+                            </button>
+                        
+
+                            <!-- (JS) 수정 하기 버튼, 글이 수정된 상태로 저장되게 해야함.-->
+                            <script>
+                                function revise_success() {
+                                    if (window.confirm("수정하시겠습니까?")) {
+                                        alert("정상적으로 수정되었습니다.");
+                                        
+                                        location.href = "http://duck.nifskorea.com:8080/project/page/write_revise1.html"
+                                    }
+                        
+                        
+                                    else {
+                                        return;
+                                    }
+                                    // 버튼 클릭 전 페이지로 이동?
+                                    // 근데 이동 안하고 그냥 취소만 동작하게 하고 싶음.
+                                    //location.href ="http://duck.nifskorea.com:8080/project/page/write_revise.html"
+                                }
+                            </script>
+
+                       
+                    </center>
+                    </form>
+                    <!-- 전송하기 -->
+                    </div>
+                  </form>
+
+
+ 
+               <!-- </ul>  -->
+            </section>
+
+
+        </div>
+    </form>
+    </section>
+
+<br>
+
+
+
+
+</div>
+</form>
+<!-- 전송하기 -->
+</div>
+</form>
+</body>
+
+<!-- 푸터 부분 -->
+<footer>
+    <div data-include-path="../page/footer.html"></div>
+</footer>
+<!-- 토스트 UI 에디터 -->
+<script>
+    const Editor = toastui.Editor;
+    const codeSyntaxHighlight = Editor.plugin;
+    const editor = new Editor({
+        el: document.querySelector('#editor'),
+        height: '500px',
+        initialEditType: 'markdown',
+        previewStyle: 'vertical',
+        initialValue: '### 원하시는 HTML내용을 작성해주세요.',
+        usageStatistics: 'false',
+        language: 'ko'
+
+    });
+    const editorRef = useRef();
+    editorRef.current.getInstance().getMarkdown();
+    editor.getMarkdown();
+    //console.log(editor.getMarkdown()); // { range: [startCursorOffset, endCursorOffset], type: 'emph' }
+</script>
+
+</html>

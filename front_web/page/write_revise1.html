@@ -1,0 +1,215 @@
+<!-- 게시글 수정하기 전 페이지 (수정, 삭제 가능)-->
+
+<html>
+
+<head>
+
+    <!-- 필수 선언부 -->
+    <meta charset="utf-8">
+    <script src="../jsp/w3.js"> </script>
+    <!-- 커스텀 부분 코드 -->
+
+    <!-- 헤더 부분 -->
+    <div data-include-path="../page/header.html"> </div>
+
+    <!-- js 연결 -->
+    <script src="../jsp/javascript.js"></script>
+    <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
+    <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
+</head>
+
+<body>
+    <form method="get" name="form">
+        <!-- 바디 섹션 -->
+        <div class="b-divider">게시글 수정 페이지</div>
+        <!-- 아래부터 메인 페이지 분할하여 표현 하는 부분 -->
+
+        <div class="container input-form">
+            <!-- DB 로 스터디명을 표시해야함 js script -->
+            <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                <!-- 게시판 이름 긁어와야함-->
+                <h4 class="mb-3"> 000 게시판 </h4>
+                <hr class="my-2">
+                <!-- 이까지가 헤더가 아래부터 게시판 보드 시작임 -->
+                <div class="p-1"></div>
+
+            </div>
+            <!-- 아래에서부터 본격적인 보드 시작 -->
+            <section>
+                <!-- js script 게시글 이름 불러와야함 -->
+                <div class="studyContent_title__3680o"> 게시글 이름 </div>
+                <div class="studyContent_userAndDate__1iYDv">
+                    <div class="studyContent_user__1XYmH">
+                        <!-- js script 사용자 프로필 불러와야함 -->
+                        <img class="studyContent_userImg__3gyI-"
+                            src="https://hola-post-image.s3.ap-northeast-2.amazonaws.com/default.PNG" alt="userImg">
+                        <!-- js script 유저 이름 불러와야함 -->
+                        <div class="studyContent_userName__1GBr8">TestUser</div>
+                    </div>
+                    <!-- js script 게시글 작성 일자 불러와야함 -->
+                    <div class="studyContent_registeredDate__3lybC">2022.05.20</div>
+                </div>
+                <!-- 아래 해당 부분은 게시판 주요 정보들 js script-->
+                <ul class="studyInfo_studyGrid__38Lfj">
+                    <li class="studyInfo_contentWrapper__KkSUP"><span class="studyInfo_title__3jXRE">모집 구분</span><span
+                            class="studyInfo_content__eqtqC">스터디</span></li>
+                    <li class="studyInfo_contentWrapper__KkSUP"><span class="studyInfo_title__3jXRE">진행 방식</span><span
+                            class="studyInfo_content__eqtqC">온라인</span></li>
+                    <li class="studyInfo_contentWrapper__KkSUP"><span class="studyInfo_title__3jXRE">모집 인원</span><span
+                            class="studyInfo_content__eqtqC">3명</span></li>
+                    <li class="studyInfo_contentWrapper__KkSUP"><span class="studyInfo_title__3jXRE">스터디 기간</span><span
+                            class="studyInfo_content__eqtqC">2022.05.23</span></li>
+                    <li class="studyInfo_contentWrapper__KkSUP"><span class="studyInfo_title__3jXRE">연락 방법</span>
+                        <div class="contactPoint_email__1a-aY">test@gmail.com</div>
+                    </li>
+                    <li class="studyInfo_contentWrapper__KkSUP"><span class="studyInfo_title__3jXRE">예상 기간</span><span
+                            class="studyInfo_content__eqtqC">3개월</span></li>
+
+                    <!-- 게시판 보드 부분 (내용)-->
+                    <div class="studyContent_postContentWrapper__187Zh">
+
+                        <h2 class="studyContent_postInfo__3zpYu">(제목 부분) 프로젝트 소개</h2>
+
+                        <div class="studyContent_postContent__2c-FO">
+                            아래는 바디 ( 게시글 내용 부분 )
+                            <p><br></p>
+                            <p><br></p>
+                            <p>3개월동안 열심히 리액트 강의 들으며 같이 공부해요~</p>
+                            <p><br></p>
+                        </div>
+                    </div>
+                </ul>
+            </section>
+            <!-- 댓글 영역 -->
+            <section class="studyContent_commentAndViews__LrV6X">
+                <div class="studyContent_postComment__2lpJV">
+                    <div class="commentInput_commentInput__39H41">
+                        <!-- 몇개 댓글을 만들었는지 js script 불러와야함 -->
+                        <h1 class="commentInput_commentCount__2dHvH">1개의 댓글이 있습니다.</h1>
+                        <!--<textarea class="commentInput_commentText__2er8t" placeholder="댓글을 입력하세요."></textarea>-->
+                        <div class="form-floating">
+                            <textarea placeholder="내용을 입력해주세요" id="floatingTextarea2"
+                                style="height: 100px; resize: none;"></textarea>
+                            <label for="floatingTextarea2"></label>
+                        </div>
+                        <div class="commentInput_buttonWrapper__2f_l9">
+                            <!-- 해당 부분이 정보를 전송하는 form 역할에 해당되는 부분 js script-->
+                            <form class="form-inline my-2 my-md-0">
+                                <button class="commentInput_buttonComplete__24z4R"
+                                    formaction="http://duck.nifskorea.com:8080/project/page/login.html" name="">댓글
+                                    등록</button>
+                        </div>
+                    </div>
+                    <ul class="commentList_CommentList__30HUh"></ul>
+                    <li class="commentItem_commentContainer__3eMR4">
+                        <section class="commentItem_commentHeader__3-Wux">
+                            <div class="commentItem_avatarWrapper__2J4nR">
+                                <!-- 사용자 이미지 js script 불러와야함 -->
+                                <img class="commentItem_userImg__jWpVc"
+                                    src="https://hola-post-image.s3.ap-northeast-2.amazonaws.com/default.PNG"
+                                    alt="사용자 이미지">
+                                <div class="commentItem_commentInfo__5KL0S">
+                                    <div class="commentItem_title__36t1w">
+                                        <!-- 사용자 명 js script 불러와야함 -->
+                                        <div class="commentItem_userNickname__PQ8kV">명교짱</div>
+                                        <!-- 사용자 게시글 작성시간 js script 불러와야함 -->
+                                        <div class="commentItem_registeredDate__2TPJZ">2022-05-20 00:43:17</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="commentItem_commentContent__1yK7o">
+                            <!-- 사용자 게시글 내용을 만들어야함  js script 불러와야함 -->
+                            <p class="commentItem_commentContent__1yK7o">하이~!!
+                            </p>
+                        </section>
+                    </li>
+                </div>
+        </div>
+    </form>
+    </section>
+
+</body>
+
+
+<br>
+
+
+<!-- 만약에 자바스크립트로 이전페이지로 이동으로 바꿀수있음 js script로 이전페이지 이동하기 -->
+
+
+
+<div style="text-align:center">
+
+    <button type="submit" class="commentInput_buttonComplete__24z4R " formaction="#" onclick="revise_success()">
+        <a href="http://duck.nifskorea.com:8080/project/page/manage_my_post.html"> 뒤로 가기</center>
+    </button>
+
+
+    <!-- JS DATA, 수정 취소 버튼을 클릭할 시, 이전 페이지로 이동-->
+    <button type="submit" class="commentInput_buttonComplete__24z4R " formaction="#" onclick="revise_success()">
+        <a href="http://duck.nifskorea.com:8080/project/page/write_revise2.html"> 수정 하기</center>
+    </button>
+
+    <!-- JS DATA, 수정 완료 버튼을 눌렀을 시, 글이 수정된 상태로 저장-->
+
+
+
+    <!-- JS DATA, 글 삭제하기 버튼을 눌렀을 경우, 
+    1. 정말 삭제하시겠습니까? 라는 경고문 출력 후
+      1.1 YES를 눌렀을 경우 삭제
+      1.2 NO를 눌렀을 경우, 경고문만 사라지게 만들기-->
+    <button type="submit" class="commentInput_buttonComplete__24z4R" formaction="#" onclick="post_delete()">
+        <center>글 삭제하기</center>
+    </button>
+
+
+    <!-- (JS) 글 삭제하기 버튼 onclick-->
+    <script>
+        function post_delete() {
+            if (window.confirm("정말 삭제하시겠습니까?")) {
+                alert("정상적으로 삭제되었습니다.");
+
+                location.href = "http://duck.nifskorea.com:8080/project/page/manage_my_post.html"
+
+            }
+            // 버튼 클릭 전 페이지로 이동?
+            // 근데 이동 안하고 그냥 취소만 동작하게 하고 싶음.
+            //location.href ="http://duck.nifskorea.com:8080/project/page/write_revise.html"
+            return
+        }
+    </script>
+
+
+</div>
+</center>
+</form>
+<!-- 전송하기 -->
+</div>
+</form>
+</body>
+<!-- 푸터 부분 -->
+<footer>
+    <div data-include-path="../page/footer.html"></div>
+</footer>
+<!-- 토스트 UI 에디터 -->
+<script>
+    const Editor = toastui.Editor;
+    const codeSyntaxHighlight = Editor.plugin;
+    const editor = new Editor({
+        el: document.querySelector('#editor'),
+        height: '500px',
+        initialEditType: 'markdown',
+        previewStyle: 'vertical',
+        initialValue: '### 원하시는 HTML내용을 작성해주세요.',
+        usageStatistics: 'false',
+        language: 'ko'
+
+    });
+    const editorRef = useRef();
+    editorRef.current.getInstance().getMarkdown();
+    editor.getMarkdown();
+    //console.log(editor.getMarkdown()); // { range: [startCursorOffset, endCursorOffset], type: 'emph' }
+</script>
+
+</html>
