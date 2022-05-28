@@ -8,6 +8,7 @@ from rest_framework.decorators import action
 
 from api.models import User
 from api.serializers import UserSerializer, UserWithoutPasswordSerializer
+from config.permissions import AllowGetOnly
 
 
 class UserCreateView(generics.CreateAPIView):
@@ -36,7 +37,7 @@ class NormalUserManageView(viewsets.GenericViewSet,
     Manage the user's profile.
     This endpoint is available only to the user himself except retrieve.
     """
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [AllowGetOnly]
     serializer_class = UserWithoutPasswordSerializer
     queryset = User.objects.all()
 
