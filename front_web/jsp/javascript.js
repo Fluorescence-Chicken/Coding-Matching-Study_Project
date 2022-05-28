@@ -170,7 +170,7 @@ const duck_nifskorea_com = {
               studyTag: data_json[i].tags,
               mentorNum: data_json[i].mentor,
               users: data_json[i].users,
-            }
+            };
 
             //카드 생성
             duck_nifskorea_com.study_user_first.createStudyRoomCard(study_data);
@@ -202,7 +202,7 @@ const duck_nifskorea_com = {
       //StudyCard div 생성
       var studyCard_element = document.createElement("div");
       //div의 속성 설정
-      studyCard_element.setAttribute("class", "card " + "shadow " + "mb-4 ");
+      studyCard_element.setAttribute("class", "card " + "shadow " + "mb-1 ");
       studyCard_element.setAttribute("name", "studyCard");
 
       var cardBody_element = document.createElement("div");
@@ -383,5 +383,97 @@ const duck_nifskorea_com = {
       };
     },
   },
+  /**
+   * 공지사항 notification.html
+   */
+  notification:{
+    /**
+     * 공지사항 JSON 데이터 Get
+     */
+    getJSON: function(){
+      const xhr = new XMLHttpRequest();
+      xhr.open("GET", `${duck_nifskorea_com.api_url}/notify_board/post/`, true);
+      xhr.setRequestHeader("Accept", "application/json");
+      xhr.send();
+      xhr.onload = function(){
+        if (xhr.status === 200 || xhr.status === 204){
+          const data_json = JSON.parse(xhr.response);
 
+          //data_json의 값 얻기
+          for(let i = 0; i<Object.keys(data_json).length; i ++){
+            const board_data={
+              id: data_json[i].id, //ID
+              title: data_json[i].title, //제목
+              content: data_json[i].content, //내용
+              createdData: data_json[i].created_at, //생성 날짜
+              uploadUser: data_json[i].uploaded_by, //업로더
+            };
+            console.log(board_data);
+            //게시글 생성
+            duck_nifskorea_com.notification.createBoard(board_data);
+          } //for End
+        } //if end
+      } //xhr.onload = function() End
+    }, //getJSON: function() End
+    /**
+     * 공지사항 게시글 생성
+     * @param {JSON data} study_data 
+     */
+    createBoard: function(study_data){
+      const id = study_data.id; //ID
+      const title = study_data.title; //제목
+      const content = study_data.content; //내용
+      const createdData = study_data.createdData; //생성 날짜
+      const uploadUser = study_data.uploadUser; //업로더
+
+      //게시글 테이블
+      var boardTr = document.createElement("tr");
+
+      //순번
+      var boardID = document.createElement("th");
+      boardID.setAttribute("scope", "row");
+      boardID.appendChild(document.createTextNode(id));
+
+      //게시글 제목
+      var boardTitle = document.createElement("td");
+      var titleLink = document.createElement("a");
+      //하이퍼링크 생성
+      duck_nifskorea_com.notification.boardLink(titleLink, title);
+      boardTitle.appendChild(titleLink);
+
+
+      //게시글 내용
+      var boardContent = document.createElement("td");
+      var contentLink = document.createElement("a");
+      duck_nifskorea_com.notification.boardLink(contentLink, content);
+      boardContent.appendChild(contentLink);
+
+      //게시글 사용자
+      var boardUser = document.createElement("td");
+      boardUser.appendChild(document.createTextNode(uploadUser));
+
+      //게시글 생성날짜
+      var boardData = document.createElement("td");
+      boardData.appendChild(document.createTextNode(createdData));
+
+      //appendChild
+      boardTr.appendChild(boardID);
+      boardTr.appendChild(boardTitle);
+      boardTr.appendChild(boardContent);
+      boardTr.appendChild(boardUser);
+      boardTr.appendChild(boardData);
+
+      //HTML Link
+      document.getElementById("boardTable").appendChild(boardTr);
+    }, //createBoard: function End
+    /**
+     * 게시물 이동하는 하이퍼링크 생성
+     * @param {value} link
+     * @param {board_data} data 
+     */
+    boardLink: function(link, data){
+      link.setAttribute("href", "http://duck.nifskorea.com:8080/project/page/Read_board.html");
+      link.appendChild(document.createTextNode(data));
+    } //boardLink: function end
+  },
 };
