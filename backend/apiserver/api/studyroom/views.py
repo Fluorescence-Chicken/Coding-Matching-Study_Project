@@ -52,6 +52,15 @@ class StudyRoomView(viewsets.GenericViewSet,
             study_rooms = study_rooms.filter(tags__id=tag_id)
         if query_params.getlist('tag_or[]', None):
             study_rooms = study_rooms.filter(tags__id__in=query_params.getlist('tag_or[]'))
+        # search by user's id
+        if query_params.get('user', None):
+            study_rooms = study_rooms.filter(users=query_params.get('user'))
+        # search by technology stack
+        if query_params.get('technology_stack', None):
+            study_rooms = study_rooms.filter(technology_stack=query_params.get('technology_stack'))
+        # search by current user's not joined study room
+        if query_params.get('exclude_joined', None):
+            study_rooms = study_rooms.exclude(users=request.user)
         # increase the count of search_count on Tag model for each tag element
         # duplicated search is deleted
         for tag_id in list(dict.fromkeys(query_params.getlist('tag_and[]') + query_params.getlist('tag_or[]'))):
