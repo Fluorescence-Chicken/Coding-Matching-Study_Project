@@ -121,65 +121,17 @@
                 </div>
             </div>
         </div>
-        <!-- 이까지가 상단에 목록 보여주는 부분임 -->
-        <!-- 아래에서부터 스터디 목록을 보여주어야함 카드 부분 -->
-        <div class="row row-cols-1 row-cols-md-3 g-4">
-            <div class="col " id="studyCardCol">
-                <!-- studyCard를 동적으로 생성하는 메서드 호출 -->
-                <script>duck_nifskorea_com.study_user_first.createStudyCard()</script>
-                <!-- Basic Card Example -->
-                <div class="card shadow mb-4" >
-                    <div class="card-body" style="width: 18rem;">
-                        <div class="studyItem_schedule">
-                            <p>시작 예정일 |</p>
-                            <div class="studyItem_schedule" name="studyStartDate">
-                                <p>2022.05.23</p>
-                            </div>
-                        </div>
-                        <h5 class="card-title" name="studyName">도커 스터디 </h5>
-                        <div name="studyDescription">Docker에 대해 알아보는 초급 스터디입니다.</div>
-                        <!-- 스터디과목 정보 태그 js script -->
-                        <ul class="studyItem_hashtag p-1" name="studyTag">
-                            <li>#초급</li>
-                            <li>#멘토: 홍길동</li>
-                        </ul>
-                        <!-- 스터디 과목 이미지  -->
-                        <!-- 이미지 테스팅 해야할듯 -->
-                        <ul class="studyItem_content">
-                            <li class="studyItem_content_img">
-                                <!-- 스터디별 이미지를 긁어와야함 js script-->
-                                <img class="studyItem_content_img"
-                                    src="https://holaworld.io/images/languages/docker.svg" alt="language">
-                            </li>
-                            <li class="studyItem_content_img">
-                                <img class="studyItem_content_img"
-                                    src="https://holaworld.io/images/languages/docker.svg" alt="language">
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- 해당 스터디로 이동하기 처리 js script-->
-                    <a href="http://duck.nifskorea.com:8080/project/page/study_dashboard.html"
-                        class="btn btn-primary">스터디로 이동하기 </a>
-                    <!-- 카드 끝임 -->
-                </div>
-            </div>
+        <!-- 목록 현황 전광판 출력 -->
+        <script>duck_nifskorea_com.study_user_first.getQuery()</script>
+        <!-- 상단 목록 End -->
+
+        <!-- 스터디 리스트 동적 생성 -->
+        <div class="row row-cols-1 row-cols-md-3 g-4" id="studyCardCol">
+            <script>duck_nifskorea_com.study_user_first.getStudyJson()</script>
         </div>
 
     </div>
 
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    <!-- 아래 태그는 input-form div임 건들 ㄴㄴ  -->
-    </div>
-    </div>
-    <!-- 아래 항목은 row 닫는 div 태그임 -->
-    </div>
-    </div>
-    </div>
-    <script>duck_nifskorea_com.study_user_first.getQuery()</script>
 </body>
 
 <!-- 푸터 부분 -->
