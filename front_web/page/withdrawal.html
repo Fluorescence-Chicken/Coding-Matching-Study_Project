@@ -1,4 +1,4 @@
-<!-- 탈퇴하기 페이지 -->
+<!-- 탈퇴하기 페이지 디자인 요소랑 몇가지 수정해야함 -->
 
 <html>
 
@@ -41,6 +41,8 @@
                         href="https://inthewear.com/wp-content/plugins/mshop-mcommerce-premium-s2/lib/mshop-members-s2/assets/vendor/semantic-ui-calendar/calendar.min.css?ver=1.5.16"
                         type="text/css" media="all">
                     <div class="memberswrap">
+
+
                         <script>
                             var mfs_form_200 = {
                                 ajaxurl: '/wp-admin/admin-ajax.php',
@@ -52,9 +54,10 @@
                             setTimeout(function () {
                                 jQuery('#mshop_members_popup').css('display', 'block');
                             });
+
                         </script>
 
-                        <div id="mshop_form_200" class="ui mfs_form " style=" ">
+                        <div id="mshop_form_200" class="ui mfs_form ">
                             <style>
                             </style>
                             <div class="mshop-members-message"></div>
@@ -62,12 +65,13 @@
                                 data-type="" onsubmit="return false">
 
                                 <div class="field">
-                                    <div style="">회원 탈퇴 시 홈페이지에서 작성한 글, 회원 정보 등이 파기되므로, 신중한 탈퇴를 부탁드립니다.<br>
+                                    <!-- <div style=""> -->
+                                        회원 탈퇴 시 홈페이지에서 작성한 글, 회원 정보 등이 파기되므로, 신중한 탈퇴를 부탁드립니다.<br>
                                         관련하여 문의 사항이 있으시다면 아래 메일로 연락주세요.<br>
                                         <br> Email : codingstudy12@naver.com
 
                                         <br>
-                                    </div>
+                                    <!-- </div> -->
                                 </div>
                                 <div class="required field">
                                     <label>회원 탈퇴 안내</label>
@@ -89,6 +93,7 @@
                                         <input type="checkbox" name="mshop_agreement_181" tabindex="0" class="hidden">
 
                                         <!-- (JS DATA), 체크 1번-->
+                                        <br>
                                         <label>회원 탈퇴 안내에 동의합니다.<p></p></label>
 
 
@@ -236,6 +241,7 @@
                                     <div class="ui checkbox agreement-item" style="margin-top : 5px;">
                                         <input type="checkbox" name="mshop_agreement_177" tabindex="0" class="hidden">
                                         <!-- (JS DATA), 체크 2번-->
+                                        <br>
                                         <label>개인정보처리방침에 동의합니다.<p></p></label>
                                     </div>
                                 </div>

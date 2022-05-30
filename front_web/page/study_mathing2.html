@@ -1,0 +1,222 @@
+<html>
+<!-- 스터디 매칭 부분에서 첫번째 페이지  -->
+<head>
+  <!-- 필수 선언부 -->
+  <meta charset="utf-8">
+  <!--<link rel="stylesheet" href="http://duck.nifskorea.com:8080/project/css/studymatching.scss">-->
+  <link rel="stylesheet" href="http://duck.nifskorea.com:8080/project/css/useradd.css">
+  <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
+  <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
+  <meta charset="utf-8">
+  <script src="../jsp/w3.js"> </script>
+  <!-- 커스텀 부분 코드 -->
+
+  <!-- 헤더 부분 -->
+  <div data-include-path="../page/header.html"> </div>
+
+  <!-- js 연결 -->
+  <script src="../jsp/javascript.js"></script>
+</head>
+
+<body>
+    
+<!-- 배경화면 섹션 -->
+<div class="study_ma"><!-- 바디 섹션 -->
+    <div class="container input-form-main">
+        <!-- DB 로 사용자명을 표시해야함 -->
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h4 class="mb-3">스터디 매칭을 위한 조사 페이지 </h4>
+        </div>
+        <hr class="my-2">
+        <!-- 메인 섹션 부분-->
+        <div class="container">
+            <div class="input-form-backgroud row">
+              <div class="input-form col-md-12 mx-auto">
+                <h4 class="mb-3">1. 기본정보.</h4>
+                <form class="validation-form" novalidate>
+                  <div class="row">
+
+                  </div>
+                  <div class="row">
+                    <div class="col-md-8 mb-3">
+                      <label for="root">희망 지원 구분 </label>
+                      <select class="custom-select d-block w-100" id="root" required>
+                        <option value=""></option>
+                        <option>프로젝트</option>
+                        <option>스터디</option>
+                      </select>
+                      <div class="invalid-feedback"> 희망 지원 구분을 입력해주세요. </div>
+                    </div>
+                 
+                  <div class="col-md-6 mb-3">
+                    <label for="root2">희망 스터디 인원</label>
+                    <select class="custom-select d-block w-100" id="root3" required>
+                      <option value=""></option>
+                      <option>1명</option>
+                      <option>2명</option>
+                      <option>3명</option>
+                      <option>4명</option>
+                      <option>5명</option>
+                      <option>6명</option>
+                      <option>7명</option>
+                      <option>8명</option>
+                      <option>9명</option>
+                      <option>10명 이상</option>
+                    </select>
+                    <div class="invalid-feedback"> 희망 인원을 입력해주세요!</div>
+                  </div>
+                  <!-- 2번째 질문 사항들 -->
+                  <div class="col-md-6 mb-3">
+                    <label for="name">희망 스터디 진행 기간</label>
+                    <select class="custom-select d-block w-100" id="root4" required>
+                      <option value=""></option>
+                      <option>기간 미정 </option>
+                      <option>1개월</option>
+                      <option>2개월</option>
+                      <option>3개월</option>
+                      <option>4개월</option>
+                      <option>5개월</option>
+                      <option>6개월</option>
+                      <option>장기 </option>
+                
+                    </select>
+                    <div class="invalid-feedback"> 희망 스터디 진행기간을 입력해주세요.</div>
+                  </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="root2">희망 기술(언어) 스택</label>
+                        <div class="fw-lighter "><font color="red">* 희망 기술(언어)는 1개만 선택 가능합니다.</div></font>
+                        <select class="custom-select d-block w-100" id="root2" required>
+                          <option value=""></option>
+                          <option>Udemy</option>
+                          <option>JavaScript</option>
+                          <option>TypeScript</option>
+                          <option>React</option>
+                          <option>Vue</option>
+                          <option>Node.js</option>
+                          <option>Spring</option>
+                          <option>Java</option>
+                          <option>Next.js</option>
+                          <option>Nestjs</option>
+                          <option>Express</option>
+                          <option>Go</option>
+                          <option>C</option>
+                          <option>Python</option>
+                          <option>Django</option>
+                          <option>swift</option>
+                          <option>kotlin</option>
+                          <option>MySQL</option>
+                          <option>MongoDB</option>
+                          <option>php</option>
+                          <option>Firebase</option>
+                        </select>
+                        <div class="invalid-feedback"> 희망 기술(언어) 스택을 선택해주세요!</div>
+                        <!-- 3번째 질문부분 -->
+                        <div class="p-3"></div>
+                      <div class="row">
+                        <div class="col-md-6 mb-3">
+                           <!-- 디자인 유지를 위해 코드 유지 -->
+                            </div>
+                            </div>
+                      </div>
+                    
+                      
+                      <div class="col-md-6 mb-3">
+                        <label for="name">희망 진행 방식</label>
+                        <select class="custom-select d-block w-100  id="root2" required>
+                          <option value=""></option>
+                          <option>온라인</option>
+                          <option>오프라인</option>
+                        </select>
+                        <div class="invalid-feedback"> 희망 진행방식을 입력해주세요.</div>
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label for="root2">성별</label>
+                        <select class="custom-select d-block w-100" id="root2" required>
+                          <option >남자</option>
+                          <option>여자</option>
+                        </select>
+                        <div class="invalid-feedback"> 성별을 선택해주세요!</div>
+                </div>
+                </div>
+                <!-- 계속 이어서 진행 -->
+                  <hr class="mb-3">
+                  <div class="mb-4"></div>
+
+            <!-- 아래에서부터 본격적인 보드 시작 -->
+            <!-- 2차 보드 -->
+      <div class="container">
+        <div class="input-form-backgroud row">
+          <div class="col-md-12 mx-auto">
+            <h4 class="mb-3">2. 스터디 멘토 또는 매칭후 남기고싶은 의견을 기술하여 주세요</h4>
+            <!--<form class="validation-form" novalidate>-->
+              <!-- 에디터 부분 -->
+              <div id="editor"></div>
+      <!-- powerd by 표시 부분 -->
+      <div class="toastui-img fw-bolder">
+          Powerd By : <img src="../img/toastui.png"  width="140" height="33">
+      </div>
+      <div class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" id="aggrement" required>
+        <label class="custom-control-label " for="aggrement">위의 내용으로 스터디를 매칭 신청전 내용을 확인하셨습니까?</label>
+      </div>
+        <!-- 에디터 종료 다음 주차별 내용 -->
+              <div class="mb-4"></div>
+              <!--임시로 페이지 걸어논거임-->
+              <a href="http://duck.nifskorea.com:8080/project/page/studymathing_end.html"><button class="btn btn-primary btn-lg btn-block" type="submit">스터디 희망 신청서 제출</button></a>
+              <a href="http://duck.nifskorea.com:8080/project/page/studymathing_end.html"><center><button type="button"  class="btn btn-success">임시 다음 이동 페이지 버튼</button> </a></center>
+
+              <!--</form>-->
+          </div>
+        </div>
+        <footer class="my-3 text-center text-small">
+          <p class="mb-1">&copy; 2022 코딩 스터디 매칭 플랫폼.</p>
+        </footer>
+      </div>
+              <hr class="mb-3">
+    
+            </form>
+        <!-- 설문 파드 영역 끝-->
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</body>
+
+<footer>
+    <div data-include-path="../page/footer.html"></div>
+</footer>
+<script> window.addEventListener('load', () => {
+    const forms = document.getElementsByClassName('validation-form');
+    Array.prototype.filter.call(forms, (form) => {
+      form.addEventListener('submit', function (event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        } form.classList.add('was-validated');
+      }, false);
+    });
+  }, false); 
+</script>
+<!-- 토스트 UI 에디터 -->
+<script>
+ const Editor = toastui.Editor;
+ const codeSyntaxHighlight  = Editor.plugin;
+const editor = new Editor({
+    el: document.querySelector('#editor'),
+    height: '500px',
+    initialEditType: 'markdown',
+    previewStyle: 'vertical',
+    initialValue: '### 원하시는 HTML내용을 작성해주세요.',
+    usageStatistics:'false',
+    language: 'ko'
+    
+});
+const editorRef = useRef();
+editorRef.current.getInstance().getMarkdown();
+editor.getMarkdown();
+//console.log(editor.getMarkdown()); // { range: [startCursorOffset, endCursorOffset], type: 'emph' }
+</script>
+</html>
