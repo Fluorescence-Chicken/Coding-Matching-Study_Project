@@ -6,8 +6,9 @@ from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from api.studyroom.models import StudyRoom, Tag, TechnologyStack
-from api.studyroom.serializers import StudyRoomSerializer, TagSerializer, TechnologyStackSerializer
+from api.studyroom.models import StudyRoom, Tag, TechnologyStack, Posts
+from api.studyroom.serializers import StudyRoomSerializer, TagSerializer, TechnologyStackSerializer, \
+    StudyroomPostsSerializer
 from config import permissions as custom_permissions
 
 
@@ -265,6 +266,89 @@ class TechnologyStackViews(viewsets.GenericViewSet,
         # check if user is admin
         if not request.user.is_admin:
             return Response(status=403, data={'detail': 'You are not allowed to delete TechnologyStack objects.'})
+        instance = self.get_object()
+        self.perform_destroy(instance)
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+class StudyroomPostViews(viewsets.GenericViewSet,
+                         viewsets.mixins.CreateModelMixin,
+                         viewsets.mixins.DestroyModelMixin,
+                         viewsets.mixins.ListModelMixin):
+    """
+    View class that represents StudyroomPost model
+    Create, delete, Retrieve, List is supported.
+    """
+    # viewset variables
+    queryset = Posts.objects.all()
+    serializer_class = StudyroomPostsSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
+        """
+        Get queryset of StudyroomPost objects.
+        """
+        return Posts.objects.all()
+
+    # this endpoint is available to all users
+    def list(self, request: Request, *args, **kwargs):
+        """
+        List all StudyroomPost objects.
+        """
+        # Get query string parameters
+        query_params = request.query_params
+        # Get all StudyroomPost objects
+        studyroom_posts = self.get_queryset()
+        # Filter StudyroomPost objects by query string parameters
+        studyroom_posts = studyroom_posts.filter(
+            title__icontains=query_params.get('title', ''),
+            content__icontains=query_params.get('content', ''),
+        )
+        # filter StudyroomPost objects by studyroom id
+        if query_params.get('studyroom', None):
+            studyroom_posts = studyroom_posts.filter(studyRoom__in=query_params.get('studyroom'))
+        # Serialize StudyroomPost objects, without content column
+        serializer = self.serializer_class(studyroom_posts, many=True)
+        response_data = serializer.data
+
+        return Response(response_data)
+
+    # this endpoint is only allowed to users who is registered as study member
+
+    # this endpoint is only allowed to users who is registered as study member
+    def create(self, request, *args, **kwargs):
+        """
+        Create a StudyroomPost object.
+        """
+        # check request has studyroom id
+        if not request.data.get('studyRoom', None):
+            return Response(status=400, data={'detail': 'Studyroom id is required.'})
+        # check user is in the studyroom
+        if StudyRoom.objects.filter(
+            id=request.data.get('studyRoom'),
+            users__in=[request.user.id]
+        ).count() == 0:
+            return Response(status=403, data={'detail': "You can't create post where you're not assigned."})
+        # create Post object
+        data = request.data
+        data['author'] = request.user.id
+        serializer = self.serializer_class(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def destroy(self, request, *args, **kwargs):
+        """
+        Delete a StudyroomPost object.
+        """
+        # get Post object from pk
+        post = self.get_queryset().get(pk=kwargs['pk'])
+        # get Studyroom object from post
+        studyroom = post.studyRoom
+        # check user is writer of the post or mentor of the studyroom
+        if post.author != request.user and studyroom.mentor != request.user:
+            return Response(status=403, data={'detail': "You can't delete this post."})
         instance = self.get_object()
         self.perform_destroy(instance)
         return Response(status=status.HTTP_204_NO_CONTENT)
