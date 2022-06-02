@@ -408,6 +408,7 @@ class StudyroomScheduleView(viewsets.GenericViewSet,
                         'study_num': schedules['study_num'],
                         'time': schedules['time'],
                         'content': schedules['content'],
+                        'title': schedules['title'],
                     }
                     serializer = self.serializer_class(data=data)
                     if serializer.is_valid():
