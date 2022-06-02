@@ -64,3 +64,10 @@ class StudyroomPostsSerializer(serializers.ModelSerializer):
         model = models.Posts
         fields = '__all__'
         read_only_fields = ('id', 'created_at', 'updated_at')
+
+
+class StudyScheduleSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.StudySchedule
+        fields = '__all__'
+        read_only_fields = ()

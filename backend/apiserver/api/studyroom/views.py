@@ -6,9 +6,9 @@ from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from api.studyroom.models import StudyRoom, Tag, TechnologyStack, Posts
+from api.studyroom.models import StudyRoom, Tag, TechnologyStack, Posts, StudySchedule
 from api.studyroom.serializers import StudyRoomSerializer, TagSerializer, TechnologyStackSerializer, \
-    StudyroomPostsSerializer
+    StudyroomPostsSerializer, StudyScheduleSerializer
 from config import permissions as custom_permissions
 
 
@@ -352,3 +352,92 @@ class StudyroomPostViews(viewsets.GenericViewSet,
         instance = self.get_object()
         self.perform_destroy(instance)
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+class StudyroomScheduleView(viewsets.GenericViewSet,
+                            mixins.ListModelMixin,
+                            mixins.CreateModelMixin,
+                            mixins.UpdateModelMixin,):
+    """
+    StudyroomScheduleView
+    """
+    queryset = StudySchedule.objects.all()
+    serializer_class = StudyScheduleSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    # this endpoint is available to all users
+    def list(self, request: Request, *args, **kwargs):
+        """
+        List all StudyroomSchedule objects.
+        """
+        # Get query string parameters
+        query_params = request.query_params
+        # Get all StudyroomSchedule objects
+        studyroom_schedules = self.get_queryset()
+        # filter StudyroomSchedule objects by studyroom id
+        if query_params.get('studyroom', None):
+            studyroom_schedules = studyroom_schedules.filter(studyRoom__in=query_params.get('studyroom'))
+        # Serialize StudyroomSchedule objects, without content column
+        serializer = self.serializer_class(studyroom_schedules, many=True)
+        response_data = serializer.data
+
+        return Response(response_data)
+
+    # this endpoint is only allowed to users who is registered as study member
+
+    # this endpoint is only allowed to users who are mentor of studyroom
+    def create(self, request, *args, **kwargs):
+        """
+        Create a StudyroomSchedule object.
+        """
+        # check request has studyroom id
+        if not request.data.get('studyRoom', None):
+            return Response(status=400, data={'detail': 'Studyroom id is required.'})
+        # Get studyroom object from request
+        studyroom = StudyRoom.objects.get(pk=request.data.get('studyRoom'))
+        # check requested user is mentor of the studyroom
+        if studyroom.mentor != request.user:
+            return Response(status=403, data={'detail': "You can't create schedule where you're not assigned."})
+        # create StudyroomSchedule object - request json is array of objects
+        try:
+            for week_schedules in request.data['week_schedules']:
+                for schedules in week_schedules['schedules']:
+                    data = {
+                        'studyRoom': request.data['studyRoom'],
+                        'week': week_schedules['week'],
+                        'study_num': schedules['study_num'],
+                        'time': schedules['time'],
+                        'content': schedules['content'],
+                    }
+                    serializer = self.serializer_class(data=data)
+                    if serializer.is_valid():
+                        serializer.save()
+                    else:
+                        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        except Exception as e:
+            return Response(status=400, data={'detail': str(e)})
+        return Response(status=status.HTTP_201_CREATED)
+
+    def update(self, request, *args, **kwargs):
+        """
+        Update a StudyroomSchedule object.
+        """
+        # get StudyroomSchedule object from pk
+        schedule = self.get_queryset().get(pk=kwargs['pk'])
+        # get Studyroom object from schedule
+        studyroom = schedule.studyRoom
+        # check user is mentor of the studyroom
+        if studyroom.mentor != request.user:
+            return Response(status=403, data={'detail': "You can't update this schedule."})
+        # update StudyroomSchedule object
+        instance = self.get_object()
+        # Should limit the update to only the fields that are allowed to be updated: time, content
+        data = request.data
+        data.pop('studyRoom', None)
+        data.pop('week', None)
+        data.pop('study_num', None)
+        serializer = self.serializer_class(instance, data=data, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
