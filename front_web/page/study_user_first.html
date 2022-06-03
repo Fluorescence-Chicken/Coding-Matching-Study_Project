@@ -34,7 +34,7 @@
     <div class="container input-form">
         <!-- DB 로 사용자명을 표시해야함 -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h4 class="mb-3">000님의 스터디 목록 현황 </h4>
+            <h4 class="mb-3">{{name}}님의 스터디 목록 현황 </h4>
         </div>
         <hr class="my-2">
         <!-- 구분 바 아래부터 메인페이지 부분 -->
@@ -48,7 +48,7 @@
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                     총 스터디 갯수 </div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800" name="studyCount">총 6개</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800" name="studyCount">총 {{count}} 개</div><!-- 개수-->
                             </div>
                             <div class="col-auto">
                                 <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -138,5 +138,28 @@
 <footer>
     <div data-include-path="../page/footer.html"></div>
 </footer>
-
+<!-- 상위페이지로 이동 버튼 top -->
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+<script>
+  //Get the button
+  var mybutton = document.getElementById("myBtn");
+  
+  // When the user scrolls down 20px from the top of the document, show the button
+  window.onscroll = function() {scrollFunction()};
+  
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      mybutton.style.display = "block";
+    } else {
+      mybutton.style.display = "none";
+    }
+  }
+  
+  // When the user clicks on the button, scroll to the top of the document
+  function topFunction() {
+    document.body.scrollTop = 3;
+    document.documentElement.scrollTop = 3;
+  }
+  </script>
+  <!-- top 버튼 끝 -->
 </html>

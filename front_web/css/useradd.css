@@ -12,7 +12,7 @@ body {
 }
 div.cuaqd { 
   /* 검색창 위치 조정 파트 */
-    padding-left: 11cm;  /* 조정 금지 */ 
+    padding-left: 20cm;  /* 조정 금지, 여기 패딩값으로 조정, 기존 25 */
    }
    div.menua{
      padding-bottom: 10px;
@@ -40,6 +40,10 @@ div.cuaqd {
         /* 검색창 위치 조정 파트 */
           padding-left: 73%;  /* 조정 금지 */ 
          }
+         div.studydel { 
+          /* 스터디 탈퇴하기 부분 버튼위치 */
+            padding-left: 86%;  /* 조정 금지 */ 
+           }
      /* 페이지창 메뉴 부분 표현 창 */
      div.b-divider {
        height: 5rem;
@@ -82,6 +86,18 @@ div.cuaqd {
          -moz-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15); 
          box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15) 
         }
+        /* 이쁜 상자로 표현 */ 
+    .input-form-studymode { 
+      max-width: 100px; 
+      margin-top: 1px; 
+      padding: 22px; 
+      -webkit-border-radius: 20px; 
+      -moz-border-radius: 20px; 
+      border-radius: 20px; 
+      -webkit-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.18);
+       -moz-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.18); 
+       box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.18) 
+      }
       /* 회원 가입 페이지에서 이용약관 관련 부분 */
       *{margin: 0;padding: 0;box-sizing: border-box}
       body{background-color: #f7f7f7;}
@@ -801,3 +817,36 @@ textarea {
 /*오버레이 뒷배경*/
 .popup_overlay{position:fixed;top:0px;right:0;left:0;bottom:0;z-index:1001;;background:rgba(0,0,0,0.5);}
 /*popup*/
+
+/*파ㄹ로우 페이지용 */
+.profile_board {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.box_board {
+  width : 60px;
+  height: 60px; 
+  border-radius: 75%;
+  overflow: hidden;
+}
+/* 상단 이동 페이지 */
+#myBtn {
+  display: none;
+  position: fixed;
+  bottom: 90px;
+  right: 30px;
+  z-index: 90;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: rgba(255, 200, 0, 0.526);
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+#myBtn:hover {
+  background-color: #555;
+}

@@ -12,103 +12,111 @@
 
   <!-- js 연결 -->
   <script src="../jsp/javascript.js"></script>
-  
+
 </head>
 
 <body>
-<!-- 바디 부분 시작 -->
+  <!-- 바디 부분 시작 -->
 
- <!-- 바디 섹션 -->
- <div class="b-divider">이벤트 게시판</div>
- <div class="container input-form">
-     <!-- DB 로 스터디명을 표시해야함 js script -->
-     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-         <h4 class="mb-3">EVENT Board</h4>
-         
-     </div>
-     <hr class="my-2">
-     <!-- 이까지가 헤더가 아래부터 게시판 보드 시작임 -->
-     <div class="p-1"></div>
-        <div class="card-header " style="width: 100%; border-radius: 5px;">
-            <!-- 게시판 내용 긁어와야함 js script-->
-            <h6 class="m-0 font-weight-bold text-primary text-center">이벤트 게시판</h6>
-        </div>
-        <!-- 1번째 아래부터 본격적인 테이블 내용-->
-        <div class="alert alert-info d-flex align-items-center" role="alert">
-           <i class="bi bi-exclamation-triangle-fill"></i>
-            <div>
-              정기 스터디 행사 또는 이벤트 행사일정을 안내하는 페이지 입니다.
-            </div>
-          </div>
-        <table class="table table-hover" >
-            <thead>
-                <tr> 
-                    <b>
-                    <th scope="row">순번</th>
-                    <td >내용</td>
-                    <td>사용자</td>
-                    <td>게시글 업로드 시간</td>
-                </b>
-                </tr>
-            </thead>
-            <tbody class="table-activate">
-           
-                <tr>
-                    <th scope="row">1</th>
-                    <td ><a href="http://duck.nifskorea.com:8080/project/page/Read_board.html">서비스 런칭안내</a></td>
-                    <td>관리자</td>
-                    <td>2022-05-17 03:12:31</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td ><a href="http://duck.nifskorea.com:8080/project/page/Read_board.html">서비스 런칭안내</a></td>
-                    <td>관리자</td>
-                    <td>2022-05-17 03:12:31</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td ><a href="http://duck.nifskorea.com:8080/project/page/Read_board.html">서비스 런칭안내</a></td>
-                    <td>관리자</td>
-                    <td>2022-05-17 03:12:31</td>
-                </tr>
-            </tbody>
-        </table>
-<!-- 다음 페이지 이동 버튼 -->
-      <!-- 게시판 글쓰기 페이지 이동-->
-      <div class=" write-left container-fluid">
-        <!-- 해당부분 미로그인시 글쓰기 불가능하게 js script로 구현해야함-->
-        <a class="btn-write btn-secondary " href="http://duck.nifskorea.com:8080/project/page/write_page.html" role="button" style= "border-radius: 5px;">글쓰기</a>
-        </div>
-<!-- 다음 페이지 이동 버튼  js script 구현 -->
-<div id="myDIV container ">
-<center>
-<a href="#"><button class="btn">1</button></a>
-<a href="#"><button class="btn">2</button></a>
-<a href="#"><button class="btn">3</button></a>
-<a href="#"><button class="btn">4</button></a>
-<a href="#"><button class="btn">5</button></a>
-</center>
-</div>
-     </div>
-     
+  <!-- 바디 섹션 -->
+  <div class="b-divider">이벤트 게시판</div>
+  <div class="container input-form">
+    <!-- DB 로 스터디명을 표시해야함 js script -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+      <h4 class="mb-3">EVENT Board</h4>
+
+    </div>
+    <hr class="my-2">
+    <!-- 이까지가 헤더가 아래부터 게시판 보드 시작임 -->
+    <div class="p-1"></div>
+    <div class="card-header " style="width: 100%; border-radius: 5px;">
+      <!-- 게시판 내용 긁어와야함 js script-->
+      <h6 class="m-0 font-weight-bold text-primary text-center">이벤트 게시판</h6>
+    </div>
+    <!-- 1번째 아래부터 본격적인 테이블 내용-->
+    <div class="alert alert-info d-flex align-items-center" role="alert">
+      <i class="bi bi-exclamation-triangle-fill"></i>
+      <div>
+        정기 스터디 행사 또는 이벤트 행사일정을 안내하는 페이지 입니다.
+      </div>
+    </div>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <b>
+            <th scope="row">순번</th>
+            <td>내용</td>
+            <td>사용자</td>
+            <td>게시글 업로드 시간</td>
+          </b>
+        </tr>
+      </thead>
+      <tbody class="table-activate" id="boardTable">
+        <!-- JS 동적 생성 -->
+        <script>duck_nifskorea_com.event_board.getJSON()</script>
+      </tbody>
+    </table>
+    <!-- 다음 페이지 이동 버튼 -->
+    <!-- 게시판 글쓰기 페이지 이동-->
+    <div class=" write-left container-fluid">
+      <!-- 해당부분 미로그인시 글쓰기 불가능하게 js script로 구현해야함-->
+      <a class="btn-write btn-secondary " href="http://duck.nifskorea.com:8080/project/page/write_page.html"
+        role="button" style="border-radius: 5px;">글쓰기</a>
+    </div>
+    <!-- 다음 페이지 이동 버튼  js script 구현 -->
+    <div id="myDIV container ">
+      <center>
+        <a href="#"><button class="btn">1</button></a>
+        <a href="#"><button class="btn">2</button></a>
+        <a href="#"><button class="btn">3</button></a>
+        <a href="#"><button class="btn">4</button></a>
+        <a href="#"><button class="btn">5</button></a>
+      </center>
+    </div>
+  </div>
+
 
 
 </body>
 <script>
-    // Add active class to the current button (highlight it)
-    var header = document.getElementById("myDIV");
-    var btns = header.getElementsByClassName("btn");
-    for (var i = 0; i < btns.length; i++) {
-      btns[i].addEventListener("click", function() {
+  // Add active class to the current button (highlight it)
+  var header = document.getElementById("myDIV");
+  var btns = header.getElementsByClassName("btn");
+  for (var i = 0; i < btns.length; i++) {
+    btns[i].addEventListener("click", function () {
       var current = document.getElementsByClassName("active");
       current[0].className = current[0].className.replace(" active", "");
       this.className += " active";
-      });
-    }
-    </script>
- <!-- 푸터 부분 -->
- <footer>
-    <div data-include-path="../page/footer.html"></div>
+    });
+  }
+</script>
+<!-- 푸터 부분 -->
+<footer>
+  <div data-include-path="../page/footer.html"></div>
 </footer>
+<!-- 상위페이지로 이동 버튼 top -->
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+<script>
+  //Get the button
+  var mybutton = document.getElementById("myBtn");
+
+  // When the user scrolls down 20px from the top of the document, show the button
+  window.onscroll = function () { scrollFunction() };
+
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      mybutton.style.display = "block";
+    } else {
+      mybutton.style.display = "none";
+    }
+  }
+
+  // When the user clicks on the button, scroll to the top of the document
+  function topFunction() {
+    document.body.scrollTop = 3;
+    document.documentElement.scrollTop = 3;
+  }
+</script>
+<!-- top 버튼 끝 -->
 
 </html>

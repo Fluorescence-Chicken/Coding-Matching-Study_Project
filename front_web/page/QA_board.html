@@ -52,25 +52,9 @@
                 </tr>
             </thead>
             <tbody class="table-activate">
-           
-                <tr>
-                    <th scope="row">1</th>
-                    <td ><a href="http://duck.nifskorea.com:8080/project/page/Read_board.html">서비스 런칭안내</a></td>
-                    <td>관리자</td>
-                    <td>2022-05-17 03:12:31</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td ><a href="http://duck.nifskorea.com:8080/project/page/Read_board.html">서비스 런칭안내</a></td>
-                    <td>관리자</td>
-                    <td>2022-05-17 03:12:31</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td ><a href="http://duck.nifskorea.com:8080/project/page/Read_board.html">서비스 런칭안내</a></td>
-                    <td>관리자</td>
-                    <td>2022-05-17 03:12:31</td>
-                </tr>
+              <tbody class="table-activate" id="boardTable">
+                <!-- JS 동적 생성 -->
+                <script>duck_nifskorea_com.qa_board.getJSON()</script>
             </tbody>
         </table>
       <!-- 게시판 글쓰기 페이지 이동-->
@@ -109,5 +93,28 @@
  <footer>
     <div data-include-path="../page/footer.html"></div>
 </footer>
-
+<!-- 상위페이지로 이동 버튼 top -->
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+<script>
+  //Get the button
+  var mybutton = document.getElementById("myBtn");
+  
+  // When the user scrolls down 20px from the top of the document, show the button
+  window.onscroll = function() {scrollFunction()};
+  
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      mybutton.style.display = "block";
+    } else {
+      mybutton.style.display = "none";
+    }
+  }
+  
+  // When the user clicks on the button, scroll to the top of the document
+  function topFunction() {
+    document.body.scrollTop = 3;
+    document.documentElement.scrollTop = 3;
+  }
+  </script>
+  <!-- top 버튼 끝 -->
 </html>

@@ -97,8 +97,9 @@
 <hr class="my-2">
     <!-- 고객형 결과 표시 -->
     <!--js script로 매칭 결과 표시할수있어야함 -->
-    <h4 class="mb-3 p-3">000님의 스터디 매칭 결과 </h4>
-    <div class="text-center p-3 text-set">000님 이 선택하신 테크중 이런 스터디가 가장 어율려요!! </div>
+    <h4 class="mb-3 p-3">{{name}} 님의 스터디 매칭 결과 </h4> <!-- 로그인 한 사람 이름 -->
+    <div class="text-center p-3 text-set">{{name}}}님 이 선택하신 테그 중
+       다음과 같은 스터디가 가장 어율려요!! </div> <!-- 로그인 한 사람 이름-->
     <!-- 카드 목록 표시 -->
      <!-- 아래에서부터 스터디 목록을 보여주어야함 카드 부분 js script-->
      <div class="row row-cols-1 row-cols-md-3 g-4">
@@ -108,17 +109,16 @@
 
                 <div class="card-body" style="width: 18rem;">
                     <div class="studyItem_schedule">
-                        <p>시작 예정일 |</p>
+                        <p>{{study_start}} |</p> <!-- 스터디 시작 예정일 -->
                         <div class="studyItem_schedule" name="studyStartDate">
-                            <p>2022.05.23</p>
+                            <p>{{study_end}}</p> <!-- 스터디 종료 예정일-->
                         </div>
                     </div>
-                    <h5 class="card-title" name="studyName">도커 스터디 </h5>
-                    <div name="studyDescription">Docker에 대해 알아보는 초급 스터디입니다.</div>
+                    <h5 class="card-title" name="studyName">{{study_name}} </h5> <!-- 스터디 이름-->
+                    <div name="studyDescription">{{study_samll_name}}</div> <!-- 스터디 설명-->
                     <!-- 스터디과목 정보 태그 js script -->
                     <ul class="studyItem_hashtag p-1" name="studyTag">
-                        <li>#초급</li>
-                        <li>#멘토: 홍길동</li>
+                        <li>{{tag}}</li> <!-- 태그 이름-->
                     </ul>
                     <ul class="studyItem_content">
                         <li class="studyItem_content_img">
@@ -141,7 +141,7 @@
     </div>
     <hr class="my-2">
     <!-- 우선 매칭 결과화면 우선 진행후 기타 추천 스터디 -->
-    <div class="text-center p-3 text-set">000님 이런 스터디는 어떠세요? </div>
+    <div class="text-center p-3 text-set">{{name}}님 이런 스터디는 어떠세요? </div> <!-- 로그인 한 사람 이름-->
      <!-- 아래에서부터 스터디 목록을 보여주어야함 카드 부분 -->
      <div class="row row-cols-1 row-cols-md-3 g-4">
         <div class="col ">
@@ -150,17 +150,16 @@
 
                 <div class="card-body" style="width: 18rem;">
                     <div class="studyItem_schedule">
-                        <p>시작 예정일 |</p>
+                      <p>{{study_start}} |</p> <!-- 스터디 시작 예정일 -->
                         <div class="studyItem_schedule" name="studyStartDate">
                             <p>2022.05.23</p>
                         </div>
                     </div>
-                    <h5 class="card-title" name="studyName">도커 스터디 </h5>
-                    <div name="studyDescription">Docker에 대해 알아보는 초급 스터디입니다.</div>
+                    <h5 class="card-title" name="studyName">{{study_name}} </h5> <!-- 스터디 이름-->
+                    <div name="studyDescription">{{study_samll_name}}</div> <!-- 스터디 설명-->
                     <!-- 스터디과목 정보 태그 js script -->
                     <ul class="studyItem_hashtag p-1" name="studyTag">
-                        <li>#초급</li>
-                        <li>#멘토: 홍길동</li>
+                      <li>{{tag}}</li> <!-- 태그 이름-->
                     </ul>
                     <!-- 스터디 과목 이미지  -->
                     <!-- 이미지 테스팅 해야할듯 -->
@@ -196,4 +195,28 @@
 <footer>
     <div data-include-path="../page/footer.html"></div>
 </footer>
+<!-- 상위페이지로 이동 버튼 top -->
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+<script>
+  //Get the button
+  var mybutton = document.getElementById("myBtn");
+  
+  // When the user scrolls down 20px from the top of the document, show the button
+  window.onscroll = function() {scrollFunction()};
+  
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      mybutton.style.display = "block";
+    } else {
+      mybutton.style.display = "none";
+    }
+  }
+  
+  // When the user clicks on the button, scroll to the top of the document
+  function topFunction() {
+    document.body.scrollTop = 3;
+    document.documentElement.scrollTop = 3;
+  }
+  </script>
+  <!-- top 버튼 끝 -->
 </html>
