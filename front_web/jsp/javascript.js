@@ -231,8 +231,8 @@ const duck_nifskorea_com = {
       studyTagUi_element.setAttribute("class", "studyItem_content");
       for (var tag of studyTag) {
         // Send xhr request to get tag name
-      const xhr = new XMLHttpRequest();
-      xhr.open("GET", `${duck_nifskorea_com.api_url}/board/tag/${tag}/`);
+        const xhr = new XMLHttpRequest();
+        xhr.open("GET", `${duck_nifskorea_com.api_url}/board/tag/${tag}/`);
         xhr.setRequestHeader("Accept", "application/json");
         xhr.send();
         xhr.onload = function () {
@@ -287,9 +287,9 @@ const duck_nifskorea_com = {
     * @param {HTMLAnchorElement} link HTML의 "a" tag에 들어가는 Element
      * @param {number} id API로 받은 게시글 ID
      */
-    studyLink: function(link, id){
+    studyLink: function (link, id) {
       const URL = "http://duck.nifskorea.com:8080/project/page/study_dashboard.html?studyID=" +
-      id;
+        id;
       link.setAttribute("href", URL);
       link.setAttribute("class", "btn " + "btn-primary");
     }
@@ -299,7 +299,7 @@ const duck_nifskorea_com = {
      * get study_dashboard JSON data
      * @param {number} id the id to find user
      */
-    getMentorJSON: function(id){
+    getMentorJSON: function (id) {
       const xhr = new XMLHttpRequest();
       xhr.open("GET", `${duck_nifskorea_com.api_url}/user/${id}/`, false);
       xhr.setRequestHeader("Accept", "application/json");
@@ -328,8 +328,8 @@ const duck_nifskorea_com = {
      * 
      * @param {number} id the id to find study
      */
-    getStudyJSON: function(id){
-      
+    getStudyJSON: function (id) {
+
       //API
       const xhr = new XMLHttpRequest();
       xhr.open("GET", `${duck_nifskorea_com.api_url}/board/studyroom/${id}/`, false);
@@ -344,7 +344,7 @@ const duck_nifskorea_com = {
       }; //xhr.onload = function() End
 
       const data_json = JSON.parse(xhr.response);
-     studyData = {
+      studyData = {
         name: data_json.name, //이름
         description: data_json.description, //설명
         startDate: data_json.start_date, //시작 기간
@@ -355,72 +355,101 @@ const duck_nifskorea_com = {
     },
     /**
      * get QnA JSON data
+     * @param {number} studyroom_id 스터디 룸 id
      * @returns QnA JSON data
      */
-    getQnAJSON: function(){
-      // const xhr = new XMLHttpRequest();
-      // xhr.open("GET", `${duck_nifskorea_com.api_url}/notify_board/post/${id}/`, false);
-      // xhr.setRequestHeader("Accept", "application/json");
-      // xhr.send();
+    getQnAJSON: function (studyroom_id) {
+      const xhr = new XMLHttpRequest();
+      const token = localStorage.getItem("token");
+      xhr.open("GET", `${duck_nifskorea_com.api_url}/board/posts/?studyroom=${studyroom_id}`, false);
+      xhr.setRequestHeader("Accept", "application/json");
+      xhr.setRequestHeader("Authorization", `token ${token}`);
+      xhr.send();
 
-      // xhr.onload = function () {
-      //   //server 오류 예외처리
-      //   if (xhr.status >= 400 && xhr.status <= 550) {
-      //     throw `Server responsed! ${xhr.status}: ${xhr.response}`;
-      //   };
-      // }; //xhr.onload = function() End
+      xhr.onload = function () {
+        //server 오류 예외처리
+        if (xhr.status >= 400 && xhr.status <= 550) {
+          throw `Server responsed! ${xhr.status}: ${xhr.response}`;
+        };
+      }; //xhr.onload = function() End
 
-      //const data_json = JSON.parse(xhr.response);
-      var qnaData = {
-        //id: data_json.id, //ID
-        num: 1,
-        content: "젤다 깨야하는데",
-        writer: "멋쟁이 박상현",
-        creationTime: Date(),
-      };
-      return qnaData;
+      const data_json = { posts: JSON.parse(xhr.response) }
+      console.log(JSON.stringify(data_json));
+      console.log(data_json);
+      return data_json;
     },
     // QnA template apply
     init_qna_template: function (board) {
       const template = document.getElementById('qna_template').innerHTML;
       Mustache.parse(template);
 
-      var data = board;
-      let rendered = Mustache.render(template, data);
+      console.log(board);
+      let rendered = Mustache.render(template, board);
       document.getElementById('qna_output').innerHTML = rendered;
     },
-/**
- * get Lecture(강의) JSON data
- * @returns lecture JSON data
- */
-    getLectureJSON: function(){
-      // const xhr = new XMLHttpRequest();
-      // xhr.open("GET", `${duck_nifskorea_com.api_url}/notify_board/post/${id}/`, false);
-      // xhr.setRequestHeader("Accept", "application/json");
-      // xhr.send();
+    /**
+     * get Lecture(강의) JSON data
+     * @param {number} studyroom_id 현재 대상 스터디룸 id
+     * @returns lecture JSON data
+     */
+    getLectureJSON: function (studyroom_id) {
+      const xhr = new XMLHttpRequest();
+      const token = localStorage.getItem("token");
+      xhr.open("GET", `${duck_nifskorea_com.api_url}/board/schedule/?studyroom=${studyroom_id}`, false);
+      xhr.setRequestHeader("Accept", "application/json");
+      xhr.setRequestHeader("Authorization", `token ${token}`);
+      xhr.send();
 
-      // xhr.onload = function () {
-      //   //server 오류 예외처리
-      //   if (xhr.status >= 400 && xhr.status <= 550) {
-      //     throw `Server responsed! ${xhr.status}: ${xhr.response}`;
-      //   };
-      // }; //xhr.onload = function() End
+      xhr.onload = function () {
+        //server 오류 예외처리
+        if (xhr.status >= 400 && xhr.status <= 550) {
+          throw `Server responsed! ${xhr.status}: ${xhr.response}`;
+        };
+      }; //xhr.onload = function() End
 
-      //const data_json = JSON.parse(xhr.response);
-      var lectureData = {
-        //id: data_json.id, //ID
-        num: 1, //순번
-        title: "야 너두 풀콤받을 수 있어", //제목
-        writer: "킹왕짱 최인수", //강사 이름
-        lectureTime: "11:00", //강의 시간
-      };
+      const data_json = JSON.parse(xhr.response);
+      let lectureData = [];
+      for (const data of data_json) {
+        week_index = lectureData.findIndex(
+          (week_object) => week_object.week === data.week
+        );
+        // if week is not exist(first input of data), push week object on lectureData first
+        if (week_index === -1) {
+          lectureData.push({
+            week: data.week,
+            lectures: [
+              {
+                id: data.id,
+                time: data.time,
+                content: data.content,
+                title: data.title,
+              },
+            ],
+          });
+        }
+        // if week is already exist, pust lecture to existing week object
+        else {
+          lectureData[week_index].lectures.push({
+            id: data.id,
+            time: data.time,
+            content: data.content,
+            title: data.title,
+          });
+        }
+      }
+      console.log(lectureData)
+      // sort array by week, and each week object by study_num
+      // lectureData.sort((a, b) => a.week - b.week);
+      // for (week in lectureData) {
+      //   week.lectures.sort((a, b) => a.time - b.time);
+      // }
       return lectureData;
     },
     /**
      * 강의 목록을 template으로 적용
      * @param {var} board JSON으로 얻은 강의 목록 데이터
      */
-     init_lecture_template: function (board) {
+    init_lecture_template: function (board) {
       const template = document.getElementById('lecture_template').innerHTML;
       Mustache.parse(template);
 
@@ -446,11 +475,9 @@ const duck_nifskorea_com = {
       //스터디 요약 부분 (상단 부분)
       duck_nifskorea_com.changeInnerText('h4[name="studyName"]', "스터디 명"); //스터디 명
       duck_nifskorea_com.changeInnerText('div[name="studyCount"]', "총 " + "n" + "개"); //총 강의 개수
-      duck_nifskorea_com.changeInnerText('div[name="endLesson"]', "n" + "/"); //완료 수업
-      duck_nifskorea_com.changeInnerText('div[name="allLesson"]', "n"); //총 수업
 
       //약력 (하단1 부분)
-      duck_nifskorea_com.changeInnerText('td[name="name"]', mentorData.firstName+mentorData.lastName); //교사(강사) 이름
+      duck_nifskorea_com.changeInnerText('td[name="name"]', mentorData.firstName + mentorData.lastName); //교사(강사) 이름
       duck_nifskorea_com.changeInnerText('td[name="dept"]', "전공 학과"); //담당 전공
       duck_nifskorea_com.changeInnerText('td[name="carrar"]', "경력"); //연력 또는 경력
       duck_nifskorea_com.changeInnerText('td[name="email"]', mentorData.email); //교사(강사) 이름
@@ -459,8 +486,8 @@ const duck_nifskorea_com = {
       duck_nifskorea_com.changeInnerText('td[name="bio"]', "오늘 한강은 따뜻할까?"); //한줄 인사말
 
       //Qna
-      var qnaData = duck_nifskorea_com.study_dashboard.getQnAJSON();
-      var lectureData = duck_nifskorea_com.study_dashboard.getLectureJSON();
+      var qnaData = duck_nifskorea_com.study_dashboard.getQnAJSON(studyID);
+      var lectureData = duck_nifskorea_com.study_dashboard.getLectureJSON(studyID);
       duck_nifskorea_com.study_dashboard.init_qna_template(qnaData);
       duck_nifskorea_com.study_dashboard.init_lecture_template(lectureData);
       //스터디 목록(하단2 부분)
@@ -931,7 +958,6 @@ const duck_nifskorea_com = {
   },
 
   study_found: {
-
     exam1: function () {
 
       var ul_study_found = document.createElement("ul");
@@ -959,8 +985,6 @@ const duck_nifskorea_com = {
       ul_study_found.append(li_study_found);
       ul_study_found.append(span_study_found);
     },
-
-
     // 코드 229~279줄, html 밑부분 도커 네모난 부분
     exam2: function () {
 
@@ -1090,6 +1114,59 @@ const duck_nifskorea_com = {
       // 이후 전체
       div3_study_found.appand(div2_study_found);
       div2_study_found.append(div1_study_found);
-    }
+    },
+    /**
+   * JS를 이용하여 동적으로 페이지를 구성하는 메서드
+   */
+    getQuery: function () {
+      var studyURL = document.createElement("a");
+      var studyData = duck_nifskorea_com.study_found.getstudyCardJSON(studyURL);
+    },
+    /**
+   * get studyCard JSON data
+   * @param {HTMLAnchorElement} studyURL 스터디 이동하기 버튼에 해당하는 HTML a 태그
+   * @returns studyCard JSON data
+   */
+    getstudyCardJSON: function (studyURL) {
+      const xhr = new XMLHttpRequest();
+      xhr.open("GET", `${duck_nifskorea_com.api_url}/board/studyroom/`, false);
+      xhr.setRequestHeader("Accept", "application/json");
+      xhr.send();
+
+      xhr.onload = function () {
+        //server 오류 예외처리
+        if (xhr.status >= 400 && xhr.status <= 550) {
+          throw `Server responsed! ${xhr.status}: ${xhr.response}`;
+        };
+      }; //xhr.onload = function() End
+
+      const data_json = JSON.parse(xhr.response);
+      for (let i = 0; i < Object.keys(data_json).length; i++) {
+        var study_data = {
+          studyName: data_json[i].name,
+          studyDescription: data_json[i].description,
+          studyTag: data_json[i].tags,
+          mentorNum: data_json[i].mentor,
+          users: data_json[i].users,
+          id: data_json[i].id,
+          studyStart: data_json[i].start_date,
+          studyEnd: data_json[i].end_data,
+        };
+        //duck_nifskorea_com.study_user_first.studyLink(studyURL, super.id)
+        duck_nifskorea_com.study_found.init_study_template(study_data);
+      };
+    },
+    /**
+     * 스터디 목록을 template으로 적용
+     * @param {var} board JSON으로 얻은 스터디 목록 데이터
+     */
+    init_study_template: function (board) {
+      const template = document.getElementById('studyCard_template').innerHTML;
+      Mustache.parse(template);
+
+      var data = board;
+      let rendered = Mustache.render(template, data);
+      document.getElementById('studyCard_output').innerHTML += rendered;
+    },
   },
 };

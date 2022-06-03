@@ -1,41 +1,46 @@
 <!-- 스터디누르면 해당 페이지로들어가는 페이지 1개 별도로 만들고 그리고, 스터디 등록 , 버튼 추가하면될듯 -->
 <html>
-    <head>
- <!-- 필수 선언부 -->
- <meta charset="utf-8">
- <script src="../jsp/w3.js"> </script>
- <!-- 커스텀 부분 코드 -->
 
- <!-- 헤더 부분 -->
- <div data-include-path="../page/header.html"> </div>
+<head>
+  <!-- 필수 선언부 -->
+  <meta charset="utf-8">
+  <script src="../jsp/w3.js"> </script>
+  <!-- 커스텀 부분 코드 -->
 
- <!-- js 연결 -->
- <script src="../jsp/javascript.js"></script>
- <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
- <script charset="utf-8" src="https://holaworld.io/static/js/0.ef7d704f.chunk.js"></script>
- <script charset="utf-8" src="https://holaworld.io/static/js/5.cd34cca0.chunk.js"></script>
- <script charset="utf-8" src="https://holaworld.io/static/js/6.70b8fdaf.chunk.js"></script>
- <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-207544361-1"></script>
-    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-WJQH1M67X8"></script>
-    <script src="https://d-collect.jennifersoft.com/5d26d008/demian.js?1653514500000" async=""></script>
-    <script src="https://holaworld.io//static/js/3.3040699d.chunk.js"></script>
-    <script src="https://holaworld.io//static/js/main.a3d108c2.chunk.js"></script>
-    </head>
+  <!-- 헤더 부분 -->
+  <div data-include-path="../page/header.html"> </div>
 
-    <body>
-<!-- 바디 섹션 -->
- <!-- js script 로 이전 게시판 이름을 출력해야함-->
- <div class="b-divider">스터디 검색 </script></div>
-     <!-- 이까지가 헤더가 아래부터 게시판 보드 시작임 -->
-     <!-- 1차 보드 -->
-     <div class="container">
-        <div class="input-form-backgroud row">
-          <div class="input-form col-md-12 mx-auto">
-            <h4 class="mb-3">스터디 검색</h4>
-            <hr class="mb-3">
-            <!-- 메뉴 목록카테고리 설정하는 부분 -->
-            <section class="desktopFilter_filterWrapper__1gwsT">
-           <!--- <ul class="desktopFilter_subjects__aR2H1">
+  <!-- js 연결 -->
+  <script src="../jsp/javascript.js"></script>
+  <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
+  <script charset="utf-8" src="https://holaworld.io/static/js/0.ef7d704f.chunk.js"></script>
+  <script charset="utf-8" src="https://holaworld.io/static/js/5.cd34cca0.chunk.js"></script>
+  <script charset="utf-8" src="https://holaworld.io/static/js/6.70b8fdaf.chunk.js"></script>
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-207544361-1"></script>
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-WJQH1M67X8"></script>
+  <script src="https://d-collect.jennifersoft.com/5d26d008/demian.js?1653514500000" async=""></script>
+  <script src="https://holaworld.io//static/js/3.3040699d.chunk.js"></script>
+  <script src="https://holaworld.io//static/js/main.a3d108c2.chunk.js"></script>
+
+  <!-- template 연결 -->
+  <script src="../jsp/mustache.min.js"></script>
+</head>
+
+<body>
+  <!-- 바디 섹션 -->
+  <!-- js script 로 이전 게시판 이름을 출력해야함-->
+  <div class="b-divider">스터디 검색 </script>
+  </div>
+  <!-- 이까지가 헤더가 아래부터 게시판 보드 시작임 -->
+  <!-- 1차 보드 -->
+  <div class="container">
+    <div class="input-form-backgroud row">
+      <div class="input-form col-md-12 mx-auto">
+        <h4 class="mb-3">스터디 검색</h4>
+        <hr class="mb-3">
+        <!-- 메뉴 목록카테고리 설정하는 부분 -->
+        <section class="desktopFilter_filterWrapper__1gwsT">
+          <!--- <ul class="desktopFilter_subjects__aR2H1">
                 <li class="desktopFilter_subjectItem__2_rjs desktopFilter_selectedSubject__3s63n">인기</li>
                 <li class="desktopFilter_subjectItem__2_rjs ">프론트엔드</li>
                 <li class="desktopFilter_subjectItem__2_rjs ">백엔드</li>
@@ -43,164 +48,288 @@
                 <li class="desktopFilter_subjectItem__2_rjs ">기타</li>
                 <li class="desktopFilter_subjectItem__2_rjs ">모두보기</li>
             </ul>-->
-            <!-- 이미지 목록 출력 -->
-<ul class="desktopFilter_languages__3Kgb1">
-    <li class="desktopFilter_languageIcon__1-pNr desktopFilter_full__1JjBk"><img class="desktopFilter_logo__3V6YL"
-            src="https://holaworld.io/images/languages/javascript.svg" alt="JavaScript"><span>JavaScript</span></li>
-    <li class="desktopFilter_languageIcon__1-pNr desktopFilter_full__1JjBk"><img class="desktopFilter_logo__3V6YL"
-            src="https://holaworld.io/images/languages/typescript.svg" alt="TypeScript"><span>TypeScript</span></li>
-    <li class="desktopFilter_languageIcon__1-pNr desktopFilter_full__1JjBk"><img class="desktopFilter_logo__3V6YL"
-            src="https://holaworld.io/images/languages/react.svg" alt="React"><span>React</span></li>
-    <li class="desktopFilter_languageIcon__1-pNr desktopFilter_full__1JjBk"><img class="desktopFilter_logo__3V6YL"
-            src="https://holaworld.io/images/languages/vue.svg" alt="Vue"><span>Vue</span></li>
-    <li class="desktopFilter_languageIcon__1-pNr desktopFilter_full__1JjBk"><img class="desktopFilter_logo__3V6YL"
-            src="https://holaworld.io/images/languages/svelte.svg" alt="Svelte"><span>Svelte</span></li>
-    <li class="desktopFilter_languageIcon__1-pNr desktopFilter_full__1JjBk"><img class="desktopFilter_logo__3V6YL"
-            src="https://holaworld.io/images/languages/nextjs.svg" alt="Nextjs"><span>Nextjs</span></li>
-    <li class="desktopFilter_languageIcon__1-pNr desktopFilter_full__1JjBk"><img class="desktopFilter_logo__3V6YL"
-            src="https://holaworld.io/images/languages/nodejs.svg" alt="Nodejs"><span>Nodejs</span></li>
-    <li class="desktopFilter_languageIcon__1-pNr desktopFilter_full__1JjBk"><img class="desktopFilter_logo__3V6YL"
-            src="https://holaworld.io/images/languages/java.svg" alt="Java"><span>Java</span></li>
-    <li class="desktopFilter_languageIcon__1-pNr desktopFilter_full__1JjBk"><img class="desktopFilter_logo__3V6YL"
-            src="https://holaworld.io/images/languages/spring.svg" alt="Spring"><span>Spring</span></li>
-    <li class="desktopFilter_languageIcon__1-pNr desktopFilter_full__1JjBk"><img class="desktopFilter_logo__3V6YL"
-            src="https://holaworld.io/images/languages/go.svg" alt="Go"><span>Go</span></li>
-    <li class="desktopFilter_languageIcon__1-pNr desktopFilter_full__1JjBk"><img class="desktopFilter_logo__3V6YL"
-            src="https://holaworld.io/images/languages/nestjs.svg" alt="Nestjs"><span>Nestjs</span></li>
-    <li class="desktopFilter_languageIcon__1-pNr desktopFilter_full__1JjBk"><img class="desktopFilter_logo__3V6YL"
-            src="https://holaworld.io/images/languages/kotlin.svg" alt="Kotlin"><span>Kotlin</span></li>
-    <li class="desktopFilter_languageIcon__1-pNr desktopFilter_full__1JjBk"><img class="desktopFilter_logo__3V6YL"
-            src="https://holaworld.io/images/languages/express.svg" alt="Express"><span>Express</span></li>
-    <li class="desktopFilter_languageIcon__1-pNr desktopFilter_full__1JjBk"><img class="desktopFilter_logo__3V6YL"
-            src="https://holaworld.io/images/languages/mysql.svg" alt="MySQL"><span>MySQL</span></li>
-    <li class="desktopFilter_languageIcon__1-pNr desktopFilter_full__1JjBk"><img class="desktopFilter_logo__3V6YL"
-            src="https://holaworld.io/images/languages/mongodb.svg" alt="MongoDB"><span>MongoDB</span></li>
-    <li class="desktopFilter_languageIcon__1-pNr desktopFilter_full__1JjBk"><img class="desktopFilter_logo__3V6YL"
-            src="https://holaworld.io/images/languages/python.svg" alt="Python"><span>Python</span></li>
-    <li class="desktopFilter_languageIcon__1-pNr desktopFilter_full__1JjBk"><img class="desktopFilter_logo__3V6YL"
-            src="https://holaworld.io/images/languages/django.svg" alt="Django"><span>Django</span></li>
-    <li class="desktopFilter_languageIcon__1-pNr desktopFilter_full__1JjBk"><img class="desktopFilter_logo__3V6YL"
-            src="https://holaworld.io/images/languages/php.svg" alt="php"><span>php</span></li>
-    <li class="desktopFilter_languageIcon__1-pNr desktopFilter_full__1JjBk"><img class="desktopFilter_logo__3V6YL"
-            src="https://holaworld.io/images/languages/graphql.svg" alt="GraphQL"><span>GraphQL</span></li>
-    <li class="desktopFilter_languageIcon__1-pNr desktopFilter_full__1JjBk"><img class="desktopFilter_logo__3V6YL"
-            src="https://holaworld.io/images/languages/firebase.svg" alt="Firebase"><span>Firebase</span></li>
-    <li class="desktopFilter_languageIcon__1-pNr desktopFilter_full__1JjBk"><img class="desktopFilter_logo__3V6YL"
-            src="https://holaworld.io/images/languages/flutter.svg" alt="Flutter"><span>Flutter</span></li>
-    <li class="desktopFilter_languageIcon__1-pNr desktopFilter_full__1JjBk"><img class="desktopFilter_logo__3V6YL"
-            src="https://holaworld.io/images/languages/swift.svg" alt="Swift"><span>Swift</span></li>
-    <li class="desktopFilter_languageIcon__1-pNr desktopFilter_full__1JjBk"><img class="desktopFilter_logo__3V6YL"
-            src="https://holaworld.io/images/languages/reactnative.svg" alt="ReactNative"><span>ReactNative</span></li>
-    <li class="desktopFilter_languageIcon__1-pNr desktopFilter_full__1JjBk"><img class="desktopFilter_logo__3V6YL"
-            src="https://holaworld.io/images/languages/unity.svg" alt="Unity"><span>Unity</span></li>
-    <li class="desktopFilter_languageIcon__1-pNr desktopFilter_full__1JjBk"><img class="desktopFilter_logo__3V6YL"
-            src="https://holaworld.io/images/languages/aws.svg" alt="AWS"><span>AWS</span></li>
-    <li class="desktopFilter_languageIcon__1-pNr desktopFilter_full__1JjBk"><img class="desktopFilter_logo__3V6YL"
-            src="https://holaworld.io/images/languages/kubernetes.svg" alt="Kubernetes"><span>Kubernetes</span></li>
-    <li class="desktopFilter_languageIcon__1-pNr desktopFilter_full__1JjBk"><img class="desktopFilter_logo__3V6YL"
-            src="https://holaworld.io/images/languages/docker.svg" alt="Docker"><span>Docker</span></li>
-    <li class="desktopFilter_languageIcon__1-pNr desktopFilter_full__1JjBk"><img class="desktopFilter_logo__3V6YL"
-            src="https://holaworld.io/images/languages/git.svg" alt="Git"><span>Git</span></li>
-    <li class="desktopFilter_languageIcon__1-pNr desktopFilter_full__1JjBk"><img class="desktopFilter_logo__3V6YL"
-            src="https://holaworld.io/images/languages/figma.svg" alt="Figma"><span>Figma</span></li>
-    <li class="desktopFilter_languageIcon__1-pNr desktopFilter_full__1JjBk"><img class="desktopFilter_logo__3V6YL"
-            src="https://holaworld.io/images/languages/zeplin.svg" alt="Zeplin"><span>Zeplin</span></li>
-    <li class="desktopFilter_languageIcon__1-pNr desktopFilter_full__1JjBk"><img class="desktopFilter_logo__3V6YL"
-            src="https://holaworld.io/images/languages/jest.svg" alt="Jest"><span>Jest</span></li>
-</ul>
-<!-- 버튼 누르기면 전체 보는 부분-->
-<ul class="desktopFilter_languages__3Kgb1">
-        <li class="desktopFilter_languageIcon__1-pNr desktopFilter_transparent__2ofOb"><img
-                        class="desktopFilter_logo__3V6YL" src="/images/languages/javascript.svg"
-                        alt="JavaScript"><span>JavaScript</span></li>
-        <li class="desktopFilter_languageIcon__1-pNr desktopFilter_transparent__2ofOb"><img
-                        class="desktopFilter_logo__3V6YL" src="/images/languages/typescript.svg"
-                        alt="TypeScript"><span>TypeScript</span></li>
-        <li class="desktopFilter_languageIcon__1-pNr desktopFilter_transparent__2ofOb"><img
-                        class="desktopFilter_logo__3V6YL" src="/images/languages/react.svg"
-                        alt="React"><span>React</span></li>
-        <li class="desktopFilter_languageIcon__1-pNr desktopFilter_transparent__2ofOb"><img
-                        class="desktopFilter_logo__3V6YL" src="/images/languages/vue.svg" alt="Vue"><span>Vue</span>
-        </li>
-        <li class="desktopFilter_languageIcon__1-pNr desktopFilter_transparent__2ofOb"><img
-                        class="desktopFilter_logo__3V6YL" src="/images/languages/svelte.svg"
-                        alt="Svelte"><span>Svelte</span></li>
-        <li class="desktopFilter_languageIcon__1-pNr desktopFilter_transparent__2ofOb"><img
-                        class="desktopFilter_logo__3V6YL" src="/images/languages/nextjs.svg"
-                        alt="Nextjs"><span>Nextjs</span></li>
-        <li class="desktopFilter_languageIcon__1-pNr desktopFilter_transparent__2ofOb"><img
-                        class="desktopFilter_logo__3V6YL" src="/images/languages/nodejs.svg"
-                        alt="Nodejs"><span>Nodejs</span></li>
-        <li class="desktopFilter_languageIcon__1-pNr desktopFilter_full__1JjBk"><img class="desktopFilter_logo__3V6YL"
-                        src="/images/languages/java.svg" alt="Java"><span>Java</span></li>
-        <li class="desktopFilter_languageIcon__1-pNr desktopFilter_transparent__2ofOb"><img
-                        class="desktopFilter_logo__3V6YL" src="/images/languages/spring.svg"
-                        alt="Spring"><span>Spring</span></li>
-        <li class="desktopFilter_languageIcon__1-pNr desktopFilter_transparent__2ofOb"><img
-                        class="desktopFilter_logo__3V6YL" src="/images/languages/go.svg" alt="Go"><span>Go</span></li>
-        <li class="desktopFilter_languageIcon__1-pNr desktopFilter_transparent__2ofOb"><img
-                        class="desktopFilter_logo__3V6YL" src="/images/languages/nestjs.svg"
-                        alt="Nestjs"><span>Nestjs</span></li>
-</ul>
-<!-- 버튼 부분 끝  -->
-<ul class="desktopFilter_selectedLanguages__3KowP">
-    <li class="desktopFilter_selectedLanguage__30mty">
-        <div>Docker</div><img src="https://holaworld.io/images/info/delete.svg" alt="deleteButton">
-    </li><span class="desktopFilter_resetFilter__ybCJD">필터 초기화</span>
-</ul>
+          <!-- 이미지 목록 출력 -->
+          <ul class="desktopFilter_languages__3Kgb1">
+            <li class="desktopFilter_languageIcon__1-pNr desktopFilter_full__1JjBk">
+              <img class="desktopFilter_logo__3V6YL" src="https://holaworld.io/images/languages/javascript.svg"
+                alt="JavaScript"><span>JavaScript</span>
+            </li>
+            <li class="desktopFilter_languageIcon__1-pNr desktopFilter_full__1JjBk">
+              <img class="desktopFilter_logo__3V6YL" src="https://holaworld.io/images/languages/typescript.svg"
+                alt="TypeScript"><span>TypeScript</span>
+            </li>
+            <li class="desktopFilter_languageIcon__1-pNr desktopFilter_full__1JjBk">
+              <img class="desktopFilter_logo__3V6YL" src="https://holaworld.io/images/languages/react.svg"
+                alt="React"><span>React</span>
+            </li>
+            <li class="desktopFilter_languageIcon__1-pNr desktopFilter_full__1JjBk">
+              <img class="desktopFilter_logo__3V6YL" src="https://holaworld.io/images/languages/vue.svg"
+                alt="Vue"><span>Vue</span>
+            </li>
+            <li class="desktopFilter_languageIcon__1-pNr desktopFilter_full__1JjBk">
+              <img class="desktopFilter_logo__3V6YL" src="https://holaworld.io/images/languages/svelte.svg"
+                alt="Svelte"><span>Svelte</span>
+            </li>
+            <li class="desktopFilter_languageIcon__1-pNr desktopFilter_full__1JjBk">
+              <img class="desktopFilter_logo__3V6YL" src="https://holaworld.io/images/languages/nextjs.svg"
+                alt="Nextjs"><span>Nextjs</span>
+            </li>
+            <li class="desktopFilter_languageIcon__1-pNr desktopFilter_full__1JjBk">
+              <img class="desktopFilter_logo__3V6YL" src="https://holaworld.io/images/languages/nodejs.svg"
+                alt="Nodejs"><span>Nodejs</span>
+            </li>
+            <li class="desktopFilter_languageIcon__1-pNr desktopFilter_full__1JjBk">
+              <img class="desktopFilter_logo__3V6YL" src="https://holaworld.io/images/languages/java.svg"
+                alt="Java"><span>Java</span>
+            </li>
+            <li class="desktopFilter_languageIcon__1-pNr desktopFilter_full__1JjBk">
+              <img class="desktopFilter_logo__3V6YL" src="https://holaworld.io/images/languages/spring.svg"
+                alt="Spring"><span>Spring</span>
+            </li>
+            <li class="desktopFilter_languageIcon__1-pNr desktopFilter_full__1JjBk">
+              <img class="desktopFilter_logo__3V6YL" src="https://holaworld.io/images/languages/go.svg"
+                alt="Go"><span>Go</span>
+            </li>
+            <li class="desktopFilter_languageIcon__1-pNr desktopFilter_full__1JjBk">
+              <img class="desktopFilter_logo__3V6YL" src="https://holaworld.io/images/languages/nestjs.svg"
+                alt="Nestjs"><span>Nestjs</span>
+            </li>
+            <li class="desktopFilter_languageIcon__1-pNr desktopFilter_full__1JjBk">
+              <img class="desktopFilter_logo__3V6YL" src="https://holaworld.io/images/languages/kotlin.svg"
+                alt="Kotlin"><span>Kotlin</span>
+            </li>
+            <li class="desktopFilter_languageIcon__1-pNr desktopFilter_full__1JjBk">
+              <img class="desktopFilter_logo__3V6YL" src="https://holaworld.io/images/languages/express.svg"
+                alt="Express"><span>Express</span>
+            </li>
+            <li class="desktopFilter_languageIcon__1-pNr desktopFilter_full__1JjBk">
+              <img class="desktopFilter_logo__3V6YL" src="https://holaworld.io/images/languages/mysql.svg"
+                alt="MySQL"><span>MySQL</span>
+            </li>
+            <li class="desktopFilter_languageIcon__1-pNr desktopFilter_full__1JjBk">
+              <img class="desktopFilter_logo__3V6YL" src="https://holaworld.io/images/languages/mongodb.svg"
+                alt="MongoDB"><span>MongoDB</span>
+            </li>
+            <li class="desktopFilter_languageIcon__1-pNr desktopFilter_full__1JjBk">
+              <img class="desktopFilter_logo__3V6YL" src="https://holaworld.io/images/languages/python.svg"
+                alt="Python"><span>Python</span>
+            </li>
+            <li class="desktopFilter_languageIcon__1-pNr desktopFilter_full__1JjBk">
+              <img class="desktopFilter_logo__3V6YL" src="https://holaworld.io/images/languages/django.svg"
+                alt="Django"><span>Django</span>
+            </li>
+            <li class="desktopFilter_languageIcon__1-pNr desktopFilter_full__1JjBk">
+              <img class="desktopFilter_logo__3V6YL" src="https://holaworld.io/images/languages/php.svg"
+                alt="php"><span>php</span>
+            </li>
+            <li class="desktopFilter_languageIcon__1-pNr desktopFilter_full__1JjBk">
+              <img class="desktopFilter_logo__3V6YL" src="https://holaworld.io/images/languages/graphql.svg"
+                alt="GraphQL"><span>GraphQL</span>
+            </li>
+            <li class="desktopFilter_languageIcon__1-pNr desktopFilter_full__1JjBk">
+              <img class="desktopFilter_logo__3V6YL" src="https://holaworld.io/images/languages/firebase.svg"
+                alt="Firebase"><span>Firebase</span>
+            </li>
+            <li class="desktopFilter_languageIcon__1-pNr desktopFilter_full__1JjBk">
+              <img class="desktopFilter_logo__3V6YL" src="https://holaworld.io/images/languages/flutter.svg"
+                alt="Flutter"><span>Flutter</span>
+            </li>
+            <li class="desktopFilter_languageIcon__1-pNr desktopFilter_full__1JjBk">
+              <img class="desktopFilter_logo__3V6YL" src="https://holaworld.io/images/languages/swift.svg"
+                alt="Swift"><span>Swift</span>
+            </li>
+            <li class="desktopFilter_languageIcon__1-pNr desktopFilter_full__1JjBk">
+              <img class="desktopFilter_logo__3V6YL" src="https://holaworld.io/images/languages/reactnative.svg"
+                alt="ReactNative"><span>ReactNative</span>
+            </li>
+            <li class="desktopFilter_languageIcon__1-pNr desktopFilter_full__1JjBk">
+              <img class="desktopFilter_logo__3V6YL" src="https://holaworld.io/images/languages/unity.svg"
+                alt="Unity"><span>Unity</span>
+            </li>
+            <li class="desktopFilter_languageIcon__1-pNr desktopFilter_full__1JjBk">
+              <img class="desktopFilter_logo__3V6YL" src="https://holaworld.io/images/languages/aws.svg"
+                alt="AWS"><span>AWS</span>
+            </li>
+            <li class="desktopFilter_languageIcon__1-pNr desktopFilter_full__1JjBk">
+              <img class="desktopFilter_logo__3V6YL" src="https://holaworld.io/images/languages/kubernetes.svg"
+                alt="Kubernetes"><span>Kubernetes</span>
+            </li>
+            <li class="desktopFilter_languageIcon__1-pNr desktopFilter_full__1JjBk">
+              <img class="desktopFilter_logo__3V6YL" src="https://holaworld.io/images/languages/docker.svg"
+                alt="Docker"><span>Docker</span>
+            </li>
+            <li class="desktopFilter_languageIcon__1-pNr desktopFilter_full__1JjBk">
+              <img class="desktopFilter_logo__3V6YL" src="https://holaworld.io/images/languages/git.svg"
+                alt="Git"><span>Git</span>
+            </li>
+            <li class="desktopFilter_languageIcon__1-pNr desktopFilter_full__1JjBk">
+              <img class="desktopFilter_logo__3V6YL" src="https://holaworld.io/images/languages/figma.svg"
+                alt="Figma"><span>Figma</span>
+            </li>
+            <li class="desktopFilter_languageIcon__1-pNr desktopFilter_full__1JjBk">
+              <img class="desktopFilter_logo__3V6YL" src="https://holaworld.io/images/languages/zeplin.svg"
+                alt="Zeplin"><span>Zeplin</span>
+            </li>
+            <li class="desktopFilter_languageIcon__1-pNr desktopFilter_full__1JjBk">
+              <img class="desktopFilter_logo__3V6YL" src="https://holaworld.io/images/languages/jest.svg"
+                alt="Jest"><span>Jest</span>
+            </li>
+          </ul>
+          <!-- 버튼 누르기면 전체 보는 부분-->
+          <ul class="desktopFilter_languages__3Kgb1">
+            <li class="desktopFilter_languageIcon__1-pNr desktopFilter_transparent__2ofOb">
+              <img class="desktopFilter_logo__3V6YL" src="/images/languages/javascript.svg"
+                alt="JavaScript"><span>JavaScript</span>
+            </li>
+            <li class="desktopFilter_languageIcon__1-pNr desktopFilter_transparent__2ofOb">
+              <img class="desktopFilter_logo__3V6YL" src="/images/languages/typescript.svg"
+                alt="TypeScript"><span>TypeScript</span>
+            </li>
+            <li class="desktopFilter_languageIcon__1-pNr desktopFilter_transparent__2ofOb">
+              <img class="desktopFilter_logo__3V6YL" src="/images/languages/react.svg" alt="React"><span>React</span>
+            </li>
+            <li class="desktopFilter_languageIcon__1-pNr desktopFilter_transparent__2ofOb">
+              <img class="desktopFilter_logo__3V6YL" src="/images/languages/vue.svg" alt="Vue"><span>Vue</span>
+            </li>
+            <li class="desktopFilter_languageIcon__1-pNr desktopFilter_transparent__2ofOb">
+              <img class="desktopFilter_logo__3V6YL" src="/images/languages/svelte.svg" alt="Svelte"><span>Svelte</span>
+            </li>
+            <li class="desktopFilter_languageIcon__1-pNr desktopFilter_transparent__2ofOb">
+              <img class="desktopFilter_logo__3V6YL" src="/images/languages/nextjs.svg" alt="Nextjs"><span>Nextjs</span>
+            </li>
+            <li class="desktopFilter_languageIcon__1-pNr desktopFilter_transparent__2ofOb">
+              <img class="desktopFilter_logo__3V6YL" src="/images/languages/nodejs.svg" alt="Nodejs"><span>Nodejs</span>
+            </li>
+            <li class="desktopFilter_languageIcon__1-pNr desktopFilter_full__1JjBk">
+              <img class="desktopFilter_logo__3V6YL" src="/images/languages/java.svg" alt="Java"><span>Java</span>
+            </li>
+            <li class="desktopFilter_languageIcon__1-pNr desktopFilter_transparent__2ofOb">
+              <img class="desktopFilter_logo__3V6YL" src="/images/languages/spring.svg" alt="Spring"><span>Spring</span>
+            </li>
+            <li class="desktopFilter_languageIcon__1-pNr desktopFilter_transparent__2ofOb">
+              <img class="desktopFilter_logo__3V6YL" src="/images/languages/go.svg" alt="Go"><span>Go</span>
+            </li>
+            <li class="desktopFilter_languageIcon__1-pNr desktopFilter_transparent__2ofOb">
+              <img class="desktopFilter_logo__3V6YL" src="/images/languages/nestjs.svg" alt="Nestjs"><span>Nestjs</span>
+            </li>
+          </ul>
+
+
+          <!-- 버튼 부분 끝  -->
+          <ul class="desktopFilter_selectedLanguages__3KowP">
+            <li class="desktopFilter_selectedLanguage__30mty">
+              <div>Docker</div>
+              <img src="https://holaworld.io/images/info/delete.svg" alt="deleteButton">
+            </li>
+            <span class="desktopFilter_resetFilter__ybCJD">필터 초기화</span>
+          </ul>
+
+
         </section>
-            <!-- 스터디 부분 시작 -->
-            <!-- 이까지가 상단에 목록 보여주는 부분임 -->
+        <!-- 스터디 부분 시작 -->
+        <!-- 이까지가 상단에 목록 보여주는 부분임 -->
         <!-- 아래에서부터 스터디 목록을 보여주어야함 카드 부분 -->
         <div class="row row-cols-1 row-cols-md-3 g-4">
-            <div class="col ">
-                <!-- Basic Card Example -->
-                <div class="card shadow mb-4" name="studyCard">
+          <!-- div1 시작 -->
+          <div class="col " >
+            <!--  div2 시작 -->
+            <!-- Basic Card Example -->
+            <div class="card shadow mb-4" name="studyCard" id="studyCard_output"></div>
+            <!-- div3 시작 -->
 
-                    <div class="card-body" style="width: 18rem;">
-                        <div class="studyItem_schedule">
-                            <p>시작 예정일 |</p>
-                            <div class="studyItem_schedule" name="studyStartDate">
-                                <p>2022.05.23</p>
-                            </div>
-                        </div>
-                        <h5 class="card-title" name="studyName">도커 스터디 </h5>
-                        <div name="studyDescription">Docker에 대해 알아보는 초급 스터디입니다.</div>
-                        <!-- 스터디과목 정보 태그 js script -->
-                        <ul class="studyItem_hashtag p-1" name="studyTag">
-                            <li>#초급</li>
-                            <li>#멘토: 홍길동</li>
-                        </ul>
-                        <!-- 스터디 과목 이미지  -->
-                        <!-- 이미지 테스팅 해야할듯 -->
-                        <ul class="studyItem_content">
-                            <li class="studyItem_content_img">
-                                <!-- 스터디별 이미지를 긁어와야함 js script-->
-                                <img class="studyItem_content_img"
-                                    src="https://holaworld.io/images/languages/docker.svg" alt="language">
-                            </li>
-                            <li class="studyItem_content_img">
-                                <img class="studyItem_content_img"
-                                    src="https://holaworld.io/images/languages/docker.svg" alt="language">
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- 해당 스터디로 이동하기 처리 js script-->
-                    <a href="http://duck.nifskorea.com:8080/project/page/studyadd_board.html"
-                        class="btn btn-primary">스터디로 이동하기 </a>
-                    <!-- 카드 끝임 -->
-                </div>
-            </div>
-        </div>
-        <!-- 이까지가 카드 파트 1개임 -->
-        <iframe id="ssIFrame_google" sandbox="allow-scripts allow-same-origin" aria-hidden="true" frame-border="0" style="position: absolute; width: 1px; height: 1px; inset: -9999px; display: none;" src="https://accounts.google.com/o/oauth2/iframe#origin=https%3A%2F%2Fholaworld.io&amp;rpcToken=803431245.8929752&amp;clearCache=1"></iframe>
-            </div>
-            </div>
-            </div>
-    </body>
+            <!-- template 시작 -->
+            <div class="card-body" style="width: 18rem;" >
+              <!-- div4 시작 -->
+              <div id="studyCard_template" style="display: none;" type="text/template">
+                <div class="studyItem_schedule">
+                  <!-- div5 시작 -->
+                  <p>{{studyStart}} |</p>
+                  <!--p1 시작, 끝 -->
+                  <!-- 시작 예정일-->
+                  <div class="studyItem_schedule" name="studyStartDate">
+                    <!-- div6 시작 -->
+                    <p>{{studyEnd}}</p> <!-- p2 시작, 끝 -->
+                    <!-- 종료 예정일-->
+                  </div> <!-- div6 끝 -->
+                </div> <!-- div 5 끝 -->
 
-    <footer>
-        <div data-include-path="../page/footer.html"></div>
-    </footer>
 
-    </html>
+                <h5 class="card-title" name="studyName">{{studyName}} </h5> <!--  h5 시작, h5 끝 -->
+                <!-- 스터디 이름-->
+                <div name="studyDescription">{{studyDescription}}
+                  <!-- div7 시작-->
+                  <!-- 스터디 설명-->
+                </div> <!-- div7 끝-->
+
+
+                <!-- 스터디과목 정보 태그 js script -->
+                <ul class="studyItem_hashtag p-1" name="studyTag">
+                  <!-- ul1 시작 -->
+                  <li> {{studyTag}} </li> <!--  li1 시작, 끝 -->
+                </ul> <!-- ul1 끝 -->
+                <!-- 스터디 과목 이미지  -->
+                <!-- 이미지 테스팅 해야할듯 -->
+
+
+                <ul class="studyItem_content">
+                  <!-- ul2 시작 -->
+                  <li class="studyItem_content_img">
+                    <!-- li3 시작 -->
+                    <!-- 스터디별 이미지를 긁어와야함 js script-->
+                    <img class="studyItem_content_img" src="https://holaworld.io/images/languages/docker.svg"
+                      alt="language"> <!-- img 1시작, 끝-->
+                  </li> <!-- li3 끝 -->
+                  <li class="studyItem_content_img">
+                    <!--li4시작-->
+                    <img class="studyItem_content_img" src="https://holaworld.io/images/languages/docker.svg"
+                      alt="language"> <!-- img 2 시작, 끝 -->
+                  </li> <!-- li4 끝 -->
+                </ul> <!-- ul2 끝 -->
+
+                <!-- 해당 스터디로 이동하기 처리 js script-->
+                <!-- {{studyURL}} 스터디로 이동하기 </a> -->
+                <a href={{"http://duck.nifskorea.com:8080/project/page/studyadd_board.html"}} class="btn btn-primary">스터디로
+                  이동하기 </a>
+                <!-- 카드 끝임 -->
+              </div> <!-- div4 끝 -->
+              <script>duck_nifskorea_com.study_found.getQuery()</script>
+            </div> <!-- div3 끝 -->
+            
+      </div>
+      <!-- 이까지가 카드 파트 1개임 -->
+      <iframe id="ssIFrame_google" sandbox="allow-scripts allow-same-origin" aria-hidden="true" frame-border="0"
+        style="position: absolute; width: 1px; height: 1px; inset: -9999px; display: none;"
+        src="https://accounts.google.com/o/oauth2/iframe#origin=https%3A%2F%2Fholaworld.io&amp;rpcToken=803431245.8929752&amp;clearCache=1"></iframe>
+    </div>
+  </div>
+</body>
+
+<footer>
+  <div data-include-path="../page/footer.html"></div>
+</footer>
+<!-- 상위페이지로 이동 버튼 top -->
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+<script>
+  //Get the button
+  var mybutton = document.getElementById("myBtn");
+
+  // When the user scrolls down 20px from the top of the document, show the button
+  window.onscroll = function () { scrollFunction() };
+
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      mybutton.style.display = "block";
+    } else {
+      mybutton.style.display = "none";
+    }
+  }
+
+  // When the user clicks on the button, scroll to the top of the document
+  function topFunction() {
+    document.body.scrollTop = 3;
+    document.documentElement.scrollTop = 3;
+  }
+</script>
+<!-- top 버튼 끝 -->
+
+</html>
