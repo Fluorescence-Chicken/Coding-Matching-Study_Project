@@ -28,7 +28,7 @@
             <!-- DB 로 스터디명을 표시해야함 js script -->
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
                 <!-- 게시판 이름 긁어와야함-->
-                <h4 class="mb-3"> 000 게시판 </h4>
+                <h4 class="mb-3"> {{Bulletin_Board_name}} 게시판 </h4> <!--게시판 이름-->
                 <hr class="my-2">
                 <!-- 이까지가 헤더가 아래부터 게시판 보드 시작임 -->
                 <div class="p-1"></div>
@@ -37,33 +37,44 @@
             <!-- 아래에서부터 본격적인 보드 시작 -->
             <section>
                 <!-- js script 게시글 이름 불러와야함 -->
-                <div class="studyContent_title__3680o"> 게시글 이름 </div>
+                <div class="studyContent_title__3680o"> {{Bulletin_name}} </div> <!-- 게시글 이름-->
                 <div class="studyContent_userAndDate__1iYDv">
                     <div class="studyContent_user__1XYmH">
                         <!-- js script 사용자 프로필 불러와야함 -->
                         <img class="studyContent_userImg__3gyI-"
                             src="https://hola-post-image.s3.ap-northeast-2.amazonaws.com/default.PNG" alt="userImg">
                         <!-- js script 유저 이름 불러와야함 -->
-                        <div class="studyContent_userName__1GBr8">TestUser</div>
+                        <div class="studyContent_userName__1GBr8">{{user_name}}</div> <!--로그인 한 사람 이름-->
                     </div>
                     <!-- js script 게시글 작성 일자 불러와야함 -->
-                    <div class="studyContent_registeredDate__3lybC">2022.05.20</div>
+                    <div class="studyContent_registeredDate__3lybC">{{date}}</div> <!-- 게시글 작성 날짜-->
                 </div>
                 <!-- 아래 해당 부분은 게시판 주요 정보들 js script-->
                 <ul class="studyInfo_studyGrid__38Lfj">
-                    <li class="studyInfo_contentWrapper__KkSUP"><span class="studyInfo_title__3jXRE">모집 구분</span><span
-                            class="studyInfo_content__eqtqC">스터디</span></li>
-                    <li class="studyInfo_contentWrapper__KkSUP"><span class="studyInfo_title__3jXRE">진행 방식</span><span
-                            class="studyInfo_content__eqtqC">온라인</span></li>
-                    <li class="studyInfo_contentWrapper__KkSUP"><span class="studyInfo_title__3jXRE">모집 인원</span><span
-                            class="studyInfo_content__eqtqC">3명</span></li>
-                    <li class="studyInfo_contentWrapper__KkSUP"><span class="studyInfo_title__3jXRE">스터디 기간</span><span
-                            class="studyInfo_content__eqtqC">2022.05.23</span></li>
-                    <li class="studyInfo_contentWrapper__KkSUP"><span class="studyInfo_title__3jXRE">연락 방법</span>
-                        <div class="contactPoint_email__1a-aY">test@gmail.com</div>
+                    <li class="studyInfo_contentWrapper__KkSUP">
+                      <span class="studyInfo_title__3jXRE">모집 구분</span>
+                      <span class="studyInfo_content__eqtqC">{{Differentiate}}</span> <!-- 모집 종류? ex)스터디 -->
                     </li>
-                    <li class="studyInfo_contentWrapper__KkSUP"><span class="studyInfo_title__3jXRE">예상 기간</span><span
-                            class="studyInfo_content__eqtqC">3개월</span></li>
+                    <li class="studyInfo_contentWrapper__KkSUP">
+                      <span class="studyInfo_title__3jXRE">진행 방식</span>
+                      <span class="studyInfo_content__eqtqC">{{online_or_offline}}</span> <!-- 온라인, 오프라인 여부-->
+                    </li>
+                    <li class="studyInfo_contentWrapper__KkSUP">
+                      <span class="studyInfo_title__3jXRE">모집 인원</span>
+                      <span class="studyInfo_content__eqtqC">{{Personnel}}</span> 
+                    </li>
+                    <li class="studyInfo_contentWrapper__KkSUP">
+                      <span class="studyInfo_title__3jXRE">스터디 기간</span>
+                      <span class="studyInfo_content__eqtqC">{{start}} </span> 
+                      <span class="studyInfo_content__eqtqC">{{end}} </span>
+                    </li>
+                    <li class="studyInfo_contentWrapper__KkSUP">
+                      <span class="studyInfo_title__3jXRE">연락 방법</span>
+                      <div class="contactPoint_email__1a-aY">{{emali_or_phone}}</div> <!-- 이메일 or 폰번호-->
+                    </li>
+                    <li class="studyInfo_contentWrapper__KkSUP">
+                      <span class="studyInfo_title__3jXRE">예상 기간</span>
+                      <span class="studyInfo_content__eqtqC">{month}개월</span>
                     </ul>
 
                     <br><br>
@@ -156,7 +167,7 @@
         height: '500px',
         initialEditType: 'markdown',
         previewStyle: 'vertical',
-        initialValue: '### 원하시는 HTML내용을 작성해주세요.',
+        initialValue: '{{content}}', // 내용 입력
         usageStatistics: 'false',
         language: 'ko'
 
@@ -166,5 +177,28 @@
     editor.getMarkdown();
     //console.log(editor.getMarkdown()); // { range: [startCursorOffset, endCursorOffset], type: 'emph' }
 </script>
-
+<!-- 상위페이지로 이동 버튼 top -->
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+<script>
+  //Get the button
+  var mybutton = document.getElementById("myBtn");
+  
+  // When the user scrolls down 20px from the top of the document, show the button
+  window.onscroll = function() {scrollFunction()};
+  
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      mybutton.style.display = "block";
+    } else {
+      mybutton.style.display = "none";
+    }
+  }
+  
+  // When the user clicks on the button, scroll to the top of the document
+  function topFunction() {
+    document.body.scrollTop = 3;
+    document.documentElement.scrollTop = 3;
+  }
+  </script>
+  <!-- top 버튼 끝 -->
 </html>

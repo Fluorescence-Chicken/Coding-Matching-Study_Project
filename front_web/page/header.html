@@ -24,6 +24,8 @@
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"> </script>
+    <!-- 카카오 API 지도 표시 부분 -->
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ebef7b6057d0c8d0d49d4fa5fbf97f0c&libraries=services,clusterer"></script>
   <!--<script type="text/javascript" src="http://duck.nifskorea.com:8080/project/vendor/jquery-easing/jquery.easing.min.js"></script>-->
   <!--<script type="text/javascript" src="http://duck.nifskorea.com:8080/project/jsp/sb-admin-2.min.js"></script>-->
   <!--<script type="text/javascript" src="http://duck.nifskorea.com:8080/project/vendor/chart.js/Chart.min.js"></script>-->
@@ -63,7 +65,7 @@
     <!--<div id="loadDiv">
         <img src = "https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif?20151024034921">
       </div>
-<!-- 여기 로딩부 -->
+    여기 로딩부 -->
     <nav class="navbar navbar-expand-md navbar-dark bg-dark" aria-label="Fourth navbar example">
       <div class="container-fluid">
         <a href="http://duck.nifskorea.com:8080/project/index.html"><img
@@ -110,19 +112,24 @@
             <div class="cuaqd"></div>
             <!-- 검색창 get 값넘기면 반대쪽에서 값을 받아서 검색 결과를 출력해줘야함 -->
             <!-- 버튼 연계 설정 작업 해주어야함 ( 자바스크립트 포함 )-->
-            <input class="form-control" type="text" placeholder="검색창 " name="search" aria-label="Search"
+           <!--- <input class="form-control" type="text" placeholder="검색창 " name="search" aria-label="Search"
               style="min-width: 150px;">
             <button type="submit" class="btn-secondary btn-lg2" formaction="/subject/loginpro.jsp">
               <center><i class="bi bi-search"></i></center>
-            </button>
+            </button>-->
            
             <div class="check2"></div>
             <button class="btn-light btn-lg2" formaction="http://duck.nifskorea.com:8080/project/page/login.html"><i
                 class="bi bi-person-circle"></i></button>
             <div class="check2"></div>
+            <!-- 여기 자바스크립트로 로그아웃만 표시되게 처리해야함 jsscript-->
+            <button class="btn-light btn-lg2" formaction="#"><i
+              class="bi bi-power"></i></button>
+              <div class="check2"></div>
             <button type="button" class="btn-light btn-lg2" onclick="darkzzing()"><i
                 class="bi bi-brightness-high-fill"></i></button>
             <div class="check2"></div>
+
           </form>
         </div>
       </div>

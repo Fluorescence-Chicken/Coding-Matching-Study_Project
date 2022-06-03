@@ -1,11 +1,10 @@
-<!-- 회원가입 페이지 -->
+<!-- 관리자 페이지 -->
 <html>
 <!-- 페이지 흐름 ( 먼저 내가 수강중인 스터디 먼저 보이고 -> 그걸 선택하면 study _user보이게 하는 방향으로 )-->
 
 <head>
   <!-- 필수 선언부 -->
   <meta charset="utf-8">
-  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ebef7b6057d0c8d0d49d4fa5fbf97f0c&libraries=services,clusterer"></script>
   <script type="text/javascript"
     src="http://duck.nifskorea.com:8080/project/vendor/jquery-easing/jquery.easing.min.js"></script>
   <script type="text/javascript" src="http://duck.nifskorea.com:8080/project/jsp/sb-admin-2.min.js"></script>
@@ -20,7 +19,6 @@
   <link rel="stylesheet" href="http://duck.nifskorea.com:8080/project/vendor/fontawesome-free/css/all.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
   <link href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" rel="stylesheet">
-  
   <!-- 커스텀 부분 코드 -->
 
   <!-- 헤더 부분 -->
@@ -36,25 +34,23 @@
 
 <body>
   <!-- 바디 섹션 -->
-  <div class="b-divider">나의 스터디 수업</div>
-  <div class="container input-form" id="template">
+  <div class="b-divider">관리자 페이지</div>
+  <div class="container input-form" id="template"></div>
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
       <h4 class="mb-3" name="studyName">{{study_title}}</h4>
     </div>
     <!-- 여기서 삭제하기 , Q&A 버튼 영역 -->
-    <div class="studydel">
+    <div class="buttonarea">
       <!-- 해당 화면은 팝업화면으로 보여야함  설문폼으로 보여야할듯 -->
-      <a href="#"><button type="button" class="btn btn-danger">스터디 탈퇴하기</button></a>
     </div>
     <hr class="my-2">
 
     <!-- 여기서 부터 바디 섹션 작성 부분 -->
     <!-- Content Row -->
-    <div class="container input-form-studymode">
     <div class="row">
       <!-- Earnings (Monthly) Card Example -->
       <div class="col-xl-3 col-md-6 mb-4">
-        <div class="card border-left-primary shadow h-400 py-2">
+        <div class="card border-left-primary shadow h-100 py-2">
           <div class="card-body">
             <div class="row no-gutters align-items-center">
               <div class="col mr-2">
@@ -64,7 +60,7 @@
                 </div> <!-- 00개-->
               </div>
               <div class="col-auto">
-             
+                <i class="fas fa-calendar fa-2x text-gray-300"></i>
               </div>
             </div>
           </div>
@@ -73,7 +69,7 @@
 
       <!-- Earnings (Monthly) Card Example -->
       <div class="col-xl-3 col-md-6 mb-4">
-        <div class="card border-left-warning shadow h-300 py-2">
+        <div class="card border-left-warning shadow h-100 py-2">
           <div class="card-body">
             <div class="row no-gutters align-items-center">
               <div class="col mr-2">
@@ -89,19 +85,15 @@
                 </div>
               </div>
               <div class="col-auto">
+                <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
               </div>
             </div>
           </div>
         </div>
-        
       </div>
-      
-      <!-- Study notification information end -->
-      
+      <!-- Earnings (Monthly) Card Example -->
+
     </div>
-    <!-- the end-->
-    </div>
-    <div class="p-3"></div>
     <div class="container">
       <div class="row">
         <div class="col-md-5">
@@ -113,8 +105,8 @@
           <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="image">
         </div>
         <!-- Overflow Hidden -->
-        <div class="card md-5" style="min-width: 500px; margin: 0em 0em 1em 0em;">
-          <div class="card-header">
+        <div class="card md-5" style="min-width: 500px; margin: 2em 0em 2em 0em;">
+          <div class="card-header"></div>
             <h6 class="m-0 font-weight-bold text-primary text-center">스터디 담당 교사</h6>
           </div>
           <div class="card-body">
@@ -125,27 +117,27 @@
                   <td>교사 이름</td>
                   <td name="name">{{Instructor_name}}</td>
                   <!--강사님 이름, ex) 000강사님-->
-
                 </tr>
+
                 <tr>
                   <th scope="row">2</th>
                   <td>담당 전공</td>
                   <td name="dept">{{Major}}</td>
                   <!--담당 전공-->
-
                 </tr>
+
                 <tr>
                   <th scope="row">3</th>
                   <td>연력 또는 경력</td>
                   <td name="carrar">{{Career}}</td> <!-- 현직) 000기업 0년차 재직중-->>
-
                 </tr>
+
                 <tr>
                   <th scope="row">4</th>
                   <td>연락처 및 이메일 주소 </td>
                   <td name="email"> {{email}}</td> <!-- 연락처 및 이메일 주소-->
-
                 </tr>
+
                 <tr>
                   <th scope="row">5</th>
                   <td>스터디 진행 기간 </td>
@@ -156,6 +148,7 @@
                   </td>
 
                 </tr>
+
                 <tr>
                   <th scope="row">6</th>
                   <td>한줄 인사말</td>
@@ -175,21 +168,23 @@
         <!-- 스터디 헤더 끝나고 아래부터 본격적인 테이블 내용-->
         <!-- template 시작 -->
         <div id="qna_output"></div>
-        <script id="qna_template" type="text/template">
+        <div id="qna_template" style="display: none;" type="x-tmpl-mustache">
+          {{#.}}
           <table class="table">
             <tbody>
-              {{#posts}}
+              {{#.}}
               <tr>
                 <th scope="row">{{id}}</th>
                 <!--순번 -->
-                <td ><a href="./Read_board.html?type=qna&id={{& id }}">{{title}}</a></td> <!-- 내용 -->
+                <td >{{title}}</td> <!-- 내용 -->
                 <td >{{author}}</td><!-- 작성자 -->
                 <td >{{created_at}} </td> <!-- 작성 시간 -->
               </tr>
-              {{/posts}}
+              {{/.}}
             </tbody>
           </table>
-        </script>
+          {{/.}}
+        </div>
       </div>
 
       <hr class="border-primary border-3 opacity-75">
@@ -199,91 +194,42 @@
     <div class="p-3"></div>
     <!-- 스터디 헤더 끝나고 아래부터 본격적인 테이블 내용-->
     <div id="lecture_output"></div>
-    <script id="lecture_template" type="text/template">
-    {{#.}}
-    <div class="card-header " style="width: 100%; border-radius: 10px;">      
-      <h6 class="m-0 font-weight-bold text-primary text-center" name="studyWeekNum">{{week}}주차 강의 목록</h6>
+    
+    <div id="lecture_template" style="display: none;" type="x-tmpl-mustache">
+    <div class="card-header " style="width: 100%; border-radius: 10px;">
+      <h6 class="m-0 font-weight-bold text-primary text-center" name="studyWeekNum">{{week_num}}강의 목록</h6>
     </div>
+    {{#.}}
     <table class="table" id="lecture_output">
+      {{#.}}
       <tbody>
-        {{#lectures}}
         <tr>
-          <td name="studyTitle1"><a href="./Read_board.html?type=lecture&id={{& id }}">{{title}}</a></td> <!-- 제목-->
-          <td name="studyTime1">{{time}} <i class="bi bi-collection-play-fill"></i></td> <!-- 강의 시간-->
+          <th scope="row">{{id}}</th> <!-- 순번-->
+          <td name="studyTitle1">{{title}}</td> <!-- 제목-->
+          <td name="name">{{writer}}</td> <!-- 강사님 이름, 000강사님-->
+          <td name="studyTime1">{{lectureTime}} <i class="bi bi-collection-play-fill"></i></td> <!-- 강의 시간-->
         </tr>
-        {{/lectures}}
       </tbody>
+      {{/.}}
     </table>
     {{/.}}
-    </script>
+    </div>
 
     <!-- 스터디 헤더 끝나고 아래부터 본격적인 테이블 내용-->
     <!-- 마지막 div -->
-    <div class="container input-form">
-      <!-- DB 로 사용자명을 표시해야함 -->
-      
-      <h4 class="mb-3" name="welcomeText">오프라인 스터디 장소 안내</h4>
-       <div class="row">
-                  <div class="col-md-6 ">
-                    <div class="list-group1 ">
-    <div id="mapwrap" style="overflow:hidden;">
-      <div id="map" style="position:relative; width: 100%; height: 350px;">
-        <p class="btn-init" onclick="setBounds()" style="position: absolute;right: 7px;bottom: 7px;color: #666666;z-index: 10;font-size: 12px;font-weight: bold;background: white;box-shadow: 1px 1px 1px 1px #AAAAAA;padding: 0px 7px;border-radius: 4px;cursor: pointer;">
-          초기화면으로
-        </p>
-      </div>
-     <!-- 이까지가 지도 부분 -->
-    </div>
-    </div>
-    </div>
-    <!-- 여기까지 끝 여기서부터 row 영역 오른쪽 표 표시 부분 --> 
-    <div class="col-md-6">
-      <div class="list-group2">
-        <table class="table">
-          <tbody>
-            <div class="card-header2 " style="width: 100%; border-radius: 10px;">
-              <h6 class="m-0 font-weight-bold text-primary text-center" name="">방문 안내</h6>
-            </div>
-            <!-- 테이블 시작 -->
-            <tr>
-              <th scope="row">방문 주소 : </th>
-              <td>부산역 {{ hashtag_id_for_location}} </td>
-            </tr>
-            <!-- 테이블 끝 -->
-            <tr>
-              <th scope="row">스터디 방문 인원 : </th>
-              <td>8 명 {{ study_all_member}}</td>
-            </tr>
-            <!-- 테이블 끝 -->
-            <tr>
-              <th scope="row">스터디 팀장 번호 : </th>
-              <td>010-0000-0000 {{ study_team_admin_number}}</td>
-            </tr>
-          </tbody>
-        </table>
-        <!-- 이까지가 테이블 마무리 부분 -->
-        </div>
-        </div>
-    <!-- 여기까지가 지도 표시부분 -->
-      </div>
-      </div>
-    <!-- 아래는 마지막 div 태그임-->
-  </div>
-  </div>
-  </div>
-  <!-- 임시 체크용 css임-->
+  
   <style>
     .checked {
       color: orange;
     }
   </style>
-  <!-- 대쉬보드 보드부분 쿼리문 자바스크립트 -->
   <script>duck_nifskorea_com.study_dashboard.getQuery()</script>
 </body>
 <!-- 푸터 부분 -->
 <footer>
   <div data-include-path="../page/footer.html"></div>
 </footer>
+
 <!-- 상위페이지로 이동 버튼 top -->
 <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 <script>
@@ -308,54 +254,5 @@
   }
 </script>
 <!-- top 버튼 끝 -->
-<!--카카오 지도 -->
-<script>
-  //원하는 위치를 아래에 입력을 해주세요 거기에 따라 지도에 정보가 표시가 됩니다 
-  // 만약 여러개를 표시하고싶다면 , 뒤에 ' ' 감싸서 정보를 표시하면 동시에 여러개가 표시됩니다 
-  var inputData = ['부산 부산진구 엄광로 176']
-  var mapContainer = document.getElementById('map'),
-    mapOption = {
-      //기본 티폴트 위치 좌표정보 
-      center: new kakao.maps.LatLng(33.450701, 126.570667),
-      level: 3
-    }; var map = new kakao.maps.Map(mapContainer, mapOption);
-  var count = 0;
-  var ps = new kakao.maps.services.Places();
-  var bounds = new kakao.maps.LatLngBounds();
-  var mapTypeControl = new kakao.maps.MapTypeControl();
-  map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
-  var imageSrc = "https://tistory2.daumcdn.net/tistory/3056305/skin/images/map-marker-red.png",
-    imageSize = new kakao.maps.Size(35, 35),
-    imageOption = { offset: new kakao.maps.Point(17, 40) };
-  var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption)
-  if (inputData != null) { kewwordSearch(inputData[count]); }
-  function kewwordSearch(keword) {
-    ps.keywordSearch(keword, placesSearchCB);
-    count = count + 1;
-  }
-  function placesSearchCB(data, status, pagination) {
-    if (status === kakao.maps.services.Status.OK) {
-      displayMarker(data[0]);
-      bounds.extend(new kakao.maps.LatLng(data[0].y, data[0].x));
-      if (count < inputData.length) { kewwordSearch(inputData[count]) }
-      else if (count == inputData.length) { setBounds(); applyStyle(); }
-    }
-  }
-  function displayMarker(place) {
-    var marker = new kakao.maps.Marker({
-      map: map, position: new kakao.maps.LatLng(place.y, place.x),
-      image: markerImage
-    });
-    kakao.maps.event.addListener(marker, 'click', function () {
-      var position = this.getPosition();
-      var url = 'https://map.kakao.com/link/map/' + place.id; window.open(url, '_blank');
-    });
-    var content = '<div class="customoverlay" style="position: relative;bottom: 76px;border-radius: 6px;border: 1px solid #ccc;border-bottom: 2px solid #ddd;float: left;">' +
-      '  <a href="https://map.kakao.com/link/map/' + place.id + '"' +
-      ' target="_blank" style="display: block;text-decoration: none;color: #666666;text-align: center;border-radius: 6px;font-size: 14px;font-weight: bold;overflow: hidden;background: #d95050;background: #d95050 url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/arrow_white.png) no-repeat right 14px center;">' +
-      '    <span class="title" style="display: block;text-align: center;background: #fff;margin-right: 35px;padding: 8px 10px;font-size: 13px;font-weight: bold;">'
-      + count + '. ' + place.place_name + '</span>' + '  </a>' + '</div>';
-    var customOverlay = new kakao.maps.CustomOverlay({ map: map, position: new kakao.maps.LatLng(place.y, place.x), content: content, yAnchor: 0.11 });
-  }
-  function setBounds() { map.setBounds(bounds, 90, 30, 10, 30); }
-</script>
+
+</html>

@@ -24,7 +24,7 @@
         <!-- DB 로 스터디명을 표시해야함 js script -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h4 class="mb-3">공지사항</h4>
-
+                <script>duck_nifskorea_com.notification.getJSON()</script>
         </div>
         <hr class="my-2">
         <!-- 이까지가 헤더가 아래부터 게시판 보드 시작임 -->
@@ -53,7 +53,7 @@
             </thead>
             <tbody class="table-activate" id="boardTable">
                 <!-- JS 동적 생성 -->
-                <script>duck_nifskorea_com.notification.getJSON()</script>
+                
             </tbody>
         </table>
         <!-- 게시판 글쓰기 페이지 이동-->
@@ -92,5 +92,28 @@
 <footer>
     <div data-include-path="../page/footer.html"></div>
 </footer>
-
+<!-- 상위페이지로 이동 버튼 top -->
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+<script>
+  //Get the button
+  var mybutton = document.getElementById("myBtn");
+  
+  // When the user scrolls down 20px from the top of the document, show the button
+  window.onscroll = function() {scrollFunction()};
+  
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      mybutton.style.display = "block";
+    } else {
+      mybutton.style.display = "none";
+    }
+  }
+  
+  // When the user clicks on the button, scroll to the top of the document
+  function topFunction() {
+    document.body.scrollTop = 3;
+    document.documentElement.scrollTop = 3;
+  }
+  </script>
+  <!-- top 버튼 끝 -->
 </html>
