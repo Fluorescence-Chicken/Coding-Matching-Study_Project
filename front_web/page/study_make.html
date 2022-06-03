@@ -1,279 +1,335 @@
 <html>
-    <head>
-        <!-- 필수 선언부 -->
-        <meta charset="utf-8">
-        <script src="../jsp/w3.js"> </script>
-        <!-- 커스텀 부분 코드 -->
-      
-        <!-- 헤더 부분 -->
-        <div data-include-path="../page/header.html"> </div>
-      
-        <!-- js 연결 -->
-        <script src="../jsp/javascript.js"></script>
-        <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
-        <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
-    </head>
 
-    <body>
-        <!-- 바디 부분 시작 -->
+<head>
+  <!-- 필수 선언부 -->
+  <meta charset="utf-8">
+  <script src="../jsp/w3.js"> </script>
+  <!-- 커스텀 부분 코드 -->
 
- <!-- 바디 섹션 -->
- <!-- js script 로 이전 게시판 이름을 출력해야함-->
- <div class="b-divider">스터디 생성 </script></div>
- <div class="alert alert-warning" role="alert">
+  <!-- 헤더 부분 -->
+  <div data-include-path="../page/header.html"> </div>
+
+  <!-- js 연결 -->
+  <script src="../jsp/javascript.js"></script>
+  <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
+  <!--주소 받아오기 카카오-->
+  <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+  <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
+</head>
+
+<body>
+  <!-- 바디 부분 시작 -->
+
+  <!-- 바디 섹션 -->
+  <!-- js script 로 이전 게시판 이름을 출력해야함-->
+  <div class="b-divider">스터디 생성 </script>
+  </div>
+  <div class="alert alert-warning" role="alert">
     <strong><i class="fa fa-exclamation-circle fa-lg"></i>
       <center> 스터디 생성 페이지입니다. 멘토가 신청할수있으며 멘티는 신청할수 없습니다.
       </center>
     </strong>
   </div>
-     <!-- 이까지가 헤더가 아래부터 게시판 보드 시작임 -->
-     <!-- 1차 보드 -->
-     <div class="container">
-        <div class="input-form-backgroud row">
-          <div class="input-form col-md-12 mx-auto">
-            <h4 class="mb-3">1. 프로젝트 기본 정보를 입력해주세요.</h4>
-            <form class="validation-form" novalidate>
-              <div class="row">
-                
-            
-              </div>
-              <div class="row">
-                <div class="col-md-8 mb-3">
-                  <label for="root">모집 구분 </label>
-                  <select class="custom-select d-block w-100" id="root" required>
-                    <option value=""></option>
-                    <option>프로젝트</option>
-                    <option>스터디</option>
-                  </select>
-                  <div class="invalid-feedback"> 프로젝트 모집구분을 입력해주세요. </div>
-                </div>
-             
-              <div class="col-md-6 mb-3">
-                <label for="root2">모집인원</label>
-                <select class="custom-select d-block w-100" id="root3" required>
-                  <option value=""></option>
-                  <option>1명</option>
-                  <option>2명</option>
-                  <option>3명</option>
-                  <option>4명</option>
-                  <option>5명</option>
-                  <option>6명</option>
-                  <option>7명</option>
-                  <option>8명</option>
-                  <option>9명</option>
-                  <option>10명 이상</option>
-                </select>
-                <div class="invalid-feedback"> 모집 인원을 입력해주세요!</div>
-              </div>
-              <!-- 2번째 질문 사항들 -->
-              <div class="col-md-6 mb-3">
-                <label for="name">진행기간</label>
-                <select class="custom-select d-block w-100" id="root4" required>
-                  <option value=""></option>
-                  <option>기간 미정 </option>
-                  <option>1개월</option>
-                  <option>2개월</option>
-                  <option>3개월</option>
-                  <option>4개월</option>
-                  <option>5개월</option>
-                  <option>6개월</option>
-                  <option>장기 </option>
-            
-                </select>
-                <div class="invalid-feedback"> 진행방식을 입력해주세요.</div>
-              </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6 mb-3">
-                    <label for="root2">기술 스택</label>
-                    <select class="custom-select d-block w-100" id="root2" required>
-                      <option value=""></option>
-                      <option>Udemy</option>
-                      <option>JavaScript</option>
-                      <option>TypeScript</option>
-                      <option>React</option>
-                      <option>Vue</option>
-                      <option>Node.js</option>
-                      <option>Spring</option>
-                      <option>Java</option>
-                      <option>Next.js</option>
-                      <option>Nestjs</option>
-                      <option>Express</option>
-                      <option>Go</option>
-                      <option>C</option>
-                      <option>Python</option>
-                      <option>Django</option>
-                      <option>swift</option>
-                      <option>kotlin</option>
-                      <option>MySQL</option>
-                      <option>MongoDB</option>
-                      <option>php</option>
-                      <option>Firebase</option>
-                    </select>
-                    <div class="invalid-feedback"> 기술 스택을 선택해주세요!</div>
-                    <!-- 3번째 질문부분 -->
-                    <div class="p-3"></div>
-                  <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <label for="root2">스터디 시작일</label>
-                        <input type="date" class="custom-select d-block w-100" name="startday" required>
-                        <div class="invalid-feedback"> 스터디 시작일을 입력해주세요.</div>
-                        </div>
-                        </div>
-                  </div>
-                
-                  
-                  <div class="col-md-6 mb-3">
-                    <label for="name">진행방식</label>
-                    <select class="custom-select d-block w-100  id="root2" required>
-                      <option value=""></option>
-                      <option>온라인</option>
-                      <option>오프라인</option>
-                
-                    </select>
-                    <div class="invalid-feedback"> 진행방식을 입력해주세요.</div>
-                  </div>
-                  
-                  <div class="col-md-6 mb-3">
-                    <label for="root2">주차별 강의갯수</label>
-                    <select class="custom-select d-block w-100" id="root2" required>
-                        <option>1개</option>
-                        <option>2개</option>
-                        <option>3개</option>
-                        <option>4개</option>
-                        <option>5개</option>
-                        <option>6개</option>
-                        <option>7개</option>
-                        <option>8개</option>
-                        <option>9개</option>
-                        <option>10개 이상</option>
-                      
-                    </select>
-                    <div class="invalid-feedback"> 주차별 강의갯수를 입력해주세요</div></div>
-
-                    <div class="col-md-6 mb-3">
-                        <label for="root2">몇주차 까지 진행하실 예정이신가요?</label>
-                        <select class="custom-select d-block w-100" id="root2" required>
-                            <option>1주차</option>
-                            <option>2주차</option>
-                            <option>3주차</option>
-                            <option>4주차</option>
-                            <option>5주차</option>
-                            <option>6주차</option>
-                            <option>7주차</option>
-                            <option>8주차</option>
-                            <option>9주차</option>
-                            <option>10주차</option>
-                            <option>11주차</option>
-                            <option>12주차</option>
-                            <option>13주차</option>
-                            </select>
-                            <div class="invalid-feedback"> 주차별 강의 를 선택해주세요.</div>
-                            </div>
-            </div>
-        
-            <!-- 계속 이어서 진행 -->
-
-              <hr class="mb-3">
-              <div class="mb-4"></div>
-           
-           
-   
-    
-
-        <!-- 아래에서부터 본격적인 보드 시작 -->
-        <!-- 2차 보드 -->
+  <!-- 이까지가 헤더가 아래부터 게시판 보드 시작임 -->
+  <!-- 1차 보드 -->
   <div class="container">
     <div class="input-form-backgroud row">
-      <div class="col-md-12 mx-auto">
-        <h4 class="mb-3">2. 프로젝트에 대해 소개해주세요 </h4>
-        <!--<form class="validation-form" novalidate>-->
+      <div class="input-form col-md-12 mx-auto">
+        <h4 class="mb-3">1. 프로젝트 기본 정보를 입력해주세요.</h4>
+        <form class="validation-form" novalidate>
           <div class="row">
-           <!-- 아래서 부터 시작하는 부분 -->
-           <div class="mb-3">
-            <label for="address2">제목<span class="text-muted"></span></label>
-            <input type="text" class="form-control " id="address2" style="width: 1000px;" placeholder="제목을 입력해주세요." required>
-            <div class="invalid-feedback "> 제목을 입력해주세요. </div>
+
+
           </div>
+          <div class="row">
+            <div class="col-md-8 mb-3">
+              <label for="root">모집 구분 </label>
+              <select class="custom-select d-block w-100" id="root" required>
+                <option value=""></option>
+                <option>프로젝트</option>
+                <option>스터디</option>
+              </select>
+              <div class="invalid-feedback"> 프로젝트 모집구분을 입력해주세요. </div>
+            </div>
+
+            <div class="col-md-6 mb-3">
+              <label for="root2">모집인원</label>
+              <select class="custom-select d-block w-100" id="root3" required>
+                <option value=""></option>
+                <option>1명</option>
+                <option>2명</option>
+                <option>3명</option>
+                <option>4명</option>
+                <option>5명</option>
+                <option>6명</option>
+                <option>7명</option>
+                <option>8명</option>
+                <option>9명</option>
+                <option>10명 이상</option>
+              </select>
+              <div class="invalid-feedback"> 모집 인원을 입력해주세요!</div>
+            </div>
+            <!-- 2번째 질문 사항들 -->
+            <div class="col-md-6 mb-3">
+              <label for="name">진행기간</label>
+              <select class="custom-select d-block w-100" id="root4" required>
+                <option value=""></option>
+                <option>기간 미정 </option>
+                <option>1개월</option>
+                <option>2개월</option>
+                <option>3개월</option>
+                <option>4개월</option>
+                <option>5개월</option>
+                <option>6개월</option>
+                <option>장기 </option>
+
+              </select>
+              <div class="invalid-feedback"> 진행방식을 입력해주세요.</div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="root2">기술 스택</label>
+              <select class="custom-select d-block w-100" id="root2" required>
+                <option value=""></option>
+                <option>Udemy</option>
+                <option>JavaScript</option>
+                <option>TypeScript</option>
+                <option>React</option>
+                <option>Vue</option>
+                <option>Node.js</option>
+                <option>Spring</option>
+                <option>Java</option>
+                <option>Next.js</option>
+                <option>Nestjs</option>
+                <option>Express</option>
+                <option>Go</option>
+                <option>C</option>
+                <option>Python</option>
+                <option>Django</option>
+                <option>swift</option>
+                <option>kotlin</option>
+                <option>MySQL</option>
+                <option>MongoDB</option>
+                <option>php</option>
+                <option>Firebase</option>
+              </select>
+              <div class="invalid-feedback"> 기술 스택을 선택해주세요!</div>
+              <!-- 3번째 질문부분 -->
+              <div class="p-3"></div>
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="root2">스터디 시작일</label>
+                  <input type="date" class="custom-select d-block w-100" name="startday" required>
+                  <div class="invalid-feedback"> 스터디 시작일을 입력해주세요.</div>
+                  
+                </div>
+                <!-- 여기서 지역 선택 부분 -->
+                <div class="col-md-6 mb-3">
+                  <label for="name">오프라인 스터디 지역 선택</label>
+                  <input type="text" class="form-control " id="address_kakao" name="address"  style="width: 600px;"
+                  placeholder="지역을 입력해주세요!" required readonly>
+                  <div class="invalid-feedback"> 진행방식을 입력해주세요.</div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="col-md-6 mb-3">
+              <label for="name">진행방식</label>
+              <select class="custom-select d-block w-100  id=" root2" required>
+                <option value=""></option>
+                <option>온라인</option>
+                <option>오프라인</option>
+
+              </select>
+              <div class="invalid-feedback"> 진행방식을 입력해주세요.</div>
+            </div>
+
+            <div class="col-md-6 mb-3">
+              <label for="root2">주차별 강의갯수</label>
+              <select class="custom-select d-block w-100" id="root2" required>
+                <option>1개</option>
+                <option>2개</option>
+                <option>3개</option>
+                <option>4개</option>
+                <option>5개</option>
+                <option>6개</option>
+                <option>7개</option>
+                <option>8개</option>
+                <option>9개</option>
+                <option>10개 이상</option>
+
+              </select>
+              <div class="invalid-feedback"> 주차별 강의갯수를 입력해주세요</div>
+            </div>
+
+            <div class="col-md-6 mb-3">
+              <label for="root2">몇주차 까지 진행하실 예정이신가요?</label>
+              <select class="custom-select d-block w-100" id="root2" required>
+                <option>1주차</option>
+                <option>2주차</option>
+                <option>3주차</option>
+                <option>4주차</option>
+                <option>5주차</option>
+                <option>6주차</option>
+                <option>7주차</option>
+                <option>8주차</option>
+                <option>9주차</option>
+                <option>10주차</option>
+                <option>11주차</option>
+                <option>12주차</option>
+                <option>13주차</option>
+              </select>
+              <div class="invalid-feedback"> 주차별 강의 를 선택해주세요.</div>
+            </div>
           </div>
 
-          <!-- 에디터 부분 -->
-          <div id="editor"></div>
-  <!-- powerd by 표시 부분 -->
-  <div class="toastui-img fw-bolder">
-      Powerd By : <img src="../img/toastui.png"  width="140" height="33">
-  </div>
-    <!-- 에디터 종료 다음 주차별 내용 -->
-    <h4 class="mb-3">3. 강의 일정 등록  </h4>
-    <div class="mb-3">
-        <label for="address2">n주차 강의 제목<span class="text-muted"></span></label>
-        <input type="text" class="form-control " id="address2" style="width: 1000px;" placeholder="강의 제목을 입력해주세요." required>
-        <div class="invalid-feedback "> n주차 강의제목을 입력해주세요 </div>
-      </div>
-      <div class="mb-3">
-        <label for="address2">n주차 강의시간을 입력해주세요<span class="text-muted"></span></label>
-        <input type="text" class="form-control " id="address2" style="width: 1000px;" placeholder="강의 시간을 입력해주세요." required>
-        <div class="invalid-feedback "> n주차 강의시간을 입력해주세요 </div>
-      </div>
+          <!-- 계속 이어서 진행 -->
 
-          <div class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input" id="aggrement" required>
-            <label class="custom-control-label " for="aggrement">위의 내용으로 스터디를 개설진행전 내용을 확인하셨습니까?</label>
-          </div>
-
+          <hr class="mb-3">
           <div class="mb-4"></div>
-          <button class="btn btn-primary btn-lg btn-block" type="submit">스터디 생성 완료</button>
-       <!--</form>-->
-      </div>
-    </div>
-    <footer class="my-3 text-center text-small">
-      <p class="mb-1">&copy; 2022 코딩 스터디 매칭 플랫폼.</p>
-    </footer>
-  </div>
+
+
+
+
+
+          <!-- 아래에서부터 본격적인 보드 시작 -->
+          <!-- 2차 보드 -->
+          <div class="container">
+            <div class="input-form-backgroud row">
+              <div class="col-md-12 mx-auto">
+                <h4 class="mb-3">2. 프로젝트에 대해 소개해주세요 </h4>
+                <!--<form class="validation-form" novalidate>-->
+                <div class="row">
+                  <!-- 아래서 부터 시작하는 부분 -->
+                  <div class="mb-3">
+                    <label for="address2">제목<span class="text-muted"></span></label>
+                    <input type="text" class="form-control " id="address2" style="width: 1000px;"
+                      placeholder="제목을 입력해주세요." required>
+                    <div class="invalid-feedback "> 제목을 입력해주세요. </div>
+                  </div>
+                </div>
+
+                <!-- 에디터 부분 -->
+                <div id="editor"></div>
+                <!-- powerd by 표시 부분 -->
+                <div class="toastui-img fw-bolder">
+                  Powerd By : <img src="../img/toastui.png" width="140" height="33">
+                </div>
+                <!-- 에디터 종료 다음 주차별 내용 -->
+                <h4 class="mb-3">3. 강의 일정 등록 </h4>
+                <div class="mb-3">
+                  <label for="address2">n주차 강의 제목<span class="text-muted"></span></label>
+                  <input type="text" class="form-control " id="address2" style="width: 1000px;"
+                    placeholder="강의 제목을 입력해주세요." required>
+                  <div class="invalid-feedback "> n주차 강의제목을 입력해주세요 </div>
+                </div>
+                <div class="mb-3">
+                  <label for="address2">n주차 강의시간을 입력해주세요<span class="text-muted"></span></label>
+                  <input type="text" class="form-control " id="address2" style="width: 1000px;"
+                    placeholder="강의 시간을 입력해주세요." required>
+                  <div class="invalid-feedback "> n주차 강의시간을 입력해주세요 </div>
+                </div>
+
+                <div class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" id="aggrement" required>
+                  <label class="custom-control-label " for="aggrement">위의 내용으로 스터디를 개설진행전 내용을 확인하셨습니까?</label>
+                </div>
+
+                <div class="mb-4"></div>
+                <button class="btn btn-primary btn-lg btn-block" type="submit">스터디 생성 완료</button>
+                <!--</form>-->
+              </div>
+            </div>
+            <footer class="my-3 text-center text-small">
+              <p class="mb-1">&copy; 2022 코딩 스터디 매칭 플랫폼.</p>
+            </footer>
+          </div>
           <hr class="mb-3">
 
         </form>
+      </div>
     </div>
+
+    <!-- 끝나는 부분임-->
+
+  </div>
   </div>
 
-<!-- 끝나는 부분임-->
-  </div>
-  </div>
-  
-    </body>
+</body>
 
-    <script> window.addEventListener('load', () => {
-        const forms = document.getElementsByClassName('validation-form');
-        Array.prototype.filter.call(forms, (form) => {
-          form.addEventListener('submit', function (event) {
-            if (form.checkValidity() === false) {
-              event.preventDefault();
-              event.stopPropagation();
-            } form.classList.add('was-validated');
-          }, false);
-        });
-      }, false); 
-    </script>
-  <!-- 토스트 UI 에디터 -->
-  <script>
-     const Editor = toastui.Editor;
-     const codeSyntaxHighlight  = Editor.plugin;
-    const editor = new Editor({
-        el: document.querySelector('#editor'),
-        height: '500px',
-        initialEditType: 'markdown',
-        previewStyle: 'vertical',
-        initialValue: '### 원하시는 HTML내용을 작성해주세요.',
-        usageStatistics:'false',
-        language: 'ko'
-        
+<script> window.addEventListener('load', () => {
+    const forms = document.getElementsByClassName('validation-form');
+    Array.prototype.filter.call(forms, (form) => {
+      form.addEventListener('submit', function (event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        } form.classList.add('was-validated');
+      }, false);
     });
-    const editorRef = useRef();
-    editorRef.current.getInstance().getMarkdown();
-    editor.getMarkdown();
+  }, false); 
+</script>
+<!-- 토스트 UI 에디터 -->
+<script>
+  const Editor = toastui.Editor;
+  const codeSyntaxHighlight = Editor.plugin;
+  const editor = new Editor({
+    el: document.querySelector('#editor'),
+    height: '500px',
+    initialEditType: 'markdown',
+    previewStyle: 'vertical',
+    initialValue: '### 원하시는 HTML내용을 작성해주세요.',
+    usageStatistics: 'false',
+    language: 'ko'
+
+  });
+  console.log(editor.getMarkdown());
     //console.log(editor.getMarkdown()); // { range: [startCursorOffset, endCursorOffset], type: 'emph' }
+</script>
+<footer>
+  <div data-include-path="../page/footer.html"></div>
+</footer>
+<!-- 상위페이지로 이동 버튼 top -->
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+<script>
+  //Get the button
+  var mybutton = document.getElementById("myBtn");
+
+  // When the user scrolls down 20px from the top of the document, show the button
+  window.onscroll = function () { scrollFunction() };
+
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      mybutton.style.display = "block";
+    } else {
+      mybutton.style.display = "none";
+    }
+  }
+
+  // When the user clicks on the button, scroll to the top of the document
+  function topFunction() {
+    document.body.scrollTop = 3;
+    document.documentElement.scrollTop = 3;
+  }
+</script>
+<!-- top 버튼 끝 -->
+<!-- 카카오 지도 관련 찾기 -->
+<script>
+      document.getElementById("address_kakao").addEventListener("click", function(){ //주소입력칸을 클릭하면
+          //카카오 지도 발생
+          new daum.Postcode({
+              oncomplete: function(data) { //선택시 입력값 세팅
+                autoClose: false
+                  animation: true
+                  popupKey: 'popup1'// 지정하지않으면 계속 새창이 열림
+                  popupTitle: '오프라인 스터디 주소 검색'
+                  document.getElementById("address_kakao").value = data.address; // 주소 넣기
+              }
+          }).open();
+      });
+  
   </script>
-    <footer>
-        <div data-include-path="../page/footer.html"></div>
-    </footer>
+
 </html>

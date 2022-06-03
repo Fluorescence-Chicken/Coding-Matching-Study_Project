@@ -93,8 +93,6 @@
                     </div>
 
 
-                    </li>
-
 
                     <div class="mb-4"></div>
                     <!-- (JS DATA), 위의 내용들을 수정하고, 수정하기 버튼 눌렀을 때, 적용되게하기-->
@@ -102,8 +100,7 @@
                 </form>
             </div>
         </div>
-        <footer class="my-3 text-center text-small">
-            <p class="mb-1">&copy; 2022 코딩 스터디 매칭 플랫폼.</p>
+            <p class="my-3 text-center text-small">&copy; 2022 코딩 스터디 매칭 플랫폼.</p>
         </footer>
     </div>
 </body>
@@ -130,6 +127,29 @@
     <div data-include-path="../page/footer.html"></div>
 </footer>
 
-</body>
 
+<!-- 상위페이지로 이동 버튼 top -->
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+<script>
+  //Get the button
+  var mybutton = document.getElementById("myBtn");
+  
+  // When the user scrolls down 20px from the top of the document, show the button
+  window.onscroll = function() {scrollFunction()};
+  
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      mybutton.style.display = "block";
+    } else {
+      mybutton.style.display = "none";
+    }
+  }
+  
+  // When the user clicks on the button, scroll to the top of the document
+  function topFunction() {
+    document.body.scrollTop = 3;
+    document.documentElement.scrollTop = 3;
+  }
+  </script>
+  <!-- top 버튼 끝 -->
 </html>
