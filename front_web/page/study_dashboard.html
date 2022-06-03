@@ -86,6 +86,136 @@
                       {{online_or_offline}}</div> <!-- 온라인, 오프라인 여부-->
                   </div>
 
+
+    <!-- js 연결 -->
+    <script src="../jsp/javascript.js"></script>
+
+    <!-- template 연결 -->
+    <script src="../jsp/mustache.min.js"></script>
+
+</head>
+
+<body>
+    <!-- 바디 섹션 -->
+    <div class="b-divider">나의 스터디 수업</div>
+    <div class="container input-form">
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h4 class="mb-3" name="studyName">도커의 스터디</h4>
+        </div>
+        <!-- 여기서 삭제하기 , Q&A 버튼 영역 -->
+        <div class="buttonarea">
+            <!-- 해당 화면은 팝업화면으로 보여야함  설문폼으로 보여야할듯 -->
+            <a href="#"><button type="button" class="btn btn-warning">스터디 평점 부여하기</button></a>
+            <a href="#"><button type="button" class="btn btn-danger">스터디 탈퇴하기</button></a>
+        </div>
+        <hr class="my-2">
+
+        <!-- 여기서 부터 바디 섹션 작성 부분 -->
+        <!-- Content Row -->
+        <div class="row">
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-primary shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class=" font-weight-bold text-primary text-uppercase mb-1">
+                                    강의 갯수 </div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800" name="studyCount">{{Lecture_number}}
+                                </div> <!-- 00개-->
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-success shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="font-weight-bold text-info text-uppercase mb-1">스터디 평점
+                                </div>
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col-auto">
+                                        <!-- 스터디 진행률 서버에서 가져와야함 js script-->
+                                        <div class="h4 mb-0 mr-3 font-weight-bold text-gray-800">
+
+                                        </div>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star"></span>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-comments fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-warning shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class=" font-weight-bold text-info text-uppercase mb-1">스터디 유형
+                                </div>
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col-auto">
+                                        <!-- 스터디 진행형태 서버에서 가져와야함 js script-->
+                                        <div class="h5  font-weight-bold text-gray-900 text-primary">
+                                            {{online_or_offline}}</div> <!-- 온라인, 오프라인 여부-->
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-success shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="font-weight-bold text-info text-uppercase mb-1">내 학습 상황
+                                </div>
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col-auto">
+                                        <!-- 스터디 진행률 서버에서 가져와야함 js script TODO: 총 개수와 완료 개수 합치기-->
+                                        <div class="h4 mb-0 mr-3 font-weight-bold text-gray-800" name="endLesson">
+                                            {{number_part}} /
+                                            <!-- 내 학습 상황(현재 총 몇개 학습 했는지)-->
+                                        </div>
+
+                                        <div class="h4 mb-0 mr-3 font-weight-bold text-gray-800" name="allLesson">
+                                            {{number_max}}
+                                            <!-- 학습 전체 개수 -->
+                                        </div>
+                                        <div class="font-weight-bold h8 mb-0 mr-3 text-xs text-gray-600"> (완료 수업)</div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
                 </div>
               </div>
               <div class="col-auto">
@@ -283,6 +413,134 @@
 <!-- 푸터 부분 -->
 <footer>
   <div data-include-path="../page/footer.html"></div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="card-header" style="width: 60%; border-radius: 10px;">
+                        <!-- 스터디 1주차 내용 긁어와야함 js script / 변경할 부분이..?-->
+                        <h6 class="m-0 font-weight-bold text-primary text-center">스터디 멘토</h6>
+                    </div>
+                    <!-- 이미지는 고정으로 가던지 일단 추후 고려해야함-->
+                    <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="image">
+                </div>
+                <!-- Overflow Hidden -->
+                <div class="card md-5" style="min-width: 500px; margin: 2em 0em 2em 0em;">
+                    <div class="card-header">
+                        <h6 class="m-0 font-weight-bold text-primary text-center">스터디 담당 교사</h6>
+                    </div>
+                    <div class="card-body">
+                        <table class="table align-items-center">
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>교사 이름</td>
+                                    <td name="name">{{Instructor_name}}</td>
+                                    <!--강사님 이름, ex) 000강사님-->
+
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>담당 전공</td>
+                                    <td name="dept">{{Major}}</td>
+                                    <!--담당 전공-->
+
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>연력 또는 경력</td>
+                                    <td name="carrar">{{Career}}</td> <!-- 현직) 000기업 0년차 재직중-->>
+
+                                </tr>
+                                <tr>
+                                    <th scope="row">4</th>
+                                    <td>연락처 및 이메일 주소 </td>
+                                    <td name="email"> {{email}}</td> <!-- 연락처 및 이메일 주소-->
+
+                                </tr>
+                                <tr>
+                                    <th scope="row">5</th>
+                                    <td>스터디 진행 기간 </td>
+                                    <!-- TODO: "날짜 ~ 날짜" 형식으로 변경 -->
+                                    <td>
+                                        <div name=startDate>{{start_study_date}}</div> <!-- 스터디 시작 날짜-->
+                                        <div name=endDate>{{end_study_date}}</div> <!-- 스터디 끝나는 날짜-->
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <th scope="row">6</th>
+                                    <td>한줄 인사말</td>
+                                    <td name="bio"> {{greeting}}!</td> <!-- 한 줄 인사말-->
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- 최근 질문 -->
+                <div class="p-3"></div>
+                <!-- 아래 2개는 마무리 태그임-->
+                <div class="card-header2 " style="width: 100%; border-radius: 10px;">
+                    <h6 class="m-0 font-weight-bold text-primary text-center" name="">QnA</h6>
+                    <!--Q & A (멘토링 질문 게시판)-->
+                </div>
+                <!-- 스터디 헤더 끝나고 아래부터 본격적인 테이블 내용-->
+                <!-- template 시작 -->
+                <div></div>
+                <div>
+                    <table class="table">
+                        <tbody id="qna_output"></tbody>
+                        <tbody id="qna_template" style="display: none;" type="x-tmpl-mustache">
+                            <tr>
+                                <th scope="row">{{num}}</th>
+                                <!--순번 -->
+                                <td name="">{{content}}</td> <!-- 내용 -->
+                                <td name="">{{writer}}</td><!-- 작성자 -->
+                                <td name="">{{creationTime}} </td> <!-- 작성 시간 -->
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <hr class="border-primary border-3 opacity-75">
+        </div>
+        <!-- 카드 부분 끝 -->
+        <!--아래 부터 테이블 내용 스터디 내용 가져오는것-->
+        <div class="p-3"></div>
+        <div class="card-header " style="width: 100%; border-radius: 10px;">
+            <h6 class="m-0 font-weight-bold text-primary text-center" name="studyWeekNum">강의 목록</h6>
+        </div>
+        <!-- 스터디 헤더 끝나고 아래부터 본격적인 테이블 내용-->
+        <table class="table" id="lecture_output">
+            <tbody id="lecture_template" style="display: none;" type="x-tmpl-mustache">
+                <tr>
+                    <th scope="row">{{num}}</th> <!-- 순번-->
+                    <td name="studyTitle1">{{title}}</td> <!-- 제목-->
+                    <td name="name">{{writer}}</td> <!-- 강사님 이름, 000강사님-->
+                    <td name="studyTime1">{{lectureTime}} <i class="bi bi-collection-play-fill"></i></td> <!-- 강의 시간-->
+                </tr>
+
+            </tbody>
+        </table>
+
+
+        <!-- 스터디 헤더 끝나고 아래부터 본격적인 테이블 내용-->
+        <!-- 마지막 div -->
+    </div>
+    </div>
+    </div>
+    <style>
+        .checked {
+            color: orange;
+        }
+    </style>
+    <script>duck_nifskorea_com.study_dashboard.getQuery()</script>
+</body>
+<!-- 푸터 부분 -->
+<footer>
+    <div data-include-path="../page/footer.html"></div>
+
 </footer>
 <!-- 상위페이지로 이동 버튼 top -->
 <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
@@ -359,3 +617,27 @@
   }
   function setBounds() { map.setBounds(bounds, 90, 30, 10, 30); }
 </script>
+<script>
+    //Get the button
+    var mybutton = document.getElementById("myBtn");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function () { scrollFunction() };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 3;
+        document.documentElement.scrollTop = 3;
+    }
+</script>
+<!-- top 버튼 끝 -->
+
+</html>
