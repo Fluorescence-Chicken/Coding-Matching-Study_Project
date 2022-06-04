@@ -42,8 +42,20 @@ div.cuaqd {
          }
          div.studydel { 
           /* 스터디 탈퇴하기 부분 버튼위치 */
-            padding-left: 86%;  /* 조정 금지 */ 
+            padding-left: 75%;  /* 조정 금지 */ 
            }
+           div.mentoDel { 
+            /* 멘토 탈퇴하기 부분 버튼위치 */
+              padding-left: 66%;  /* 조정 금지 */ 
+             }
+             div.toastuical { 
+              /* 멘토 탈퇴하기 부분 버튼위치 */
+
+                  position: absolute;
+                  left: 63%;
+                  top: 22%;
+                
+                }
      /* 페이지창 메뉴 부분 표현 창 */
      div.b-divider {
        height: 5rem;

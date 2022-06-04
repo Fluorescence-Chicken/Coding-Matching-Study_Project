@@ -37,6 +37,14 @@
     <div class="input-form-backgroud row">
       <div class="input-form col-md-12 mx-auto">
         <h4 class="mb-3">스터디 검색</h4>
+        <!-- 임시 작업 안내페이지 -->
+        <div class="alert alert-danger" role="alert">
+          (임시) <br>
+          <h4> 작업자 유의사항</h4><br>아래 카드 부분 div태그가 빠져 footer 부분 오류 잡았습니다
+          기타 카드 아래로 나려가는 부분 md요소랑 기타 확인하시고
+          appen, appendchild 요소 확인 하시면서 태그 체크해주세요.
+        </div>
+        <!-- 임시 작업 안내페이지 끝 -->
         <hr class="mb-3">
         <!-- 메뉴 목록카테고리 설정하는 부분 -->
         <section class="desktopFilter_filterWrapper__1gwsT">
@@ -231,14 +239,14 @@
         <!-- 아래에서부터 스터디 목록을 보여주어야함 카드 부분 -->
         <div class="row row-cols-1 row-cols-md-3 g-4">
           <!-- div1 시작 -->
-          <div class="col " >
+          <div class="col ">
             <!--  div2 시작 -->
             <!-- Basic Card Example -->
             <div class="card shadow mb-4" name="studyCard" id="studyCard_output"></div>
             <!-- div3 시작 -->
 
             <!-- template 시작 -->
-            <div class="card-body" style="width: 18rem;" >
+            <div class="card-body" style="width: 18rem;">
               <!-- div4 시작 -->
               <div id="studyCard_template" style="display: none;" type="text/template">
                 <div class="studyItem_schedule">
@@ -288,18 +296,20 @@
 
                 <!-- 해당 스터디로 이동하기 처리 js script-->
                 <!-- {{studyURL}} 스터디로 이동하기 </a> -->
-                <a href={{"http://duck.nifskorea.com:8080/project/page/studyadd_board.html"}} class="btn btn-primary">스터디로
+                <a href="http://duck.nifskorea.com:8080/project/page/studyadd_board.html" class="btn btn-primary">스터디로
                   이동하기 </a>
                 <!-- 카드 끝임 -->
               </div> <!-- div4 끝 -->
               <script>duck_nifskorea_com.study_found.getQuery()</script>
             </div> <!-- div3 끝 -->
-            
+
+          </div>
+          <!-- 이까지가 카드 파트 1개임 -->
+          <iframe id="ssIFrame_google" sandbox="allow-scripts allow-same-origin" aria-hidden="true" frame-border="0"
+            style="position: absolute; width: 1px; height: 1px; inset: -9999px; display: none;"
+            src="https://accounts.google.com/o/oauth2/iframe#origin=https%3A%2F%2Fholaworld.io&amp;rpcToken=803431245.8929752&amp;clearCache=1"></iframe>
+        </div>
       </div>
-      <!-- 이까지가 카드 파트 1개임 -->
-      <iframe id="ssIFrame_google" sandbox="allow-scripts allow-same-origin" aria-hidden="true" frame-border="0"
-        style="position: absolute; width: 1px; height: 1px; inset: -9999px; display: none;"
-        src="https://accounts.google.com/o/oauth2/iframe#origin=https%3A%2F%2Fholaworld.io&amp;rpcToken=803431245.8929752&amp;clearCache=1"></iframe>
     </div>
   </div>
 </body>

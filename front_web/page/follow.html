@@ -1,5 +1,4 @@
 <!-- 팔로잉, 팔로우 페이지-->
-
 <html>
 
 <head>
@@ -8,207 +7,207 @@
     <script src="../jsp/w3.js"> </script>
     <!-- 헤더 부분 -->
     <div data-include-path="header.html"> </div>
-
-    <link rel="stylesheet" href="../css/login.css">
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sign-in/">
+    <!-- 팔로잉 및  선택 바  부분 css 요소 -->
     <link rel="stylesheet" href="../css/follow.css">
 </head>
 
-
-<body >
-    <div class="b-divider"><i class="bi bi"></i>나의 팔로잉 / 팔로우 </div>
-    <div class = "container input-form ">
-        <h4 class="mb-3">나의 팔로잉 / 팔로우 정보</h4>
+<body>
+    <div class="b-divider">나의 스터디 구독 현황 ( 스터디원 ) </div>
+    <div class="container input-form ">
+        <h4 class="mb-3">스터디 팔로잉 / 팔로우 정보</h4>
         <div class="p-2"></div>
-    <h1 class="h3 mb-3 fw-normal">
-    <div class="tab">
-        <!-- 해당옵션에서 defaltopen으로 자동으로 열기 옵션 추가해줌 -->
-        <button class="tablinks" onclick="openCity(event, 'following')" id="defaultOpen">팔로잉</button>
-        <button class="tablinks" onclick="openCity(event, 'follow')">팔로우</button>
+        <h1 class="h3 mb-3 fw-normal">
+            <div class="tab">
+                <!-- 해당옵션에서 defaltopen으로 자동으로 열기 옵션 추가해줌 -->
+                <button class="tablinks" onclick="openCity(event, 'following')" id="defaultOpen">팔로잉</button>
+                <button class="tablinks" onclick="openCity(event, 'follow')">팔로우</button>
 
+            </div>
+            <!-- 팔로잉 부분-->
+            <div id="following" class="tabcontent">
+
+
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <b>
+                                <th scope="row">프로필</th>
+                                <td>이름</td>
+                                <td> Email</td>
+                            </b>
+                        </tr>
+                    </thead>
+                    <tbody class="table-activate">
+
+                        <tr>
+                            <th scope="row">
+                                <div class="box_board ">
+                                    <!-- 추후 이미지 변동사항 발생하면 변경해야함!! DB 사용자별로 변경해야함 -->
+                                    <img src="https://t1.daumcdn.net/cfile/tistory/24283C3858F778CA2E"
+                                        class="profile_board" name=""><br>
+                                </div>
+                            </th>
+                            <td><a href="http://duck.nifskorea.com:8080/project/page/Read_board.html">윤성민</a></td>
+                            <td>email1.naver.com</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">
+                                <div class="box_board ">
+                                    <!-- 추후 이미지 변동사항 발생하면 변경해야함!! DB 사용자별로 변경해야함 -->
+                                    <img src="https://t1.daumcdn.net/cfile/tistory/24283C3858F778CA2E"
+                                        class="profile_board" name=""><br>
+                                </div>
+                            </th>
+                            <td><a href="http://duck.nifskorea.com:8080/project/page/Read_board.html">최인수</a></td>
+                            <td>email2.naver.com</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">
+                                <div class="box_board ">
+                                    <!-- 추후 이미지 변동사항 발생하면 변경해야함!! DB 사용자별로 변경해야함 -->
+                                    <img src="https://t1.daumcdn.net/cfile/tistory/24283C3858F778CA2E"
+                                        class="profile_board" name=""><br>
+                                </div>
+                            </th>
+                            <td><a href="http://duck.nifskorea.com:8080/project/page/Read_board.html">박상현</a></td>
+                            <td>email3.naver.com</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- 다음 페이지 이동 버튼  js script 구현 -->
+                <div id="myDIV container ">
+                    <center>
+                        <a href="#"><button class="btn">1</button></a>
+                        <a href="#"><button class="btn">2</button></a>
+                        <a href="#"><button class="btn">3</button></a>
+                        <a href="#"><button class="btn">4</button></a>
+                        <a href="#"><button class="btn">5</button></a>
+                    </center>
+                </div>
+            </div>
+
+
+
+            <!-- 팔로우 부분-->
+            <div id="follow" class="tabcontent">
+
+
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <b>
+                                <th scope="row">프로필</th>
+                                <td>이름</td>
+                                <td> Email</td>
+
+                            </b>
+                        </tr>
+                    </thead>
+                    <tbody class="table-activate">
+                        <tr>
+                            <th scope="row">
+                                <div class="box_board" style="background: #ffff">
+                                    <img src="http://duck.nifskorea.com:8080/project/img/profile/defult_img.png"
+                                        class="profile" name=""><br>
+                                </div>
+                            </th>
+                            <td><a href="http://duck.nifskorea.com:8080/project/page/Read_board.html">윤성민</a></td>
+                            <td>email1.naver.com</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">
+                                <div class="box_board" style="background: #ffff">
+                                    <img src="http://duck.nifskorea.com:8080/project/img/profile/defult_img.png"
+                                        class="profile" name=""><br>
+                                </div>
+                            </th>
+                            <td><a href="http://duck.nifskorea.com:8080/project/page/Read_board.html">최인수</a></td>
+                            <td>email2.naver.com</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">
+                                <div class="box_board" style="background: #ffff">
+                                    <img src="http://duck.nifskorea.com:8080/project/img/profile/defult_img.png"
+                                        class="profile" name=""><br>
+                                </div>
+                            </th>
+                            <td><a href="http://duck.nifskorea.com:8080/project/page/Read_board.html">박상현</a></td>
+                            <td>email3.naver.com</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- 다음 페이지 이동 버튼  js script 구현 -->
+                <div id="myDIV container ">
+                    <center>
+                        <a href="#"><button class="btn">1</button></a>
+                        <a href="#"><button class="btn">2</button></a>
+                        <a href="#"><button class="btn">3</button></a>
+                        <a href="#"><button class="btn">4</button></a>
+                        <a href="#"><button class="btn">5</button></a>
+                    </center>
+                </div>
+            </div>
+            <footer class="my-3 text-center text-small p-4">
+                <h6>
+                    <p class="mb-1 ">&copy; 2022 코딩 스터디 매칭 플랫폼.</p>
+                </h6>
+            </footer>
     </div>
-    <!-- 팔로잉 부분-->
-    <div id="following" class="tabcontent">
+    </div>
 
+    <!-- 푸터 부분 -->
+    <footer>
+        <div data-include-path="footer.html"></div>
+    </footer>
 
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <b>
-                        <th scope="row">프로필</th>
-                        <td>이름</td>
-                        <td> Email</td>
-                    </b>
-                </tr>
-            </thead>
-            <tbody class="table-activate">
-           
-                <tr>
-                    <th scope="row">
-                        <div class="box_board " >
-                        <!-- 추후 이미지 변동사항 발생하면 변경해야함!! DB 사용자별로 변경해야함 -->
-                        <img src="https://t1.daumcdn.net/cfile/tistory/24283C3858F778CA2E" class="profile_board" name=""><br>
-                      </div></th>
-                    <td ><a href="http://duck.nifskorea.com:8080/project/page/Read_board.html">윤성민</a></td>
-                    <td>email1.naver.com</td>
-                </tr>
-                <tr>
-                    <th scope="row"><div class="box_board " >
-                        <!-- 추후 이미지 변동사항 발생하면 변경해야함!! DB 사용자별로 변경해야함 -->
-                        <img src="https://t1.daumcdn.net/cfile/tistory/24283C3858F778CA2E" class="profile_board" name=""><br>
-                      </div></th>
-                    <td ><a href="http://duck.nifskorea.com:8080/project/page/Read_board.html">최인수</a></td>
-                    <td>email2.naver.com</td>
-                </tr>
-                <tr>
-                    <th scope="row"><div class="box_board " >
-                        <!-- 추후 이미지 변동사항 발생하면 변경해야함!! DB 사용자별로 변경해야함 -->
-                        <img src="https://t1.daumcdn.net/cfile/tistory/24283C3858F778CA2E" class="profile_board" name=""><br>
-                      </div></th>
-                    <td ><a href="http://duck.nifskorea.com:8080/project/page/Read_board.html">박상현</a></td>
-                    <td>email3.naver.com</td>
-                </tr>
-            </tbody>
-        </table>
+    <!--- 스크립트 관련 영역 -->
 
-<!-- 다음 페이지 이동 버튼  js script 구현 -->
-<div id="myDIV container ">
-<center>
-<a href="#"><button class="btn">1</button></a>
-<a href="#"><button class="btn">2</button></a>
-<a href="#"><button class="btn">3</button></a>
-<a href="#"><button class="btn">4</button></a>
-<a href="#"><button class="btn">5</button></a>
-</center>
-</div>
-     </div>
+    <!-- 상위페이지로 이동 버튼 top -->
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+    <script>
+        //Get the button
+        var mybutton = document.getElementById("myBtn");
 
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () { scrollFunction() };
 
-
-<!-- 팔로우 부분-->
-     <div id="follow" class="tabcontent">
-
-
-        <table class="table table-hover" >
-            <thead>
-                <tr> 
-                    <b>
-                    <th scope="row">프로필</th>
-                    <td >이름</td>
-                    <td> Email</td> 
-
-                </b>
-                </tr>
-            </thead>
-            <tbody class="table-activate">    
-            <tr>
-                    <th scope="row">
-                        <div class="box_board" style="background: #ffff">
-                            <img src="http://duck.nifskorea.com:8080/project/img/profile/defult_img.png" class="profile"
-                                name=""><br>
-                        </div>
-                    </th>
-                    <td><a href="http://duck.nifskorea.com:8080/project/page/Read_board.html">윤성민</a></td>
-                    <td>email1.naver.com</td>
-                </tr>
-                <tr>
-                    <th scope="row">
-                        <div class="box_board" style="background: #ffff">
-                            <img src="http://duck.nifskorea.com:8080/project/img/profile/defult_img.png" class="profile"
-                                name=""><br>
-                        </div>
-                    </th>
-                    <td><a href="http://duck.nifskorea.com:8080/project/page/Read_board.html">최인수</a></td>
-                    <td>email2.naver.com</td>
-                </tr>
-                <tr>
-                    <th scope="row">
-                        <div class="box_board" style="background: #ffff">
-                            <img src="http://duck.nifskorea.com:8080/project/img/profile/defult_img.png" class="profile"
-                                name=""><br>
-                        </div>
-                    </th>
-                    <td><a href="http://duck.nifskorea.com:8080/project/page/Read_board.html">박상현</a></td>
-                    <td>email3.naver.com</td>
-                </tr>
-            </tbody>
-            </table>
-
-<!-- 다음 페이지 이동 버튼  js script 구현 -->
-<div id="myDIV container ">
-<center>
-<a href="#"><button class="btn">1</button></a>
-<a href="#"><button class="btn">2</button></a>
-<a href="#"><button class="btn">3</button></a>
-<a href="#"><button class="btn">4</button></a>
-<a href="#"><button class="btn">5</button></a>
-</center>
-</div>
-     </div>
-     <footer class="my-3 text-center text-small p-4">
-        <h6><p class="mb-1 ">&copy; 2022 코딩 스터디 매칭 플랫폼.</p></h6>
-      </footer>
-</div>
-</div>
-
-<!-- 푸터 부분 -->
-<footer>
-<div data-include-path="footer.html"></div>
-</footer>
-
-<!--- 스크립트 관련 영역 -->
-
-<!-- 상위페이지로 이동 버튼 top -->
-<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
-<script>
-  //Get the button
-  var mybutton = document.getElementById("myBtn");
-  
-  // When the user scrolls down 20px from the top of the document, show the button
-  window.onscroll = function() {scrollFunction()};
-  
-  function scrollFunction() {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-      mybutton.style.display = "block";
-    } else {
-      mybutton.style.display = "none";
-    }
-  }
-  
-  // When the user clicks on the button, scroll to the top of the document
-  function topFunction() {
-    document.body.scrollTop = 3;
-    document.documentElement.scrollTop = 3;
-  }
-  </script>
-  <!-- 디폴트 팔로우 잡아주는애 -->
-  <script>
-    function openCity(evt, cityName) {
-        var i, tabcontent, tablinks;
-        tabcontent = document.getElementsByClassName("tabcontent");
-        for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
         }
 
-
-        tablinks = document.getElementsByClassName("tablinks");
-        for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 3;
+            document.documentElement.scrollTop = 3;
         }
+    </script>
+    <!-- 디폴트 팔로우 잡아주는애 -->
+    <script>
+        function openCity(evt, cityName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+
+
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
 
 
 
-        document.getElementById(cityName).style.display = "block";
-        evt.currentTarget.className += " active";
-    }
-    // Get the element with id="defaultOpen" and click on it
-    document.getElementById("defaultOpen").click();
-</script>
-  <!-- top 버튼 끝 -->
-
-
-
-
-
-
-
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+    </script>
+    <!-- top 버튼 끝 -->

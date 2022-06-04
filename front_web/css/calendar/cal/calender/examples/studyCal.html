@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <script src="http://duck.nifskorea.com:8080/project/jsp/w3.js"> </script>
+<script src='https://www.google.com/recaptcha/api.js'></script>
+
+  <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.css">
+  <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.css">
+  <link rel="stylesheet" type="text/css" href="http://duck.nifskorea.com:8080/project/css/calendar/cal/calender/dist/tui-calendar.css">
+  <link rel="stylesheet" type="text/css" href="http://duck.nifskorea.com:8080/project/css/calendar/cal/calender/examples/css/default.css">
+  <link rel="stylesheet" type="text/css" href="http://duck.nifskorea.com:8080/project/css/calendar/cal/calender/examples/css/icons.css">
+
+</head>
+
+<body>
+  <div data-include-path="http://duck.nifskorea.com:8080/project/page/header.html"> 
+  <!--<span id="renderRange" class="render-range"></span>-->
+</div>
+<center>
+<div class="code-html ">
+  <div id="menu ">
+  </div>
+  <div id="calendar" > <span id="menu-navi">
+    <div class="container input-form">
+    <div class="alert alert-success" role="alert">
+    본 페이지는 학생들의 스터디 일정운용표를 한번에 확인하기위한 페이지입니다.
+    </div>
+    <button type="button" class="btn btn-primary" onclick="todaybtn()">Today</button>
+    <button type="button" class="btn btn-success btn-sm move-day" onclick="prevbtn()">
+      <i class="calendar-icon ic-arrow-line-left" ></i>
+    </button>
+    <button type="button" class="btn btn-success btn-sm move-day" onclick="nextbtn()">
+      <i class="calendar-icon ic-arrow-line-right" data-action="move-next"></i>
+    </button>
+    <button type="button" class="btn btn-secondary btn-sm move-day" onclick="calsday()">
+     일간 보기
+    </button>
+    <button type="button" class="btn btn-secondary btn-sm move-day" onclick="calsweek()">
+      주간 보기 
+     </button>
+     <button type="button" class="btn btn-secondary btn-sm move-day" onclick="calsmonth()">
+    월간 보기
+     </button>
+     <div class="p-2"></div>
+    </center>
+     <div class="toastuical">
+      Powerd By: 
+      <img src="http://duck.nifskorea.com:8080/project/css/calendar/cal/calender/examples/images/img-bi.png" srcset="./images/img-bi@2x.png 2x,./images/img-bi@3x.png 3x">
+    </div>
+     </div>
+  </span>
+ 
+</div>
+</div>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  <script src="https://uicdn.toast.com/tui.code-snippet/v1.5.2/tui-code-snippet.min.js"></script>
+  <script src="https://uicdn.toast.com/tui.time-picker/v2.0.3/tui-time-picker.min.js"></script>
+  <script src="https://uicdn.toast.com/tui.date-picker/v4.0.3/tui-date-picker.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chance/1.0.13/chance.min.js"></script>
+  <script src="http://duck.nifskorea.com:8080/project/css/calendar/cal/calender/dist/tui-calendar.js"></script>
+  <script src="http://duck.nifskorea.com:8080/project/css/calendar/cal/calender/examples/js/data/calendars.js"></script>
+  <script src="http://duck.nifskorea.com:8080/project/css/calendar/cal/calender/examples/js/data/schedules.js"></script>
+  <script type="text/javascript" class="code-js">
+    var cal = new tui.Calendar('#calendar', {
+      defaultView: 'month', // monthly view option
+      useCreationPopup: true,
+    useDetailPopup: true
+    
+    });
+    cal.createSchedules([
+    {
+        id: '1',
+        calendarId: '1',
+        title: '도커 스터디 OT ',
+        category: 'time',
+        dueDateClass: '',
+        start: '2022-06-18T22:30:00+09:00',
+        end: '2022-06-19T02:30:00+09:00',
+    },
+    {
+      id: '2',
+        calendarId: '1',
+        title: '프로젝트 결과 발표일 ',
+        category: 'time',
+        dueDateClass: '',
+        start: '2022-06-10T22:30:00+09:00',
+        end: '2022-06-10T02:30:00+09:00',
+    },
+    {
+      id: '3',
+        calendarId: '1',
+        title: ' 코딩 스터디 매칭 시스템 정식 출시 ',
+        category: 'time',
+        dueDateClass: '',
+        start: '2022-06-10T22:30:00+09:00',
+        end: '2022-06-10T02:30:00+09:00',
+    },
+    {
+      id: '4',
+        calendarId: '1',
+        title: ' 장고 스터디 오프라인 정기 모임 2박3일  ',
+        category: 'time',
+        dueDateClass: '',
+        start: '2022-06-13T22:30:00+09:00',
+        end: '2022-06-15T02:30:00+09:00',
+    }
+]);
+function todaybtn(){
+  cal.today();
+}
+function prevbtn(){
+  cal.prev();
+}
+function nextbtn(){
+  cal.next();
+}
+function calsday(){
+  cal.changeView('day', true);
+}
+function calsweek(){
+  cal.changeView('week', true);
+}
+function calsmonth(){
+  cal.changeView('month', true);
+}
+// 일정 생성
+cal.on('beforeCreateSchedule', scheduleData => {
+  const schedule = {
+    calId: scheduleData.calId,
+    id: String(Math.random() * 100000000000000000),
+    title: scheduleData.title,
+    isAllDay: scheduleData.isAllDay,
+    start: scheduleData.start,
+    end: scheduleData.end,
+    category: scheduleData.isAllDay ? 'allday' : 'time',
+    location: scheduleData.location             // 장소 정보도 입력할 수 있네요!
+  };
+
+  cal.createSchedules([schedule]);
+
+  alert('일정 생성 완료');
+});
+/// 일정 변경 
+cal.on('beforeUpdateSchedule', event => {
+  const {schedule, changes} = event;
+
+  cal.updateSchedule(schedule.id, schedule.calendarId, changes);
+});
+// 일정 삭제 
+cal.on('beforeDeleteSchedule', scheduleData => {
+  const {schedule} = scheduleData;
+
+  cal.deleteSchedule(schedule.id, schedule.calendarId);
+});
+
+    </script>
+      <script src="http://duck.nifskorea.com:8080/project/css/calendar/cal/calender/examples/js/default.js"></script>
+</body>
+</html>
