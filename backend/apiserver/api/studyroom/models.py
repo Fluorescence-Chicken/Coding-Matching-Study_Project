@@ -101,3 +101,12 @@ class StudySchedule(models.Model):
     study_num = models.IntegerField()
     time = models.DurationField()
     studyRoom = models.ForeignKey(StudyRoom, on_delete=models.CASCADE, related_name='study_schedules')
+    content = models.TextField()
+    title = models.CharField(max_length=100)
+
+    # constraints:
+    # 1. week, study_num, studyroom must not be duplicated
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(fields=['week', 'study_num', 'studyRoom'], name='unique_study_schedule')
+            ]

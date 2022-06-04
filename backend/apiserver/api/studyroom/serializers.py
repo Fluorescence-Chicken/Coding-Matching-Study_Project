@@ -35,7 +35,7 @@ class PostsSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Posts
         fields = '__all__'
-        read_only_fields = ('id', 'created_at', 'updated_at', 'author', 'studyroom')
+        read_only_fields = ('id', 'created_at', 'author', 'studyroom')
 
 
 class CommentSerializer(serializers.ModelSerializer):
@@ -51,8 +51,23 @@ class TagSerializer(serializers.ModelSerializer):
         fields = '__all__'
         read_only_fields = ['id']
 
+
 class TechnologyStackSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.TechnologyStack
         fields = '__all__'
         read_only_fields = ['id']
+
+
+class StudyroomPostsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Posts
+        fields = '__all__'
+        read_only_fields = ('id', 'created_at', 'updated_at')
+
+
+class StudyScheduleSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.StudySchedule
+        fields = '__all__'
+        read_only_fields = ()
