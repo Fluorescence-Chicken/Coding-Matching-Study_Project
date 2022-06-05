@@ -123,6 +123,7 @@ class QnaBoardViews(viewsets.GenericViewSet,
     serializer_class = QnaBoardSerializer
     permission_classes = [AllowGetOnly, ]
     queryset = NotificationBoardPosts.objects.all()
+    lookup_field = 'pk'
 
     def get_queryset(self):
         """
@@ -163,15 +164,14 @@ class QnaBoardViews(viewsets.GenericViewSet,
         return Response(serializer.data, status=201, headers=headers)
 
     @action(methods=['get'], detail=True, permission_classes=[permissions.AllowAny])
-    def comment_number(self, request, *args, **kwargs):
+    def comment_number(self, request, pk=None):
         """
         Get the number of comments of a post.
         """
-        post = request.query_params.get('post', None)
-        if post is None:
+        if pk is None:
             return Response(status=400, data={'message': 'query error: post is required'})
         # filter comments by post
-        queryset = self.get_queryset().filter(post=post)
+        queryset = QnaBoardComments.objects.filter(post=pk)
         return Response(len(queryset))
 
 
