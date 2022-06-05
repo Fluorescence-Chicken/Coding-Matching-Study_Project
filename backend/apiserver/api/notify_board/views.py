@@ -163,17 +163,6 @@ class QnaBoardViews(viewsets.GenericViewSet,
         headers = self.get_success_headers(serializer.data)
         return Response(serializer.data, status=201, headers=headers)
 
-    @action(methods=['get'], detail=True, permission_classes=[permissions.AllowAny])
-    def comment_number(self, request, pk=None):
-        """
-        Get the number of comments of a post.
-        """
-        if pk is None:
-            return Response(status=400, data={'message': 'query error: post is required'})
-        # filter comments by post
-        queryset = QnaBoardComments.objects.filter(post=pk)
-        return Response(len(queryset))
-
 
 class QnaBoardCommentViews(viewsets.GenericViewSet,
                            mixins.ListModelMixin,

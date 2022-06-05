@@ -18,7 +18,7 @@ class NotificationBoardComments(models.Model):
     content = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     uploaded_by = models.ForeignKey('api.User', on_delete=models.DO_NOTHING)
-    post = models.ForeignKey('notify_board.NotificationBoardPosts', on_delete=models.CASCADE)
+    post = models.ForeignKey('notify_board.NotificationBoardPosts', related_name="comments" , on_delete=models.CASCADE)
 
 
 class QnaBoardPosts(models.Model):
@@ -38,4 +38,4 @@ class QnaBoardComments(models.Model):
     content = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     uploaded_by = models.ForeignKey('api.User', on_delete=models.DO_NOTHING)
-    post = models.ForeignKey('notify_board.QnaBoardPosts', on_delete=models.CASCADE)
+    post = models.ForeignKey('notify_board.QnaBoardPosts', related_name="comments", on_delete=models.CASCADE)
