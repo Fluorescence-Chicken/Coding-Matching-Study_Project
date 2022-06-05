@@ -151,9 +151,6 @@ class QnaBoardViews(viewsets.GenericViewSet,
         """
         Create the Qna posts.
         """
-        # if request.user.is_admin is false, return error
-        if not request.user.is_admin:
-            return Response(status=400, data={'message': 'You are not admin'})
         data = request.data
         # add user to uploaded_by field
         data['uploaded_by'] = request.user.id
