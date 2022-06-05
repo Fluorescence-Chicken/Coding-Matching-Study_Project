@@ -91,32 +91,30 @@
                   </h3>
                   <div class="p-2"></div>
                   <!-- 아래 게시판 붙여 넣을자리 js script-->
-    
-                  <table class="table table-hover ">
-                    <thead>
-                      <tr>
-                        <b>
-                          <th scope="row">순번</th>
-                          <td>스터디 이름</td>
-                          <td>사용자</td>
-                          <td>게시글 업로드 시간</td>
-                        </b>
-                      </tr>
-                    </thead>
-                    <!-- template 시작 -->
-                    <div id="index_study_output"></div>
-                    <script id="index_study_template" type="text/template">
-                      <tbody class="table-activate">
-                        <tr>
-                          <th scope="row">{{num}}</th>
-                          <td>{{studyName}}</td><!--서비스 런칭안내-->
-                          <td>{{user}}</td><!--관리자-->
-                          <td>{{time}}</td><!--2022-05-17 03:12:31-->
-                        </tr>
-                      </tbody>
+                  <div id="index_study_output"></div>
+                  <script id="index_study_template" type="text/template">
+                      <table class="table table-hover ">
+                        <thead>
+                          <tr>
+                            <b>
+                              <th scope="row">스터디 이름</th>
+                              <td>멘토</td>
+                              <td>스터디 시작일</td>
+                            </b>
+                          </tr>
+                        </thead>
+                        <!-- template 시작 -->
+                        <tbody class="table-activate">
+                          {{#.}}
+                          <tr>
+                            <th scope="row"><a href="/project/page/study_dashboard.html?studyId={{&id}}">{{name}}</th>
+                            <td>{{mentor_username}}</td>
+                            <td>{{start_date}}</td>
+                          </tr>
+                          {{/.}}
+                        </tbody>
+                      </table>
                     </script>
-                        <script>duck_nifskorea_com.index.getstudyCardJSON();</script>
-                  </table>
     
                   <!-- 테이블 끝 -->
                 </div>
@@ -129,44 +127,36 @@
                       <path
                         d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z" />
                     </svg>
-                    최근 Q&N
+                    최근 Q&A
                   </h3>
                   <!-- 아래 게시판 붙여 넣을자리 js script-->
                   <div class="p-2"></div>
                   <!-- 아래 게시판 붙여 넣을자리 js script-->
-                  <table class="table table-hover ">
-                    <thead>
-                      <tr>
-                        <b>
-                          <th scope="row">순번</th>
-                          <td>게시글 내용</td>
-                          <td>사용자</td>
-                          <td>게시글 업로드 시간</td>
-                        </b>
-                      </tr>
-                    </thead>
-                    <tbody class="table-activate">
+                  <div id="index_qna_output"></div>
+                  <script id="index_qna_template" type="text/template">
+                      <table class="table table-hover ">
+                        <thead>
+                          <tr>
+                            <b>
+                              <th scope="row">제목</th>
+                              <td>사용자</td>
+                              <td>업로드 시간</td>
+                            </b>
+                          </tr>
+                        </thead>
+                        <!-- template 시작 -->
+                        <tbody class="table-activate">
+                          {{#.}}
+                          <tr>
+                            <th scope="row"><a href="/project/page/Read_board.html?pageid={{&id}}">{{title}}</th>
+                            <td>{{uploaded_by}}</td>
+                            <td>{{created_at}}</td>
+                          </tr>
+                          {{/.}}
+                        </tbody>
+                      </table>
+                    </script>
     
-                      <tr>
-                        <th scope="row">1</th>
-                        <td>서비스 런칭안내</td>
-                        <td>관리자</td>
-                        <td>2022-05-17 03:12:31</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>서비스 런칭안내</td>
-                        <td>관리자</td>
-                        <td>2022-05-17 03:12:31</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td>서비스 런칭안내</td>
-                        <td>관리자</td>
-                        <td>2022-05-17 03:12:31</td>
-                      </tr>
-                    </tbody>
-                  </table>
                   <!-- 테이블 끝 -->
                 </div>
               </div>
@@ -178,44 +168,35 @@
                       <path
                         d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z" />
                     </svg>
-                    최근 정보
+                    공지사항
                   </h3>
                   <!-- 아래 게시판 붙여 넣을자리 js script-->
                   <div class="p-2"></div>
                   <!-- 아래 게시판 붙여 넣을자리 js script-->
-                  <table class="table table-hover ">
-                    <thead>
-                      <tr>
-                        <b>
-                          <th scope="row">순번</th>
-                          <td>게시글 내용</td>
-                          <td>사용자</td>
-                          <td>게시글 업로드 시간</td>
-                        </b>
-                      </tr>
-                    </thead>
-                    <tbody class="table-activate">
-    
-                      <tr>
-                        <th scope="row">1</th>
-                        <td>서비스 런칭안내</td>
-                        <td>관리자</td>
-                        <td>2022-05-17 03:12:31</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>서비스 런칭안내</td>
-                        <td>관리자</td>
-                        <td>2022-05-17 03:12:31</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td>서비스 런칭안내</td>
-                        <td>관리자</td>
-                        <td>2022-05-17 03:12:31</td>
-                      </tr>
-                    </tbody>
-                  </table>
+                  <div id="index_notification_output"></div>
+                  <script id="index_notification_template" type="text/template">
+                      <table class="table table-hover ">
+                        <thead>
+                          <tr>
+                            <b>
+                              <th scope="row">제목</th>
+                              <td>사용자</td>
+                              <td>업로드 시간</td>
+                            </b>
+                          </tr>
+                        </thead>
+                        <!-- template 시작 -->
+                        <tbody class="table-activate">
+                          {{#.}}
+                          <tr>
+                            <th scope="row"><a href="/project/page/Read_board.html?pageid={{&id}}">{{title}}</th>
+                            <td>{{uploaded_by}}</td>
+                            <td>{{created_at}}</td>
+                          </tr>
+                          {{/.}}
+                        </tbody>
+                      </table>
+                    </script>
                   <!-- 테이블 끝 -->
                 </div>
               </div>
@@ -230,50 +211,42 @@
                         d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z" />
                       <path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z" />
                     </svg>
-                    이벤트
+                    행사
                   </h3>
                   <!-- 아래 게시판 붙여 넣을자리 js script-->
                   <div class="p-2"></div>
                   <!-- 아래 게시판 붙여 넣을자리 js script-->
-                  <table class="table table-hover ">
-                    <thead>
-                      <tr>
-                        <b>
-                          <th scope="row">순번</th>
-                          <td>게시글 내용</td>
-                          <td>사용자</td>
-                          <td>게시글 업로드 시간</td>
-                        </b>
-                      </tr>
-                    </thead>
-                    <tbody class="table-activate">
+                  <div id="index_event_output"></div>
+                  <script id="index_event_template" type="text/template">
+                      <table class="table table-hover ">
+                        <thead>
+                          <tr>
+                            <b>
+                              <th scope="row">제목</th>
+                              <td>사용자</td>
+                              <td>업로드 시간</td>
+                            </b>
+                          </tr>
+                        </thead>
+                        <!-- template 시작 -->
+                        <tbody class="table-activate">
+                          {{#.}}
+                          <tr>
+                            <th scope="row"><a href="/project/page/Read_board.html?pageid={{&id}}">{{title}}</th>
+                              <td>{{uploaded_by}}</td>
+                              <td>{{created_at}}</td>
+                          </tr>
+                          {{/.}}
+                        </tbody>
+                      </table>
+                    </script>
     
-                      <tr>
-                        <th scope="row">1</th>
-                        <td>서비스 런칭안내</td>
-                        <td>관리자</td>
-                        <td>2022-05-17 03:12:31</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>서비스 런칭안내</td>
-                        <td>관리자</td>
-                        <td>2022-05-17 03:12:31</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td>서비스 런칭안내</td>
-                        <td>관리자</td>
-                        <td>2022-05-17 03:12:31</td>
-                      </tr>
-                    </tbody>
-                  </table>
                   <!-- 테이블 끝 -->
                 </div>
               </div>
             </div>
           </div>
-    
+          <script>duck_nifskorea_com.index.init_template();</script>
           <!-- Footer -->
           <div id="footer">
             <div class="container">
@@ -293,15 +266,6 @@
                         height="80" background: rgba(255, 255, 255, 0.9) ;></a><br><br>
                       형광색 꼬꼬댁 팀원:<br> <ins>최인수, 박상현, 윤성민, 조진혁</ins>
                     </p>
-                    <!---
-                            <ul class="icons">
-                              <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-                              <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-                              <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-                              <li><a href="#" class="icon brands fa-pinterest"><span class="label">Pinterest</span></a></li>
-                              <li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
-                              <li><a href="#" class="icon brands fa-linkedin-in"><span class="label">Linkedin</span></a></li>
-                            </ul>-->
                   </section>
     
                   <!-- Copyright -->
@@ -319,4 +283,5 @@
           </div>
         </div>
     </body>
+    
     </html>
