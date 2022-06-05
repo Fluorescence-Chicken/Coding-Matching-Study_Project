@@ -5,13 +5,11 @@
 <head>
   <!-- 필수 선언부 -->
   <meta charset="utf-8">
-  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ebef7b6057d0c8d0d49d4fa5fbf97f0c&libraries=services,clusterer"></script>
+  <script type="text/javascript"
+    src="//dapi.kakao.com/v2/maps/sdk.js?appkey=(API키 값)"></script>
   <script type="text/javascript"
     src="http://duck.nifskorea.com:8080/project/vendor/jquery-easing/jquery.easing.min.js"></script>
   <script type="text/javascript" src="http://duck.nifskorea.com:8080/project/jsp/sb-admin-2.min.js"></script>
-  <script type="text/javascript" src="http://duck.nifskorea.com:8080/project/vendor/chart.js/Chart.min.js"></script>
-  <script type="text/javascript" src="http://duck.nifskorea.com:8080/project/jsp/demo/chart-area-demo.js"></script>
-  <script type="text/javascript" src="http://duck.nifskorea.com:8080/project/jsp/demo/chart-pie-demo.js"></script>
   <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script type="text/javascript"
     src="http://duck.nifskorea.com:8080/project/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -20,7 +18,7 @@
   <link rel="stylesheet" href="http://duck.nifskorea.com:8080/project/vendor/fontawesome-free/css/all.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
   <link href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" rel="stylesheet">
-  
+
   <!-- 커스텀 부분 코드 -->
 
   <!-- 헤더 부분 -->
@@ -44,15 +42,18 @@
     <!-- 여기서 삭제하기 , Q&A 버튼 영역 -->
     <div class="studydel">
       <!-- 해당 화면은 팝업화면으로 보여야함  설문폼으로 보여야할듯 -->
-      <a href="#"><button type="button" class="btn btn-danger">스터디 탈퇴하기</button></a>
+    <button type="button" class="btn btn-warning" onclick="mentoAlert()">멘토 신고하기</button>
+    <button type="button" class="btn btn-danger" onclick="studyDel()">스터디 탈퇴하기</button>
     </div>
+    
     <hr class="my-2">
 
     <!-- 여기서 부터 바디 섹션 작성 부분 -->
     <!-- Content Row -->
     <div class="container input-form-studymode">
-    <div class="row">
-      <!-- Earnings (Monthly) Card Example -->
+      <div class="row">
+        <!-- Earnings (Monthly) Card Example -->
+      <script type="text/template" id="top_board">
       <div class="col-xl-3 col-md-6 mb-4">
         <div class="card border-left-primary shadow h-400 py-2">
           <div class="card-body">
@@ -84,7 +85,10 @@
                     <!-- 스터디 진행형태 서버에서 가져와야함 js script-->
                     <div class="h5  font-weight-bold text-gray-900 text-primary">
                       {{online_or_offline}}</div> <!-- 온라인, 오프라인 여부-->
+                    </div>
                   </div>
+                </div>
+                <div class="col-auto">
 
 
     <!-- js 연결 -->
@@ -218,18 +222,15 @@
                     </div>
                 </div>
               </div>
-              <div class="col-auto">
-              </div>
             </div>
-          </div>
+          </div>          
         </div>
-        
+      </script>
+
+        <!-- Study notification information end -->
+
       </div>
-      
-      <!-- Study notification information end -->
-      
-    </div>
-    <!-- the end-->
+      <!-- the end-->
     </div>
     <div class="p-3"></div>
     <div class="container">
@@ -351,52 +352,53 @@
     <!-- 마지막 div -->
     <div class="container input-form">
       <!-- DB 로 사용자명을 표시해야함 -->
-      
+
       <h4 class="mb-3" name="welcomeText">오프라인 스터디 장소 안내</h4>
-       <div class="row">
-                  <div class="col-md-6 ">
-                    <div class="list-group1 ">
-    <div id="mapwrap" style="overflow:hidden;">
-      <div id="map" style="position:relative; width: 100%; height: 350px;">
-        <p class="btn-init" onclick="setBounds()" style="position: absolute;right: 7px;bottom: 7px;color: #666666;z-index: 10;font-size: 12px;font-weight: bold;background: white;box-shadow: 1px 1px 1px 1px #AAAAAA;padding: 0px 7px;border-radius: 4px;cursor: pointer;">
-          초기화면으로
-        </p>
-      </div>
-     <!-- 이까지가 지도 부분 -->
-    </div>
-    </div>
-    </div>
-    <!-- 여기까지 끝 여기서부터 row 영역 오른쪽 표 표시 부분 --> 
-    <div class="col-md-6">
-      <div class="list-group2">
-        <table class="table">
-          <tbody>
-            <div class="card-header2 " style="width: 100%; border-radius: 10px;">
-              <h6 class="m-0 font-weight-bold text-primary text-center" name="">방문 안내</h6>
+      <div class="row">
+        <div class="col-md-6 ">
+          <div class="list-group1 ">
+            <div id="mapwrap" style="overflow:hidden;">
+              <div id="map" style="position:relative; width: 100%; height: 350px;">
+                <p class="btn-init" onclick="setBounds()"
+                  style="position: absolute;right: 7px;bottom: 7px;color: #666666;z-index: 10;font-size: 12px;font-weight: bold;background: white;box-shadow: 1px 1px 1px 1px #AAAAAA;padding: 0px 7px;border-radius: 4px;cursor: pointer;">
+                  초기화면으로
+                </p>
+              </div>
+              <!-- 이까지가 지도 부분 -->
             </div>
-            <!-- 테이블 시작 -->
-            <tr>
-              <th scope="row">방문 주소 : </th>
-              <td>부산역 {{ hashtag_id_for_location}} </td>
-            </tr>
-            <!-- 테이블 끝 -->
-            <tr>
-              <th scope="row">스터디 방문 인원 : </th>
-              <td>8 명 {{ study_all_member}}</td>
-            </tr>
-            <!-- 테이블 끝 -->
-            <tr>
-              <th scope="row">스터디 팀장 번호 : </th>
-              <td>010-0000-0000 {{ study_team_admin_number}}</td>
-            </tr>
-          </tbody>
-        </table>
-        <!-- 이까지가 테이블 마무리 부분 -->
+          </div>
         </div>
+        <!-- 여기까지 끝 여기서부터 row 영역 오른쪽 표 표시 부분 -->
+        <div class="col-md-6">
+          <div class="list-group2">
+            <table class="table">
+              <tbody>
+                <div class="card-header2 " style="width: 100%; border-radius: 10px;">
+                  <h6 class="m-0 font-weight-bold text-primary text-center" name="">방문 안내</h6>
+                </div>
+                <!-- 테이블 시작 -->
+                <tr>
+                  <th scope="row">방문 주소 : </th>
+                  <td>부산역 {{ hashtag_id_for_location}} </td>
+                </tr>
+                <!-- 테이블 끝 -->
+                <tr>
+                  <th scope="row">스터디 방문 인원 : </th>
+                  <td>8 명 {{ study_all_member}}</td>
+                </tr>
+                <!-- 테이블 끝 -->
+                <tr>
+                  <th scope="row">스터디 팀장 번호 : </th>
+                  <td>010-0000-0000 {{ study_team_admin_number}}</td>
+                </tr>
+              </tbody>
+            </table>
+            <!-- 이까지가 테이블 마무리 부분 -->
+          </div>
         </div>
-    <!-- 여기까지가 지도 표시부분 -->
+        <!-- 여기까지가 지도 표시부분 -->
       </div>
-      </div>
+    </div>
     <!-- 아래는 마지막 div 태그임-->
   </div>
   </div>
@@ -617,6 +619,7 @@
   }
   function setBounds() { map.setBounds(bounds, 90, 30, 10, 30); }
 </script>
+</html>
 <script>
     //Get the button
     var mybutton = document.getElementById("myBtn");

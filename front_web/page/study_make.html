@@ -15,6 +15,20 @@
   <!--주소 받아오기 카카오-->
   <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
   <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
+  <!-- 하이라이트 라이브러리 추가, 토스트 UI 에디터에서 사용됨 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/default.min.css">
+<!-- 하이라이트 라이브러리, 언어 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/languages/css.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/languages/java.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/languages/javascript.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/languages/xml.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/languages/php.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/languages/php-template.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/languages/sql.min.js"></script>
+<!-- 토스트 UI 에디터, 신택스 하이라이트 플러그인 추가 -->
+<script src="https://uicdn.toast.com/editor-plugin-code-syntax-highlight/latest/toastui-editor-plugin-code-syntax-highlight-all.min.js"></script>
+
 </head>
 
 <body>
@@ -166,7 +180,7 @@
 
             <div class="col-md-6 mb-3">
               <label for="root2">몇주차 까지 진행하실 예정이신가요?</label>
-              <select class="custom-select d-block w-100" id="root2" required>
+              <select class="custom-select d-block w-100" id="weekcount" required>
                 <option>1주차</option>
                 <option>2주차</option>
                 <option>3주차</option>
@@ -220,16 +234,52 @@
                 <!-- 에디터 종료 다음 주차별 내용 -->
                 <h4 class="mb-3">3. 강의 일정 등록 </h4>
                 <div class="mb-3">
-                  <label for="address2">n주차 강의 제목<span class="text-muted"></span></label>
-                  <input type="text" class="form-control " id="address2" style="width: 1000px;"
-                    placeholder="강의 제목을 입력해주세요." required>
-                  <div class="invalid-feedback "> n주차 강의제목을 입력해주세요 </div>
-                </div>
-                <div class="mb-3">
-                  <label for="address2">n주차 강의시간을 입력해주세요<span class="text-muted"></span></label>
-                  <input type="text" class="form-control " id="address2" style="width: 1000px;"
-                    placeholder="강의 시간을 입력해주세요." required>
-                  <div class="invalid-feedback "> n주차 강의시간을 입력해주세요 </div>
+                  <!-- 입력값으로 동적으로 변하게 하기 (작업중)-->
+                  <script>
+                    //상위값 가져오기 
+                    const name = document.getElementById('weekcount').value;
+                    var count=0; // 주차 저장 
+
+                  if(name=='1주차')
+                  {
+                      count=1;
+                  }else if (name=='2주차'){
+                      count=2;
+                  }else if(name=='3주차'){
+                      count=3;
+                  }else if(name=='4주차'){
+                      count=4;
+                  }else if(name == '5주차'){
+                      count=5;
+                  }else if(name == '6주차'){
+                      count=6;
+                  }else if(name =='7주차'){
+                      count=7;
+                  }else if(name =='8주차'){
+                      count=8;
+                  }else if(name =='9주차'){
+                      count=9;
+                  }else if(name =='10주차'){
+                      count=10;
+                  }else if(name =='11주차'){
+                      count=11;
+                  }else if(name =='12주차'){
+                      count=12;
+                  }else if(name =='13주차'){
+                      count=13;
+                  }
+                var text_box = '<label for=""address2"">'+count+'주차 강의 제목<span class=""text-muted""></span></label>'+
+                '  <input type="text" class="form-control " id="address2" style="width: 1000px;"placeholder="강의 제목을 입력해주세요." required>'+
+                '<div class="invalid-feedback "> '+count+'주차 강의제목을 입력해주세요 </div>'
+                var test='<p> tsest</p>'
+                  for (var i=1; i<=count;i++ )
+                  {
+                     // $("studyweeka").append(text_box);
+                      document.write(text_box);
+                  }
+                 // $("teta").appendchild(text_box);
+                   
+              </script>
                 </div>
 
                 <div class="custom-control custom-checkbox">
@@ -281,6 +331,7 @@
     initialEditType: 'markdown',
     previewStyle: 'vertical',
     initialValue: '### 원하시는 HTML내용을 작성해주세요.',
+    plugins: [toastui.Editor.plugin.codeSyntaxHighlight],
     usageStatistics: 'false',
     language: 'ko'
 
