@@ -15,6 +15,7 @@ gunicorn = "*"
 rest-condition = "*"
 drf-access-policy = "*"
 pillow = "*"
+drf-yasg = "*"
 
 [dev-packages]
 
