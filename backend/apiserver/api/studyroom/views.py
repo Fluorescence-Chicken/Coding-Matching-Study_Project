@@ -357,6 +357,7 @@ class StudyroomPostViews(viewsets.GenericViewSet,
 class StudyroomScheduleView(viewsets.GenericViewSet,
                             mixins.ListModelMixin,
                             mixins.CreateModelMixin,
+                            mixins.RetrieveModelMixin,
                             mixins.UpdateModelMixin,):
     """
     StudyroomScheduleView
@@ -442,3 +443,18 @@ class StudyroomScheduleView(viewsets.GenericViewSet,
             serializer.save()
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def retrieve(self, request, *args, **kwargs):
+        """
+        Retrieve a StudyroomSchedule object.
+        """
+        # get StudyroomSchedule object from pk
+        schedule = self.get_queryset().get(pk=kwargs['pk'])
+        # get Studyroom object from schedule
+        studyroom = schedule.studyRoom
+        # check user is joined on studyroom
+        if studyroom.users.filter(id=request.user.id).count() == 0:
+            return Response(status=403, data={'detail': "You can't retrieve this schedule."})
+        # Serialize StudyroomSchedule object
+        serializer = self.serializer_class(schedule)
+        return Response(serializer.data)

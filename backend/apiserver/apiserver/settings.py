@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     # Third-party apps
     'dj_rest_auth',
     'corsheaders',
+    'drf_yasg',
 
     # Custom apps
     'api',
