@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'api',
     'api.studyroom',
     'api.notify_board',
+    'api.ticket',
 ]
 
 REST_FRAMEWORK = {

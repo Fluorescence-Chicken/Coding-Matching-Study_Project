@@ -17,3 +17,4 @@ class AllowGetOnly(AccessPolicy):
             'effect': "allow",
         },
     ]
+
