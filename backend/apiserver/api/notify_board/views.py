@@ -110,6 +110,9 @@ class NotifyBoardCommentViews(viewsets.GenericViewSet,
         serializer.is_valid(raise_exception=True)
         self.perform_create(serializer)
         headers = self.get_success_headers(serializer.data)
+        # add poins to requested user
+        request.user.point += 1
+        request.user.save()
         return Response(serializer.data, status=201, headers=headers)
 
 
@@ -158,6 +161,9 @@ class QnaBoardViews(viewsets.GenericViewSet,
         serializer.is_valid(raise_exception=True)
         self.perform_create(serializer)
         headers = self.get_success_headers(serializer.data)
+        # add point to requested user
+        request.user.point += 2
+        request.user.save()
         return Response(serializer.data, status=201, headers=headers)
 
 
@@ -202,4 +208,7 @@ class QnaBoardCommentViews(viewsets.GenericViewSet,
         serializer.is_valid(raise_exception=True)
         self.perform_create(serializer)
         headers = self.get_success_headers(serializer.data)
+        # add point to requested user
+        request.user.point += 1
+        request.user.save()
         return Response(serializer.data, status=201, headers=headers)
