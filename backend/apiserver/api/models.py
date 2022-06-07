@@ -94,6 +94,8 @@ class User(AbstractBaseUser):
     last_name = models.CharField(max_length=30, null=True, blank=True)
     address = models.CharField(max_length=300, null=True, blank=True)
     job = models.CharField(max_length=300, null=True, blank=True)
+    point = models.IntegerField(default=0)
+    created_at = models.DateTimeField(auto_now_add=True)
     # Gender : Male, Female, Undefined
     gender = models.CharField(max_length=20, choices=Gender.choices, default=Gender.UNDEFINED)
 

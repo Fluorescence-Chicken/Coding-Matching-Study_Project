@@ -100,6 +100,9 @@ class StudyRoomView(viewsets.GenericViewSet,
         data['name'] = data['name']
         # enter mentor to the StudyRoom object's users field
         data['users'] = [request.user.id]
+        # increase point of mentor
+        request.user.point += 10
+        request.user.save()
         # create StudyRoom object
         serializer = self.get_serializer(data=data)
         serializer.is_valid(raise_exception=True)
@@ -329,6 +332,9 @@ class StudyroomPostViews(viewsets.GenericViewSet,
             users__in=[request.user.id]
         ).count() == 0:
             return Response(status=403, data={'detail': "You can't create post where you're not assigned."})
+        # increase points of user
+        request.user.point += 2
+        request.user.save()
         # create Post object
         data = request.data
         data['author'] = request.user.id
