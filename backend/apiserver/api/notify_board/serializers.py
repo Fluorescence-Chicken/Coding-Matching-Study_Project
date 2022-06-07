@@ -1,6 +1,7 @@
 from rest_framework import serializers
 
-from api.notify_board.models import NotificationBoardPosts, NotificationBoardComments, QnaBoardPosts, QnaBoardComments
+from api.notify_board.models import NotificationBoardPosts, NotificationBoardComments, QnaBoardPosts, QnaBoardComments, \
+    EmploymentPost, EmploymentComment, EventPost, EventComment
 
 
 class NotificationBoardSerializer(serializers.ModelSerializer):
@@ -60,3 +61,52 @@ class QnaBoardCommentSerializer(serializers.ModelSerializer):
         model = QnaBoardComments
         fields = '__all__'
         write_only_fields = ['created_at', 'uploaded_by']
+
+
+class EmploymentPostSerializer(serializers.ModelSerializer):
+    """
+    Serializer for EmploymentPost model
+    """
+    # field for comments number
+    comment_amount = serializers.SerializerMethodField()
+
+    class Meta:
+        model = EmploymentPost
+        fields = '__all__'
+        write_only_fields = ['created_at', 'uploaded_by']
+
+    def get_comment_amount(self, obj):
+        """
+        Get the comments number of the post
+        """
+        return obj.comments.count()
+
+
+class EmploymentCommentSerializer(serializers.ModelSerializer):
+    """
+    Serializer for EmploymentComment model
+    """
+
+    class Meta:
+        model = EmploymentComment
+        fields = '__all__'
+        write_only_fields = ['created_at', 'uploaded_by']
+
+
+class EventSerializer(serializers.ModelSerializer):
+    """
+    Serializer for Event model
+    """
+    class Meta:
+        model = EventPost
+        fields = '__all__'
+
+
+class EventCommentSerializer(serializers.ModelSerializer):
+    """
+    Serializer for EventComment model
+    """
+
+    class Meta:
+        model = EventComment
+        fields = '__all__'
