@@ -10,7 +10,7 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         exclude = ["last_login", "social_identifier", "is_admin", "is_mentor", "is_active",]
-        read_only_fields = ["profile_image"]
+        read_only_fields = ["profile_image", "created_at"]
         extra_kwargs = {
             "password": {"write_only": True},
             "email": {"required": True},
