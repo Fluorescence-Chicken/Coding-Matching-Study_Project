@@ -46,4 +46,4 @@ class UserWithoutPasswordSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         exclude = ["password", "social_identifier"]
-        read_only_fields = ['id', 'username', 'email', 'is_admin', 'is_mentor', 'is_active', 'last_login', 'profile_image']
+        read_only_fields = ['id', 'username', 'email', 'is_admin', 'is_mentor', 'is_active', 'last_login', 'profile_image', 'point']
