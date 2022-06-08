@@ -1,4 +1,4 @@
-<!-- 회원탈퇴 완료 페이지-->
+<!-- 회원탈퇴 완료 페이지 여기도 최종 수정작업 해야함-->
 
 
 <!-- 본페이지는 js를 별도로 분리하지않고 해당페이지에서 처리합니다 (미작동 및 작동오류문제가 있는걸로 감지되어짐 )-->
@@ -68,3 +68,27 @@
 <footer>
     <div data-include-path="footer.html"></div>
   </footer>
+  <!-- 상위페이지로 이동 버튼 top -->
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+<script>
+  //Get the button
+  var mybutton = document.getElementById("myBtn");
+  
+  // When the user scrolls down 20px from the top of the document, show the button
+  window.onscroll = function() {scrollFunction()};
+  
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      mybutton.style.display = "block";
+    } else {
+      mybutton.style.display = "none";
+    }
+  }
+  
+  // When the user clicks on the button, scroll to the top of the document
+  function topFunction() {
+    document.body.scrollTop = 3;
+    document.documentElement.scrollTop = 3;
+  }
+  </script>
+  <!-- top 버튼 끝 -->

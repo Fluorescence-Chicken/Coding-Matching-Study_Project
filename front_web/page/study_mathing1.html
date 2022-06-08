@@ -1,0 +1,61 @@
+<html>
+<!-- 스터디 매칭 부분에서 첫번째 페이지  -->
+<head>
+  <!-- 필수 선언부 -->
+  <meta charset="utf-8">
+  <!--<link rel="stylesheet" href="http://duck.nifskorea.com:8080/project/css/studymatching.scss">-->
+  <link rel="stylesheet" href="http://duck.nifskorea.com:8080/project/css/useradd.css">
+  <meta charset="utf-8">
+  <script src="../jsp/w3.js"> </script>
+  <!-- 커스텀 부분 코드 -->
+
+  <!-- 헤더 부분 -->
+  <div data-include-path="../page/header.html"> </div>
+
+  <!-- js 연결 -->
+  <script src="../jsp/javascript.js"></script>
+</head>
+
+<body>
+<!-- 바디 섹션 시작 -->
+<div class="study_ma">
+    <!-- 메인 안내 페이지 -->
+    <div class="centera">
+
+        <h3 class="py-5 text-white"> 안녕하세요 스터디 매칭에 오신것을 환영합니다! </h3>
+        <h3 class=" text-white"> 스터디 매칭을 시작하실려면 아래 버튼을 눌러주세요!</h3>
+        <div class="p-3"></div>
+        <a href="http://duck.nifskorea.com:8080/project/page/study_mathing2.html"><center><button type="button"  class="btn btn-success">매칭 서비스로 이동</button> </a></center>
+    </div>
+</div>
+</div>
+<!-- 사각형 상자 그리기 -->
+</body>
+<footer>
+        <div data-include-path="../page/footer.html"></div>
+</footer>
+<!-- 상위페이지로 이동 버튼 top -->
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+<script>
+  //Get the button
+  var mybutton = document.getElementById("myBtn");
+  
+  // When the user scrolls down 20px from the top of the document, show the button
+  window.onscroll = function() {scrollFunction()};
+  
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      mybutton.style.display = "block";
+    } else {
+      mybutton.style.display = "none";
+    }
+  }
+  
+  // When the user clicks on the button, scroll to the top of the document
+  function topFunction() {
+    document.body.scrollTop = 3;
+    document.documentElement.scrollTop = 3;
+  }
+  </script>
+  <!-- top 버튼 끝 -->
+</html>

@@ -12,7 +12,7 @@
 
   <!-- js 연결 -->
   <script src="../jsp/javascript.js"></script>
-  
+
 </head>
 
 <body>
@@ -32,7 +32,8 @@
               <!-- 이미지 표시 공간 -->
               <div class="box" style="background: #ffff">
                 <!-- 추후 이미지 변동사항 발생하면 변경해야함!! DB 사용자별로 변경해야함 -->
-                <img src="https://t1.daumcdn.net/cfile/tistory/24283C3858F778CA2E" class="profile" name="profile_image"><br>
+                <img src="https://t1.daumcdn.net/cfile/tistory/24283C3858F778CA2E" class="profile"
+                  name="profile_image"><br>
               </div>
               <!-- 작업 진행율 표시 프로그래스 -->
               <div class="h2" name="userName">홍길동 </div>
@@ -115,15 +116,20 @@
       <div class="col-sm-3 ">
         <div class="list-group3 ">
           <h3><i class="bi bi-clipboard-data"></i> 나의 현황 </h3>
-          <a href="#" class="list-group-item list-group-item-action list-group-item-light" aria-current="true">
+
+
+          <a href="http://duck.nifskorea.com:8080/project/page/follow.html"
+            class="list-group-item list-group-item-action list-group-item-light" aria-current="true">
             <div class="  w-100">
               <center>
-                <h5>팔로우 </h5>
+                <h5>나의 스터디 구독 현황</h5>
+
               </center>
             </div>
             <div class="w-100 justify-content-end">
             </div>
           </a>
+
 
           <a href="#" class="list-group-item list-group-item-action list-group-item-light" aria-current="true">
             <div class=" w-100">
@@ -134,14 +140,15 @@
             <div class="d-flex w-100 justify-content-end">
             </div>
           </a>
-          
+
         </div>
       </div>
       <!-- 3번째 부분 -->
       <div class="col-sm-3 ">
         <div class="list-group4">
           <h3><i class="bi bi-file-person"></i> 정보 관리</h3>
-          <a href="http://duck.nifskorea.com:8080/project/page/pw_confirm.html" class="list-group-item list-group-item-action list-group-item-info" aria-current="true">
+          <a href="http://duck.nifskorea.com:8080/project/page/change_privacy.html"
+            class="list-group-item list-group-item-action list-group-item-info" aria-current="true">
             <div class=" w-100">
               <center>
                 <h5>정보 수정</h5>
@@ -151,7 +158,8 @@
 
             </div>
           </a>
-          <a href="#" class="list-group-item list-group-item-action list-group-item-success" aria-current="true">
+          <a href="http://duck.nifskorea.com:8080/project/page/manage_my_post.html"
+            class="list-group-item list-group-item-action list-group-item-success" aria-current="true">
             <div class=" w-100">
               <center>
                 <h5>내글 관리</h5>
@@ -160,7 +168,9 @@
             <div class="d-flex w-100 justify-content-end">
             </div>
           </a>
-          <a href="http://duck.nifskorea.com:8080/project/page/change_profile.html" target="_blank"  class="list-group-item list-group-item-action list-group-item-light" aria-current="true">
+          <a href="javascript:openPop()" class="list-group-item list-group-item-action list-group-item-light"
+            aria-current="true">
+            <!-- 팝업창으로 구조 변경 -->
             <div class=" w-100">
               <center>
                 <h5>사진 등록 </h5>
@@ -169,7 +179,103 @@
             <div class="d-flex w-100 justify-content-end">
 
             </div>
-          </a> <a href="http://duck.nifskorea.com:8080/project/page/withdrawal.html" class="list-group-item list-group-item-action list-group-item-danger" aria-current="true">
+            <!-- 팝업창 구성요소 부분-->
+            <div class="popup_layer" id="popup_layer" style="display: none;">
+              <div class="popup_box">
+                <div style="height: 10px; width: 375px; float: top;">
+                  <a href="javascript:closePop();"></a>
+                </div>
+                <!--팝업 컨텐츠 영역-->
+                <div class="popup_cont">
+                  <h5> 사진 등록</h5>
+                  <p>
+                  <div class="container input-form">
+                    <!-- DB 로 사용자명을 표시해야함 -->
+                    <hr class="my-2"><br>
+                    <div class="row">
+                      <div class="col-md-12 ">
+                        <div class="list-group1 ">
+                          <h3> My photo</h3>
+                          <center>
+                            <div class="input-form">
+                              <!-- 이미지 표시 공간 -->
+
+                              <div class="box" style="background: #ffff">
+                                <!-- 추후 이미지 변동사항 발생하면 변경해야함!! DB 사용자별로 변경해야함 -->
+
+                                <!-- (JS DATA), 파일을 선택하여 등록 버튼을 눌렀을 때, 경로 지정하기 -->
+                                <!-- 사진 경로-->
+                                <img src="http://duck.nifskorea.com:8080/project/img/profile/defult_img.png"
+                                  class="profile" name="profile_image"><br>
+                              </div>
+                              <!-- 작업 진행율 표시 프로그래스 -->
+                              <!-- DB에서 사용자 이름을 가져와야함 -->
+
+                              <div class="h2" name="username">홍길동 </div>
+
+                              <!-- 직책명 db로 가져와야함 -->
+                              <p class="text-muted">회원 사진은 이미지(gif/jpg/png) 파일만 가능하며,
+                                <br> 등록시 150x150 사이즈로 자동 리사이즈됩니다.
+                              </p>
+
+
+                              <!-- (JS DATA) -->
+                              <!-- 파일 선택-->
+                              <input type="file" class="real-upload" accept="image/*" name="upload_image" required><br>
+                              <p></p>
+                              <ul class="studyItem_hashtag p-1 ">
+
+                                <!-- (JS DATA) -->
+                                <li>
+                                  <!-- 등록 버튼 (파일 선택한 사진을 60x60 사이즈로 설정 후 프로필에 적용) -->
+
+                                  <div class="btn-check-menu">
+                                    <input type="button" class="btn-check" id="btnradio1" autocomplete="off"
+                                      onclick="duck_nifskorea_com.change_profile.upload_image()" value="등록">
+                                  </div>
+                                </li>
+                                <!-- 삭제 버튼은 기능상의 구현 문제, 그리고 크게 존재할 이유가 없다고 판단하고 삭제하였음 -->
+                                <li>
+                                  <!-- 닫기 버튼 (그냥 창 닫기) -->
+                                  <div class="btn-check-menu">
+                                    <input type="button" class="btn-check" id="btnradio3" autocomplete="off"
+                                      onclick="location.href='javascript:closePop();'" value="닫기">
+                                  </div>
+                                </li>
+                              </ul>
+
+
+                              <!-- 테이블 요소로 세부 표현 -->
+                              <table class="table table-light col-lg-auto">
+
+
+                              </table>
+
+                            </div>
+                          </center>
+
+                        </div>
+                        <hr class="my-2">
+                      </div>
+                      <!-- Load screen data by call function on javascript -->
+                      <script>
+                        duck_nifskorea_com.change_profile.load_screen();
+                      </script>
+                    </div>
+                  </div>
+
+                  </p>
+
+                </div>
+                <!--팝업 버튼 영역-->
+                <div class="popup_btn" style="float: bottom; margin-top: 200px;">
+                  <a href="javascript:closePop();">닫기</a>
+                </div>
+              </div>
+            </div>
+            <!-- 팝업창 구성요소 끝 -->
+          </a> <a href="http://duck.nifskorea.com:8080/project/page/withdrawal.html"
+            class="list-group-item list-group-item-action list-group-item-danger" aria-current="true">
             <div class=" w-100">
               <center>
                 <h5>탈퇴 하기</h5>
@@ -180,19 +286,61 @@
         </div>
       </div>
       <!-- 4번째 부분 -->
-
     </div>
   </div>
-  </div>
-  </div>
-  </div>
+
+
   <!-- JS getQuery 함수 호출-->
   <script>duck_nifskorea_com.myPage.getQuery()</script>
+  <script>
+    function openPop() {
+      document.getElementById("popup_layer").style.display = "block";
+    }
+    //팝업 닫기
+    function closePop() {
+      document.getElementById("popup_layer").style.display = "none";
+    }
+  </script>
+  <style>
+    .studyItem_hashtag {
+      display: inline-flex;
+      grid-gap: 5px;
+      gap: 30px;
+      font-size: 18px;
+      color: rgba(0, 0, 0, 5);
+      min-height: 40px;
+      margin-bottom: 10px;
+    }
+  </style>
 </body>
 
 <!-- 푸터 부분 -->
 <footer>
   <div data-include-path="../page/footer.html"></div>
 </footer>
+<!-- 상위페이지로 이동 버튼 top -->
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+<script>
+  //Get the button
+  var mybutton = document.getElementById("myBtn");
+
+  // When the user scrolls down 20px from the top of the document, show the button
+  window.onscroll = function () { scrollFunction() };
+
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      mybutton.style.display = "block";
+    } else {
+      mybutton.style.display = "none";
+    }
+  }
+
+  // When the user clicks on the button, scroll to the top of the document
+  function topFunction() {
+    document.body.scrollTop = 3;
+    document.documentElement.scrollTop = 3;
+  }
+</script>
+<!-- top 버튼 끝 -->
 
 </html>

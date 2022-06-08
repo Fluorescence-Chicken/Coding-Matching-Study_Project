@@ -17,15 +17,13 @@
 
 <body>
     <div class="b-divider">정보 수정 페이지 </div>
-    <div class="alert alert-warning" role="alert">
-
-    </div>
+    <div class="p-3"></div>
     <div class="container">
         <div class="input-form-backgroud row">
             <div class="input-form col-md-12 mx-auto">
                 <form class="validation-form" novalidate>
+                    <h4> 개인 정보 수정 페이지 </h4>
                     <div class="row">
-
                         <div class="col-md-6 mb-3">
                             <!-- (JS DATA), 회원가입 했을 때, 저장했던 이름 출력되게하기 -->
                             <label for="name">이름</label>
@@ -33,7 +31,7 @@
                             <div class="invalid-feedback"> 이름을 입력해주세요. </div>
                         </div>
 
-                            <!-- (JS DATA), 회원가입 했을 때, 저장했던 성 출력-->
+                        <!-- (JS DATA), 회원가입 했을 때, 저장했던 성 출력-->
                         <div class="col-md-6 mb-3">
                             <label for="nickname">성</label> <input type="text" class="form-control" id="nickname"
                                 placeholder="" value="" required>
@@ -41,28 +39,28 @@
                         </div>
                     </div>
 
-                            <!-- (JS DATA), 회원가입 했을 때, 저장했던 이메일 출력-->
+                    <!-- (JS DATA), 회원가입 했을 때, 저장했던 이메일 출력-->
                     <div class="mb-3">
                         <label for="email">이메일</label>
                         <input type="email" class="form-control" id="email" placeholder="you@example.com" required>
                         <div class="invalid-feedback"> 이메일을 입력해주세요. </div>
                     </div>
 
-                            <!-- (JS DATA), 회원가입 했을 때, 저장했던 비밀번호 출력-->
+                    <!-- (JS DATA), 회원가입 했을 때, 저장했던 비밀번호 출력-->
                     <div class="mb-3">
                         <label for="address">비밀번호</label>
                         <input type="text" class="form-control" id="address" placeholder="비밀번호를 입력해주세요!" required>
                         <div class="invalid-feedback"> 비밀번호를 입력해주세요. </div>
                     </div>
 
-                            <!-- (JS DATA), 회원가입 했을 때, 저장했던 주소 출력-->
+                    <!-- (JS DATA), 회원가입 했을 때, 저장했던 주소 출력-->
                     <div class="mb-3">
                         <label for="address2">주소<span class="text-muted"></span></label>
                         <input type="text" class="form-control" id="address2" placeholder="주소를 입력해주세요." required>
                         <div class="invalid-feedback"> 주소를 입력해주세요. </div>
                     </div>
 
-                            
+
                     <div class="row">
                         <div class="col-md-8 mb-3">
                             <label for="root">귀하의 직업은 무엇입니까? <b>(선택 사항)</b></label>
@@ -93,8 +91,6 @@
                     </div>
 
 
-                    </li>
-
 
                     <div class="mb-4"></div>
                     <!-- (JS DATA), 위의 내용들을 수정하고, 수정하기 버튼 눌렀을 때, 적용되게하기-->
@@ -102,8 +98,7 @@
                 </form>
             </div>
         </div>
-        <footer class="my-3 text-center text-small">
-            <p class="mb-1">&copy; 2022 코딩 스터디 매칭 플랫폼.</p>
+        <p class="my-3 text-center text-small">&copy; 2022 코딩 스터디 매칭 플랫폼.</p>
         </footer>
     </div>
 </body>
@@ -130,6 +125,30 @@
     <div data-include-path="../page/footer.html"></div>
 </footer>
 
-</body>
+
+<!-- 상위페이지로 이동 버튼 top -->
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+<script>
+    //Get the button
+    var mybutton = document.getElementById("myBtn");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function () { scrollFunction() };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 3;
+        document.documentElement.scrollTop = 3;
+    }
+</script>
+<!-- top 버튼 끝 -->
 
 </html>

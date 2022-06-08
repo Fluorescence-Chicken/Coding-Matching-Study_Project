@@ -5,6 +5,8 @@
   <!-- 필수 선언부 -->
   <meta charset="utf-8">
   <script src="../jsp/w3.js"> </script>
+  <script src='https://www.google.com/recaptcha/api.js'></script>
+  <script src="../jsp/javascript.js"></script>
   <!-- 커스텀 부분 코드 -->
 
   <!-- 헤더 부분 -->
@@ -247,7 +249,10 @@
           </div>
 
           <div class="mb-4"></div>
-          <button class="btn btn-primary btn-lg btn-block" type="submit">가입 완료</button>
+          <!-- 구글 캡쳐-->
+         <center> <div class="g-recaptcha" data-sitekey="6LewDkQgAAAAAKsq1XG_BdNNA9c0NyRy3Gush9sq"></div></center>
+         <div class="p-3"></div>
+          <button class="btn btn-primary btn-lg btn-block cen" type="submit" onclick="FormSubmit()">가입 완료</button>
         </form>
       </div>
     </div>
@@ -255,11 +260,38 @@
       <p class="mb-1">&copy; 2022 코딩 스터디 매칭 플랫폼.</p>
     </footer>
   </div>
+<!-- 푸터 부분 -->
+<footer>
+  <div data-include-path="../page/footer.html"></div>
+</footer>
 </body>
+<!-- 바디 끝 아래 부터 스크립트 영역 -->
 
-
-<script src="../jsp/javascript.js"></script>
-<script> window.addEventListener('load', () => {
+<!-- 상위페이지로 이동 버튼 top -->
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+<script>
+  //Get the button
+  var mybutton = document.getElementById("myBtn");
+  
+  // When the user scrolls down 20px from the top of the document, show the button
+  window.onscroll = function() {scrollFunction()};
+  
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      mybutton.style.display = "block";
+    } else {
+      mybutton.style.display = "none";
+    }
+  }
+  
+  // When the user clicks on the button, scroll to the top of the document
+  function topFunction() {
+    document.body.scrollTop = 3;
+    document.documentElement.scrollTop = 3;
+  }
+  </script>
+  <!-- top 버튼 끝 -->
+  <script> window.addEventListener('load', () => {
     const forms = document.getElementsByClassName('validation-form');
     Array.prototype.filter.call(forms, (form) => {
       form.addEventListener('submit', function (event) {
@@ -274,13 +306,4 @@
     });
   }, false); 
 </script>
-
-
-<!-- 푸터 부분 -->
-<footer>
-  <div data-include-path="../page/footer.html"></div>
-</footer>
-
-</body>
-
 </html>

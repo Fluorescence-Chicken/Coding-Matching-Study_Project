@@ -1,4 +1,5 @@
 <%
+    /// 사용 안하는 파일임 
     request.setCharacterEncoding("utf-8"); //Post방식 인코딩 설정
     String id = request.getParameter("id");
     String pw = request.getParameter("pw");

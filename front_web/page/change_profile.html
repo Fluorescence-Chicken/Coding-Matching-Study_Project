@@ -1,19 +1,15 @@
 <!-- 정보 변경 페이지 (프로필)-->
-
 <html>
 <!-- 나의 페이지 부분 속성 -->
-
 <head>
   <!-- 필수 선언부 -->
   <meta charset="utf-8">
   <script src="../jsp/w3.js"> </script>
   <script src="../jsp/javascript.js"> </script>
   <!-- 커스텀 부분 코드 -->
-
   <!-- 헤더 부분 -->
   <div data-include-path="../page/header.html"> </div>
 </head>
-
 <body>
   <!-- 바디 섹션 -->
   <div class="b-divider">프로필 변경 페이지</div>
@@ -97,10 +93,6 @@
 
     </div>
   </div>
-  </div>
-  </div>
-  </div>
-
 
 </body>
 
@@ -121,5 +113,28 @@
     margin-bottom: 10px;
   }
 </style>
-
+<!-- 상위페이지로 이동 버튼 top -->
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+<script>
+  //Get the button
+  var mybutton = document.getElementById("myBtn");
+  
+  // When the user scrolls down 20px from the top of the document, show the button
+  window.onscroll = function() {scrollFunction()};
+  
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      mybutton.style.display = "block";
+    } else {
+      mybutton.style.display = "none";
+    }
+  }
+  
+  // When the user clicks on the button, scroll to the top of the document
+  function topFunction() {
+    document.body.scrollTop = 3;
+    document.documentElement.scrollTop = 3;
+  }
+  </script>
+  <!-- top 버튼 끝 -->
 </html>
