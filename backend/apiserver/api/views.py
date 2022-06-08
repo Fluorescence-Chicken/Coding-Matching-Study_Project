@@ -37,18 +37,24 @@ class NormalUserManageView(viewsets.GenericViewSet,
     Manage the user's profile.
     This endpoint is available only to the user himself except retrieve.
     """
-    permission_classes = [AllowGetOnly]
+    permission_classes = [AllowGetOnly, ]
     serializer_class = UserWithoutPasswordSerializer
     queryset = User.objects.all()
 
-    def update(self, request, *args, **kwargs):
+    def partial_update(self, request, *args, **kwargs):
         """
         Update the user's profile.
-        This endpoint is available only to the user himself.
+        This endpoint is available only to the user himself and admin.
         """
-        user = self.get_object()
-        if user != request.user:
-            return Response(status=status.HTTP_403_FORBIDDEN)
+        user = self.get_queryset().filter(id=kwargs['pk']).first()
+        if user != request.user or not user.is_admin:
+            return Response(status=status.HTTP_403_FORBIDDEN, data={'detail': 'You are not allowed to update this user.'})
+        # check user's password is valid to request's password
+        # NullCheck password
+        if user == request.user and request.data.get('password') is None:
+            return Response(status=status.HTTP_400_BAD_REQUEST, data={'detail': 'Password is required.'})
+        if user == request.user and not user.check_password(request.data['password']):
+            return Response(status=status.HTTP_400_BAD_REQUEST, data={'password': 'Invalid password'})
         return super().update(request, *args, **kwargs)
 
     def destroy(self, request, *args, **kwargs):
