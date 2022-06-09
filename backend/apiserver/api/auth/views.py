@@ -42,3 +42,10 @@ class TokenLoginView(APIView):
         return Response({
             'token': unicode(token.key),
         })
+
+
+class RecoverInformationView:
+    """
+    API Endpoint for recovering user's information.
+    """
+    permission_classes = [permissions.AllowAny,]

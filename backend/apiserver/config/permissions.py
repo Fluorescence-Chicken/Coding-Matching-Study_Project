@@ -12,7 +12,7 @@ class AllowGetOnly(AccessPolicy):
             'effect': "allow",
         },
         {
-            'action': ["create", "destroy"],
+            'action': ["create", "destroy", "update", "partial_update"],
             'principal': "authenticated",
             'effect': "allow",
         },
