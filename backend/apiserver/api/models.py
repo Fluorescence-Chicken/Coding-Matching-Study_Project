@@ -99,6 +99,10 @@ class User(AbstractBaseUser):
     # Gender : Male, Female, Undefined
     gender = models.CharField(max_length=20, choices=Gender.choices, default=Gender.UNDEFINED)
 
+    # Mentor field
+    career = models.IntegerField(default=0)
+    status_message = models.CharField(max_length=300, null=True, blank=True)
+
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
     is_mentor = models.BooleanField(default=False)

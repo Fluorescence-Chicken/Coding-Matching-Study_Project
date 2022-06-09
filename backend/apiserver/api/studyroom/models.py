@@ -33,6 +33,7 @@ class StudyRoom(models.Model):
     weekly_plan_amount = models.IntegerField(default=0)
     weekly_plan_count = models.IntegerField(default=0)
     description_long = models.TextField(null=True, blank=True)
+    address = models.CharField(max_length=100, null=True, blank=True)
 
     def __str__(self):
         return self.name
