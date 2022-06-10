@@ -1335,6 +1335,12 @@ const duck_nifskorea_com = {
      },
   },
 
+  study_user_first: {
+    formSubmit: function (template_id, board, output_id){
+      console.log("test");
+    },
+  },
+
   getUserName: function (id) {
     // initialize xhr
     const xhr = new XMLHttpRequest();
