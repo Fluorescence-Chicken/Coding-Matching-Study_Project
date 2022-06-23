@@ -7,11 +7,24 @@
 
 ## 🛠️ 사용 기술 및 개발 환경
 
-<p align="center">
-<img src="https://user-images.githubusercontent.com/69424845/175333856-2a8a2e4a-78fc-4818-a914-216a500212bc.png" height="60%" width="60%" /> </p>
 
-- HTML, CSS, JavaScript
-- Django, REST API
+<table>
+    <tr>
+        <th scope="col">개발 환경</th>
+        <th scope="col">기술 아키텍처</th>
+    </tr>
+    <tr>
+        <th scope="row" align="left">HTML<br>CSS<br>JavaScript</th>
+        <td rowspan='2'>
+          <p align="center">
+            <img src="https://user-images.githubusercontent.com/69424845/175333856-2a8a2e4a-78fc-4818-a914-216a500212bc.png" height="70%" width="70%" />
+          </p>
+      </td>
+    </tr>
+    <tr>
+        <th scope="row" align="left">Django<br>REST API</th>
+    </tr>
+</table>
 
 ## 👥 참여자
 
