@@ -7,6 +7,9 @@
 
 ## 🛠️ 사용 기술 및 개발 환경
 
+<p align="center">
+<img src="https://user-images.githubusercontent.com/69424845/175333856-2a8a2e4a-78fc-4818-a914-216a500212bc.png" height="60%" width="60%" /> </p>
+
 - HTML, CSS, JavaScript
 - Django, REST API
 
