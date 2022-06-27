@@ -59,8 +59,9 @@
 
 </head>
 <!-- 위 소스는 반-->
+
 <header>
-  <form method="GET" name="form">
+  <!-- <form method="GET" name="form" action="javascript:void(0)"> -->
     <!-- 컨테이너 반응형 반응 소스 -->
     <!--<div id="loadDiv">
         <img src = "https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif?20151024034921">
@@ -69,8 +70,8 @@
     <nav class="navbar navbar-expand-md navbar-dark bg-dark" aria-label="Fourth navbar example">
       <div class="container-fluid">
         <a href="http://duck.nifskorea.com:8080/project/index.html"><img
-            src="http://duck.nifskorea.com:8080/project/img/logotest.png" alt="ㅋㅅ" width="50" height="33"></a>
-        <a class="navbar-brand" href="http://duck.nifskorea.com:8080/project/index.html">코딩 스터디 매칭 플랫폼 </a>
+            src="http://duck.nifskorea.com:8080/project/img/logotest.png" alt="ㅋㅅ" width="150" style="padding: 0em 1em 0em 0em "></a>
+        <!-- <a class="navbar-brand" href="http://duck.nifskorea.com:8080/project/index.html">코딩 스터디 매칭 플랫폼 </a> -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample04"
           aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -99,9 +100,10 @@
             <div class="dropdown-content dropdown-toggle">
               <center>
                 <a href="http://duck.nifskorea.com:8080/project/page/notification.html">공지사항</a>
+                <a href="http://duck.nifskorea.com:8080/project/page/event.html">이벤트</a>
+                <a href="http://duck.nifskorea.com:8080/project/page/Company_information.html">기업 정보</a>
                 <a href="http://duck.nifskorea.com:8080/project/page/QA_board.html"> Q & A</a>
-                <a href="http://duck.nifskorea.com:8080/project/page/event.html">행사 정보</a>
-                <a href="http://duck.nifskorea.com:8080/project/page/mypage.html">(임시)마이 페이지 </a>
+                <!-- <a href="http://duck.nifskorea.com:8080/project/page/mypage.html">마이 페이지 </a> -->
               </center>
 
             </div>
@@ -109,7 +111,7 @@
          
           </ul>
           <!-- 검색창 및 옵션 부분 -->
-          <form class="form-inline my-2 my-md-0">
+          <!-- <form class="form-inline my-2 my-md-0" action="javascript:void(0);"> -->
             <!-- 검색창 사이즈 조정 부분 -->
             <div class="cuaqd"></div>
             <!-- 검색창 get 값넘기면 반대쪽에서 값을 받아서 검색 결과를 출력해줘야함 -->
@@ -119,26 +121,29 @@
             <button type="submit" class="btn-secondary btn-lg2" formaction="/subject/loginpro.jsp">
               <center><i class="bi bi-search"></i></center>
             </button>-->
-           
+            
             <div class="check2"></div>
-            <button class="btn-light btn-lg2" formaction="http://duck.nifskorea.com:8080/project/page/login.html"><i
-                class="bi bi-person-circle"></i></button>
+            <button class="btn-light btn-lg2" id="user_service_button" onclick="duck_nifskorea_com.header_button.onUserServiceButtonClick()">
+              <i class="bi bi-person-circle"></i></button>
             <div class="check2"></div>
             <!-- 여기 자바스크립트로 로그아웃만 표시되게 처리해야함 jsscript-->
-            <button class="btn-light btn-lg2" formaction="#"><i
-              class="bi bi-power"></i></button>
+            <button class="btn-light btn-lg2" formaction="#" id="user_logout_button" onclick="duck_nifskorea_com.header_button.logout()"
+              onload="duck_nifskorea_com.header_button.displayLogoutButton()">
+              <i class="bi bi-power"></i></button>
               <div class="check2"></div>
             <button type="button" class="btn-light btn-lg2" onclick="darkzzing()"><i
                 class="bi bi-brightness-high-fill"></i></button>
             <div class="check2"></div>
 
-          </form>
+          <!-- </form> -->
         </div>
       </div>
     </nav>
     <!-- 테스팅 -->
-  </form>
+  <!-- </form> -->
+  <script>
+    console.log("hello");
+  </script>
 </header>
 <!--<div id="theme"></div>-->
-
 </html>

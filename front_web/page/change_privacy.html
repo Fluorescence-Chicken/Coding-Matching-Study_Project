@@ -3,152 +3,182 @@
 <html>
 
 <head>
-    <!-- 필수 선언부 -->
-    <meta charset="utf-8">
-    <script src="../jsp/w3.js"> </script>
-    <!-- 커스텀 부분 코드 -->
+  <!-- 필수 선언부 -->
+  <meta charset="utf-8">
+  <script src="../jsp/w3.js"> </script>
+  <script src="../jsp/javascript.js"> </script>
+  <!-- 커스텀 부분 코드 -->
 
-    <!-- 헤더 부분 -->
-    <div data-include-path="../page/header.html"> </div>
+  <!-- 헤더 부분 -->
+  <div data-include-path="../page/header.html"> </div>
 
 </head>
 
 <!-- Boot Strap Navbar-->
 
 <body>
-    <div class="b-divider">정보 수정 페이지 </div>
-    <div class="p-3"></div>
-    <div class="container">
-        <div class="input-form-backgroud row">
-            <div class="input-form col-md-12 mx-auto">
-                <form class="validation-form" novalidate>
-                    <h4> 개인 정보 수정 페이지 </h4>
-                    <div class="row">
-                        <div class="col-md-6 mb-3">
-                            <!-- (JS DATA), 회원가입 했을 때, 저장했던 이름 출력되게하기 -->
-                            <label for="name">이름</label>
-                            <input type="text" class="form-control" id="name" placeholder="" value="" required>
-                            <div class="invalid-feedback"> 이름을 입력해주세요. </div>
-                        </div>
-
-                        <!-- (JS DATA), 회원가입 했을 때, 저장했던 성 출력-->
-                        <div class="col-md-6 mb-3">
-                            <label for="nickname">성</label> <input type="text" class="form-control" id="nickname"
-                                placeholder="" value="" required>
-                            <div class="invalid-feedback"> 성을 입력해주세요. </div>
-                        </div>
-                    </div>
-
-                    <!-- (JS DATA), 회원가입 했을 때, 저장했던 이메일 출력-->
-                    <div class="mb-3">
-                        <label for="email">이메일</label>
-                        <input type="email" class="form-control" id="email" placeholder="you@example.com" required>
-                        <div class="invalid-feedback"> 이메일을 입력해주세요. </div>
-                    </div>
-
-                    <!-- (JS DATA), 회원가입 했을 때, 저장했던 비밀번호 출력-->
-                    <div class="mb-3">
-                        <label for="address">비밀번호</label>
-                        <input type="text" class="form-control" id="address" placeholder="비밀번호를 입력해주세요!" required>
-                        <div class="invalid-feedback"> 비밀번호를 입력해주세요. </div>
-                    </div>
-
-                    <!-- (JS DATA), 회원가입 했을 때, 저장했던 주소 출력-->
-                    <div class="mb-3">
-                        <label for="address2">주소<span class="text-muted"></span></label>
-                        <input type="text" class="form-control" id="address2" placeholder="주소를 입력해주세요." required>
-                        <div class="invalid-feedback"> 주소를 입력해주세요. </div>
-                    </div>
-
-
-                    <div class="row">
-                        <div class="col-md-8 mb-3">
-                            <label for="root">귀하의 직업은 무엇입니까? <b>(선택 사항)</b></label>
-                            <!-- (JS DATA), 회원가입 때, 저장했던 직업 출력되게-->
-                            <select class="custom-select d-block w-100" id="root">
-                                <option value=""></option>
-                                <option>학생</option>
-                                <option>교사</option>
-                                <option>대학생</option>
-                                <option>인플루언서</option>
-                                <option>유튜버</option>
-                                <option>기타</option>
-                                <option>2</option>
-                            </select>
-                            <div class="invalid-feedback"> 가입 경로를 선택해주세요. </div>
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="root2">성별 </label>
-                        <!-- (JS DATA), 회원가입 때 입력했던 성별 출력되게-->
-                        <select class="custom-select d-block w-25" id="root2" required>
-                            <option value=""></option>
-                            <option>남자</option>
-                            <option>여자</option>
-                        </select>
-
-                        <div class="invalid-feedback"> 성별을 선택해주세요. </div>
-                    </div>
-
-
-
-                    <div class="mb-4"></div>
-                    <!-- (JS DATA), 위의 내용들을 수정하고, 수정하기 버튼 눌렀을 때, 적용되게하기-->
-                    <button class="btn btn-primary btn-lg btn-block" type="submit">수정 하기</button>
-                </form>
+  <script src="../jsp/mustache.min.js"></script>
+  <div class="b-divider">정보 수정 페이지 </div>
+  <div class="p-3"></div>
+  <div class="container">
+    <div id="output"></div>
+    <script type="text/template" id="template">
+    <div class="input-form-backgroud row">
+      <div class="input-form col-md-12 mx-auto">
+        <form class="validation-form" action="javascript:void(0)" novalidate>
+          <h4> 개인 정보 수정 페이지 </h4>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <!-- (JS DATA), 회원가입 했을 때, 저장했던 이름 출력되게하기 -->
+              <label for="name">이름</label>
+              <input type="text" class="form-control" id="last_name" placeholder="" value="{{&last_name}}" required>
+              <div class="invalid-feedback"> 이름을 입력해주세요. </div>
             </div>
-        </div>
-        <p class="my-3 text-center text-small">&copy; 2022 코딩 스터디 매칭 플랫폼.</p>
-        </footer>
+
+            <!-- (JS DATA), 회원가입 했을 때, 저장했던 성 출력-->
+            <div class="col-md-6 mb-3">
+              <label for="nickname">성</label> <input type="text" class="form-control" id="first_name" placeholder="" 
+                value="{{&first_name}}" required>
+              <div class="invalid-feedback"> 성을 입력해주세요. </div>
+            </div>
+          </div>
+
+          <!-- (JS DATA), 회원가입 했을 때, 저장했던 이메일 출력-->
+          <div class="mb-3">
+            <label for="email">이메일</label>
+            <input type="email" class="form-control" id="email" value="{{&email}}" disabled>
+            <div class="invalid-feedback"> 이메일을 입력해주세요. </div>
+          </div>
+
+          <!-- (JS DATA), 회원가입 했을 때, 저장했던 주소 출력-->
+          <div class="mb-3">
+            <label for="address2">주소<span class="text-muted"></span></label>
+            <input type="text" class="form-control" id="address" placeholder="주소를 입력해주세요." value="{{&address}}" required>
+            <div class="invalid-feedback"> 주소를 입력해주세요. </div>
+          </div>
+
+
+          <div class="row">
+            <div class="col-md-8 mb-3">
+              <label for="job">귀하의 직업은 무엇입니까? <b>(선택 사항)</b></label>
+              <!-- (JS DATA), 회원가입 때, 저장했던 직업 출력되게-->
+              <select class="custom-select d-block w-100" id="job" value={{&job}}>
+                <option value=""></option>
+                <option>학생</option>
+                <option>교사</option>
+                <option>대학생</option>
+                <option>인플루언서</option>
+                <option>유튜버</option>
+                <option>기타</option>
+                <option>2</option>
+              </select>
+              <div class="invalid-feedback"> 직업을 선택해주세요. </div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="gender">성별 </label>
+            <!-- (JS DATA), 회원가입 때 입력했던 성별 출력되게-->
+            <select class="custom-select d-block w-25" id="gender" value="{{&gender}}" required>
+              <option value=""></option>
+              <option>남자</option>
+              <option>여자</option>
+            </select>
+
+            <div class="invalid-feedback"> 성별을 선택해주세요. </div>
+          </div>
+
+
+
+          <div class="mb-4"></div>
+          <!-- (JS DATA), 위의 내용들을 수정하고, 수정하기 버튼 눌렀을 때, 적용되게하기-->
+          <button class="btn btn-primary btn-lg btn-block" onclick="duck_nifskorea_com.change_privacy.onSubmit();">수정 하기</button>
+        </form>
+      </div>
     </div>
+  </script>
+    <p class="my-3 text-center text-small">&copy; 2022 코딩 스터디 매칭 플랫폼.</p>
+    </footer>
+  </div>
 </body>
 
 
 
 
 <script> window.addEventListener('load', () => {
-        const forms = document.getElementsByClassName('validation-form');
-        Array.prototype.filter.call(forms, (form) => {
-            form.addEventListener('submit', function (event) {
-                if (form.checkValidity() === false) {
-                    event.preventDefault();
-                    event.stopPropagation();
-                } form.classList.add('was-validated');
-            }, false);
-        });
-    }, false); 
+    const forms = document.getElementsByClassName('validation-form');
+    Array.prototype.filter.call(forms, (form) => {
+      form.addEventListener('submit', function (event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        } form.classList.add('was-validated');
+      }, false);
+    });
+  }, false); 
+  duck_nifskorea_com.change_privacy.init_webpage();
 </script>
 
 
 <!-- 푸터 부분 -->
 <footer>
-    <div data-include-path="../page/footer.html"></div>
+  <div data-include-path="../page/footer.html"></div>
 </footer>
 
 
 <!-- 상위페이지로 이동 버튼 top -->
 <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 <script>
-    //Get the button
-    var mybutton = document.getElementById("myBtn");
+  //Get the button
+  var mybutton = document.getElementById("myBtn");
 
-    // When the user scrolls down 20px from the top of the document, show the button
-    window.onscroll = function () { scrollFunction() };
+  // When the user scrolls down 20px from the top of the document, show the button
+  window.onscroll = function () { scrollFunction() };
 
-    function scrollFunction() {
-        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-            mybutton.style.display = "block";
-        } else {
-            mybutton.style.display = "none";
-        }
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      mybutton.style.display = "block";
+    } else {
+      mybutton.style.display = "none";
     }
+  }
 
-    // When the user clicks on the button, scroll to the top of the document
-    function topFunction() {
-        document.body.scrollTop = 3;
-        document.documentElement.scrollTop = 3;
-    }
+  // When the user clicks on the button, scroll to the top of the document
+  function topFunction() {
+    document.body.scrollTop = 3;
+    document.documentElement.scrollTop = 3;
+  }
 </script>
 <!-- top 버튼 끝 -->
-
+<!-- 채팅 영역 부분 -->
+<a href="javascript:openPop()"><img src="http://duck.nifskorea.com:8080/project/img/chat.png" class="chat" >1:1 chat </a>
+<!-- 팝업창 구성요소 부분-->
+<div class="popup_layer" id="popup_layer" style="display: none;">
+  <div class="popup_box">
+    <div style="height: 10px; width: 500px; float: top;">
+      <a href="javascript:closePop();"></a>
+    </div>
+    <!--팝업 컨텐츠 영역-->
+    <div class="popup_cont">
+        <div class="row">
+              <h3> 채팅 상담 채널 </h3>
+                  <iframe src="https://service.dongledongle.com/duckduck" frameborder="0" width="100%" height="800"></iframe>
+            </div>
+    </div>
+    <!--팝업 버튼 영역-->
+    <div class="popup_btn" style="float: bottom; margin-top: 10px;">
+      <a href="javascript:closePop();">닫기</a>
+    </div>
+  </div>
+</div>
+<!-- 팝업창 구성요소 끝 -->
+<!-- 팝업 열고 닫기 채팅 -->
+<script>
+  function openPop() {
+    document.getElementById("popup_layer").style.display = "block";
+  }
+  //팝업 닫기
+  function closePop() {
+    document.getElementById("popup_layer").style.display = "none";
+  }
+</script>
 </html>

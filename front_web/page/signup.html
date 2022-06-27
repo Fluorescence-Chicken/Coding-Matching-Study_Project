@@ -33,11 +33,13 @@
         <h4 class="mb-3">회원가입</h4>
         <form class="validation-form" action="javascript:void(0)" novalidate>
           <div class="row">
+
             <div class="col-md-6 mb-3">
               <label for="name">이름</label>
               <input type="text" class="form-control" id="name" placeholder="" value="" name="first_name" required>
               <div class="invalid-feedback"> 이름을 입력해주세요. </div>
             </div>
+            
             <div class="col-md-6 mb-3">
               <label for="nickname">성</label> <input type="text" class="form-control" id="last_name" placeholder=""
                 value="" name="last_name" required>
@@ -56,7 +58,7 @@
           </div>
           <div class="mb-3">
             <label for="address">비밀번호</label>
-            <input type="text" class="form-control" id="address" placeholder="비밀번호를 입력해주세요!" name="password" required>
+            <input type="password" class="form-control" id="address" placeholder="비밀번호를 입력해주세요!" name="password" required>
             <div class="invalid-feedback"> 비밀번호를 입력해주세요. </div>
           </div>
           <div class="mb-3">
@@ -305,5 +307,37 @@
       }, false);
     });
   }, false); 
+</script>
+<!-- 채팅 영역 부분 -->
+<a href="javascript:openPop()"><img src="http://duck.nifskorea.com:8080/project/img/chat.png" class="chat" >1:1 chat </a>
+<!-- 팝업창 구성요소 부분-->
+<div class="popup_layer" id="popup_layer" style="display: none;">
+  <div class="popup_box">
+    <div style="height: 10px; width: 500px; float: top;">
+      <a href="javascript:closePop();"></a>
+    </div>
+    <!--팝업 컨텐츠 영역-->
+    <div class="popup_cont">
+        <div class="row">
+              <h3> 채팅 상담 채널 </h3>
+                  <iframe src="https://service.dongledongle.com/duckduck" frameborder="0" width="100%" height="800"></iframe>
+            </div>
+    </div>
+    <!--팝업 버튼 영역-->
+    <div class="popup_btn" style="float: bottom; margin-top: 10px;">
+      <a href="javascript:closePop();">닫기</a>
+    </div>
+  </div>
+</div>
+<!-- 팝업창 구성요소 끝 -->
+<!-- 팝업 열고 닫기 채팅 -->
+<script>
+  function openPop() {
+    document.getElementById("popup_layer").style.display = "block";
+  }
+  //팝업 닫기
+  function closePop() {
+    document.getElementById("popup_layer").style.display = "none";
+  }
 </script>
 </html>

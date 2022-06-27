@@ -16,12 +16,13 @@
 </head>
 
 <body>
+  <script>duck_nifskorea_com.myPage.updateServerToLocalUserData();</script>
   <!-- 바디 섹션 -->
-  <div class="b-divider">나의 페이지 (My Page)</div>
+  <div class="b-divider">마이 페이지 (My Page)</div>
   <!-- 아래부터 메인 페이지 분할하여 표현 하는 부분 -->
   <div class="container input-form">
     <!-- DB 로 사용자명을 표시해야함 -->
-    <h4 class="mb-3" name="welcomeText">000님 환영합니다!</h4>
+    <h4 class="mb-3" name="welcomeText">{{name}}님 환영합니다!</h4>
     <hr class="my-2"><br>
     <div class="row">
       <div class="col-md-12 ">
@@ -38,32 +39,6 @@
               <!-- 작업 진행율 표시 프로그래스 -->
               <div class="h2" name="userName">홍길동 </div>
               <p class="text-muted" name="position">팀장</p>
-              <!-- 테이블 요소로 세부 표현 -->
-              <table class="table table-light col-lg-auto">
-                <thread>
-                  <tr>
-                    <th scope="col">레벨(Level)</th>
-                    <th scope="col">성취도</th>
-                  </tr>
-                </thread>
-                <tbody>
-                  <tr>
-                    <th scope="row1">
-                      <div class="progress">
-                        <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25"
-                          aria-valuemin="0" aria-valuemax="100">25%</div>
-                      </div>
-                    </th>
-                    <th scope="row2">
-                      <div class="progress">
-                        <div class="progress-bar" role="progressbar" style="width: 70%;" aria-valuenow="25"
-                          aria-valuemin="0" aria-valuemax="100">70%</div>
-                      </div>
-                    </th>
-                  </tr>
-
-                </tbody>
-              </table>
 
             </div>
           </center>
@@ -131,10 +106,10 @@
           </a>
 
 
-          <a href="#" class="list-group-item list-group-item-action list-group-item-light" aria-current="true">
+          <a href="http://duck.nifskorea.com:8080/project/page/mentor_apply.html" class="list-group-item list-group-item-action list-group-item-light" aria-current="true">
             <div class=" w-100">
               <center>
-                <h5>쪽지함 </h5>
+                <h5>멘토 신청 </h5>
               </center>
             </div>
             <div class="d-flex w-100 justify-content-end">
@@ -147,7 +122,7 @@
       <div class="col-sm-3 ">
         <div class="list-group4">
           <h3><i class="bi bi-file-person"></i> 정보 관리</h3>
-          <a href="http://duck.nifskorea.com:8080/project/page/change_privacy.html"
+          <a href="http://duck.nifskorea.com:8080/project/page/pw_confirm.html"
             class="list-group-item list-group-item-action list-group-item-info" aria-current="true">
             <div class=" w-100">
               <center>
@@ -155,21 +130,22 @@
               </center>
             </div>
             <div class="d-flex w-100 justify-content-end">
-
             </div>
+
+            
           </a>
           <a href="http://duck.nifskorea.com:8080/project/page/manage_my_post.html"
             class="list-group-item list-group-item-action list-group-item-success" aria-current="true">
             <div class=" w-100">
               <center>
-                <h5>내글 관리</h5>
+                <h5>내가 쓴 글</h5>
               </center>
             </div>
             <div class="d-flex w-100 justify-content-end">
             </div>
           </a>
           <a href="javascript:openPop()" class="list-group-item list-group-item-action list-group-item-light"
-            aria-current="true">
+          aria-current="true">
             <!-- 팝업창으로 구조 변경 -->
             <div class=" w-100">
               <center>
@@ -207,6 +183,11 @@
                                 <!-- 사진 경로-->
                                 <img src="http://duck.nifskorea.com:8080/project/img/profile/defult_img.png"
                                   class="profile" name="profile_image"><br>
+                                  <script>
+                                    document.getElementsByName("profile_image")[0]
+                                        .setAttribute('src', 
+                                          `${duck_nifskorea_com.media_url}${JSON.parse(localStorage.getItem("user_data")).profile_image}`)
+                                  </script>
                               </div>
                               <!-- 작업 진행율 표시 프로그래스 -->
                               <!-- DB에서 사용자 이름을 가져와야함 -->
@@ -341,6 +322,5 @@
     document.documentElement.scrollTop = 3;
   }
 </script>
-<!-- top 버튼 끝 -->
 
 </html>

@@ -11,23 +11,25 @@
 
   <!-- js 연결 -->
   <script src="../jsp/javascript.js"></script>
+  <script src="../jsp/mustache.min.js"></script>
   <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
   <!--주소 받아오기 카카오-->
   <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
   <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
   <!-- 하이라이트 라이브러리 추가, 토스트 UI 에디터에서 사용됨 -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/default.min.css">
-<!-- 하이라이트 라이브러리, 언어 -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/languages/css.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/languages/java.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/languages/javascript.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/languages/xml.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/languages/php.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/languages/php-template.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/languages/sql.min.js"></script>
-<!-- 토스트 UI 에디터, 신택스 하이라이트 플러그인 추가 -->
-<script src="https://uicdn.toast.com/editor-plugin-code-syntax-highlight/latest/toastui-editor-plugin-code-syntax-highlight-all.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/default.min.css">
+  <!-- 하이라이트 라이브러리, 언어 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/languages/css.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/languages/java.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/languages/javascript.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/languages/xml.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/languages/php.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/languages/php-template.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/languages/sql.min.js"></script>
+  <!-- 토스트 UI 에디터, 신택스 하이라이트 플러그인 추가 -->
+  <script
+    src="https://uicdn.toast.com/editor-plugin-code-syntax-highlight/latest/toastui-editor-plugin-code-syntax-highlight-all.min.js"></script>
 
 </head>
 
@@ -40,7 +42,7 @@
   </div>
   <div class="alert alert-warning" role="alert">
     <strong><i class="fa fa-exclamation-circle fa-lg"></i>
-      <center> 스터디 생성 페이지입니다. 멘토가 신청할수있으며 멘티는 신청할수 없습니다.
+      <center> 스터디 생성 페이지입니다. 멘토만 신청할 수 있으며 멘티는 신청할 수 없습니다.
       </center>
     </strong>
   </div>
@@ -58,18 +60,19 @@
           <div class="row">
             <div class="col-md-8 mb-3">
               <label for="root">모집 구분 </label>
-              <select class="custom-select d-block w-100" id="root" required>
-                <option value=""></option>
-                <option>프로젝트</option>
-                <option>스터디</option>
+              <select class="custom-select d-block " id="types" required>
+                <option value="">-선택해 주세요-</option>
+                <option value="project">프로젝트</option>
+                <option value="study">스터디</option>
               </select>
               <div class="invalid-feedback"> 프로젝트 모집구분을 입력해주세요. </div>
             </div>
 
             <div class="col-md-6 mb-3">
-              <label for="root2">모집인원</label>
-              <select class="custom-select d-block w-100" id="root3" required>
-                <option value=""></option>
+              <label for="root2">모집 인원 (명)</label>
+              <input type="number" name="peopleNum" min="1" class="custom-select d-block" value="1" required>
+              <!-- <select class="custom-select d-block w-100" id="peopleNum" required>
+                <option value="">-선택해 주세요-</option>
                 <option>1명</option>
                 <option>2명</option>
                 <option>3명</option>
@@ -80,15 +83,15 @@
                 <option>8명</option>
                 <option>9명</option>
                 <option>10명 이상</option>
-              </select>
+              </select> -->
               <div class="invalid-feedback"> 모집 인원을 입력해주세요!</div>
             </div>
             <!-- 2번째 질문 사항들 -->
             <div class="col-md-6 mb-3">
-              <label for="name">진행기간</label>
-              <select class="custom-select d-block w-100" id="root4" required>
-                <option value=""></option>
-                <option>기간 미정 </option>
+              <label for="name">진행 기간 (개월)</label>
+              <input type="number" name="month" min="1" max="12" class="custom-select d-block" value="1" required>
+              <!-- <select class="custom-select d-block w-100" id="root4" required>
+                <option value="">-선택해 주세요-</option>
                 <option>1개월</option>
                 <option>2개월</option>
                 <option>3개월</option>
@@ -96,16 +99,19 @@
                 <option>5개월</option>
                 <option>6개월</option>
                 <option>장기 </option>
-
-              </select>
+              </select> -->
               <div class="invalid-feedback"> 진행방식을 입력해주세요.</div>
             </div>
           </div>
           <div class="row">
             <div class="col-md-6 mb-3">
               <label for="root2">기술 스택</label>
-              <select class="custom-select d-block w-100" id="root2" required>
-                <option value=""></option>
+              <!-- 스택의 id값 불러오기 -->
+              <script>const stacks = duck_nifskorea_com.study_make.getStackJSON();</script>
+              <div id="stackOption"></div>
+              <script>duck_nifskorea_com.study_make.addStack(stacks);</script>
+              <!-- <select class="custom-select d-block w-100" id="root2" name="stack" required>
+                <option value="">-선택해 주세요-</option>
                 <option>Udemy</option>
                 <option>JavaScript</option>
                 <option>TypeScript</option>
@@ -127,78 +133,141 @@
                 <option>MongoDB</option>
                 <option>php</option>
                 <option>Firebase</option>
-              </select>
+              </select> -->
               <div class="invalid-feedback"> 기술 스택을 선택해주세요!</div>
               <!-- 3번째 질문부분 -->
               <div class="p-3"></div>
               <div class="row">
-                <div class="col-md-6 mb-3">
-                  <label for="root2">스터디 시작일</label>
-                  <input type="date" class="custom-select d-block w-100" name="startday" required>
-                  <div class="invalid-feedback"> 스터디 시작일을 입력해주세요.</div>
-                  
-                </div>
-                <!-- 여기서 지역 선택 부분 -->
-                <div class="col-md-6 mb-3">
-                  <label for="name">오프라인 스터디 지역 선택</label>
-                  <input type="text" class="form-control " id="address_kakao" name="address"  style="width: 600px;"
-                  placeholder="지역을 입력해주세요!" required readonly>
-                  <div class="invalid-feedback"> 진행방식을 입력해주세요.</div>
-                </div>
+
+
+
               </div>
-
+              <div class="row">
+                <!-- 여기서 지역 선택 부분 -->
+              </div>
+              <div class="row">
+              </div>
             </div>
-
             <div class="col-md-6 mb-3">
-              <label for="name">진행방식</label>
-              <select class="custom-select d-block w-100  id=" root2" required>
-                <option value=""></option>
-                <option>온라인</option>
-                <option>오프라인</option>
-
+              <label for="name">진행 방식</label>
+              <select class="custom-select d-block w-100" id="root2" name="contact" required>
+                <option value="">-선택해 주세요-</option>
+                <option value="contactless">온라인</option>
+                <option value="contact">오프라인</option>
               </select>
               <div class="invalid-feedback"> 진행방식을 입력해주세요.</div>
             </div>
-
             <div class="col-md-6 mb-3">
-              <label for="root2">주차별 강의갯수</label>
-              <select class="custom-select d-block w-100" id="root2" required>
-                <option>1개</option>
-                <option>2개</option>
-                <option>3개</option>
-                <option>4개</option>
-                <option>5개</option>
-                <option>6개</option>
-                <option>7개</option>
-                <option>8개</option>
-                <option>9개</option>
-                <option>10개 이상</option>
-
-              </select>
-              <div class="invalid-feedback"> 주차별 강의갯수를 입력해주세요</div>
+              <label for="root2">스터디 시작일</label>
+              <input type="date" class="custom-select d-block w-100" name="startDay" required>
+              <div class="invalid-feedback"> 스터디 시작일을 입력해주세요.</div>
             </div>
-
             <div class="col-md-6 mb-3">
-              <label for="root2">몇주차 까지 진행하실 예정이신가요?</label>
-              <select class="custom-select d-block w-100" id="weekcount" required>
-                <option>1주차</option>
-                <option>2주차</option>
-                <option>3주차</option>
-                <option>4주차</option>
-                <option>5주차</option>
-                <option>6주차</option>
-                <option>7주차</option>
-                <option>8주차</option>
-                <option>9주차</option>
-                <option>10주차</option>
-                <option>11주차</option>
-                <option>12주차</option>
-                <option>13주차</option>
+              <label for="root3">스터디 종료일</label>
+              <input type="date" class="custom-select d-block w-100" name="endDay" required>
+              <div class="invalid-feedback"> 스터디 종요일을 입력해주세요.</div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="name">오프라인 스터디 지역 선택</label>
+              <input type="text" class="form-control" id="address_kakao" name="address" placeholder="-지역을 입력해주세요-"
+                required readonly>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="root2">강의 기간 (주)</label>
+              <select class="custom-select d-block w-100" id="weekCount" onchange="createWeek()" required>
+                <option value="">-선택해 주세요-</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+                <option>11</option>
+                <option>12</option>
+                <option>13</option>
               </select>
               <div class="invalid-feedback"> 주차별 강의 를 선택해주세요.</div>
             </div>
-          </div>
 
+            <div class="col-md-6 mb-3">
+              <label for="root2">주차별 강의개수</label>
+              <input type="number" name="studyCount" min="1" class="custom-select d-block" value="1" required>
+              <div class="invalid-feedback"> 주차별 강의개수를 입력해주세요</div>
+            </div>
+
+          </div>
+          <fieldset>
+            <legend>태그(카테고리) 선택</legend>
+          <div id="studyMakeTags_output"></div>
+          <script id="studyMakeTags_template" type="text/template">
+               {{#.}}
+                  <div style="height:5em;">
+                    <input type="checkbox" name="tagName">
+                    <img src="http://duck.nifskorea.com:8000{{&tag_image}}">
+                    <label id="{{&id}}" name="tagLabel">{{name}}</label>
+                  </div>
+                {{/.}}
+            </script>
+          </fieldset>
+            <!-- TagJSON 생성 -->
+            <script>const tagData = getTagJSON();</script>
+            <!-- template 적용 -->
+            <script>duck_nifskorea_com.render_template("studyMakeTags_template", tagData, "studyMakeTags_output");</script>
+          <script>
+            /**
+             * 페이지 후반부에 주차별 스터디 설명 동적 변경
+             */
+
+            const input_list = [];
+            //  
+            function createWeek() {
+              var selectWeek = document.getElementById('weekCount'); //n주차 get
+              var week = selectWeek.selectedIndex;
+              // 기존에 생성되었던 데이터들을 초기화
+              const text_html = document.getElementById('weekTextHTML');
+              while (text_html.firstChild) {
+                text_html.removeChild(text_html.firstChild);
+              }
+              //id가 weekTextHTML인 요소를 변경
+              for (var i = 1; i <= week; i++) {
+                var textDiv = document.createElement("div");
+                var textLabel = document.createElement("label");
+                var textWeek = document.createElement("p");
+                var textSpan = document.createElement("span");
+                var textInput = document.createElement("input");
+                var textDiv2 = document.createElement("div");
+                textLabel.setAttribute("for", "address2");
+
+                textWeek.appendChild(document.createTextNode(i + "주차 강의 제목"));
+
+                textSpan.setAttribute("class", "text-muted");
+
+                textInput.setAttribute("type", "text-text");
+                textInput.setAttribute("class", "form-control");
+                textInput.setAttribute("id", "address2");
+                textInput.setAttribute("style", "width: 1000px;");
+                textInput.setAttribute("placeholder", "강의 제목을 입력해주세요.");
+                textInput.setAttribute("required", "");
+
+                textDiv2.setAttribute("class", "invalid-feedback");
+                textDiv2.appendChild(document.createTextNode(week + "주차 강의제목을 입력해주세요"));
+
+                textDiv.appendChild(textLabel);
+                textDiv.appendChild(textWeek);
+                textDiv.appendChild(textSpan);
+                textDiv.appendChild(textInput);
+                textDiv.appendChild(textDiv2);
+                document.getElementById("weekTextHTML").appendChild(textDiv);
+
+                input_list.push(textInput);
+              }
+
+            }
+          </script>
           <!-- 계속 이어서 진행 -->
 
           <hr class="mb-3">
@@ -220,13 +289,15 @@
                   <div class="mb-3">
                     <label for="address2">제목<span class="text-muted"></span></label>
                     <input type="text" class="form-control " id="address2" style="width: 1000px;"
-                      placeholder="제목을 입력해주세요." required>
+                      placeholder="제목을 입력해주세요." name="studyTitle" required>
                     <div class="invalid-feedback "> 제목을 입력해주세요. </div>
                   </div>
                 </div>
-
+                강의 설명
                 <!-- 에디터 부분 -->
-                <div id="editor"></div>
+                <div id="editor">
+                  <script>const editor = duck_nifskorea_com.study_make.createEditor();</script>
+                </div>
                 <!-- powerd by 표시 부분 -->
                 <div class="toastui-img fw-bolder">
                   Powerd By : <img src="../img/toastui.png" width="140" height="33">
@@ -235,61 +306,16 @@
                 <h4 class="mb-3">3. 강의 일정 등록 </h4>
                 <div class="mb-3">
                   <!-- 입력값으로 동적으로 변하게 하기 (작업중)-->
-                  <script>
-                    //상위값 가져오기 
-                    const name = document.getElementById('weekcount').value;
-                    var count=0; // 주차 저장 
-
-                  if(name=='1주차')
-                  {
-                      count=1;
-                  }else if (name=='2주차'){
-                      count=2;
-                  }else if(name=='3주차'){
-                      count=3;
-                  }else if(name=='4주차'){
-                      count=4;
-                  }else if(name == '5주차'){
-                      count=5;
-                  }else if(name == '6주차'){
-                      count=6;
-                  }else if(name =='7주차'){
-                      count=7;
-                  }else if(name =='8주차'){
-                      count=8;
-                  }else if(name =='9주차'){
-                      count=9;
-                  }else if(name =='10주차'){
-                      count=10;
-                  }else if(name =='11주차'){
-                      count=11;
-                  }else if(name =='12주차'){
-                      count=12;
-                  }else if(name =='13주차'){
-                      count=13;
-                  }
-                var text_box = '<label for=""address2"">'+count+'주차 강의 제목<span class=""text-muted""></span></label>'+
-                '  <input type="text" class="form-control " id="address2" style="width: 1000px;"placeholder="강의 제목을 입력해주세요." required>'+
-                '<div class="invalid-feedback "> '+count+'주차 강의제목을 입력해주세요 </div>'
-                var test='<p> tsest</p>'
-                  for (var i=1; i<=count;i++ )
-                  {
-                     // $("studyweeka").append(text_box);
-                      document.write(text_box);
-                  }
-                 // $("teta").appendchild(text_box);
-                   
-              </script>
                 </div>
-
+                <!-- 주차별로 추가될 p 속성 -->
+                <p id="weekTextHTML"></p>
                 <div class="custom-control custom-checkbox">
                   <input type="checkbox" class="custom-control-input" id="aggrement" required>
                   <label class="custom-control-label " for="aggrement">위의 내용으로 스터디를 개설진행전 내용을 확인하셨습니까?</label>
                 </div>
-
                 <div class="mb-4"></div>
-                <button class="btn btn-primary btn-lg btn-block" type="submit" onclick="duck_nifskorea_com.signup.formSubmit();">스터디 생성 완료</button>
-                <!--</form>-->
+                <button type="submit" class="btn btn-primary btn-lg btn-block"
+                  onclick="duck_nifskorea_com.study_make.formSubmit()">스터디 생성 완료</button>
               </div>
             </div>
             <footer class="my-3 text-center text-small">
@@ -297,7 +323,6 @@
             </footer>
           </div>
           <hr class="mb-3">
-
         </form>
       </div>
     </div>
@@ -309,7 +334,8 @@
 
 </body>
 
-<script> window.addEventListener('load', () => {
+<script> 
+  window.addEventListener('load', () => {
     const forms = document.getElementsByClassName('validation-form');
     Array.prototype.filter.call(forms, (form) => {
       form.addEventListener('submit', function (event) {
@@ -322,7 +348,7 @@
   }, false); 
 </script>
 <!-- 토스트 UI 에디터 -->
-<script>
+<!-- <script>
   const Editor = toastui.Editor;
   const codeSyntaxHighlight = Editor.plugin;
   const editor = new Editor({
@@ -330,15 +356,13 @@
     height: '500px',
     initialEditType: 'markdown',
     previewStyle: 'vertical',
-    initialValue: '### 원하시는 HTML내용을 작성해주세요.',
+    initialValue: '- 원하시는 내용을 작성해주세요.',
     plugins: [toastui.Editor.plugin.codeSyntaxHighlight],
     usageStatistics: 'false',
     language: 'ko'
-
   });
-  console.log(editor.getMarkdown());
-    //console.log(editor.getMarkdown()); // { range: [startCursorOffset, endCursorOffset], type: 'emph' }
-</script>
+  duck_nifskorea_com.study_make.getDescription(editor.getMarkdown());
+</script> -->
 <footer>
   <div data-include-path="../page/footer.html"></div>
 </footer>
@@ -368,19 +392,50 @@
 <!-- top 버튼 끝 -->
 <!-- 카카오 지도 관련 찾기 -->
 <script>
-      document.getElementById("address_kakao").addEventListener("click", function(){ //주소입력칸을 클릭하면
-          //카카오 지도 발생
-          new daum.Postcode({
-              oncomplete: function(data) { //선택시 입력값 세팅
-                autoClose: false
-                  animation: true
-                  popupKey: 'popup1'// 지정하지않으면 계속 새창이 열림
-                  popupTitle: '오프라인 스터디 주소 검색'
-                  document.getElementById("address_kakao").value = data.address; // 주소 넣기
-              }
-          }).open();
-      });
-  
-  </script>
+  document.getElementById("address_kakao").addEventListener("click", function () { //주소입력칸을 클릭하면
+    //카카오 지도 발생
+    new daum.Postcode({
+      oncomplete: function (data) { //선택시 입력값 세팅
+        autoClose: false
+        animation: true
+        popupKey: 'popup1'// 지정하지않으면 계속 새창이 열림
+        popupTitle: '오프라인 스터디 주소 검색'
+        document.getElementById("address_kakao").value = data.address; // 주소 넣기
+      }
+    }).open();
+  });
 
+</script>
+<!-- 채팅 영역 부분 -->
+<a href="javascript:openPop()"><img src="http://duck.nifskorea.com:8080/project/img/chat.png" class="chat" >1:1 chat </a>
+<!-- 팝업창 구성요소 부분-->
+<div class="popup_layer" id="popup_layer" style="display: none;">
+  <div class="popup_box">
+    <div style="height: 10px; width: 500px; float: top;">
+      <a href="javascript:closePop();"></a>
+    </div>
+    <!--팝업 컨텐츠 영역-->
+    <div class="popup_cont">
+        <div class="row">
+              <h3> 채팅 상담 채널 </h3>
+                  <iframe src="https://service.dongledongle.com/duckduck" frameborder="0" width="100%" height="800"></iframe>
+            </div>
+    </div>
+    <!--팝업 버튼 영역-->
+    <div class="popup_btn" style="float: bottom; margin-top: 10px;">
+      <a href="javascript:closePop();">닫기</a>
+    </div>
+  </div>
+</div>
+<!-- 팝업창 구성요소 끝 -->
+<!-- 팝업 열고 닫기 채팅 -->
+<script>
+  function openPop() {
+    document.getElementById("popup_layer").style.display = "block";
+  }
+  //팝업 닫기
+  function closePop() {
+    document.getElementById("popup_layer").style.display = "none";
+  }
+</script>
 </html>

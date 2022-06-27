@@ -23,7 +23,7 @@
   <div class="container input-form">
     <!-- DB 로 스터디명을 표시해야함 js script -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-      <h4 class="mb-3">EVENT Board</h4>
+      <h4 class="mb-3">Event Board</h4>
 
     </div>
     <hr class="my-2">
@@ -37,14 +37,15 @@
     <div class="alert alert-info d-flex align-items-center" role="alert">
       <i class="bi bi-exclamation-triangle-fill"></i>
       <div>
-        정기 스터디 행사 또는 이벤트 행사일정을 안내하는 페이지 입니다.
+        정기 스터디 행사 또는 이벤트 행사일정을 안내하는 페이지 입니다.<br>
+        (※ 관리자 및 멘토만 작성가능합니다.)
       </div>
     </div>
     <table class="table table-hover">
       <thead>
         <tr>
           <b>
-            <th scope="row">순번</th>
+            <th scope="row">ID</th>
             <td>내용</td>
             <td>사용자</td>
             <td>게시글 업로드 시간</td>
@@ -58,11 +59,11 @@
     </table>
     <!-- 다음 페이지 이동 버튼 -->
     <!-- 게시판 글쓰기 페이지 이동-->
-    <div class=" write-left container-fluid">
+    <div class="text-right container-fluid">
       <!-- 해당부분 미로그인시 글쓰기 불가능하게 js script로 구현해야함-->
-      <a class="btn-write btn-secondary " href="http://duck.nifskorea.com:8080/project/page/write_page.html"
-        role="button" style="border-radius: 5px;">글쓰기</a>
-    </div>
+      <a class="btn-write btn-secondary" href="http://duck.nifskorea.com:8080/project/page/write_page.html?type=event"
+          role="button" style="border-radius: 5px;">글쓰기</a>
+  </div>
     <!-- 다음 페이지 이동 버튼  js script 구현 -->
     <div id="myDIV container ">
       <center>
@@ -118,5 +119,37 @@
   }
 </script>
 <!-- top 버튼 끝 -->
+<!-- 채팅 영역 부분 -->
+<a href="javascript:openPop()"><img src="http://duck.nifskorea.com:8080/project/img/chat.png" class="chat" >1:1 chat </a>
+<!-- 팝업창 구성요소 부분-->
+<div class="popup_layer" id="popup_layer" style="display: none;">
+  <div class="popup_box">
+    <div style="height: 10px; width: 500px; float: top;">
+      <a href="javascript:closePop();"></a>
+    </div>
+    <!--팝업 컨텐츠 영역-->
+    <div class="popup_cont">
+        <div class="row">
+              <h3> 채팅 상담 채널 </h3>
+                  <iframe src="https://service.dongledongle.com/duckduck" frameborder="0" width="100%" height="800"></iframe>
+            </div>
+    </div>
+    <!--팝업 버튼 영역-->
+    <div class="popup_btn" style="float: bottom; margin-top: 10px;">
+      <a href="javascript:closePop();">닫기</a>
+    </div>
+  </div>
+</div>
+<!-- 팝업창 구성요소 끝 -->
+<!-- 팝업 열고 닫기 채팅 -->
+<script>
+  function openPop() {
+    document.getElementById("popup_layer").style.display = "block";
+  }
+  //팝업 닫기
+  function closePop() {
+    document.getElementById("popup_layer").style.display = "none";
+  }
+</script>
 
 </html>
