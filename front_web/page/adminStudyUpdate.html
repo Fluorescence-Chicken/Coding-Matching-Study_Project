@@ -180,7 +180,8 @@
 
             <div class="col-md-6 mb-3">
               <label for="root2">몇주차 까지 진행하실 예정이신가요?</label>
-              <select class="custom-select d-block w-100" id="weekcount" required>
+              <!-- onchange="createWeek()" : 선택할 때 마다 createWeek() 함수 호출 -->
+              <select class="custom-select d-block w-100" id="weekcount" onchange="createWeek()" required>
                 <option>1주차</option>
                 <option>2주차</option>
                 <option>3주차</option>
@@ -199,15 +200,59 @@
             </div>
           </div>
 
+          <script>
+            /**
+             * 페이지 후반부에 주차별 스터디 설명 동적 변경
+             */
+            function createWeek (){
+              var selectWeek = document.getElementById('weekcount'); //n주차 get
+              var week = selectWeek.selectedIndex+1;
+              // 기존에 생성되었던 데이터들을 초기화
+              const text_html = document.getElementById('weekTextHTML');
+              while(text_html.firstChild){
+                text_html.removeChild(text_html.firstChild);
+              }
+              //id가 weekTextHTML인 요소를 변경
+              for(var i=1; i<=week; i++){
+              // textDiv.setAttribute('<label for=""address2"">'+week+'주차 강의 제목<span class=""text-muted""></span></label>'+
+              //   '  <input type="text" class="form-control " id="address2" style="width: 1000px;"placeholder="강의 제목을 입력해주세요." required>'+
+              //   '<div class="invalid-feedback "> '+week+'주차 강의제목을 입력해주세요 </div>');
+              var textDiv = document.createElement("div");
+              var textLabel = document.createElement("label");
+              var textWeek = document.createElement("p");
+              var textSpan = document.createElement("span");
+              var textInput = document.createElement("input");
+              var textDiv2 = document.createElement("div");
+              textLabel.setAttribute("for", "address2");
+
+              textWeek.appendChild(document.createTextNode(i + "주차 강의 제목"));
+
+              textSpan.setAttribute("class", "text-muted");
+
+              textInput.setAttribute("type", "text-text");
+              textInput.setAttribute("class", "form-control");
+              textInput.setAttribute("id", "address2");
+              textInput.setAttribute("style", "width: 1000px;");
+              textInput.setAttribute("placeholder", "강의 제목을 입력해주세요.");
+              textInput.setAttribute("required", "");
+
+              textDiv2.setAttribute("class", "invalid-feedback");
+              textDiv2.appendChild(document.createTextNode(week + "주차 강의제목을 입력해주세요"));
+
+              textDiv.appendChild(textLabel);
+              textDiv.appendChild(textWeek);
+              textDiv.appendChild(textSpan);
+              textDiv.appendChild(textInput);
+              textDiv.appendChild(textDiv2);
+              document.getElementById("weekTextHTML").appendChild(textDiv);
+              }
+            }
+        </script>
+
           <!-- 계속 이어서 진행 -->
 
           <hr class="mb-3">
           <div class="mb-4"></div>
-
-
-
-
-
           <!-- 아래에서부터 본격적인 보드 시작 -->
           <!-- 2차 보드 -->
           <div class="container">
@@ -237,54 +282,59 @@
                     (임시) 위에서 설정 한대로 여기서 무한대로 갯수를 생성해야함 
                   </div>
                   <div class="mb-3">
-                 <!-- 입력값으로 동적으로 변하게 하기 (작업중)-->
-                  <script>
-                      //상위값 가져오기 
-                      const name = document.getElementById('weekcount').value;
-                      var count=0; // 주차 저장 
-
-                    if(name=='1주차')
-                    {
-                        count=1;
-                    }else if (name=='2주차'){
-                        count=2;
-                    }else if(name=='3주차'){
-                        count=3;
-                    }else if(name=='4주차'){
-                        count=4;
-                    }else if(name == '5주차'){
-                        count=5;
-                    }else if(name == '6주차'){
-                        count=6;
-                    }else if(name =='7주차'){
-                        count=7;
-                    }else if(name =='8주차'){
-                        count=8;
-                    }else if(name =='9주차'){
-                        count=9;
-                    }else if(name =='10주차'){
-                        count=10;
-                    }else if(name =='11주차'){
-                        count=11;
-                    }else if(name =='12주차'){
-                        count=12;
-                    }else if(name =='13주차'){
-                        count=13;
-                    }
-                  var text_box = '<label for=""address2"">'+count+'주차 강의 제목<span class=""text-muted""></span></label>'+
-                  '  <input type="text" class="form-control " id="address2" style="width: 1000px;"placeholder="강의 제목을 입력해주세요." required>'+
-                  '<div class="invalid-feedback "> '+count+'주차 강의제목을 입력해주세요 </div>'
-                  var test='<p> tsest</p>'
-                    for (var i=1; i<=count;i++ )
-                    {
-                       // $("studyweeka").append(text_box);
-                        document.write(text_box);
-                    }
-                   // $("teta").appendchild(text_box);
-                     
-                </script>
                 </div>
-               
+                <!-- 주차별로 추가될 p 속성 -->
+                <p id = "weekTextHTML"></p>
+
+                <!-- 입력값으로 동적으로 변하게 하기 (작업중)-->
+                <script>
+                    //상위값 가져오기 
+                function gettest(){
+                //     const name = document.getElementById('weekcount').value;
+                //     var count=0; // 주차 저장 
+
+                //   if(name=='1주차')
+                //   {
+                //       count=1;
+                //   }else if (name=='2주차'){
+                //       count=2;
+                //   }else if(name=='3주차'){
+                //       count=3;
+                //   }else if(name=='4주차'){
+                //       count=4;
+                //   }else if(name == '5주차'){
+                //       count=5;
+                //   }else if(name == '6주차'){
+                //       count=6;
+                //   }else if(name =='7주차'){
+                //       count=7;
+                //   }else if(name =='8주차'){
+                //       count=8;
+                //   }else if(name =='9주차'){
+                //       count=9;
+                //   }else if(name =='10주차'){
+                //       count=10;
+                //   }else if(name =='11주차'){
+                //       count=11;
+                //   }else if(name =='12주차'){
+                //       count=12;
+                //   }else if(name =='13주차'){
+                //       count=13;
+                //   }
+                // var text_box = '<label for=""address2"">'+count+'주차 강의 제목<span class=""text-muted""></span></label>'+
+                // '  <input type="text" class="form-control " id="address2" style="width: 1000px;"placeholder="강의 제목을 입력해주세요." required>'+
+                // '<div class="invalid-feedback "> '+count+'주차 강의제목을 입력해주세요 </div>'
+                // var test='<p> tsest</p>'
+                //   for (var i=1; i<=5;i++ )
+                //   {
+                //      // $("studyweeka").append(text_box);
+                //       document.write(text_box);
+                //   }
+                //  // $("teta").appendchild(text_box);
+                
+                }
+              </script>
+
                 <div class="custom-control custom-checkbox">
                   <input type="checkbox" class="custom-control-input" id="aggrement" required>
                   <label class="custom-control-label " for="aggrement">위의 내용으로 스터디를 수정전 내용을 확인하셨습니까?</label>
@@ -385,5 +435,36 @@
       });
   
   </script>
-
+<!-- 채팅 영역 부분 -->
+<a href="javascript:openPop()"><img src="http://duck.nifskorea.com:8080/project/img/chat.png" class="chat" >1:1 chat </a>
+<!-- 팝업창 구성요소 부분-->
+<div class="popup_layer" id="popup_layer" style="display: none;">
+  <div class="popup_box">
+    <div style="height: 10px; width: 500px; float: top;">
+      <a href="javascript:closePop();"></a>
+    </div>
+    <!--팝업 컨텐츠 영역-->
+    <div class="popup_cont">
+        <div class="row">
+              <h3> 채팅 상담 채널 </h3>
+                  <iframe src="https://service.dongledongle.com/duckduck" frameborder="0" width="100%" height="800"></iframe>
+            </div>
+    </div>
+    <!--팝업 버튼 영역-->
+    <div class="popup_btn" style="float: bottom; margin-top: 10px;">
+      <a href="javascript:closePop();">닫기</a>
+    </div>
+  </div>
+</div>
+<!-- 팝업창 구성요소 끝 -->
+<!-- 팝업 열고 닫기 채팅 -->
+<script>
+  function openPop() {
+    document.getElementById("popup_layer").style.display = "block";
+  }
+  //팝업 닫기
+  function closePop() {
+    document.getElementById("popup_layer").style.display = "none";
+  }
+</script>
 </html>

@@ -14,7 +14,7 @@
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
       <script src="http://duck.nifskorea.com:8080/project/css/mainpage/js/jquery.min.js"></script>
       <script src="http://duck.nifskorea.com:8080/project/css/mainpage/js/jquery.dropotron.min.js"></script>
-      <script src="http://duck.nifskorea.com:8080/project/css/mainpage/js/jquery.scrolly.min.js"></script>
+      <script src="http://duck.nif`skorea.com:8080/project/css/mainpage/js/jquery.scrolly.min.js"></script>
       <script src="http://duck.nifskorea.com:8080/project/css/mainpage/js/jquery.scrollex.min.js"></script>
       <script src="http://duck.nifskorea.com:8080/project/css/mainpage/js/browser.min.js"></script>
       <script src="http://duck.nifskorea.com:8080/project/css/mainpage/js/breakpoints.min.js"></script>
@@ -50,14 +50,15 @@
           <!-- Inner -->
           <div class="inner">
             <header>
-    
-              <h1><a href="index.html" id="logo">코딩 스터디 매칭 플랫폼</a></h1>
+              <!-- <a href="index.html" id="logo"></a> -->
+              <h1>코딩 스터디 매칭 플랫폼</h1>
               <hr />
               <p>지금껏 한 번도 만나보지 못한 플랫폼을 만나보세요.</p>
             </header>
-            <footer>
+            <div>
+              <br>
               <a href="#banner" class="button circled scrolly">Start</a>
-            </footer>
+            </div>
           </div>
     
           <!---- Banner -->
@@ -93,7 +94,7 @@
                   <!-- 아래 게시판 붙여 넣을자리 js script-->
                   <div id="index_study_output"></div>
                   <script id="index_study_template" type="text/template">
-                      <table class="table table-hover ">
+                      <table class="table table-hover " style="font-size: 16">
                         <thead>
                           <tr>
                             <b>
@@ -134,13 +135,14 @@
                   <!-- 아래 게시판 붙여 넣을자리 js script-->
                   <div id="index_qna_output"></div>
                   <script id="index_qna_template" type="text/template">
-                      <table class="table table-hover ">
+                      <table class="table table-hover " style="font-size: 16">
                         <thead>
                           <tr>
                             <b>
                               <th scope="row">제목</th>
                               <td>사용자</td>
                               <td>업로드 시간</td>
+                              <td>댓글</td>
                             </b>
                           </tr>
                         </thead>
@@ -148,9 +150,10 @@
                         <tbody class="table-activate">
                           {{#.}}
                           <tr>
-                            <th scope="row"><a href="/project/page/Read_board.html?pageid={{&id}}">{{title}}</th>
+                            <th scope="row"><a href="/project/page/Read_board.html?type=qna&pageid={{&id}}">{{title}}</th>
                             <td>{{uploaded_by}}</td>
                             <td>{{created_at}}</td>
+                            <td><i class="bi bi-card-text"></i> {{comment_amount}}</td>
                           </tr>
                           {{/.}}
                         </tbody>
@@ -175,13 +178,14 @@
                   <!-- 아래 게시판 붙여 넣을자리 js script-->
                   <div id="index_notification_output"></div>
                   <script id="index_notification_template" type="text/template">
-                      <table class="table table-hover ">
+                      <table class="table table-hover " style="font-size: 16">
                         <thead>
                           <tr>
                             <b>
                               <th scope="row">제목</th>
                               <td>사용자</td>
                               <td>업로드 시간</td>
+                              <td>댓글</td>
                             </b>
                           </tr>
                         </thead>
@@ -189,9 +193,10 @@
                         <tbody class="table-activate">
                           {{#.}}
                           <tr>
-                            <th scope="row"><a href="/project/page/Read_board.html?pageid={{&id}}">{{title}}</th>
+                            <th scope="row"><a href="/project/page/Read_board.html?type=notice&pageid={{&id}}">{{title}}</th>
                             <td>{{uploaded_by}}</td>
                             <td>{{created_at}}</td>
+                            <td><i class="bi bi-card-text"></i> {{comment_amount}}</td>
                           </tr>
                           {{/.}}
                         </tbody>
@@ -218,7 +223,7 @@
                   <!-- 아래 게시판 붙여 넣을자리 js script-->
                   <div id="index_event_output"></div>
                   <script id="index_event_template" type="text/template">
-                      <table class="table table-hover ">
+                      <table class="table table-hover " style="font-size: 16">
                         <thead>
                           <tr>
                             <b>
@@ -232,7 +237,7 @@
                         <tbody class="table-activate">
                           {{#.}}
                           <tr>
-                            <th scope="row"><a href="/project/page/Read_board.html?pageid={{&id}}">{{title}}</th>
+                            <th scope="row"><a href="/project/page/Read_board.html?type=event&pageid={{&id}}">{{title}}</th>
                               <td>{{uploaded_by}}</td>
                               <td>{{created_at}}</td>
                           </tr>
@@ -248,17 +253,17 @@
           </div>
           <script>duck_nifskorea_com.index.init_template();</script>
           <!-- Footer -->
-          <div id="footer">
-            <div class="container">
+          <!-- <div id="footer"> -->
+            <!-- <div class="container">
               <div class="row">
     
               </div>
               <hr />
               <div class="row">
-                <div class="col-12">
+                <div class="col-12"> -->
     
                   <!-- Contact -->
-                  <section class="contact">
+                  <!-- <section class="contact">
                     <header>
                       <h3>대한민국 NO.1 코딩 스터디 매칭 플랫폼 </h3>
                     </header>
@@ -266,22 +271,81 @@
                         height="80" background: rgba(255, 255, 255, 0.9) ;></a><br><br>
                       형광색 꼬꼬댁 팀원:<br> <ins>최인수, 박상현, 윤성민, 조진혁</ins>
                     </p>
-                  </section>
-    
+                  </section> -->
                   <!-- Copyright -->
-                  <div class="copyright">
+                  <!-- <div class="copyright">
                     <ul class="menu">
                       <li>대한민국 NO.1 코딩 스터디 매칭 플랫폼 &copy; All rights reserved.</li>
                       <li>Design: <a href="http://html5up.net">HTML5 UP & 형광색 꼬꼬댁팀</a> </li>
                       <li>Powerd By : <a href="http://nifskorea.com"></a>NIFSKOREA Host Service. <a
                           href="http://nifskorea.com"></a> Bootstrap.</a></li>
                     </ul>
-                  </div>
+                  </div> -->
+                  <!-- 채팅 사이트 API 영역 -->
+                  <footer>
+                    <div data-include-path="page/footer.html"></div>
+                </footer>
                 </div>
               </div>
             </div>
           </div>
         </div>
     </body>
-    
+
+<!-- 상위페이지로 이동 버튼 top -->
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+<script>
+  //Get the button
+  var mybutton = document.getElementById("myBtn");
+
+  // When the user scrolls down 20px from the top of the document, show the button
+  window.onscroll = function () { scrollFunction() };
+
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      mybutton.style.display = "block";
+    } else {
+      mybutton.style.display = "none";
+    }
+  }
+
+  // When the user clicks on the button, scroll to the top of the document
+  function topFunction() {
+    document.body.scrollTop = 3;
+    document.documentElement.scrollTop = 3;
+  }
+</script>
+<!-- top 버튼 끝 -->
+<!-- 채팅 영역 부분 -->
+<a href="javascript:openPop()"><img src="http://duck.nifskorea.com:8080/project/img/chat.png" class="chat" >1:1 chat </a>
+<!-- 팝업창 구성요소 부분-->
+<div class="popup_layer" id="popup_layer" style="display: none;">
+  <div class="popup_box">
+    <div style="height: 10px; width: 500px; float: top;">
+      <a href="javascript:closePop();"></a>
+    </div>
+    <!--팝업 컨텐츠 영역-->
+    <div class="popup_cont">
+        <div class="row">
+              <h3> 채팅 상담 채널 </h3>
+                  <iframe src="https://service.dongledongle.com/duckduck" frameborder="0" width="100%" height="800"></iframe>
+            </div>
+    </div>
+    <!--팝업 버튼 영역-->
+    <div class="popup_btn" style="float: bottom; margin-top: 10px;">
+      <a href="javascript:closePop();">닫기</a>
+    </div>
+  </div>
+</div>
+<!-- 팝업창 구성요소 끝 -->
+<!-- 팝업 열고 닫기 채팅 -->
+<script>
+  function openPop() {
+    document.getElementById("popup_layer").style.display = "block";
+  }
+  //팝업 닫기
+  function closePop() {
+    document.getElementById("popup_layer").style.display = "none";
+  }
+</script>
     </html>

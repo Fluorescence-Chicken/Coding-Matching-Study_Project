@@ -173,9 +173,9 @@
     text: window.location.href,
     width: 96,
     height: 96,
-    colorDark : '#000',
-    colorLight : '#fff',
-    correctLevel : QRCode.CorrectLevel.H
+    colorDark: '#000',
+    colorLight: '#fff',
+    correctLevel: QRCode.CorrectLevel.H
   });
 
 
@@ -184,36 +184,36 @@
 
 <!-- 게시글 삭제 부분 -->
 <script>
-  /* 게시글 삭제 관련 Alert*/ 
-function board_delete() {
-if (confirm(" 게시글을 삭제하시겠습니까? (신중히 생각해주세요.)")) {
- //location.href = "http://duck.nifskorea.com:8080/project/page/manage_my_post.html"
-alert("정상적으로 삭제되었습니다.");
-}
-else{
- alert("게시글 삭제가 취소되었습니다.");
-  //location.href = "http://duck.nifskorea.com:8080/project/page/manage_my_post.html"
-}
-}
-  </script>
+  /* 게시글 삭제 관련 Alert*/
+  function board_delete() {
+    if (confirm(" 게시글을 삭제하시겠습니까? (신중히 생각해주세요.)")) {
+      //location.href = "http://duck.nifskorea.com:8080/project/page/manage_my_post.html"
+      alert("정상적으로 삭제되었습니다.");
+    }
+    else {
+      alert("게시글 삭제가 취소되었습니다.");
+      //location.href = "http://duck.nifskorea.com:8080/project/page/manage_my_post.html"
+    }
+  }
+</script>
 
 
-  <!-- 게시글 수정 부분 -->
+<!-- 게시글 수정 부분 -->
 <script>
-  /* 게시글 수정 관련 Alert*/ 
-function board_fix() {
-if (confirm(" 게시글을 수정하시겠습니까? (신중히 생각해주세요.)")) {
- //location.href = "http://duck.nifskorea.com:8080/project/page/manage_my_post.html"
-alert("정상적으로 수정되었습니다.");
-}
-else{
- alert("게시글 수정이 취소되었습니다.");
- //location.href = "http://duck.nifskorea.com:8080/project/page/manage_my_post.html"
-}
-}
-  </script>
-  <!-- 채팅 영역 부분 -->
-<a href="javascript:openPop()"><img src="http://duck.nifskorea.com:8080/project/img/chat.png" class="chat" >1:1 chat </a>
+  /* 게시글 수정 관련 Alert*/
+  function board_fix() {
+    if (confirm(" 게시글을 수정하시겠습니까? (신중히 생각해주세요.)")) {
+      //location.href = "http://duck.nifskorea.com:8080/project/page/manage_my_post.html"
+      alert("정상적으로 수정되었습니다.");
+    }
+    else {
+      alert("게시글 수정이 취소되었습니다.");
+      //location.href = "http://duck.nifskorea.com:8080/project/page/manage_my_post.html"
+    }
+  }
+</script>
+<!-- 채팅 영역 부분 -->
+<a href="javascript:openPop()"><img src="http://duck.nifskorea.com:8080/project/img/chat.png" class="chat">1:1 chat </a>
 <!-- 팝업창 구성요소 부분-->
 <div class="popup_layer" id="popup_layer" style="display: none;">
   <div class="popup_box">
@@ -222,10 +222,10 @@ else{
     </div>
     <!--팝업 컨텐츠 영역-->
     <div class="popup_cont">
-        <div class="row">
-              <h3> 채팅 상담 채널 </h3>
-                  <iframe src="https://service.dongledongle.com/duckduck" frameborder="0" width="100%" height="800"></iframe>
-            </div>
+      <div class="row">
+        <h3> 채팅 상담 채널 </h3>
+        <iframe src="https://service.dongledongle.com/duckduck" frameborder="0" width="100%" height="800"></iframe>
+      </div>
     </div>
     <!--팝업 버튼 영역-->
     <div class="popup_btn" style="float: bottom; margin-top: 10px;">

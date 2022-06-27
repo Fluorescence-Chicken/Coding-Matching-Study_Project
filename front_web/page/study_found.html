@@ -38,12 +38,12 @@
       <div class="input-form col-md-12 mx-auto">
         <h4 class="mb-3">스터디 검색</h4>
         <!-- 임시 작업 안내페이지 -->
-        <div class="alert alert-danger" role="alert">
+        <!-- <div class="alert alert-danger" role="alert">
           (임시) <br>
           <h4> 작업자 유의사항</h4><br>아래 카드 부분 div태그가 빠져 footer 부분 오류 잡았습니다
           기타 카드 아래로 나려가는 부분 md요소랑 기타 확인하시고
           appen, appendchild 요소 확인 하시면서 태그 체크해주세요.
-        </div>
+        </div> -->
         <!-- 임시 작업 안내페이지 끝 -->
         <hr class="mb-3">
         <!-- 메뉴 목록카테고리 설정하는 부분 -->
@@ -57,7 +57,7 @@
                 <li class="desktopFilter_subjectItem__2_rjs ">모두보기</li>
             </ul>-->
           <!-- 이미지 목록 출력 -->
-          <ul class="desktopFilter_languages__3Kgb1">
+          <!-- <ul class="desktopFilter_languages__3Kgb1">
             <li class="desktopFilter_languageIcon__1-pNr desktopFilter_full__1JjBk">
               <img class="desktopFilter_logo__3V6YL" src="https://holaworld.io/images/languages/javascript.svg"
                 alt="JavaScript"><span>JavaScript</span>
@@ -183,7 +183,7 @@
                 alt="Jest"><span>Jest</span>
             </li>
           </ul>
-          <!-- 버튼 누르기면 전체 보는 부분-->
+          <!-- 버튼 누르기면 전체 보는 부분
           <ul class="desktopFilter_languages__3Kgb1">
             <li class="desktopFilter_languageIcon__1-pNr desktopFilter_transparent__2ofOb">
               <img class="desktopFilter_logo__3V6YL" src="/images/languages/javascript.svg"
@@ -223,32 +223,34 @@
           </ul>
 
 
-          <!-- 버튼 부분 끝  -->
+          <!-- 버튼 부분 끝  
           <ul class="desktopFilter_selectedLanguages__3KowP">
             <li class="desktopFilter_selectedLanguage__30mty">
               <div>Docker</div>
               <img src="https://holaworld.io/images/info/delete.svg" alt="deleteButton">
             </li>
             <span class="desktopFilter_resetFilter__ybCJD">필터 초기화</span>
-          </ul>
+          </ul> -->
 
 
         </section>
         <!-- 스터디 부분 시작 -->
         <!-- 이까지가 상단에 목록 보여주는 부분임 -->
         <!-- 아래에서부터 스터디 목록을 보여주어야함 카드 부분 -->
+        <div id="studyCard_output"></div>
+        <script id="studyCard_template" type="text/template">
         <div class="row row-cols-1 row-cols-md-3 g-4">
           <!-- div1 시작 -->
+          {{#.}}
           <div class="col ">
             <!--  div2 시작 -->
             <!-- Basic Card Example -->
-            <div class="card shadow mb-4" name="studyCard" id="studyCard_output"></div>
+            <div class="card shadow mb-4" name="studyCard"></div>
             <!-- div3 시작 -->
 
-            <!-- template 시작 -->
+            <!-- div4 시작 -->
             <div class="card-body" style="width: 18rem;">
-              <!-- div4 시작 -->
-              <div id="studyCard_template" style="display: none;" type="text/template">
+              <!-- template 시작 -->
                 <div class="studyItem_schedule">
                   <!-- div5 시작 -->
                   <p>{{studyStart}} |</p>
@@ -264,51 +266,51 @@
 
                 <h5 class="card-title" name="studyName">{{studyName}} </h5> <!--  h5 시작, h5 끝 -->
                 <!-- 스터디 이름-->
-                <div name="studyDescription">{{studyDescription}}
-                  <!-- div7 시작-->
-                  <!-- 스터디 설명-->
-                </div> <!-- div7 끝-->
+                <!-- <div name="studyDescription">{{studyDescription}} -->
+                   <!-- div7 시작 -->
+                  <!-- 스터디 설명 -->
+                <!-- </div> div7 끝 -->
 
 
                 <!-- 스터디과목 정보 태그 js script -->
                 <ul class="studyItem_hashtag p-1" name="studyTag">
                   <!-- ul1 시작 -->
-                  <li> {{studyTag}} </li> <!--  li1 시작, 끝 -->
+                  <li>
+                    <!-- <img src="http://duck.nifskorea.com:8000/media/tag_images/java.png"> -->
+                    {{#tags}}
+                    <img src="{{&tag_image}}">
+                    {{/tags}}
+                  </li> <!--  li1 시작, 끝 -->
+                  
                 </ul> <!-- ul1 끝 -->
-                <!-- 스터디 과목 이미지  -->
-                <!-- 이미지 테스팅 해야할듯 -->
-
-
-                <ul class="studyItem_content">
-                  <!-- ul2 시작 -->
-                  <li class="studyItem_content_img">
-                    <!-- li3 시작 -->
-                    <!-- 스터디별 이미지를 긁어와야함 js script-->
-                    <img class="studyItem_content_img" src="https://holaworld.io/images/languages/docker.svg"
-                      alt="language"> <!-- img 1시작, 끝-->
-                  </li> <!-- li3 끝 -->
-                  <li class="studyItem_content_img">
-                    <!--li4시작-->
-                    <img class="studyItem_content_img" src="https://holaworld.io/images/languages/docker.svg"
-                      alt="language"> <!-- img 2 시작, 끝 -->
-                  </li> <!-- li4 끝 -->
-                </ul> <!-- ul2 끝 -->
 
                 <!-- 해당 스터디로 이동하기 처리 js script-->
                 <!-- {{studyURL}} 스터디로 이동하기 </a> -->
-                <a href="http://duck.nifskorea.com:8080/project/page/studyadd_board.html" class="btn btn-primary">스터디로
+                <a href="http://duck.nifskorea.com:8080/project/page/study_dashboard.html?studyID={{&id}}" class="btn btn-primary">스터디로
                   이동하기 </a>
                 <!-- 카드 끝임 -->
-              </div> <!-- div4 끝 -->
-              <script>duck_nifskorea_com.study_found.getQuery()</script>
-            </div> <!-- div3 끝 -->
-
-          </div>
-          <!-- 이까지가 카드 파트 1개임 -->
-          <iframe id="ssIFrame_google" sandbox="allow-scripts allow-same-origin" aria-hidden="true" frame-border="0"
+              </div> <!-- div3 끝 -->
+              
+            </div>
+            {{/.}}
+            <!-- 이까지가 카드 파트 1개임 -->
+            <iframe id="ssIFrame_google" sandbox="allow-scripts allow-same-origin" aria-hidden="true" frame-border="0"
             style="position: absolute; width: 1px; height: 1px; inset: -9999px; display: none;"
             src="https://accounts.google.com/o/oauth2/iframe#origin=https%3A%2F%2Fholaworld.io&amp;rpcToken=803431245.8929752&amp;clearCache=1"></iframe>
         </div>
+      </script> <!-- div4 끝 -->
+        <script>
+          console.log(duck_nifskorea_com.study_found.getstudyCardJSON().map((elem) => {
+              elem.tags = elem.tags.map((tag) => duck_nifskorea_com.study_matching.retrieveTag(tag));
+              return elem;
+            }));
+        duck_nifskorea_com.render_template("studyCard_template",
+            duck_nifskorea_com.study_found.getstudyCardJSON().map((elem) => {
+              elem.tags = elem.tags.map((tag) => duck_nifskorea_com.study_matching.retrieveTag(tag));
+              return elem;
+            })
+            , "studyCard_output");
+            </script>
       </div>
     </div>
   </div>
@@ -341,5 +343,37 @@
   }
 </script>
 <!-- top 버튼 끝 -->
+<!-- 채팅 영역 부분 -->
+<a href="javascript:openPop()"><img src="http://duck.nifskorea.com:8080/project/img/chat.png" class="chat">1:1 chat </a>
+<!-- 팝업창 구성요소 부분-->
+<div class="popup_layer" id="popup_layer" style="display: none;">
+  <div class="popup_box">
+    <div style="height: 10px; width: 500px; float: top;">
+      <a href="javascript:closePop();"></a>
+    </div>
+    <!--팝업 컨텐츠 영역-->
+    <div class="popup_cont">
+      <div class="row">
+        <h3> 채팅 상담 채널 </h3>
+        <iframe src="https://service.dongledongle.com/duckduck" frameborder="0" width="100%" height="800"></iframe>
+      </div>
+    </div>
+    <!--팝업 버튼 영역-->
+    <div class="popup_btn" style="float: bottom; margin-top: 10px;">
+      <a href="javascript:closePop();">닫기</a>
+    </div>
+  </div>
+</div>
+<!-- 팝업창 구성요소 끝 -->
+<!-- 팝업 열고 닫기 채팅 -->
+<script>
+  function openPop() {
+    document.getElementById("popup_layer").style.display = "block";
+  }
+  //팝업 닫기
+  function closePop() {
+    document.getElementById("popup_layer").style.display = "none";
+  }
+</script>
 
 </html>

@@ -42,7 +42,7 @@ div.cuaqd {
          }
          div.studydel { 
           /* 스터디 탈퇴하기 부분 버튼위치 */
-            padding-left: 75%;  /* 조정 금지 */ 
+            padding-left: 70%;  /* 조정 금지 */ 
            }
            div.mentoDel { 
             /* 멘토 탈퇴하기 부분 버튼위치 */
@@ -56,6 +56,10 @@ div.cuaqd {
                   top: 22%;
                 
                 }
+                div.board_button { 
+                  /* 스터디 탈퇴하기 부분 버튼위치 */
+                    padding-left: 40%;  /* 조정 금지 */ 
+                   }
      /* 페이지창 메뉴 부분 표현 창 */
      div.b-divider {
        height: 5rem;
@@ -421,7 +425,7 @@ body {
 #footer {
   position: relative;
   overflow: hidden;
-  padding: 6em 0 6em 0;
+  padding: 2em 0 2em 0;
   background: #2b252c;
   color: #fff;
 }
@@ -536,7 +540,6 @@ body {
   grid-template-columns: repeat(2,3fr);
   grid-row-gap: 24px;
   row-gap: 24px;
-  margin-top: 60px;
 }
 .studyInfo_contentWrapper__KkSUP {
   display: flex;
@@ -557,7 +560,6 @@ body {
   height: 36px;
 }
 .studyContent_postContentWrapper__187Zh {
-  margin-top: 132px;
   font-size: 1.125rem;
   word-break: break-all;
   line-height: 1.7;
@@ -595,7 +597,6 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin-top: 100px;
 }
 .commentInput_commentCount__2dHvH {
   margin: 0 0 30px;
@@ -814,7 +815,7 @@ textarea {
 /*popup*/
 .popup_layer {position:fixed;top:0;left:0;z-index: 10000; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.4); }
 /*팝업 박스*/
-.popup_box{position: relative;top:50%;left:50%; overflow: auto; height: 600px; width:800px;transform:translate(-50%, -50%);z-index:1002;box-sizing:border-box;background:#fff;box-shadow: 2px 5px 10px 0px rgba(0,0,0,0.35);-webkit-box-shadow: 2px 5px 10px 0px rgba(0,0,0,0.35);-moz-box-shadow: 2px 5px 10px 0px rgba(0,0,0,0.35);}
+.popup_box{position: relative;top:50%;left:50%; overflow: auto; height: 650px; width:950px;transform:translate(-50%, -50%);z-index:1002;box-sizing:border-box;background:#fff;box-shadow: 2px 5px 10px 0px rgba(0,0,0,0.35);-webkit-box-shadow: 2px 5px 10px 0px rgba(0,0,0,0.35);-moz-box-shadow: 2px 5px 10px 0px rgba(0,0,0,0.35);}
 /*컨텐츠 영역*/
 .popup_box .popup_cont {padding:50px;line-height:1.4rem;font-size:14px; }
 .popup_box .popup_cont h2 {padding:15px 0;color:#333;margin:0;}
@@ -861,4 +862,13 @@ textarea {
 
 #myBtn:hover {
   background-color: #555;
+}
+/* 채팅 이동 페이지 */
+.chat  {
+  position: fixed;
+  right: 10px;
+  top: 650px;
+  bottom: 1px;
+  width: 5%;
+  height: 9%;
 }

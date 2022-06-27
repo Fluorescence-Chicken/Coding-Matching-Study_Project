@@ -1,0 +1,257 @@
+<!-- 멘토 신청 페이지-->
+
+
+<html>
+
+<head>
+  <!-- 필수 선언부 -->
+  <meta charset="utf-8">
+  <script src="../jsp/w3.js"> </script>
+  <!-- 커스텀 부분 코드 -->
+
+  <!-- 헤더 부분 -->
+  <div data-include-path="../page/header.html"> </div>
+
+  <!-- js 연결 -->
+  <script src="../jsp/javascript.js"></script>
+  <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
+  <!--주소 받아오기 카카오-->
+  <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+  <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
+  <!-- 하이라이트 라이브러리 추가, 토스트 UI 에디터에서 사용됨 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/default.min.css">
+  <!-- 하이라이트 라이브러리, 언어 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/languages/css.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/languages/java.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/languages/javascript.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/languages/xml.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/languages/php.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/languages/php-template.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/languages/sql.min.js"></script>
+  <!-- 토스트 UI 에디터, 신택스 하이라이트 플러그인 추가 -->
+  <script
+    src="https://uicdn.toast.com/editor-plugin-code-syntax-highlight/latest/toastui-editor-plugin-code-syntax-highlight-all.min.js"></script>
+
+</head>
+
+<body>
+  <!-- 바디 부분 시작 -->
+
+  <!-- 바디 섹션 -->
+  <!-- js script 로 이전 게시판 이름을 출력해야함-->
+  <div class="b-divider">멘토 신청 </script>
+  </div>
+  <div class="alert alert-warning" role="alert">
+    <strong><i class="fa fa-exclamation-circle fa-lg"></i>
+      <center> 멘토 신청 페이지입니다. 멘티는 신청 안 하셔도 이용가능하십니다.
+      </center>
+    </strong>
+  </div>
+  <!-- 이까지가 헤더가 아래부터 게시판 보드 시작임 -->
+  <!-- 1차 보드 -->
+  <div class="container">
+    <div class="input-form-backgroud row">
+      <div class="input-form col-md-12 mx-auto">
+        <h4 class="mb-3">아래에 귀하의 기본 정보를 입력해 주세요. </h4>
+        <br>
+        <form class="validation-form" novalidate>
+ 
+
+          <div class="row">
+
+            <!-- 1 -->
+            <div class="col-md-6 mb-3">
+              <label for="name">소속(학교/직장)</label>
+              <input type="text" class="form-control" id="Affiliation" placeholder="" value="" name="first_name" required>
+              <div class="invalid-feedback"> 소속을 입력해주세요. </div>
+            </div>
+
+            <!-- 2 -->
+              <div class="col-md-6 mb-3">
+                <label for="name">전공</label>
+                <input type="text" class="form-control" id="Major" placeholder="" value="" name="first_name" required>
+                <div class="invalid-feedback"> 전공을 입력해주세요. </div>
+              </div>
+
+              <div class="col-md-6 mb-3">
+                <label for="name">개발 경력을 입력해주세요. (년 단위)</label>
+                <input type="text" class="form-control" id="Development_Experience" placeholder="" value="" name="first_name" required>
+                <div class="invalid-feedback"> 경력을 입력해주세요. </div>
+              </div>
+
+              <div class="col-md-6 mb-3">
+                <label for="name">자신을 소개하는 한 줄 인사말을 적어주세요.</label>
+                <input type="text" class="form-control" id="greeting" placeholder="" value="" name="first_name" required>
+                <div class="invalid-feedback"> 인사말을 입력해주세요.. </div>
+              </div>
+
+
+              <div class="col-md-6 mb-3">
+                <label for="name">멘토를 신청하고자 하는 이유를 간단하게 적어주세요.</label>
+                <input type="text" class="form-control" id="reason" placeholder="" value="" name="first_name" required>
+                <div class="invalid-feedback"> 이유를 입력해주세요. </div>
+              </div>
+
+
+
+ 
+
+            <!-- <div class="col-md-6 mb-3">
+              <label for="root2">모집인원</label>
+              <select class="custom-select d-block w-100" id="root3" required>
+                <option value=""></option>
+                <option>1명</option>
+                <option>2명</option>
+                <option>3명</option>
+                <option>4명</option>
+                <option>5명</option>
+                <option>6명</option>
+                <option>7명</option>
+                <option>8명</option>
+                <option>9명</option>
+                <option>10명 이상</option>
+              </select>
+              <div class="invalid-feedback"> 모집 인원을 입력해주세요!</div>
+            </div> -->
+
+
+
+          </div>
+        </div>
+        </div>
+  </div>
+
+
+
+          <!-- 아래에서부터 본격적인 보드 시작 -->
+          <!-- 2차 보드 -->
+
+
+ <!-- 여기 넣기 @@@@@@@@@@@@@@@@@@@@@-->
+ <hr class="mb-3">
+ <div class="mb-4"></div>
+ 
+ 
+ 
+          <!-- 아래에서부터 본격적인 보드 시작 -->
+           <!-- 2차 보드 -->
+           <div class="container">
+             <div class="input-form-backgroud row">
+               <div class="col-md-12 mx-auto">
+
+                 <!-- 주차별로 추가될 p 속성 -->
+                 <p id="weekTextHTML"></p>
+                 <div class="custom-control custom-checkbox">
+                   <input type="checkbox" class="custom-control-input" id="aggrement" required>
+                   <label class="custom-control-label " for="aggrement">위의 내용으로 멘토를 신청하시는게 맞습니까?</label>
+                 </div>
+ 
+                 <div class="mb-4"></div>
+                 <button class="btn btn-primary btn-lg btn-block" type="submit">멘토 신청 완료</button>
+               </div>
+             </div>
+             <footer class="my-3 text-center text-small">
+               <p class="mb-1">&copy; 2022 코딩 스터디 매칭 플랫폼.</p>
+             </footer>
+           </div>
+
+
+    <!-- 끝나는 부분임-->
+
+  </div>
+
+</body>
+
+<script> window.addEventListener('load', () => {
+    const forms = document.getElementsByClassName('validation-form');
+    Array.prototype.filter.call(forms, (form) => {
+      form.addEventListener('submit', function (event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        } form.classList.add('was-validated');
+      }, false);
+    });
+  }, false); 
+</script>
+<!-- 토스트 UI 에디터 -->
+<script>
+  const Editor = toastui.Editor;
+  const codeSyntaxHighlight = Editor.plugin;
+  const editor = new Editor({
+    el: document.querySelector('#editor'),
+    height: '500px',
+    initialEditType: 'markdown',
+    previewStyle: 'vertical',
+    initialValue: '### 원하시는 HTML내용을 작성해주세요.',
+    plugins: [toastui.Editor.plugin.codeSyntaxHighlight],
+    usageStatistics: 'false',
+    language: 'ko'
+
+  });
+  console.log(editor.getMarkdown());
+    //console.log(editor.getMarkdown()); // { range: [startCursorOffset, endCursorOffset], type: 'emph' }
+</script>
+<footer>
+  <div data-include-path="../page/footer.html"></div>
+</footer>
+<!-- 상위페이지로 이동 버튼 top -->
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+<script>
+  //Get the button
+  var mybutton = document.getElementById("myBtn");
+
+  // When the user scrolls down 20px from the top of the document, show the button
+  window.onscroll = function () { scrollFunction() };
+
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      mybutton.style.display = "block";
+    } else {
+      mybutton.style.display = "none";
+    }
+  }
+
+  // When the user clicks on the button, scroll to the top of the document
+  function topFunction() {
+    document.body.scrollTop = 3;
+    document.documentElement.scrollTop = 3;
+  }
+</script>
+<!-- top 버튼 끝 -->
+<!-- 채팅 영역 부분 -->
+<a href="javascript:openPop()"><img src="http://duck.nifskorea.com:8080/project/img/chat.png" class="chat" >1:1 chat </a>
+<!-- 팝업창 구성요소 부분-->
+<div class="popup_layer" id="popup_layer" style="display: none;">
+  <div class="popup_box">
+    <div style="height: 10px; width: 500px; float: top;">
+      <a href="javascript:closePop();"></a>
+    </div>
+    <!--팝업 컨텐츠 영역-->
+    <div class="popup_cont">
+        <div class="row">
+              <h3> 채팅 상담 채널 </h3>
+                  <iframe src="https://service.dongledongle.com/duckduck" frameborder="0" width="100%" height="800"></iframe>
+            </div>
+    </div>
+    <!--팝업 버튼 영역-->
+    <div class="popup_btn" style="float: bottom; margin-top: 10px;">
+      <a href="javascript:closePop();">닫기</a>
+    </div>
+  </div>
+</div>
+<!-- 팝업창 구성요소 끝 -->
+<!-- 팝업 열고 닫기 채팅 -->
+<script>
+  function openPop() {
+    document.getElementById("popup_layer").style.display = "block";
+  }
+  //팝업 닫기
+  function closePop() {
+    document.getElementById("popup_layer").style.display = "none";
+  }
+</script>
+
+
+</html>

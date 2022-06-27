@@ -32,7 +32,7 @@
  <div class="b-divider">스터디 멘토 관리 페이지 </div>
  <div class="container input-form" id="template">
    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-     <h4 class="mb-3" name="studyName">{{study_title}}</h4>
+     <h4 class="mb-3" name="studyName">멘토 관리 페이지</h4>
    </div>
    <!-- 여기서 삭제하기 , Q&A 버튼 영역 -->
    <div class="mentoDel">
@@ -53,7 +53,7 @@
                 <div class="col mr-2">
                   <div class=" font-weight-bold text-primary text-uppercase mb-1">
                     강의 갯수 </div>
-                  <div class="h5 mb-0 font-weight-bold text-gray-800" name="">{{Lecture_number}}
+                  <div class="h5 mb-0 font-weight-bold text-gray-800" name="">1개
                   </div> <!-- 00개-->
                 </div>
                 <div class="col-auto">
@@ -76,7 +76,7 @@
                     <div class="col-auto">
                       <!-- 스터디 진행형태 서버에서 가져와야함 js script-->
                       <div class="h5  font-weight-bold text-gray-900 text-primary">
-                        {{online_or_offline}}</div> <!-- 온라인, 오프라인 여부-->
+                       온라인</div> <!-- 온라인, 오프라인 여부-->
                       </div>
                     </div>
                   </div>
@@ -97,8 +97,8 @@
                     <div class="row no-gutters align-items-center">
                       <div class="col-auto">
                         <!-- 스터디 진행형태 서버에서 가져와야함 js script-->
-                        <div class="h5  font-weight-bold text-gray-900 text-primary">
-                          {{ }}</div> <!-- 온라인, 오프라인 여부-->
+                        <div class="h5  font-weight-bold text-gray-900 text-primary">1
+                           </div> <!-- 온라인, 오프라인 여부-->
                         </div>
                       </div>
                     </div>
@@ -137,27 +137,27 @@
                   <tr>
                     <th scope="row">1</th>
                     <td>교사 이름</td>
-                    <td name="name">{{Instructor_name}}</td>
+                    <td name="name">Instructor_name</td>
                     <!--강사님 이름, ex) 000강사님-->
   
                   </tr>
                   <tr>
                     <th scope="row">2</th>
                     <td>담당 전공</td>
-                    <td name="dept">{{Major}}</td>
+                    <td name="dept">Major</td>
                     <!--담당 전공-->
   
                   </tr>
                   <tr>
                     <th scope="row">3</th>
                     <td>연력 또는 경력</td>
-                    <td name="carrar">{{Career}}</td> <!-- 현직) 000기업 0년차 재직중-->>
+                    <td name="carrar">Career</td> <!-- 현직) 000기업 0년차 재직중-->>
   
                   </tr>
                   <tr>
                     <th scope="row">4</th>
                     <td>연락처 및 이메일 주소 </td>
-                    <td name="email"> {{email}}</td> <!-- 연락처 및 이메일 주소-->
+                    <td name="email"> email</td> <!-- 연락처 및 이메일 주소-->
   
                   </tr>
                   <tr>
@@ -165,15 +165,15 @@
                     <td>스터디 진행 기간 </td>
                     <!-- TODO: "날짜 ~ 날짜" 형식으로 변경 -->
                     <td>
-                      <div name=startDate>{{start_study_date}}</div> <!-- 스터디 시작 날짜-->
-                      <div name=endDate>{{end_study_date}}</div> <!-- 스터디 끝나는 날짜-->
+                      <div name=startDate>start_study_date</div> <!-- 스터디 시작 날짜-->
+                      <div name=endDate>end_study_date</div> <!-- 스터디 끝나는 날짜-->
                     </td>
   
                   </tr>
                   <tr>
                     <th scope="row">6</th>
                     <td>한줄 인사말</td>
-                    <td name="bio"> {{greeting}}!</td> <!-- 한 줄 인사말-->
+                    <td name="bio"> greeting!</td> <!-- 한 줄 인사말-->
                   </tr>
                 </tbody>
               </table>
@@ -192,15 +192,15 @@
         
             <table class="table">
               <tbody>
-                {{#posts}}
+               
                 <tr>
-                  <th scope="row">{{순번}}</th>
+                  <th scope="row">순번</th>
                   <!--순번 -->
-                  <td ><a href="./Read_board.html?type=qna&id={{& id }}">{{이름}}</a></td> 
-                  <td >{{멘토}}</td>
-                  <td >{{멘티 신고하기}} </td> <!-- 작성 시간 -->
+                  <td ><a href="./Read_board.html?type=qna&id=& id ">이름</a></td> 
+                  <td >멘토</td>
+                  <td >멘티 신고하기 </td> <!-- 작성 시간 -->
                 </tr>
-                {{/posts}}
+                
                 <tr>
                     <th scope="row">1</th>
                     <td>홍길동</td>
@@ -219,15 +219,15 @@
            </div>
            <table class="table">
             <tbody>
-              {{#posts}}
+        
               <tr>
-                <th scope="row">{{순번}}</th>
+                <th scope="row">순번</th>
                 <!--순번 -->
-                <td ><a href="./Read_board.html?type=qna&id={{& id }}">{{강의 내용}}</a></td> 
-                <td >{{멘토명}}</td>
-                <td >{{강의 시간}}} </td> <!-- 작성 시간 -->
+                <td ><a href="./Read_board.html?type=qna&id=& id ">강의 내용</a></td> 
+                <td >멘토명</td>
+                <td >강의 시간 </td> <!-- 작성 시간 -->
               </tr>
-              {{/posts}}
+             
               <tr>
                   <th scope="row">1</th>
                   <td>운영체제가 무엇인가?</td>
@@ -243,9 +243,7 @@
             <div class="alert alert-primary" role="alert">
                멘티에게 지정하신 위치로 보이는 화면입니다. 수정하실려면 스터디 내용수정에서 위치를 수정해주세요.
               </div>
-            <div class="row">
-              <div class="col-md-6 ">
-                <div class="list-group1 ">
+           
                   <div id="mapwrap" style="overflow:hidden;">
                     <div id="map" style="position:relative; width: 100%; height: 350px;">
                       <p class="btn-init" onclick="setBounds()"
@@ -254,36 +252,9 @@
                       </p>
                     </div>
                     <!-- 이까지가 지도 부분 -->
-                  </div>
-                </div>
-              </div>
+                 
               <!-- 여기까지 끝 여기서부터 row 영역 오른쪽 표 표시 부분 -->
-              <div class="col-md-6">
-                <div class="list-group2">
-                  <table class="table">
-                    <tbody>
-                      <div class="card-header2 " style="width: 100%; border-radius: 10px;">
-                        <h6 class="m-0 font-weight-bold text-primary text-center" name="">방문 안내</h6>
-                      </div>
-                      <!-- 테이블 시작 -->
-                      <tr>
-                        <th scope="row">방문 주소 : </th>
-                        <td>부산역 {{ hashtag_id_for_location}} </td>
-                      </tr>
-                      <!-- 테이블 끝 -->
-                      <tr>
-                        <th scope="row">스터디 방문 인원 : </th>
-                        <td>8 명 {{ study_all_member}}</td>
-                      </tr>
-                      <!-- 테이블 끝 -->
-                      <tr>
-                        <th scope="row">스터디 팀장 번호 : </th>
-                        <td>010-0000-0000 {{ study_team_admin_number}}</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  <!-- 이까지가 테이블 마무리 부분 -->
-                </div>
+             
             </div>
             </div>
             </div>
@@ -371,4 +342,36 @@
     }
     function setBounds() { map.setBounds(bounds, 90, 30, 10, 30); }
   </script>
+  <!-- 채팅 영역 부분 -->
+<a href="javascript:openPop()"><img src="http://duck.nifskorea.com:8080/project/img/chat.png" class="chat" >1:1 chat </a>
+<!-- 팝업창 구성요소 부분-->
+<div class="popup_layer" id="popup_layer" style="display: none;">
+  <div class="popup_box">
+    <div style="height: 10px; width: 500px; float: top;">
+      <a href="javascript:closePop();"></a>
+    </div>
+    <!--팝업 컨텐츠 영역-->
+    <div class="popup_cont">
+        <div class="row">
+              <h3> 채팅 상담 채널 </h3>
+                  <iframe src="https://service.dongledongle.com/duckduck" frameborder="0" width="100%" height="800"></iframe>
+            </div>
+    </div>
+    <!--팝업 버튼 영역-->
+    <div class="popup_btn" style="float: bottom; margin-top: 10px;">
+      <a href="javascript:closePop();">닫기</a>
+    </div>
+  </div>
+</div>
+<!-- 팝업창 구성요소 끝 -->
+<!-- 팝업 열고 닫기 채팅 -->
+<script>
+  function openPop() {
+    document.getElementById("popup_layer").style.display = "block";
+  }
+  //팝업 닫기
+  function closePop() {
+    document.getElementById("popup_layer").style.display = "none";
+  }
+</script>
 </html>

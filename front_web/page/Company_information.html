@@ -1,4 +1,3 @@
-<!-- 내 글 관리 페이지 -->
 <html>
 <!-- 나의 페이지 부분 속성 -->
 
@@ -10,8 +9,6 @@
 
   <!-- 헤더 부분 -->
   <div data-include-path="../page/header.html"> </div>
-  <!-- 불필요 코드라 삭제함 -->
-  <!--<link rel="stylesheet" href="../css/manage_my_post.css">-->
 
   <!-- js 연결 -->
   <script src="../jsp/javascript.js"></script>
@@ -20,61 +17,53 @@
 
 <body>
   <!-- 바디 부분 시작 -->
+
   <!-- 바디 섹션 -->
-  <div class="b-divider">내 글 관리</div>
+  <div class="b-divider">기업 정보 게시판</div>
   <div class="container input-form">
     <!-- DB 로 스터디명을 표시해야함 js script -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-      <h4 class="mb-0">내 글 관리 페이지
-      </h4>
+      <h4 class="mb-3">기업 정보 게시판</h4>
+
     </div>
     <hr class="my-2">
     <!-- 이까지가 헤더가 아래부터 게시판 보드 시작임 -->
     <div class="p-1"></div>
     <div class="card-header " style="width: 100%; border-radius: 5px;">
       <!-- 게시판 내용 긁어와야함 js script-->
-      <h6 class="m-0 font-weight-bold text-primary text-center">내글 관리</h6>
+      <h6 class="m-0 font-weight-bold text-primary text-center">기업 정보 게시판</h6>
     </div>
     <!-- 1번째 아래부터 본격적인 테이블 내용-->
-
+    <div class="alert alert-info d-flex align-items-center" role="alert">
+      <i class="bi bi-exclamation-triangle-fill"></i>
+      <div>
+        기업 정보를 안내하는 페이지 입니다.<br>
+        (※ 관리자 및 멘토만 작성하실 수 있습니다.)
+      </div>
+    </div>
     <table class="table table-hover">
       <thead>
         <tr>
           <b>
-            <th scope="row">순번</th>
-            <td>게시글 내용</td>
+            <th scope="row">ID</th>
+            <td>내용</td>
             <td>사용자</td>
             <td>게시글 업로드 시간</td>
-
-
           </b>
         </tr>
       </thead>
-      <tbody class="table-activate">
-
-        <tr>
-          <th scope="row">1</th>
-
-          <td><a href="http://duck.nifskorea.com:8080/project/page/write_revise.html">서비스 런칭안내</a></td>
-          <td>관리자</td>
-          <td>2022-05-17 03:12:31</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td><a href="http://duck.nifskorea.com:8080/project/page/write_revise.html">서비스 런칭안내</a></td>
-          <td>관리자</td>
-          <td>2022-05-17 03:12:31</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td><a href="http://duck.nifskorea.com:8080/project/page/write_revise.html">서비스 런칭안내</a></td>
-          <td>관리자</td>
-          <td>2022-05-17 03:12:31</td>
-        </tr>
+      <tbody class="table-activate" id="boardTable">
+        <!-- JS 동적 생성 -->
+        <script>duck_nifskorea_com.event_board.getJSON()</script>
       </tbody>
     </table>
+    <!-- 다음 페이지 이동 버튼 -->
     <!-- 게시판 글쓰기 페이지 이동-->
-
+    <div class="text-right container-fluid">
+      <!-- 해당부분 미로그인시 글쓰기 불가능하게 js script로 구현해야함-->
+      <a class="btn-write btn-secondary" href="http://duck.nifskorea.com:8080/project/page/write_page.html?type=employment"
+          role="button" style="border-radius: 5px;">글쓰기</a>
+  </div>
     <!-- 다음 페이지 이동 버튼  js script 구현 -->
     <div id="myDIV container ">
       <center>
