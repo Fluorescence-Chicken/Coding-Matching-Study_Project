@@ -29,7 +29,7 @@
 ## 👥 참여자
 
 - 박상현 [thelight0804] <a href="https://github.com/thelight0804" target="GitHub"><img src="https://img.shields.io/badge/GitHub-000000?style=flat-square&logo=GitHub&logoColor=white"/></a>
-<a href="https://thelight0804.notion.site/Programming-study-matching-website-f8b9c08bd250491ab7fa46ec88408449" target="Notion"><img src="https://img.shields.io/badge/Notion-d4d4d4?style=flat-square&logo=Notion&logoColor=black"/></a>
+<a href="https://www.notion.so/thelight0804/Programming-study-matching-website-5aedf3f9410645518af7af6af2e0c310?pvs=4" target="Notion"><img src="https://img.shields.io/badge/Notion-d4d4d4?style=flat-square&logo=Notion&logoColor=black"/></a>
 - 윤성민 [sseong-min] <a href="https://github.com/sseong-min" target="GitHub"><img src="https://img.shields.io/badge/GitHub-000000?style=flat-square&logo=GitHub&logoColor=white"/></a>
 - 최인수 [Nifskor] <a href="https://github.com/Nifskor" target="GitHub"><img src="https://img.shields.io/badge/GitHub-000000?style=flat-square&logo=GitHub&logoColor=white"/></a>
 - 조진혁 [Mina-1316] <a href="https://github.com/Mina-1316" target="GitHub"><img src="https://img.shields.io/badge/GitHub-000000?style=flat-square&logo=GitHub&logoColor=white"/></a>
